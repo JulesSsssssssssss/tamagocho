@@ -1,5 +1,7 @@
+'use client'
+
 import { memo } from 'react'
-import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { PixelMonster } from '@/components/monsters'
 import MonsterTraitsDisplay from './monster-traits-display'
 import type { MonsterListItem, MonsterState } from '@/shared/types/monster'
@@ -77,13 +79,18 @@ const MonsterCard = memo(function MonsterCard ({
   monster
 }: MonsterCardProps): React.ReactNode {
   const { id, name, level, traits, state } = monster
+  const router = useRouter()
+
+  const handleClick = (): void => {
+    router.push(`/creature/${id}`)
+  }
 
   return (
-    <Link
-      href={`/creature/${id}`}
-      className='block'
+    <article
+      onClick={handleClick}
+      className='block cursor-pointer'
     >
-      <article
+      <div
         className='group relative flex flex-col overflow-hidden rounded-2xl bg-slate-900/95 shadow-2xl ring-4 ring-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:ring-moccaccino-500/50 cursor-pointer'
         style={{ imageRendering: 'pixelated' }}
       >
@@ -171,8 +178,8 @@ const MonsterCard = memo(function MonsterCard ({
             </div>
           </div>
         </div>
-      </article>
-    </Link>
+      </div>
+    </article>
   )
 })
 
