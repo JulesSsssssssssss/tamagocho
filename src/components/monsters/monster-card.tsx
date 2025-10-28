@@ -27,6 +27,17 @@ const STATE_EMOJIS: Record<MonsterState, string> = {
 }
 
 /**
+ * Couleurs de fond pour chaque état
+ */
+const STATE_COLORS: Record<MonsterState, string> = {
+  happy: 'from-green-600/80 via-green-500/80 to-emerald-600/80',
+  sad: 'from-blue-600/80 via-indigo-500/80 to-blue-700/80',
+  angry: 'from-red-600/80 via-orange-500/80 to-red-700/80',
+  hungry: 'from-amber-600/80 via-yellow-500/80 to-orange-600/80',
+  sleepy: 'from-purple-600/80 via-indigo-500/80 to-purple-700/80'
+}
+
+/**
  * Props du composant MonsterCard
  */
 interface MonsterCardProps {
@@ -73,53 +84,92 @@ const MonsterCard = memo(function MonsterCard ({
       className='block'
     >
       <article
-        className='group relative flex flex-col gap-4 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-800/90 via-slate-800 to-slate-900/90 p-4 shadow-xl shadow-black/40 ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/50 hover:ring-2 hover:ring-moccaccino-500/50 backdrop-blur cursor-pointer'
+        className='group relative flex flex-col overflow-hidden rounded-2xl bg-slate-900/95 shadow-2xl ring-4 ring-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] hover:ring-moccaccino-500/50 cursor-pointer'
+        style={{ imageRendering: 'pixelated' }}
       >
-        {/* Effets de fond décoratifs */}
-        <div
-          className='pointer-events-none absolute -right-12 top-8 h-32 w-32 rounded-full bg-fuchsia-blue-500/10 blur-2xl transition-opacity duration-300 group-hover:opacity-80'
-          aria-hidden='true'
-        />
-        <div
-          className='pointer-events-none absolute -left-12 -bottom-12 h-28 w-28 rounded-full bg-moccaccino-500/10 blur-2xl transition-opacity duration-300 group-hover:opacity-80'
-          aria-hidden='true'
-        />
+        {/* Grille pixel art en arrière-plan */}
+        <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-40 pointer-events-none' />
 
-        {/* Avatar du monstre avec badge d'état */}
-        <div className='relative flex items-center justify-center overflow-hidden rounded-2xl bg-slate-900/50 p-3 ring-1 ring-white/10'>
-          <div className='scale-90'>
-            <PixelMonster traits={traits} state={state} />
-          </div>
+        {/* Bordure supérieure dégradée selon l'état */}
+        <div className={`h-2 bg-gradient-to-r ${STATE_COLORS[state]}`} />
 
-          {/* Badge d'état émotionnel */}
-          <span className='absolute right-2 top-2 inline-flex items-center gap-1.5 rounded-full bg-slate-950/80 backdrop-blur-sm px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-slate-200 shadow-lg ring-1 ring-inset ring-white/20'>
-            <span aria-hidden='true'>{STATE_EMOJIS[state]}</span>
-            {STATE_LABELS[state]}
-          </span>
-        </div>
+        {/* Particules décoratives */}
+        <div className='absolute top-4 right-4 w-2 h-2 bg-white/20 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute top-8 right-8 w-1 h-1 bg-white/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
 
-        {/* Informations et traits du monstre */}
-        <div className='relative flex flex-1 flex-col gap-3'>
-          {/* En-tête : Nom et niveau */}
-          <div className='flex items-start justify-between gap-2'>
-            <div className='space-y-0.5'>
-              <h3 className='text-base font-bold text-white sm:text-lg'>
+        {/* Container principal */}
+        <div className='relative p-4 space-y-4'>
+          {/* Header avec nom et niveau */}
+          <div className='flex items-start justify-between gap-3'>
+            <div className='flex-1'>
+              <h3
+                className='text-xl font-black text-white mb-1 tracking-tight'
+                style={{
+                  textShadow: '2px 2px 0px rgba(0,0,0,0.5)',
+                  fontFamily: 'system-ui, sans-serif'
+                }}
+              >
                 {name}
               </h3>
-              <p className='text-xs text-slate-400'>
-                Niveau {level}
-              </p>
+              <div className='flex items-center gap-2'>
+                <div className='h-1 w-8 bg-gradient-to-r from-moccaccino-500 to-lochinvar-500 rounded-full' style={{ imageRendering: 'pixelated' }} />
+                <span className='text-xs text-slate-400 font-bold uppercase' style={{ fontFamily: 'monospace' }}>
+                  Niv. {level}
+                </span>
+              </div>
             </div>
 
-            {/* Badge de niveau */}
-            <span className='inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-moccaccino-500/20 to-moccaccino-600/20 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-moccaccino-300 ring-1 ring-moccaccino-500/30'>
-              <span aria-hidden='true'>⭐</span>
-              {level}
-            </span>
+            {/* Badge de niveau style arcade */}
+            <div className='bg-slate-950/80 backdrop-blur-sm rounded-lg px-3 py-2 border-2 border-moccaccino-500/30 shadow-lg'>
+              <div className='flex flex-col items-center'>
+                <span className='text-xs text-moccaccino-400 font-bold uppercase' style={{ fontFamily: 'monospace' }}>
+                  LVL
+                </span>
+                <span className='text-2xl font-black text-moccaccino-300' style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.5)' }}>
+                  {level}
+                </span>
+              </div>
+            </div>
           </div>
 
-          {/* Affichage des traits */}
-          <MonsterTraitsDisplay traits={traits} />
+          {/* Avatar du monstre avec cadre pixel */}
+          <div className='relative'>
+            <div className='bg-slate-950/60 backdrop-blur-sm rounded-xl p-6 border-4 border-slate-700/50 shadow-inner'>
+              {/* Effet de lueur */}
+              <div className='absolute inset-0 bg-gradient-to-t from-fuchsia-blue-500/10 via-transparent to-transparent rounded-xl pointer-events-none' />
+
+              <div className='relative flex items-center justify-center'>
+                <PixelMonster traits={traits} state={state} />
+              </div>
+
+              {/* Badge d'état émotionnel style retro */}
+              <div className='absolute -top-3 left-1/2 -translate-x-1/2'>
+                <div className='bg-slate-950/90 backdrop-blur-sm rounded-lg px-3 py-1.5 border-2 border-slate-600 shadow-xl flex items-center gap-2'>
+                  <span className='text-lg'>{STATE_EMOJIS[state]}</span>
+                  <span className='text-xs font-bold text-white uppercase tracking-wider' style={{ fontFamily: 'monospace' }}>
+                    {STATE_LABELS[state]}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Traits du monstre */}
+          <div className='bg-slate-950/40 backdrop-blur-sm rounded-lg p-3 border-2 border-slate-700/30'>
+            <MonsterTraitsDisplay traits={traits} />
+          </div>
+
+          {/* Footer avec bouton d'action */}
+          <div className='pt-2'>
+            <div className='bg-gradient-to-r from-moccaccino-600 via-moccaccino-500 to-lochinvar-600 rounded-lg p-3 shadow-lg border-2 border-moccaccino-400/30 transition-all duration-200 group-hover:scale-[1.02] group-hover:shadow-xl'>
+              <div className='flex items-center justify-center gap-2'>
+                <span className='text-white font-bold text-sm uppercase tracking-wide' style={{ fontFamily: 'monospace', textShadow: '1px 1px 0px rgba(0,0,0,0.3)' }}>
+                  Voir Détails
+                </span>
+                <span className='text-white text-lg'>→</span>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
     </Link>
