@@ -16,25 +16,25 @@ interface CreatureContentProps {
 
 /**
  * Composant client pour la page créature
- * 
+ *
  * Responsabilités (SRP) :
  * - Gestion du chargement des données via hook
  * - Gestion des différents états (loading, error, success)
  * - Rendu conditionnel selon l'état
- * 
+ *
  * Architecture (DIP - Dependency Inversion) :
  * - Dépend de l'abstraction useCreatureData
  * - Implémentation du hook modifiable sans impact
- * 
+ *
  * États gérés :
  * - Loading : CreatureLoadingState
  * - Error : CreatureErrorState
  * - Not Found : CreatureNotFoundState
  * - Success : CreatureDetail
- * 
+ *
  * @param {CreatureContentProps} props - Props du composant
  * @returns {React.ReactNode} Contenu de la page créature
- * 
+ *
  * @example
  * ```tsx
  * // Dans app/creature/[id]/page.tsx

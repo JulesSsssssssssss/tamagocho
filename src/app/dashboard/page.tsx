@@ -6,27 +6,27 @@ import { redirect } from 'next/navigation'
 
 /**
  * Page Dashboard - Point d'entrée principal de l'espace utilisateur
- * 
+ *
  * Responsabilités (SRP) :
  * - Récupération des données serveur (session + monstres)
  * - Protection de la route (redirection si non authentifié)
  * - Rendu du composant client DashboardContent
- * 
+ *
  * Architecture Next.js 15 :
  * - Server Component (async)
  * - Utilise auth.api.getSession pour la session
  * - Utilise Server Actions pour les données
- * 
+ *
  * Sécurité :
  * - Vérification d'authentification côté serveur
  * - Redirection automatique vers /sign-in si non connecté
- * 
+ *
  * Performance :
  * - Chargement parallèle session/monsters possible
  * - Composant client séparé pour l'interactivité
- * 
+ *
  * @returns {Promise<React.ReactNode>} Interface du dashboard
- * 
+ *
  * @example
  * Route: /dashboard
  * Accessible uniquement aux utilisateurs connectés
@@ -52,4 +52,3 @@ async function DashboardPage (): Promise<React.ReactNode> {
 }
 
 export default DashboardPage
-

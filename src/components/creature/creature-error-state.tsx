@@ -16,18 +16,18 @@ interface CreatureErrorStateProps {
 
 /**
  * Composant d'état d'erreur pour la page créature
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage d'un message d'erreur clair
  * - Proposition d'actions (retry, retour dashboard)
- * 
+ *
  * Optimisation (OCP) :
  * - Composant mémoïsé
  * - Props stables
- * 
+ *
  * @param {CreatureErrorStateProps} props - Props du composant
  * @returns {React.ReactNode} État d'erreur
- * 
+ *
  * @example
  * ```tsx
  * if (error) return <CreatureErrorState message={error} onRetry={refresh} />

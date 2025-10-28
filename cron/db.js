@@ -8,9 +8,9 @@ const MONSTER_STATES = ['sad', 'angry', 'hungry', 'sleepy']
 
 async function connectToDatabase () {
   try {
-    console.log(uri)
+    console.info(uri)
     await mongoose.connect(uri)
-    console.log('Mongoose connected to MongoDB database')
+    console.info('Mongoose connected to MongoDB database')
   } catch (error) {
     console.error('Error connecting to the database:', error)
   }
@@ -26,7 +26,7 @@ async function updateMonstersStates () {
         { $set: { state: MONSTER_STATES[Math.floor(Math.random() * MONSTER_STATES.length)] } }
       )
 
-      console.log(`Updated monster ${monster._id} state to ${monster.state}`)
+      console.info(`Updated monster ${monster._id} state to ${monster.state}`)
     }
   } catch (error) {
     console.error('Error updating monsters states:', error)

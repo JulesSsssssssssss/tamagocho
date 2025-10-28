@@ -2,18 +2,18 @@ import { authClient } from '@/lib/auth-client'
 
 /**
  * Hook personnalisé pour gérer la déconnexion utilisateur
- * 
+ *
  * Responsabilités (SRP) :
  * - Déconnexion côté client via BetterAuth
  * - Redirection vers la page de connexion
- * 
+ *
  * @returns {Object} Fonctions liées à l'authentification
  * @property {Function} logout - Déconnecte l'utilisateur et redirige vers /sign-in
- * 
+ *
  * @example
  * ```tsx
  * const { logout } = useLogout()
- * 
+ *
  * return (
  *   <Button onClick={logout}>Se déconnecter</Button>
  * )

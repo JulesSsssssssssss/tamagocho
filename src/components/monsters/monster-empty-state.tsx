@@ -10,18 +10,18 @@ interface MonsterEmptyStateProps {
 
 /**
  * Composant d'état vide pour la liste de monstres
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage du message lorsqu'aucun monstre n'existe
  * - Incitation à créer le premier monstre
- * 
+ *
  * Optimisation (OCP) :
  * - Composant pur mémoïsé avec React.memo
  * - Pas de props dynamiques, stable
- * 
+ *
  * @param {MonsterEmptyStateProps} props - Props du composant
  * @returns {React.ReactNode} État vide
- * 
+ *
  * @example
  * ```tsx
  * {monsters.length === 0 && <MonsterEmptyState />}
@@ -32,16 +32,16 @@ const MonsterEmptyState = memo(function MonsterEmptyState ({
 }: MonsterEmptyStateProps): React.ReactNode {
   return (
     <div
-      className={`mt-10 w-full max-w-2xl rounded-3xl bg-gradient-to-br from-white via-lochinvar-50 to-fuchsia-blue-50 p-8 text-center shadow-lg ring-1 ring-white/80 ${className}`}
+      className={`w-full rounded-2xl bg-gradient-to-br from-slate-800/50 via-slate-800/30 to-slate-900/50 p-12 text-center shadow-xl ring-1 ring-white/10 backdrop-blur ${className}`}
     >
-      <div className='mb-4 text-6xl' aria-hidden='true'>
+      <div className='mb-6 text-7xl' aria-hidden='true'>
         🥚
       </div>
-      <h2 className='text-xl font-semibold text-slate-900 mb-2'>
+      <h2 className='text-2xl font-bold text-white mb-3'>
         Pas encore de compagnon
       </h2>
-      <p className='text-sm text-slate-600'>
-        Clique sur « Créer une créature » pour adopter ton premier Tamagotcho.
+      <p className='text-base text-slate-400 max-w-md mx-auto'>
+        Clique sur « ✨ Créer un monstre » pour adopter ton premier Tamagotcho et commencer l'aventure.
       </p>
     </div>
   )

@@ -1,11 +1,11 @@
 /**
  * Index des hooks personnalisés
- * 
+ *
  * Pattern Barrel Export :
  * - Centralise les exports des hooks personnalisés
  * - Simplifie les imports dans les composants
  * - Regroupe la logique réutilisable
- * 
+ *
  * @example
  * ```tsx
  * import { useMonsterCreation, useLogout, useCreatureData } from '@/hooks'

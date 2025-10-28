@@ -65,7 +65,7 @@ interface MonsterTraitsDisplayProps {
 
 /**
  * Formate la valeur d'un trait pour l'affichage
- * 
+ *
  * @param {keyof MonsterTraits} key - Clé du trait
  * @param {MonsterTraits} traits - Tous les traits du monstre
  * @returns {string} Valeur formatée en français
@@ -87,18 +87,18 @@ function formatTraitValue (key: keyof MonsterTraits, traits: MonsterTraits): str
 
 /**
  * Composant d'affichage des traits caractéristiques d'un monstre
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage formaté des traits (morphologie, yeux, antennes, accessoire)
  * - Traduction des valeurs techniques en labels utilisateur
- * 
+ *
  * Optimisation (OCP) :
  * - Composant pur mémoïsé
  * - Ne re-render que si les traits changent
- * 
+ *
  * @param {MonsterTraitsDisplayProps} props - Props du composant
  * @returns {React.ReactNode} Liste des traits formatée
- * 
+ *
  * @example
  * ```tsx
  * <MonsterTraitsDisplay traits={monster.traits} />
@@ -108,22 +108,22 @@ const MonsterTraitsDisplay = memo(function MonsterTraitsDisplay ({
   traits
 }: MonsterTraitsDisplayProps): React.ReactNode {
   return (
-    <div className='rounded-2xl bg-white/80 p-3 text-sm text-slate-600 shadow-inner ring-1 ring-slate-100'>
-      <p className='mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500'>
+    <div className='rounded-xl bg-slate-950/40 backdrop-blur-sm p-3 text-sm ring-1 ring-white/10'>
+      <p className='mb-2 text-xs font-bold uppercase tracking-wider text-slate-400'>
         Traits caractéristiques
       </p>
-      <ul className='space-y-1'>
+      <ul className='space-y-1.5'>
         {FEATURE_LABELS.map(({ key, label, icon }) => (
-          <li key={key} className='flex items-center gap-2'>
-            <span aria-hidden='true' className='text-base'>
+          <li key={key} className='flex items-center gap-2 text-xs'>
+            <span aria-hidden='true' className='text-sm'>
               {icon}
             </span>
-            <span className='font-medium text-slate-700'>
+            <span className='font-semibold text-slate-300'>
               {label}
             </span>
-            <span className='text-slate-500'>
+            <span className='text-slate-400'>
               :
-              <span className='ml-1'>
+              <span className='ml-1 text-slate-300'>
                 {formatTraitValue(key, traits)}
               </span>
             </span>

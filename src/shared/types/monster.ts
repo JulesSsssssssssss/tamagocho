@@ -41,10 +41,18 @@ export const DEFAULT_STAT_VALUE = 50
 export const MIN_STAT_VALUE = 0
 export const MAX_STAT_VALUE = 100
 
+// Constantes pour le système d'XP et de leveling
+export const DEFAULT_XP = 0
+export const XP_PER_LEVEL = 100 // Chaque niveau nécessite niveau * 100 XP
+export const XP_GAIN_PER_ACTION = 10 // XP gagné par action correcte
+export const XP_LOSS_PER_WRONG_ACTION = 5 // XP perdu par action incorrecte
+
 export interface MonsterListItem {
   id: string
   name: string
   level: number
+  xp: number
+  xpToNextLevel: number
   traits: MonsterTraits
   state: MonsterState
   hunger: number
@@ -56,6 +64,8 @@ export interface DBMonster {
   _id: string
   name: string
   level: number
+  xp: number
+  xpToNextLevel: number
   traits: string // JSON stringified MonsterTraits
   state: MonsterState
   hunger: number

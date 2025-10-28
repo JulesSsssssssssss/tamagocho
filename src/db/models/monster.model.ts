@@ -12,6 +12,17 @@ const monsterSchema = new Schema({
     required: false,
     default: 1
   },
+  xp: {
+    type: Number,
+    required: false,
+    default: 0,
+    min: 0
+  },
+  xpToNextLevel: {
+    type: Number,
+    required: false,
+    default: 100
+  },
   traits: {
     type: String, // JSON stringified MonsterDesign
     required: true

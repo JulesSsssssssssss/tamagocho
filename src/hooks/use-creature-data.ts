@@ -16,27 +16,27 @@ interface CreatureDataState {
 
 /**
  * Hook personnalisé pour gérer le chargement des données d'une créature
- * 
+ *
  * Responsabilités (SRP) :
  * - Chargement des données depuis le serveur
  * - Gestion des états (loading, error, success)
  * - Rafraîchissement des données
- * 
+ *
  * @param {string} creatureId - ID de la créature à charger
  * @returns {Object} État et fonction de rafraîchissement
  * @property {DBMonster | null} creature - Données de la créature
  * @property {boolean} isLoading - Indique si le chargement est en cours
  * @property {string | null} error - Message d'erreur éventuel
  * @property {Function} refresh - Fonction pour rafraîchir les données
- * 
+ *
  * @example
  * ```tsx
  * const { creature, isLoading, error, refresh } = useCreatureData('monster-123')
- * 
+ *
  * if (isLoading) return <LoadingState />
  * if (error) return <ErrorState message={error} />
  * if (!creature) return <NotFoundState />
- * 
+ *
  * return <CreatureDetail creature={creature} onUpdate={refresh} />
  * ```
  */
@@ -54,9 +54,9 @@ export function useCreatureData (creatureId: string) {
   const loadCreature = useCallback(async () => {
     try {
       setState(prev => ({ ...prev, isLoading: true, error: null }))
-      
+
       const data = await getMonsterById(creatureId)
-      
+
       if (data === null) {
         setState({
           creature: null,

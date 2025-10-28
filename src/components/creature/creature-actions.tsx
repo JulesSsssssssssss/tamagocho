@@ -15,29 +15,29 @@ interface CreatureActionsProps {
 
 /**
  * Composant des boutons d'interaction avec un monstre
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage des 4 boutons d'action (feed, play, sleep, clean)
  * - Gestion des états de chargement par action
  * - Appel des server actions
  * - Feedback visuel sur les interactions
- * 
+ *
  * Architecture (DIP) :
  * - Dépend des abstractions (server actions injectées)
  * - Callback onActionComplete pour notifier le parent
- * 
+ *
  * Optimisation :
  * - Composant mémoïsé avec React.memo
  * - useTransition pour des transitions fluides
- * 
+ *
  * @param {CreatureActionsProps} props - Props du composant
  * @returns {React.ReactNode} Boutons d'actions
- * 
+ *
  * @example
  * ```tsx
- * <CreatureActions 
- *   creatureId={monster._id} 
- *   onActionComplete={refresh} 
+ * <CreatureActions
+ *   creatureId={monster._id}
+ *   onActionComplete={refresh}
  * />
  * ```
  */
@@ -97,7 +97,7 @@ const CreatureActions = memo(function CreatureActions ({
         <span className='text-4xl transform transition-transform duration-300 group-hover:scale-110' aria-hidden='true'>
           {isLoading ? '⏳' : emoji}
         </span>
-        
+
         {/* Label */}
         <span className='text-sm font-semibold text-slate-700'>
           {isLoading ? 'Chargement...' : label}
@@ -124,7 +124,7 @@ const CreatureActions = memo(function CreatureActions ({
           actionName='feed'
           colorClass='bg-gradient-to-br from-moccaccino-100 to-moccaccino-50'
         />
-        
+
         <ActionButton
           emoji='🎾'
           label='Jouer'
@@ -132,7 +132,7 @@ const CreatureActions = memo(function CreatureActions ({
           actionName='play'
           colorClass='bg-gradient-to-br from-fuchsia-blue-100 to-fuchsia-blue-50'
         />
-        
+
         <ActionButton
           emoji='😴'
           label='Dormir'
@@ -140,7 +140,7 @@ const CreatureActions = memo(function CreatureActions ({
           actionName='sleep'
           colorClass='bg-gradient-to-br from-lochinvar-100 to-lochinvar-50'
         />
-        
+
         <ActionButton
           emoji='🧼'
           label='Nettoyer'

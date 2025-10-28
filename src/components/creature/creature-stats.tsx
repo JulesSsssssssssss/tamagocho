@@ -16,19 +16,19 @@ interface CreatureStatsProps {
 
 /**
  * Composant d'affichage des statistiques d'un monstre
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage des 3 barres de progression (hunger, energy, happiness)
  * - Calcul des couleurs en fonction des valeurs
  * - Animations de progression
- * 
+ *
  * Optimisation :
  * - Composant mémoïsé avec React.memo
  * - Ne re-render que si les stats changent
- * 
+ *
  * @param {CreatureStatsProps} props - Props du composant
  * @returns {React.ReactNode} Barres de statistiques
- * 
+ *
  * @example
  * ```tsx
  * <CreatureStats hunger={75} energy={50} happiness={90} />

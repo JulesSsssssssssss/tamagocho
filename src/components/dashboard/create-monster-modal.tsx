@@ -19,25 +19,25 @@ interface CreateMonsterModalProps {
 
 /**
  * Modal de création de monstre
- * 
+ *
  * Responsabilités (SRP) :
  * - Gestion de l'affichage modal (overlay, animations)
  * - Gestion de la fermeture (click overlay, bouton)
  * - Orchestration du formulaire de création
- * 
+ *
  * Accessibilité :
  * - Utilise role="dialog" et aria-modal
  * - Fermeture au click sur l'overlay
  * - Labellisé avec aria-labelledby
- * 
+ *
  * Optimisation (OCP) :
  * - Composant mémoïsé avec React.memo
  * - Callbacks mémoïsés avec useCallback
  * - Rendu conditionnel early return
- * 
+ *
  * @param {CreateMonsterModalProps} props - Props du composant
  * @returns {React.ReactNode | null} Modal ou null si fermé
- * 
+ *
  * @example
  * ```tsx
  * <CreateMonsterModal
@@ -114,4 +114,3 @@ const CreateMonsterModal = memo(function CreateMonsterModal ({
 
 export type { CreateMonsterFormValues }
 export default CreateMonsterModal
-

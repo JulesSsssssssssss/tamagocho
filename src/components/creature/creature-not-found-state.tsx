@@ -6,17 +6,17 @@ import Button from '../button'
 
 /**
  * Composant d'état "créature introuvable"
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage du message "not found"
  * - Redirection vers le dashboard
- * 
+ *
  * Optimisation (OCP) :
  * - Composant pur mémoïsé
  * - Pas de props
- * 
+ *
  * @returns {React.ReactNode} État "introuvable"
- * 
+ *
  * @example
  * ```tsx
  * if (!creature) return <CreatureNotFoundState />

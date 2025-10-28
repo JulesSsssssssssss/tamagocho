@@ -2,11 +2,12 @@
   "name": "cron",
   "packageManager": "yarn@4.9.2",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js",
+    "build": "echo \"No build step required\""
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -1,11 +1,11 @@
 /**
  * Index des composants Creature
- * 
+ *
  * Pattern Barrel Export :
  * - Centralise les exports des composants liés aux créatures
  * - Simplifie les imports dans le reste de l'application
  * - Facilite la maintenance et le refactoring
- * 
+ *
  * @example
  * ```tsx
  * import {

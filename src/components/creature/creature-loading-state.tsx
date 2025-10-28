@@ -2,17 +2,17 @@ import { memo } from 'react'
 
 /**
  * Composant d'état de chargement pour la page créature
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage d'un skeleton/loader pendant le chargement
  * - Feedback visuel pour l'utilisateur
- * 
+ *
  * Optimisation (OCP) :
  * - Composant pur mémoïsé
  * - Pas de props, toujours stable
- * 
+ *
  * @returns {React.ReactNode} État de chargement
- * 
+ *
  * @example
  * ```tsx
  * if (isLoading) return <CreatureLoadingState />

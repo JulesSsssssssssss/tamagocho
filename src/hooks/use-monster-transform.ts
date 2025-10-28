@@ -3,15 +3,15 @@ import type { DBMonster, MonsterListItem, MonsterTraits } from '@/shared/types/m
 
 /**
  * Hook personnalisé pour transformer les données de monstre DB en format d'affichage
- * 
+ *
  * Responsabilités (SRP) :
  * - Transformation de DBMonster[] vers MonsterListItem[]
  * - Parsing du JSON stringifié des traits
  * - Mémoïsation pour éviter les re-calculs inutiles
- * 
+ *
  * @param {DBMonster[]} monsters - Monstres au format base de données
  * @returns {MonsterListItem[]} Monstres au format d'affichage
- * 
+ *
  * @example
  * ```tsx
  * const monstersList = useMonsterTransform(monsters)

@@ -36,19 +36,19 @@ interface CreatureAvatarProps {
 
 /**
  * Avatar animé de la créature
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage du PixelMonster avec les bons traits
  * - Parsing sécurisé du JSON des traits
  * - Badge d'état émotionnel
- * 
+ *
  * Optimisation :
  * - Composant mémoïsé
  * - Parsing JSON mémoïsé avec useMemo
- * 
+ *
  * @param {CreatureAvatarProps} props - Props du composant
  * @returns {React.ReactNode} Avatar de la créature
- * 
+ *
  * @example
  * ```tsx
  * <CreatureAvatar traitsJson={creature.traits} state={creature.state} />
@@ -84,20 +84,18 @@ const CreatureAvatar = memo(function CreatureAvatar ({
   }, [traitsJson])
 
   return (
-    <div className='bg-white rounded-3xl p-8 shadow-lg ring-1 ring-white/80'>
-      <div className='relative flex items-center justify-center overflow-hidden rounded-3xl bg-slate-50/70 p-8'>
-        {/* Créature animée */}
-        <div className='transform transition-transform hover:scale-105 duration-300'>
-          <PixelMonster traits={traits} state={state} />
-        </div>
+    <div className='relative flex items-center justify-center overflow-hidden rounded-3xl bg-slate-50/30 p-12 md:p-16'>
+      {/* Créature animée */}
+      <div className='transform transition-transform hover:scale-105 duration-300'>
+        <PixelMonster traits={traits} state={state} />
+      </div>
 
-        {/* Badge d'état émotionnel */}
-        <div className='absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-slate-700 shadow-lg ring-1 ring-white/70 backdrop-blur-sm'>
-          <span aria-hidden='true' className='text-lg'>
-            {STATE_EMOJIS[state]}
-          </span>
-          <span>{STATE_LABELS[state]}</span>
-        </div>
+      {/* Badge d'état émotionnel */}
+      <div className='absolute right-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-slate-700 shadow-lg ring-1 ring-white/70 backdrop-blur-sm'>
+        <span aria-hidden='true' className='text-lg'>
+          {STATE_EMOJIS[state]}
+        </span>
+        <span>{STATE_LABELS[state]}</span>
       </div>
     </div>
   )

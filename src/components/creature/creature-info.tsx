@@ -28,18 +28,18 @@ interface CreatureInfoProps {
 
 /**
  * Informations additionnelles sur la créature
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage des dates de création et mise à jour
  * - Formatage des dates en français
- * 
+ *
  * Optimisation (OCP) :
  * - Composant mémoïsé
  * - Ne re-render que si les dates changent
- * 
+ *
  * @param {CreatureInfoProps} props - Props du composant
  * @returns {React.ReactNode} Informations de la créature
- * 
+ *
  * @example
  * ```tsx
  * <CreatureInfo createdAt={creature.createdAt} updatedAt={creature.updatedAt} />

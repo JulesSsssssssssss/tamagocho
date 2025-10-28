@@ -16,18 +16,18 @@ interface CreatureHeaderProps {
 
 /**
  * En-tête de la page créature
- * 
+ *
  * Responsabilités (SRP) :
  * - Affichage du nom et niveau de la créature
  * - Bouton de retour au dashboard
- * 
+ *
  * Optimisation (OCP) :
  * - Composant pur mémoïsé
  * - Ne re-render que si name ou level change
- * 
+ *
  * @param {CreatureHeaderProps} props - Props du composant
  * @returns {React.ReactNode} En-tête de la créature
- * 
+ *
  * @example
  * ```tsx
  * <CreatureHeader name="Piko" level={5} />

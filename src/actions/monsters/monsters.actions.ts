@@ -10,7 +10,7 @@ import { headers } from 'next/headers'
 
 /**
  * Calcule l'état émotionnel du monstre en fonction de ses statistiques
- * 
+ *
  * Logique :
  * - Si toutes les stats >= 80 : 'happy' 😄
  * - Sinon, identifie la stat la plus basse :
@@ -19,7 +19,7 @@ import { headers } from 'next/headers'
  *   - happiness la plus basse : 'sad' 😢
  * - Si plusieurs stats égales au minimum : priorité hunger > energy > happiness
  * - Si une stat < 20 : 'angry' 😤 (cas critique)
- * 
+ *
  * @param hunger - Niveau de faim (0-100)
  * @param energy - Niveau d'énergie (0-100)
  * @param happiness - Niveau de bonheur (0-100)
@@ -74,8 +74,8 @@ export async function createMonster (monsterData: CreateMonsterFormValues): Prom
   const session = await getCurrentSession()
 
   // Conversion des traits en JSON string (MongoDB attend une string)
-  const traitsJson = typeof monsterData.traits === 'string' 
-    ? monsterData.traits 
+  const traitsJson = typeof monsterData.traits === 'string'
+    ? monsterData.traits
     : JSON.stringify(monsterData.traits)
 
   const monster = new Monster({
@@ -129,9 +129,9 @@ export async function feedMonster (monsterId: string): Promise<void> {
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
-    const monster = await Monster.findOne({ 
-      ownerId: session.user.id, 
-      _id: monsterId 
+    const monster = await Monster.findOne({
+      ownerId: session.user.id,
+      _id: monsterId
     }).exec()
 
     if (monster === null) {
@@ -141,7 +141,7 @@ export async function feedMonster (monsterId: string): Promise<void> {
     // Augmenter hunger (max 100)
     monster.hunger = Math.min(100, monster.hunger + 20)
     monster.lastFed = new Date()
-    
+
     // Recalculer l'état émotionnel en fonction des stats
     monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
 
@@ -162,9 +162,9 @@ export async function playWithMonster (monsterId: string): Promise<void> {
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
-    const monster = await Monster.findOne({ 
-      ownerId: session.user.id, 
-      _id: monsterId 
+    const monster = await Monster.findOne({
+      ownerId: session.user.id,
+      _id: monsterId
     }).exec()
 
     if (monster === null) {
@@ -175,7 +175,7 @@ export async function playWithMonster (monsterId: string): Promise<void> {
     monster.happiness = Math.min(100, monster.happiness + 20)
     monster.energy = Math.max(0, monster.energy - 10)
     monster.lastPlayed = new Date()
-    
+
     // Recalculer l'état émotionnel en fonction des stats
     // Recalculer l'état émotionnel en fonction des stats
     monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
@@ -197,9 +197,9 @@ export async function sleepMonster (monsterId: string): Promise<void> {
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
-    const monster = await Monster.findOne({ 
-      ownerId: session.user.id, 
-      _id: monsterId 
+    const monster = await Monster.findOne({
+      ownerId: session.user.id,
+      _id: monsterId
     }).exec()
 
     if (monster === null) {
@@ -209,7 +209,7 @@ export async function sleepMonster (monsterId: string): Promise<void> {
     // Augmenter energy
     monster.energy = Math.min(100, monster.energy + 30)
     monster.lastSlept = new Date()
-    
+
     // Recalculer l'état émotionnel en fonction des stats
     monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
 
@@ -230,9 +230,9 @@ export async function cleanMonster (monsterId: string): Promise<void> {
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
-    const monster = await Monster.findOne({ 
-      ownerId: session.user.id, 
-      _id: monsterId 
+    const monster = await Monster.findOne({
+      ownerId: session.user.id,
+      _id: monsterId
     }).exec()
 
     if (monster === null) {
@@ -242,7 +242,7 @@ export async function cleanMonster (monsterId: string): Promise<void> {
     // Augmenter happiness
     monster.happiness = Math.min(100, monster.happiness + 15)
     monster.lastCleaned = new Date()
-    
+
     // Recalculer l'état émotionnel en fonction des stats
     monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
 

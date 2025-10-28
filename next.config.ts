@@ -3,22 +3,22 @@ import type { NextConfig } from 'next'
 const nextConfig: NextConfig = {
   /* config options here */
   serverExternalPackages: ['mongodb', 'better-auth'],
-  
+
   // Configuration pour servir Docusaurus depuis /documentation
-  async rewrites() {
+  async rewrites () {
     return {
       beforeFiles: [
         {
           source: '/documentation',
-          destination: '/documentation/index.html',
+          destination: '/documentation/index.html'
         },
         {
           source: '/documentation/:path*',
-          destination: '/documentation/:path*',
-        },
-      ],
+          destination: '/documentation/:path*'
+        }
+      ]
     }
-  },
+  }
 }
 
 export default nextConfig
