@@ -81,14 +81,31 @@ function DashboardContent ({ session, monsters }: DashboardContentProps): React.
   // Polling automatique pour synchroniser l'état des monstres et les pièces avec la base de données
   useEffect(() => {
     const fetchAndUpdateData = async (): Promise<void> => {
-      const [monstersResponse, playerData] = await Promise.all([
-        fetch('/api/monsters'),
-        getPlayerData()
-      ])
-      const updatedMonsters = await monstersResponse.json()
-      setMonsterList(updatedMonsters)
-      setPlayerCoins(playerData.coins)
-      setTotalMonstersCreated(playerData.totalMonstersCreated)
+      try {
+        const [monstersResponse, playerData] = await Promise.all([
+          fetch('/api/monsters'),
+          getPlayerData()
+        ])
+
+        // Vérifier si la réponse de l'API monsters est OK
+        if (!monstersResponse.ok) {
+          console.warn('⚠️ Failed to fetch monsters:', monstersResponse.status, monstersResponse.statusText)
+          // Ne pas mettre à jour les monstres si la requête échoue
+          // Mais continuer à mettre à jour les coins du joueur
+          setPlayerCoins(playerData.coins)
+          setTotalMonstersCreated(playerData.totalMonstersCreated)
+          return
+        }
+
+        const updatedMonsters = await monstersResponse.json()
+        setMonsterList(updatedMonsters)
+        setPlayerCoins(playerData.coins)
+        setTotalMonstersCreated(playerData.totalMonstersCreated)
+      } catch (error) {
+        // En cas d'erreur réseau ou autre, logger sans bloquer l'app
+        console.error('❌ Error in dashboard polling:', error)
+        // Ne pas throw l'erreur pour ne pas casser le polling
+      }
     }
 
     const interval = setInterval(() => {

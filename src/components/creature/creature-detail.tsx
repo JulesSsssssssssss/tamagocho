@@ -2,13 +2,12 @@
 
 import { memo, useEffect, useState } from 'react'
 import type { DBMonster } from '@/shared/types/monster'
-import type { MonsterAction } from '@/hooks/monsters'
 import CreatureHeader from './creature-header'
 import CreatureAvatar from './creature-avatar'
 import CreatureInfo from './creature-info'
 import CreatureStats from './creature-stats'
 import CreatureXpBar from './creature-xp-bar'
-import { MonsterActions } from '../monsters/monster-actions'
+import CreatureActions from './creature-actions'
 import MonsterTraitsDisplay from '../monsters/monster-traits-display'
 
 /**
@@ -85,13 +84,9 @@ const CreatureDetail = memo(function CreatureDetail ({
     return () => { clearInterval(interval) }
   }, [creature._id])
 
-  // Gestion des actions du monstre
-  const handleAction = (action: MonsterAction): void => {
-    // Pas de await, on laisse le polling gérer le rafraîchissement
-    // L'action est envoyée au serveur en arrière-plan
-    // Le polling (1 seconde) récupérera les nouvelles données
-
-    // Optionnel : appeler onRefresh si fourni
+  // Callback après une action - force le rafraîchissement immédiat
+  const handleActionComplete = (): void => {
+    void fetchMonster()
     if (onRefresh !== undefined) {
       onRefresh()
     }
@@ -166,9 +161,9 @@ const CreatureDetail = memo(function CreatureDetail ({
 
                 {/* Actions */}
                 <div className='bg-white/90 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-slate-200 shadow-lg'>
-                  <MonsterActions
-                    monsterId={currentMonster._id}
-                    onAction={handleAction}
+                  <CreatureActions
+                    creatureId={currentMonster._id}
+                    onActionComplete={handleActionComplete}
                   />
                 </div>
               </div>
