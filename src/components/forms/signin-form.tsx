@@ -52,16 +52,34 @@ function SignInForm ({ onError }: { onError: (error: string) => void }): React.R
       callbackURL: '/dashboard'
     }, {
       onRequest: (ctx) => {
-        console.log('Signing in...', ctx)
+        console.log('🔄 Tentative de connexion...', ctx)
       },
       onSuccess: (ctx) => {
-        console.log('User signed in:', ctx)
+        console.log('✅ Connexion réussie:', ctx)
         setIsLoading(false)
       },
       onError: (ctx) => {
-        console.error('Sign in error:', ctx)
+        console.error('❌ Erreur de connexion:', {
+          error: ctx.error,
+          fullContext: ctx
+        })
         setIsLoading(false)
-        const errorMessage = (ctx?.error?.message != null && ctx.error.message !== '') ? ctx.error.message : 'Une erreur est survenue lors de la connexion'
+        
+        // Gestion améliorée des erreurs
+        let errorMessage = 'Une erreur est survenue lors de la connexion'
+        
+        if (ctx?.error?.message != null && ctx.error.message !== '') {
+          errorMessage = ctx.error.message
+        } else if (ctx?.error?.status === 401) {
+          errorMessage = 'Email ou mot de passe incorrect'
+        } else if (ctx?.error?.status === 500) {
+          errorMessage = 'Erreur serveur. Veuillez réessayer plus tard.'
+        } else if (ctx?.error != null) {
+          // Essayer d'extraire plus d'infos de l'erreur
+          errorMessage = JSON.stringify(ctx.error)
+        }
+        
+        console.error('📝 Message d\'erreur affiché:', errorMessage)
         onError(errorMessage)
       }
     })

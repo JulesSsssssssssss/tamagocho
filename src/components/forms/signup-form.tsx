@@ -59,17 +59,37 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
       callbackURL: '/dashboard'
     }, {
       onRequest: (ctx) => {
-        console.log('Signing up...', ctx)
+        console.log('🔄 Tentative d\'inscription...', ctx)
       },
       onSuccess: (ctx) => {
-        console.log('User signed up:', ctx)
+        console.log('✅ Inscription réussie:', ctx)
         setIsLoading(false)
         onError('') // Clear error on success
       },
       onError: (ctx) => {
-        console.error('Sign up error:', ctx)
+        console.error('❌ Erreur d\'inscription:', {
+          error: ctx.error,
+          fullContext: ctx
+        })
         setIsLoading(false)
-        const errorMessage = (ctx?.error?.message != null && ctx.error.message !== '') ? ctx.error.message : 'Une erreur est survenue lors de l\'inscription'
+        
+        // Gestion améliorée des erreurs
+        let errorMessage = 'Une erreur est survenue lors de l\'inscription'
+        
+        if (ctx?.error?.message != null && ctx.error.message !== '') {
+          errorMessage = ctx.error.message
+        } else if (ctx?.error?.status === 409) {
+          errorMessage = 'Cet email est déjà utilisé'
+        } else if (ctx?.error?.status === 400) {
+          errorMessage = 'Données invalides. Vérifiez vos informations.'
+        } else if (ctx?.error?.status === 500) {
+          errorMessage = 'Erreur serveur. Veuillez réessayer plus tard.'
+        } else if (ctx?.error != null) {
+          // Essayer d'extraire plus d'infos de l'erreur
+          errorMessage = JSON.stringify(ctx.error)
+        }
+        
+        console.error('📝 Message d\'erreur affiché:', errorMessage)
         onError(errorMessage)
       }
     })
