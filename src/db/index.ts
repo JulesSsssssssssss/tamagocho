@@ -1,7 +1,11 @@
 import { MongoClient, ServerApiVersion } from 'mongodb'
 import mongoose from 'mongoose'
 
+// Construction de l'URI MongoDB
 const uri = `mongodb+srv://${process.env.MONGODB_USERNAME as string}:${process.env.MONGODB_PASSWORD as string}@${process.env.MONGODB_HOST as string}/${process.env.MONGODB_DATABASE_NAME as string}${process.env.MONGODB_PARAMS as string}&appName=${process.env.MONGODB_APP_NAME as string}`
+
+// Nom de la base de données (doit correspondre à celui dans l'URI)
+const dbName = process.env.MONGODB_DATABASE_NAME ?? 'tamagocho-db'
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -13,22 +17,37 @@ const client = new MongoClient(uri, {
   }
 })
 
+// Variable pour tracker la connexion
+let isConnected = false
+
 async function connectMongooseToDatabase (): Promise<void> {
   try {
     await mongoose.connect(uri)
-    console.log('Mongoose connected to MongoDB database')
+    console.log('✅ Mongoose connected to MongoDB database')
   } catch (error) {
-    console.error('Error connecting to the database:', error)
+    console.error('❌ Error connecting Mongoose to the database:', error)
   }
 }
 
 async function connectToDatabase (): Promise<void> {
+  if (isConnected) {
+    console.log('✅ Already connected to MongoDB')
+    return
+  }
+
   try {
     await client.connect()
-    console.log('Connected to MongoDB database')
+    // Vérifier la connexion avec un ping
+    await client.db('admin').command({ ping: 1 })
+    isConnected = true
+    console.log('✅ Connected to MongoDB database:', dbName)
   } catch (error) {
-    console.error('Error connecting to the database:', error)
+    console.error('❌ Error connecting to the database:', error)
+    throw error
   }
 }
 
-export { client, connectToDatabase, connectMongooseToDatabase }
+// Assurer la connexion au démarrage
+connectToDatabase().catch(console.error)
+
+export { client, connectToDatabase, connectMongooseToDatabase, dbName }
