@@ -1,7 +1,10 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import { authClient } from '@/lib/auth-client'
+import PixelCoin from '@/components/dashboard/pixel-coin'
+import { getWallet } from '@/actions/wallet.actions'
 
 /**
  * Type de session inféré depuis BetterAuth client
@@ -14,6 +17,16 @@ type Session = typeof authClient.$Infer.Session
 interface WalletPageContentProps {
   /** Session utilisateur courante */
   session: Session
+}
+
+/**
+ * Interface pour les données du wallet
+ */
+interface WalletData {
+  balance: number
+  totalEarned: number
+  totalSpent: number
+  currency: 'TC'
 }
 
 /**
@@ -30,113 +43,210 @@ interface WalletPageContentProps {
  */
 function WalletPageContent ({ session }: WalletPageContentProps): React.ReactNode {
   const router = useRouter()
+  const [walletData, setWalletData] = useState<WalletData | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  // Pour l'instant, données mockées - sera remplacé par les vraies données
-  const walletData = {
-    balance: 1234,
-    totalEarned: 5678,
-    totalSpent: 4444,
-    currency: 'TC'
-  }
+  // Charger les données du wallet au montage
+  useEffect(() => {
+    const loadWallet = async (): Promise<void> => {
+      const result = await getWallet()
+
+      if (result.success && result.wallet != null) {
+        setWalletData({
+          balance: result.wallet.balance,
+          totalEarned: result.wallet.totalEarned,
+          totalSpent: result.wallet.totalSpent,
+          currency: result.wallet.currency
+        })
+      } else {
+        setError(result.error ?? 'Failed to load wallet')
+      }
+
+      setLoading(false)
+    }
+
+    void loadWallet()
+  }, [])
 
   const handleGoBack = (): void => {
     router.push('/dashboard')
   }
 
+  // État de chargement
+  if (loading) {
+    return (
+      <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center'>
+        <div className='text-center'>
+          <div className='text-6xl mb-4 animate-pulse'>💰</div>
+          <p className='text-white font-bold text-xl' style={{ fontFamily: 'monospace' }}>
+            Chargement du wallet...
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  // État d'erreur
+  if (error != null || walletData == null) {
+    return (
+      <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center'>
+        <div className='text-center bg-red-900/50 backdrop-blur-sm p-8 rounded-2xl border-4 border-red-700'>
+          <div className='text-6xl mb-4'>❌</div>
+          <p className='text-white font-bold text-xl mb-2' style={{ fontFamily: 'monospace' }}>
+            Erreur
+          </p>
+          <p className='text-red-300' style={{ fontFamily: 'monospace' }}>
+            {error ?? 'Failed to load wallet'}
+          </p>
+          <button
+            onClick={handleGoBack}
+            className='mt-6 px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-colors'
+            style={{ fontFamily: 'monospace' }}
+          >
+            ← Retour
+          </button>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100'>
-      {/* Effet de grille en arrière-plan */}
-      <div className='fixed inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none' />
+    <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
+      {/* Effet de grille pixel art en arrière-plan */}
+      <div className='fixed inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-40 pointer-events-none' style={{ imageRendering: 'pixelated' }} />
+
+      {/* Particules animées pixel art */}
+      <div className='fixed inset-0 overflow-hidden pointer-events-none'>
+        <div className='absolute top-20 left-20 w-3 h-3 bg-yellow-400/20 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute top-40 right-32 w-4 h-4 bg-yellow-400/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
+        <div className='absolute bottom-32 left-1/3 w-2 h-2 bg-yellow-400/25 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1s' }} />
+        <div className='absolute top-1/2 right-1/4 w-3 h-3 bg-yellow-400/10 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1.5s' }} />
+      </div>
 
       <div className='relative z-10 w-full min-h-screen p-4 md:p-6 lg:p-8'>
         <div className='max-w-5xl mx-auto space-y-6'>
-          {/* Header avec bouton retour */}
+          {/* Header avec bouton retour - Style pixel art */}
           <div className='flex items-center justify-between'>
             <button
               onClick={handleGoBack}
-              className='flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors'
+              className='flex items-center gap-3 bg-slate-800/80 backdrop-blur-sm px-6 py-3 rounded-xl border-4 border-slate-700 text-slate-200 hover:text-white hover:border-slate-600 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg'
+              style={{ fontFamily: 'monospace' }}
             >
-              <span className='text-xl'>←</span>
-              <span className='font-medium'>Retour au dashboard</span>
+              <span className='text-2xl'>←</span>
+              <span className='font-bold uppercase tracking-wider text-sm'>Retour</span>
             </button>
           </div>
 
-          {/* Hero Section - Solde principal */}
-          <div className='relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-500 via-yellow-500 to-orange-500 p-8 shadow-2xl'>
-            {/* Effets décoratifs */}
-            <div className='absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%)] bg-[size:3rem_3rem]' />
-            <div className='absolute top-4 right-4 text-6xl opacity-20'>🪙</div>
-            <div className='absolute bottom-4 left-4 text-5xl opacity-20'>💰</div>
+          {/* Hero Section - Solde principal - Style pixel art */}
+          <div className='relative overflow-hidden rounded-3xl bg-gradient-to-br from-fuchsia-blue-600 via-moccaccino-500 to-lochinvar-600 p-8 md:p-12 shadow-2xl'>
+            {/* Effet de grille rétro */}
+            <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-30' />
 
-            <div className='relative space-y-4'>
-              <div className='flex items-center gap-3'>
-                <span className='text-5xl'>💰</span>
-                <h1 className='text-3xl md:text-4xl font-black text-white' style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
-                  Mon Portefeuille
+            {/* Particules animées */}
+            <div className='absolute inset-0 overflow-hidden pointer-events-none'>
+              <div className='absolute top-10 left-10 w-3 h-3 bg-white/30 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
+              <div className='absolute top-20 right-20 w-4 h-4 bg-white/20 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
+              <div className='absolute bottom-16 left-1/4 w-2 h-2 bg-white/25 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1s' }} />
+              <div className='absolute top-1/3 right-1/3 w-3 h-3 bg-white/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1.5s' }} />
+            </div>
+
+            <div className='relative space-y-6'>
+              <div className='flex items-center gap-4'>
+                <div className='p-3 bg-slate-900/50 rounded-2xl border-4 border-slate-700'>
+                  <PixelCoin size={64} />
+                </div>
+                <h1 className='text-4xl md:text-5xl font-black text-white uppercase tracking-tight' style={{ fontFamily: 'monospace', textShadow: '4px 4px 0px rgba(0,0,0,0.3)' }}>
+                  Portefeuille
                 </h1>
               </div>
 
-              <div className='space-y-2'>
-                <p className='text-white/80 font-medium text-sm uppercase tracking-wide'>Solde actuel</p>
-                <p className='text-6xl md:text-7xl font-black text-white' style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.3)' }}>
-                  {walletData.balance.toLocaleString()} <span className='text-4xl'>🪙</span>
+              <div className='space-y-3 bg-slate-900/60 backdrop-blur-sm rounded-2xl p-6 border-4 border-slate-700'>
+                <p className='text-yellow-400/80 font-bold text-sm uppercase tracking-widest' style={{ fontFamily: 'monospace' }}>
+                  Solde actuel
                 </p>
-                <p className='text-white/90 font-bold text-lg'>TamaCoins</p>
+                <div className='flex items-center gap-4'>
+                  <p className='text-6xl md:text-7xl font-black text-yellow-400' style={{ fontFamily: 'monospace', textShadow: '4px 4px 0px rgba(0,0,0,0.4)' }}>
+                    {walletData.balance.toLocaleString()}
+                  </p>
+                  <PixelCoin size={56} />
+                </div>
+                <p className='text-yellow-300/90 font-bold text-xl uppercase tracking-wide' style={{ fontFamily: 'monospace' }}>
+                  TamaCoins
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Statistiques */}
+          {/* Statistiques - Style pixel art */}
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {/* Total Gagné */}
-            <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200'>
+            <div className='bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-4 border-slate-700 hover:border-green-500/50 transition-all duration-300'>
               <div className='flex items-center justify-between'>
-                <div>
-                  <p className='text-gray-600 text-sm font-medium mb-1'>Total Gagné</p>
-                  <p className='text-3xl font-bold text-green-600'>
-                    +{walletData.totalEarned.toLocaleString()} 🪙
+                <div className='space-y-2'>
+                  <p className='text-slate-400 text-sm font-bold uppercase tracking-wider' style={{ fontFamily: 'monospace' }}>
+                    Total Gagné
                   </p>
+                  <div className='flex items-center gap-2'>
+                    <p className='text-3xl font-black text-green-400' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.3)' }}>
+                      +{walletData.totalEarned.toLocaleString()}
+                    </p>
+                    <PixelCoin size={32} />
+                  </div>
                 </div>
                 <div className='text-5xl'>📈</div>
               </div>
             </div>
 
             {/* Total Dépensé */}
-            <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200'>
+            <div className='bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-4 border-slate-700 hover:border-red-500/50 transition-all duration-300'>
               <div className='flex items-center justify-between'>
-                <div>
-                  <p className='text-gray-600 text-sm font-medium mb-1'>Total Dépensé</p>
-                  <p className='text-3xl font-bold text-red-600'>
-                    -{walletData.totalSpent.toLocaleString()} 🪙
+                <div className='space-y-2'>
+                  <p className='text-slate-400 text-sm font-bold uppercase tracking-wider' style={{ fontFamily: 'monospace' }}>
+                    Total Dépensé
                   </p>
+                  <div className='flex items-center gap-2'>
+                    <p className='text-3xl font-black text-red-400' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.3)' }}>
+                      -{walletData.totalSpent.toLocaleString()}
+                    </p>
+                    <PixelCoin size={32} />
+                  </div>
                 </div>
                 <div className='text-5xl'>📉</div>
               </div>
             </div>
           </div>
 
-          {/* Actions */}
-          <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200'>
-            <h2 className='text-xl font-bold text-gray-900 mb-4'>Actions rapides</h2>
+          {/* Actions - Style pixel art */}
+          <div className='bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-4 border-slate-700'>
+            <h2 className='text-2xl font-black text-white mb-6 uppercase tracking-wide' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.3)' }}>
+              Actions rapides
+            </h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-              <button className='flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-4 px-6 rounded-xl hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-95'>
-                <span className='text-2xl'>➕</span>
-                <span>Ajouter des coins</span>
+              <button className='flex items-center justify-center gap-3 bg-gradient-to-br from-green-600 to-emerald-700 text-white font-black py-5 px-6 rounded-xl border-4 border-green-800 hover:border-green-500 hover:shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95 uppercase tracking-wide' style={{ fontFamily: 'monospace' }}>
+                <span className='text-3xl'>➕</span>
+                <span>Ajouter</span>
               </button>
-              <button className='flex items-center justify-center gap-3 bg-gradient-to-r from-red-500 to-rose-600 text-white font-bold py-4 px-6 rounded-xl hover:shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-95'>
-                <span className='text-2xl'>➖</span>
-                <span>Retirer des coins</span>
+              <button className='flex items-center justify-center gap-3 bg-gradient-to-br from-red-600 to-rose-700 text-white font-black py-5 px-6 rounded-xl border-4 border-red-800 hover:border-red-500 hover:shadow-2xl transition-all duration-200 hover:scale-105 active:scale-95 uppercase tracking-wide' style={{ fontFamily: 'monospace' }}>
+                <span className='text-3xl'>➖</span>
+                <span>Retirer</span>
               </button>
             </div>
           </div>
 
-          {/* Historique des transactions (à implémenter) */}
-          <div className='bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200'>
-            <h2 className='text-xl font-bold text-gray-900 mb-4'>Historique récent</h2>
-            <div className='text-center py-8 text-gray-500'>
-              <div className='text-5xl mb-3'>📜</div>
-              <p>Aucune transaction pour le moment</p>
-              <p className='text-sm mt-2'>Les transactions apparaîtront ici</p>
+          {/* Historique des transactions - Style pixel art */}
+          <div className='bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-4 border-slate-700'>
+            <h2 className='text-2xl font-black text-white mb-6 uppercase tracking-wide' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.3)' }}>
+              Historique récent
+            </h2>
+            <div className='text-center py-12 text-slate-400'>
+              <div className='text-6xl mb-4'>📜</div>
+              <p className='font-bold text-lg' style={{ fontFamily: 'monospace' }}>
+                Aucune transaction
+              </p>
+              <p className='text-sm mt-2 text-slate-500' style={{ fontFamily: 'monospace' }}>
+                Les transactions apparaîtront ici
+              </p>
             </div>
           </div>
         </div>
