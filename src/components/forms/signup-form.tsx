@@ -72,10 +72,10 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
           fullContext: ctx
         })
         setIsLoading(false)
-        
+
         // Gestion améliorée des erreurs
         let errorMessage = 'Une erreur est survenue lors de l\'inscription'
-        
+
         if (ctx?.error?.message != null && ctx.error.message !== '') {
           errorMessage = ctx.error.message
         } else if (ctx?.error?.status === 409) {
@@ -88,7 +88,7 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
           // Essayer d'extraire plus d'infos de l'erreur
           errorMessage = JSON.stringify(ctx.error)
         }
-        
+
         console.error('📝 Message d\'erreur affiché:', errorMessage)
         onError(errorMessage)
       }

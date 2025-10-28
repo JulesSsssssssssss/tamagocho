@@ -75,7 +75,7 @@ async function diagnose () {
     console.log(`\n📦 Collections dans "${dbName}":`)
     const db = client.db(dbName)
     const collections = await db.listCollections().toArray()
-    
+
     if (collections.length === 0) {
       console.log('  ⚠️  Aucune collection trouvée')
     } else {
