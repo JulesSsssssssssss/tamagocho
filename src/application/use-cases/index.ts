@@ -1,0 +1,7 @@
+export { FeedTamagotchiUseCase } from './FeedTamagotchiUseCase'
+export { PlayWithTamagotchiUseCase } from './PlayWithTamagotchiUseCase'
+export { SleepTamagotchiUseCase } from './SleepTamagotchiUseCase'
+export { CleanTamagotchiUseCase } from './CleanTamagotchiUseCase'
+export { GetTamagotchiUseCase } from './GetTamagotchiUseCase'
+export { GetUserTamagotchisUseCase } from './GetUserTamagotchisUseCase'
+export { ApplyHealthDecayUseCase } from './ApplyHealthDecayUseCase'

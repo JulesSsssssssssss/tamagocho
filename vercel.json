@@ -1,0 +1,16 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "routes": [
+    {
+      "src": "/documentation/(.*)",
+      "dest": "/documentation/$1"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/documentation/:path*",
+      "destination": "/documentation/:path*"
+    }
+  ]
+}
