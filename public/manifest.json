@@ -1,0 +1,36 @@
+{
+  "name": "Tamagocho - Virtual Pet Game",
+  "short_name": "Tamagocho",
+  "description": "Prenez soin de vos monstres virtuels ! Nourrissez, jouez et faites évoluer vos créatures pixelisées.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7533c",
+  "theme_color": "#8f72e0",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/screenshot-dashboard.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ]
+}
