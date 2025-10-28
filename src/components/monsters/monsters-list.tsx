@@ -57,8 +57,8 @@ export const MonstersList = memo(function MonstersList ({
           <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-40 pointer-events-none' />
 
           {/* Particules décoratives */}
-          <div className='absolute top-4 right-8 w-3 h-3 bg-moccaccino-400/30 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
-          <div className='absolute bottom-6 right-16 w-2 h-2 bg-lochinvar-400/30 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
+          <div className='absolute top-4 right-8 w-3 h-3 bg-moccaccino-400/30 rounded-sm animate-pulse pointer-events-none' style={{ imageRendering: 'pixelated' }} />
+          <div className='absolute bottom-6 right-16 w-2 h-2 bg-lochinvar-400/30 rounded-sm animate-pulse pointer-events-none' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
 
           <div className='relative space-y-3'>
             <div className='flex items-center gap-3'>

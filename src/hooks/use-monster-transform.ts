@@ -39,7 +39,9 @@ export function useMonsterTransform (monsters: DBMonster[]): MonsterListItem[] {
         state: m.state,
         hunger: m.hunger,
         energy: m.energy,
-        happiness: m.happiness
+        happiness: m.happiness,
+        xp: m.xp,
+        xpToNextLevel: m.xpToNextLevel
       }
     })
   }, [monsters])

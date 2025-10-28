@@ -94,8 +94,8 @@ const MonsterCard = memo(function MonsterCard ({
         <div className={`h-2 bg-gradient-to-r ${STATE_COLORS[state]}`} />
 
         {/* Particules décoratives */}
-        <div className='absolute top-4 right-4 w-2 h-2 bg-white/20 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
-        <div className='absolute top-8 right-8 w-1 h-1 bg-white/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
+        <div className='absolute top-4 right-4 w-2 h-2 bg-white/20 rounded-sm animate-pulse pointer-events-none' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute top-8 right-8 w-1 h-1 bg-white/15 rounded-sm animate-pulse pointer-events-none' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
 
         {/* Container principal */}
         <div className='relative p-4 space-y-4'>
