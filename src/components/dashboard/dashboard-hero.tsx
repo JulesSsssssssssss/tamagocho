@@ -1,4 +1,7 @@
+'use client'
+
 import { memo } from 'react'
+import { useRouter } from 'next/navigation'
 import PixelCoin from './pixel-coin'
 
 /**
@@ -31,6 +34,12 @@ const DashboardHero = memo(function DashboardHero ({
   userEmail,
   coins
 }: DashboardHeroProps): React.ReactNode {
+  const router = useRouter()
+
+  const handleWalletClick = (): void => {
+    router.push('/wallet')
+  }
+
   return (
     <div className='relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-fuchsia-blue-600 via-moccaccino-500 to-lochinvar-600 p-8 md:p-12 shadow-2xl mb-8'>
       {/* Effet de grille rétro */}
@@ -44,19 +53,25 @@ const DashboardHero = memo(function DashboardHero ({
         <div className='absolute top-1/3 right-1/3 w-3 h-3 bg-white/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1.5s' }} />
       </div>
 
-      {/* Affichage des pièces en haut à droite (pixel art) */}
+      {/* Affichage des pièces en haut à droite (pixel art) - CLIQUABLE */}
       <div className='absolute top-6 right-6 z-10'>
-        <div className='bg-slate-900/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-slate-700 shadow-xl flex items-center gap-3 transform hover:scale-105 transition-transform duration-200'>
+        <button
+          onClick={handleWalletClick}
+          className='bg-slate-900/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-slate-700 shadow-xl flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-yellow-500 group'
+          aria-label='Ouvrir mon portefeuille'
+        >
           <PixelCoin size={40} />
           <div className='flex flex-col'>
-            <span className='text-xs text-slate-400 font-bold uppercase tracking-wider' style={{ fontFamily: 'monospace' }}>
+            <span className='text-xs text-slate-400 font-bold uppercase tracking-wider group-hover:text-yellow-400 transition-colors' style={{ fontFamily: 'monospace' }}>
               Coins
             </span>
-            <span className='text-2xl font-bold text-yellow-400' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.3)' }}>
+            <span className='text-2xl font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.3)' }}>
               {coins.toLocaleString()}
             </span>
           </div>
-        </div>
+          {/* Indicateur visuel de clic */}
+          <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>👉</span>
+        </button>
       </div>
 
       {/* Contenu principal */}
