@@ -9,7 +9,11 @@ const dbName = process.env.MONGODB_DATABASE_NAME ?? 'tamagocho-db'
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
-  serverSelectionTimeoutMS: 5000,
+  serverSelectionTimeoutMS: 30000, // Augmenté à 30 secondes pour Vercel
+  connectTimeoutMS: 30000,
+  socketTimeoutMS: 30000,
+  maxPoolSize: 10,
+  minPoolSize: 5,
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
