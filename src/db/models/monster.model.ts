@@ -76,6 +76,16 @@ const monsterSchema = new Schema({
     required: false,
     default: null
   },
+  // Items équipés par le monstre
+  equippedItems: {
+    type: {
+      hat: { type: String, required: false, default: null },
+      glasses: { type: String, required: false, default: null },
+      shoes: { type: String, required: false, default: null }
+    },
+    required: false,
+    default: { hat: null, glasses: null, shoes: null }
+  },
   ownerId: {
     type: Schema.Types.ObjectId,
     ref: 'user',

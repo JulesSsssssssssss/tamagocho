@@ -75,6 +75,11 @@ export interface DBMonster {
   lastPlayed: Date | null
   lastSlept: Date | null
   lastCleaned: Date | null
+  equippedItems?: {
+    hat: string | null
+    glasses: string | null
+    shoes: string | null
+  }
   ownerId: string
   createdAt: Date
   updatedAt: Date

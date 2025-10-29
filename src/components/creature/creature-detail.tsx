@@ -8,6 +8,7 @@ import CreatureInfo from './creature-info'
 import CreatureStats from './creature-stats'
 import CreatureXpBar from './creature-xp-bar'
 import CreatureActions from './creature-actions'
+import CreatureEquippedItemsList from './creature-equipped-items-list'
 import MonsterTraitsDisplay from '../monsters/monster-traits-display'
 
 /**
@@ -16,8 +17,6 @@ import MonsterTraitsDisplay from '../monsters/monster-traits-display'
 interface CreatureDetailProps {
   /** Données complètes de la créature */
   creature: DBMonster
-  /** Callback pour rafraîchir les données après une action */
-  onRefresh?: () => void
 }
 
 /**
@@ -26,6 +25,7 @@ interface CreatureDetailProps {
  * Responsabilités (SRP) :
  * - Composition des sous-composants de la page créature
  * - Organisation de la mise en page
+ * - Synchronisation automatique avec le serveur
  *
  * Architecture (OCP) :
  * - Extensible par ajout de nouveaux sous-composants
@@ -42,6 +42,7 @@ interface CreatureDetailProps {
  * Optimisation :
  * - Composant mémoïsé
  * - Sous-composants mémoïsés individuellement
+ * - Polling optimisé (1s) pour mise à jour fluide sans refresh visible
  *
  * @param {CreatureDetailProps} props - Props du composant
  * @returns {React.ReactNode} Page de détails de la créature
@@ -49,48 +50,40 @@ interface CreatureDetailProps {
  * @example
  * ```tsx
  * const creature = await getMonsterById(id)
- * return <CreatureDetail creature={creature} onRefresh={refresh} />
+ * return <CreatureDetail creature={creature} />
  * ```
  */
 const CreatureDetail = memo(function CreatureDetail ({
-  creature,
-  onRefresh
+  creature
 }: CreatureDetailProps): React.ReactNode {
-  // État local pour le monstre actuel (mis à jour par polling)
+  // State local pour les données du monstre (mis à jour par polling)
   const [currentMonster, setCurrentMonster] = useState<DBMonster>(creature)
 
   // Parse des traits pour MonsterTraitsDisplay
   const traits = JSON.parse(currentMonster.traits)
 
-  // Fonction pour récupérer les données du monstre
-  const fetchMonster = async (): Promise<void> => {
-    try {
-      const response = await fetch(`/api/monster?id=${creature._id}`)
-      if (response.ok) {
-        const updatedMonster: DBMonster = await response.json()
-        setCurrentMonster(updatedMonster)
-      }
-    } catch (error) {
-      console.error('Erreur lors de la récupération du monstre :', error)
-    }
-  }
-
-  // Polling pour rafraîchir les données du monstre toutes les 1 secondes
+  // Polling pour synchroniser les données avec le serveur
+  // Met à jour le state React sans refresh visible de page
   useEffect(() => {
+    const fetchMonster = async (): Promise<void> => {
+      try {
+        const response = await fetch(`/api/monster?id=${currentMonster._id}`)
+        if (response.ok) {
+          const updatedMonster: DBMonster = await response.json()
+          setCurrentMonster(updatedMonster)
+        }
+      } catch (error) {
+        console.error('Erreur lors de la récupération du monstre :', error)
+      }
+    }
+
+    // Polling toutes les secondes pour mise à jour fluide
     const interval = setInterval(() => {
       void fetchMonster()
     }, 1000)
 
     return () => { clearInterval(interval) }
   }, [creature._id])
-
-  // Callback après une action - force le rafraîchissement immédiat
-  const handleActionComplete = (): void => {
-    void fetchMonster()
-    if (onRefresh !== undefined) {
-      onRefresh()
-    }
-  }
 
   return (
     <div className='min-h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
@@ -121,9 +114,18 @@ const CreatureDetail = memo(function CreatureDetail ({
             />
           </div>
 
+          {/* Barre XP - Même largeur que l'en-tête */}
+          <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl border-4 border-slate-700/50 shadow-xl overflow-hidden'>
+            <CreatureXpBar
+              level={currentMonster.level}
+              xp={currentMonster.xp}
+              xpToNextLevel={currentMonster.xpToNextLevel}
+            />
+          </div>
+
           {/* Grid principal - 2 colonnes sur grand écran */}
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6'>
-            {/* Colonne gauche - Avatar et XP */}
+            {/* Colonne gauche - Avatar */}
             <div className='lg:col-span-1 space-y-4 md:space-y-6'>
               {/* Avatar animé */}
               <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border-4 border-slate-700/50 shadow-xl relative overflow-hidden aspect-square'>
@@ -135,18 +137,13 @@ const CreatureDetail = memo(function CreatureDetail ({
                   <CreatureAvatar
                     traitsJson={currentMonster.traits}
                     state={currentMonster.state}
+                    equippedItems={currentMonster.equippedItems}
                   />
                 </div>
               </div>
 
-              {/* Barre XP */}
-              <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl border-4 border-slate-700/50 shadow-xl overflow-hidden'>
-                <CreatureXpBar
-                  level={currentMonster.level}
-                  xp={currentMonster.xp}
-                  xpToNextLevel={currentMonster.xpToNextLevel}
-                />
-              </div>
+              {/* Liste des accessoires équipés */}
+              <CreatureEquippedItemsList equippedItems={currentMonster.equippedItems} />
             </div>
 
             {/* Colonne droite - Stats, Actions, Infos */}
@@ -182,7 +179,6 @@ const CreatureDetail = memo(function CreatureDetail ({
 
                   <CreatureActions
                     creatureId={currentMonster._id}
-                    onActionComplete={handleActionComplete}
                   />
                 </div>
               </div>

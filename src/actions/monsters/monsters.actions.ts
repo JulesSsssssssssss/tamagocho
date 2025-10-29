@@ -5,6 +5,7 @@ import Monster from '@/db/models/monster.model'
 import { auth } from '@/lib/auth'
 import type { CreateMonsterFormValues } from '@/shared/types/forms/create-monster-form'
 import type { DBMonster, MonsterState } from '@/shared/types/monster'
+import { XP_GAIN_PER_ACTION, XP_PER_LEVEL } from '@/shared/types/monster'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
 
@@ -56,6 +57,23 @@ function calculateMonsterState (
 
   // Fallback (ne devrait jamais arriver)
   return 'happy'
+}
+
+/**
+ * Calcule le niveau en fonction de l'XP actuel
+ * Formule : Niveau = floor(xp / 100) + 1
+ * - Niveau 1 : 0-99 XP
+ * - Niveau 2 : 100-199 XP
+ * - Niveau 3 : 200-299 XP
+ * etc.
+ *
+ * @param xp - XP actuel du monstre
+ * @returns Object contenant le niveau et l'XP requis pour le prochain niveau
+ */
+function calculateLevelFromXp (xp: number): { level: number, xpToNextLevel: number } {
+  const level = Math.floor(xp / XP_PER_LEVEL) + 1
+  const xpToNextLevel = level * XP_PER_LEVEL
+  return { level, xpToNextLevel }
 }
 
 async function getCurrentSession (): Promise<any> {
@@ -144,8 +162,21 @@ export async function feedMonster (monsterId: string): Promise<void> {
 
     // Augmenter hunger (max 100)
     const currentHunger = Number(monster.hunger)
-    monster.hunger = Math.min(100, isNaN(currentHunger) ? 0 : currentHunger + 20)
+    const oldHunger = isNaN(currentHunger) ? 0 : currentHunger
+    monster.hunger = Math.min(100, oldHunger + 20)
     monster.lastFed = new Date()
+
+    // ⭐ Ajouter de l'XP seulement si la stat a réellement augmenté
+    const statIncreased = monster.hunger > oldHunger
+    if (statIncreased) {
+      const currentXp = Number(monster.xp ?? 0)
+      const newXp = currentXp + XP_GAIN_PER_ACTION
+      const { level: newLevel, xpToNextLevel: newXpToNextLevel } = calculateLevelFromXp(newXp)
+
+      monster.xp = newXp
+      monster.level = newLevel
+      monster.xpToNextLevel = newXpToNextLevel
+    }
 
     // Recalculer l'état émotionnel en fonction des stats
     const hunger = Number(monster.hunger)
@@ -157,7 +188,7 @@ export async function feedMonster (monsterId: string): Promise<void> {
       isNaN(happiness) ? 0 : happiness
     )
 
-    console.log('📊 After feeding - hunger:', monster.hunger, 'state:', monster.state)
+    console.log('📊 After feeding - hunger:', monster.hunger, 'state:', monster.state, 'xp:', monster.xp, 'level:', monster.level, 'gainedXP:', statIncreased)
 
     await monster.save()
     console.log('✅ Monster saved successfully')
@@ -193,9 +224,22 @@ export async function playWithMonster (monsterId: string): Promise<void> {
     // Augmenter happiness, diminuer energy
     const currentHappiness = Number(monster.happiness)
     const currentEnergy = Number(monster.energy)
-    monster.happiness = Math.min(100, isNaN(currentHappiness) ? 0 : currentHappiness + 20)
+    const oldHappiness = isNaN(currentHappiness) ? 0 : currentHappiness
+    monster.happiness = Math.min(100, oldHappiness + 20)
     monster.energy = Math.max(0, isNaN(currentEnergy) ? 0 : currentEnergy - 10)
     monster.lastPlayed = new Date()
+
+    // ⭐ Ajouter de l'XP seulement si happiness a réellement augmenté
+    const statIncreased = monster.happiness > oldHappiness
+    if (statIncreased) {
+      const currentXp = Number(monster.xp ?? 0)
+      const newXp = currentXp + XP_GAIN_PER_ACTION
+      const { level: newLevel, xpToNextLevel: newXpToNextLevel } = calculateLevelFromXp(newXp)
+
+      monster.xp = newXp
+      monster.level = newLevel
+      monster.xpToNextLevel = newXpToNextLevel
+    }
 
     // Recalculer l'état émotionnel en fonction des stats
     const hunger = Number(monster.hunger)
@@ -207,7 +251,7 @@ export async function playWithMonster (monsterId: string): Promise<void> {
       isNaN(happiness) ? 0 : happiness
     )
 
-    console.log('📊 After playing - happiness:', monster.happiness, 'energy:', monster.energy, 'state:', monster.state)
+    console.log('📊 After playing - happiness:', monster.happiness, 'energy:', monster.energy, 'state:', monster.state, 'xp:', monster.xp, 'level:', monster.level, 'gainedXP:', statIncreased)
 
     await monster.save()
     console.log('✅ Monster saved successfully')
@@ -242,8 +286,21 @@ export async function sleepMonster (monsterId: string): Promise<void> {
 
     // Augmenter energy
     const currentEnergy = Number(monster.energy)
-    monster.energy = Math.min(100, isNaN(currentEnergy) ? 0 : currentEnergy + 30)
+    const oldEnergy = isNaN(currentEnergy) ? 0 : currentEnergy
+    monster.energy = Math.min(100, oldEnergy + 30)
     monster.lastSlept = new Date()
+
+    // ⭐ Ajouter de l'XP seulement si energy a réellement augmenté
+    const statIncreased = monster.energy > oldEnergy
+    if (statIncreased) {
+      const currentXp = Number(monster.xp ?? 0)
+      const newXp = currentXp + XP_GAIN_PER_ACTION
+      const { level: newLevel, xpToNextLevel: newXpToNextLevel } = calculateLevelFromXp(newXp)
+
+      monster.xp = newXp
+      monster.level = newLevel
+      monster.xpToNextLevel = newXpToNextLevel
+    }
 
     // Recalculer l'état émotionnel en fonction des stats
     const hunger = Number(monster.hunger)
@@ -255,7 +312,7 @@ export async function sleepMonster (monsterId: string): Promise<void> {
       isNaN(happiness) ? 0 : happiness
     )
 
-    console.log('📊 After sleeping - energy:', monster.energy, 'state:', monster.state)
+    console.log('📊 After sleeping - energy:', monster.energy, 'state:', monster.state, 'xp:', monster.xp, 'level:', monster.level, 'gainedXP:', statIncreased)
 
     await monster.save()
     console.log('✅ Monster saved successfully')
@@ -290,8 +347,21 @@ export async function cleanMonster (monsterId: string): Promise<void> {
 
     // Augmenter happiness
     const currentHappiness = Number(monster.happiness)
-    monster.happiness = Math.min(100, isNaN(currentHappiness) ? 0 : currentHappiness + 15)
+    const oldHappiness = isNaN(currentHappiness) ? 0 : currentHappiness
+    monster.happiness = Math.min(100, oldHappiness + 15)
     monster.lastCleaned = new Date()
+
+    // ⭐ Ajouter de l'XP seulement si happiness a réellement augmenté
+    const statIncreased = monster.happiness > oldHappiness
+    if (statIncreased) {
+      const currentXp = Number(monster.xp ?? 0)
+      const newXp = currentXp + XP_GAIN_PER_ACTION
+      const { level: newLevel, xpToNextLevel: newXpToNextLevel } = calculateLevelFromXp(newXp)
+
+      monster.xp = newXp
+      monster.level = newLevel
+      monster.xpToNextLevel = newXpToNextLevel
+    }
 
     // Recalculer l'état émotionnel en fonction des stats
     const hunger = Number(monster.hunger)
@@ -303,7 +373,7 @@ export async function cleanMonster (monsterId: string): Promise<void> {
       isNaN(happiness) ? 0 : happiness
     )
 
-    console.log('📊 After cleaning - happiness:', monster.happiness, 'state:', monster.state)
+    console.log('📊 After cleaning - happiness:', monster.happiness, 'state:', monster.state, 'xp:', monster.xp, 'level:', monster.level, 'gainedXP:', statIncreased)
 
     await monster.save()
     console.log('✅ Monster saved successfully')

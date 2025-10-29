@@ -10,10 +10,10 @@ import { GetPlayerInventoryUseCase } from '@/application/use-cases/shop'
 
 export async function GET (
   request: Request,
-  { params }: { params: { monsterId: string } }
+  { params }: { params: Promise<{ monsterId: string }> }
 ): Promise<NextResponse> {
   try {
-    const { monsterId } = params
+    const { monsterId } = await params
 
     if (typeof monsterId !== 'string' || monsterId === '') {
       return NextResponse.json(

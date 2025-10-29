@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { getMonsterDetails } from '@/actions/monsters/monsters.actions'
+import { getMonsterById } from '@/actions/monsters/monsters.actions'
 import { TamagotchiStats, TamagotchiInfo, TamagotchiActions } from '@/components/tamagotchi'
 import { PixelMonster } from '@/components/monsters'
 import { DEFAULT_MONSTER_STATE, DEFAULT_MONSTER_TRAITS, type MonsterState, type MonsterTraits } from '@/shared/types/monster'
@@ -19,7 +19,7 @@ export function TamagotchiDetail ({ monsterId }: TamagotchiDetailProps): React.R
     try {
       setLoading(true)
       setError(null)
-      const data = await getMonsterDetails(monsterId)
+      const data = await getMonsterById(monsterId)
       setMonster(data)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Erreur inconnue')

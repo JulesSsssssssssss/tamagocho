@@ -79,6 +79,7 @@ function DashboardContent ({ session, monsters }: DashboardContentProps): React.
   }, [])
 
   // Polling automatique pour synchroniser l'état des monstres et les pièces avec la base de données
+  // Intervalle réduit à 15 secondes pour économiser les ressources
   useEffect(() => {
     const fetchAndUpdateData = async (): Promise<void> => {
       try {
@@ -110,7 +111,7 @@ function DashboardContent ({ session, monsters }: DashboardContentProps): React.
 
     const interval = setInterval(() => {
       void fetchAndUpdateData()
-    }, 1000) // Met à jour toutes les 1 seconde
+    }, 15000) // Met à jour toutes les 15 secondes (au lieu de 1s)
 
     return () => clearInterval(interval)
   }, [])

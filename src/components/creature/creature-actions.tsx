@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useState, useTransition } from 'react'
+import { memo, useState } from 'react'
 import { feedMonster, playWithMonster, sleepMonster, cleanMonster } from '@/actions/monsters/monsters.actions'
 
 /**
@@ -9,8 +9,6 @@ import { feedMonster, playWithMonster, sleepMonster, cleanMonster } from '@/acti
 interface CreatureActionsProps {
   /** ID du monstre pour les actions */
   creatureId: string
-  /** Callback appelé après une action réussie */
-  onActionComplete?: () => void
 }
 
 /**
@@ -22,53 +20,45 @@ interface CreatureActionsProps {
  * - Appel des server actions
  * - Feedback visuel sur les interactions
  *
- * Architecture (DIP) :
- * - Dépend des abstractions (server actions injectées)
- * - Callback onActionComplete pour notifier le parent
- *
  * Optimisation :
  * - Composant mémoïsé avec React.memo
- * - useTransition pour des transitions fluides
+ * - Actions optimistes : pas d'attente de la réponse
+ * - Le polling parent récupère automatiquement les nouvelles données
  *
  * @param {CreatureActionsProps} props - Props du composant
  * @returns {React.ReactNode} Boutons d'actions
  *
  * @example
  * ```tsx
- * <CreatureActions
- *   creatureId={monster._id}
- *   onActionComplete={refresh}
- * />
+ * <CreatureActions creatureId={monster._id} />
  * ```
  */
 const CreatureActions = memo(function CreatureActions ({
-  creatureId,
-  onActionComplete
+  creatureId
 }: CreatureActionsProps): React.ReactNode {
-  const [isPending, startTransition] = useTransition()
   const [loadingAction, setLoadingAction] = useState<string | null>(null)
 
   /**
-   * Exécute une action sur le monstre
+   * Exécute une action sur le monstre de manière optimiste
+   * Le polling parent récupérera automatiquement les nouvelles données
    */
   const handleAction = async (
     action: (id: string) => Promise<void>,
     actionName: string
   ): Promise<void> => {
-    console.log(`🎯 Action triggered: ${actionName} for creature ${creatureId}`)
     setLoadingAction(actionName)
-    startTransition(async () => {
-      try {
-        console.log(`⏳ Executing action: ${actionName}`)
-        await action(creatureId)
-        console.log(`✅ Action ${actionName} completed successfully`)
-        onActionComplete?.()
-      } catch (error) {
-        console.error(`❌ Error executing ${actionName}:`, error)
-      } finally {
+    try {
+      // Action optimiste : on n'attend pas la fin pour l'UI
+      void action(creatureId)
+
+      // Réinitialiser après 2.5s (temps de l'animation)
+      setTimeout(() => {
         setLoadingAction(null)
-      }
-    })
+      }, 2500)
+    } catch (error) {
+      console.error(`❌ Error executing ${actionName}:`, error)
+      setLoadingAction(null)
+    }
   }
 
   /**
@@ -92,7 +82,7 @@ const CreatureActions = memo(function CreatureActions ({
     return (
       <button
         onClick={() => { void handleAction(action, actionName) }}
-        disabled={isPending}
+        disabled={loadingAction !== null}
         className={`group relative flex flex-col items-center gap-3 rounded-2xl ${colorClass} p-4 shadow-lg ring-1 ring-yellow-500/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:ring-yellow-400/50 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100`}
         aria-label={label}
       >

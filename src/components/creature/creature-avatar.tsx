@@ -32,6 +32,12 @@ interface CreatureAvatarProps {
   traitsJson: string
   /** État émotionnel actuel */
   state: MonsterState
+  /** Items équipés (optionnel) */
+  equippedItems?: {
+    hat?: string | null
+    glasses?: string | null
+    shoes?: string | null
+  }
 }
 
 /**
@@ -56,7 +62,8 @@ interface CreatureAvatarProps {
  */
 const CreatureAvatar = memo(function CreatureAvatar ({
   traitsJson,
-  state
+  state,
+  equippedItems
 }: CreatureAvatarProps): React.ReactNode {
   /**
    * Parse les traits depuis JSON string
@@ -87,7 +94,7 @@ const CreatureAvatar = memo(function CreatureAvatar ({
     <div className='relative flex items-center justify-center overflow-hidden rounded-3xl bg-slate-50/30 p-12 md:p-16'>
       {/* Créature animée */}
       <div className='transform transition-transform hover:scale-105 duration-300'>
-        <PixelMonster traits={traits} state={state} />
+        <PixelMonster traits={traits} state={state} equippedItems={equippedItems} />
       </div>
 
       {/* Badge d'état émotionnel */}

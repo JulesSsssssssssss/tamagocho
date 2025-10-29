@@ -3,13 +3,19 @@
 import { useEffect, useRef } from 'react'
 import type { MonsterState, MonsterTraits } from '@/shared/types/monster'
 import { DEFAULT_MONSTER_TRAITS } from '@/shared/types/monster'
+import type { ItemRarity } from '@/shared/types/shop'
 
 export interface PixelMonsterProps {
   state: MonsterState
   traits: MonsterTraits
+  equippedItems?: {
+    hat?: string | null
+    glasses?: string | null
+    shoes?: string | null
+  }
 }
 
-export function PixelMonster ({ state, traits = DEFAULT_MONSTER_TRAITS }: PixelMonsterProps): React.ReactNode {
+export function PixelMonster ({ state, traits = DEFAULT_MONSTER_TRAITS, equippedItems }: PixelMonsterProps): React.ReactNode {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const frameRef = useRef(0)
 
@@ -27,7 +33,7 @@ export function PixelMonster ({ state, traits = DEFAULT_MONSTER_TRAITS }: PixelM
 
     const animate = (): void => {
       frameRef.current += 1
-      drawMonster(ctx, state, frameRef.current, traits ?? DEFAULT_MONSTER_TRAITS)
+      drawMonster(ctx, state, frameRef.current, traits ?? DEFAULT_MONSTER_TRAITS, equippedItems)
       animationId = requestAnimationFrame(animate)
     }
 
@@ -38,7 +44,7 @@ export function PixelMonster ({ state, traits = DEFAULT_MONSTER_TRAITS }: PixelM
         cancelAnimationFrame(animationId)
       }
     }
-  }, [state, traits])
+  }, [state, traits, equippedItems])
 
   return <canvas ref={canvasRef} className='mx-auto h-full w-full' style={{ imageRendering: 'pixelated' }} />
 }
@@ -49,7 +55,12 @@ function drawMonster (
   ctx: CanvasRenderingContext2D,
   state: MonsterState,
   frame: number,
-  traits: MonsterTraits
+  traits: MonsterTraits,
+  equippedItems?: {
+    hat?: string | null
+    glasses?: string | null
+    shoes?: string | null
+  }
 ): void {
   const pixelSize = 6
   const bounce = Math.sin(frame * 0.05) * 3
@@ -105,6 +116,27 @@ function drawMonster (
   drawAccessory(ctx, traits.accessory, traits.accentColor, bodyY, pixelSize, frame)
 
   drawStateEffects(ctx, state, bodyY, pixelSize, frame)
+
+  // Dessiner les items équipés
+  if (equippedItems !== undefined) {
+    // Chaussures en bas
+    if (equippedItems.shoes !== null && equippedItems.shoes !== undefined) {
+      const shoesRarity = getRarityFromItemId(equippedItems.shoes)
+      drawShoes(ctx, shoesRarity, bodyY, pixelSize)
+    }
+
+    // Lunettes devant les yeux
+    if (equippedItems.glasses !== null && equippedItems.glasses !== undefined) {
+      const glassesRarity = getRarityFromItemId(equippedItems.glasses)
+      drawGlasses(ctx, glassesRarity, bodyY, pixelSize)
+    }
+
+    // Chapeau au-dessus de la tête
+    if (equippedItems.hat !== null && equippedItems.hat !== undefined) {
+      const hatRarity = getRarityFromItemId(equippedItems.hat)
+      drawHat(ctx, hatRarity, bodyY, pixelSize, frame)
+    }
+  }
 }
 
 type MonsterStyle = MonsterTraits['bodyStyle']
@@ -507,4 +539,147 @@ function adjustColorBrightness (hex: string, percent: number): string {
       .toString(16)
       .slice(1)
   )
+}
+
+/**
+ * Helper pour extraire la rareté depuis l'ID d'un item
+ */
+function getRarityFromItemId (itemId: string): ItemRarity {
+  if (itemId.includes('_legendary_')) return 'legendary'
+  if (itemId.includes('_epic_')) return 'epic'
+  if (itemId.includes('_rare_')) return 'rare'
+  return 'common'
+}
+
+/**
+ * Couleurs par rareté
+ */
+function getRarityColor (rarity: ItemRarity): string {
+  switch (rarity) {
+    case 'legendary':
+      return '#f59e0b' // Or
+    case 'epic':
+      return '#a855f7' // Violet
+    case 'rare':
+      return '#3b82f6' // Bleu
+    case 'common':
+    default:
+      return '#9ca3af' // Gris
+  }
+}
+
+/**
+ * Dessiner un chapeau au-dessus de la tête du monstre
+ */
+function drawHat (
+  ctx: CanvasRenderingContext2D,
+  rarity: ItemRarity,
+  bodyY: number,
+  pixelSize: number,
+  frame: number
+): void {
+  const color = getRarityColor(rarity)
+  const darkColor = adjustColorBrightness(color, -30)
+
+  // Position au-dessus de la tête
+  const hatY = bodyY - 35
+  const centerX = 80
+
+  // Flottement selon la rareté
+  let float = 0
+  if (rarity === 'rare') float = Math.sin(frame * 0.1) * 2
+  if (rarity === 'epic') float = Math.sin(frame * 0.15) * 3
+  if (rarity === 'legendary') float = Math.sin(frame * 0.2) * 5
+
+  // Dessiner le chapeau (style haut-de-forme simplifié)
+  ctx.fillStyle = darkColor
+  // Bord du chapeau
+  ctx.fillRect(centerX - pixelSize * 4, hatY + float, pixelSize * 8, pixelSize)
+
+  ctx.fillStyle = color
+  // Haut du chapeau
+  ctx.fillRect(centerX - pixelSize * 2, hatY - pixelSize * 3 + float, pixelSize * 4, pixelSize * 3)
+
+  // Reflet pour effet 3D
+  ctx.fillStyle = adjustColorBrightness(color, 20)
+  ctx.fillRect(centerX - pixelSize * 2, hatY - pixelSize * 3 + float, pixelSize * 2, pixelSize)
+}
+
+/**
+ * Dessiner des lunettes devant les yeux du monstre
+ */
+function drawGlasses (
+  ctx: CanvasRenderingContext2D,
+  rarity: ItemRarity,
+  bodyY: number,
+  pixelSize: number
+): void {
+  const color = getRarityColor(rarity)
+  const darkColor = adjustColorBrightness(color, -40)
+
+  // Position au niveau des yeux
+  const glassesY = bodyY - 8
+
+  // Monture gauche
+  ctx.strokeStyle = darkColor
+  ctx.lineWidth = 2
+  ctx.strokeRect(50, glassesY, pixelSize * 3, pixelSize * 2)
+
+  // Monture droite
+  ctx.strokeRect(105, glassesY, pixelSize * 3, pixelSize * 2)
+
+  // Pont entre les deux verres
+  ctx.beginPath()
+  ctx.moveTo(50 + pixelSize * 3, glassesY + pixelSize)
+  ctx.lineTo(105, glassesY + pixelSize)
+  ctx.stroke()
+
+  // Verres avec transparence
+  ctx.fillStyle = color + '40' // Ajout de transparence
+  ctx.fillRect(51, glassesY + 1, pixelSize * 3 - 2, pixelSize * 2 - 2)
+  ctx.fillRect(106, glassesY + 1, pixelSize * 3 - 2, pixelSize * 2 - 2)
+
+  // Reflets sur les verres
+  ctx.fillStyle = '#ffffff80'
+  ctx.fillRect(52, glassesY + 2, pixelSize, pixelSize / 2)
+  ctx.fillRect(107, glassesY + 2, pixelSize, pixelSize / 2)
+}
+
+/**
+ * Dessiner des chaussures en bas du monstre
+ */
+function drawShoes (
+  ctx: CanvasRenderingContext2D,
+  rarity: ItemRarity,
+  bodyY: number,
+  pixelSize: number
+): void {
+  const color = getRarityColor(rarity)
+  const darkColor = adjustColorBrightness(color, -30)
+
+  // Position en bas du monstre, au niveau des pieds
+  const shoesY = bodyY + 60
+
+  // Chaussure gauche
+  ctx.fillStyle = color
+  ctx.fillRect(57, shoesY, pixelSize * 3, pixelSize * 2)
+  ctx.fillStyle = darkColor
+  ctx.fillRect(57, shoesY + pixelSize, pixelSize * 3, pixelSize)
+
+  // Semelle gauche
+  ctx.fillRect(57 - pixelSize, shoesY + pixelSize * 2, pixelSize * 4, pixelSize / 2)
+
+  // Chaussure droite
+  ctx.fillStyle = color
+  ctx.fillRect(105, shoesY, pixelSize * 3, pixelSize * 2)
+  ctx.fillStyle = darkColor
+  ctx.fillRect(105, shoesY + pixelSize, pixelSize * 3, pixelSize)
+
+  // Semelle droite
+  ctx.fillRect(105 - pixelSize, shoesY + pixelSize * 2, pixelSize * 4, pixelSize / 2)
+
+  // Détails blancs (lacets)
+  ctx.fillStyle = '#ffffff'
+  ctx.fillRect(60, shoesY + 2, 2, 2)
+  ctx.fillRect(108, shoesY + 2, 2, 2)
 }

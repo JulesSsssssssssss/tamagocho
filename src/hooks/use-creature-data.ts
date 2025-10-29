@@ -22,7 +22,12 @@ interface CreatureDataState {
  * - Gestion des états (loading, error, success)
  * - Rafraîchissement des données
  *
+ * Optimisation :
+ * - Accepte initialCreature pour éviter le chargement initial
+ * - Affichage instantané si les données sont pré-chargées
+ *
  * @param {string} creatureId - ID de la créature à charger
+ * @param {DBMonster} [initialCreature] - Données pré-chargées (optionnel)
  * @returns {Object} État et fonction de rafraîchissement
  * @property {DBMonster | null} creature - Données de la créature
  * @property {boolean} isLoading - Indique si le chargement est en cours
@@ -31,19 +36,22 @@ interface CreatureDataState {
  *
  * @example
  * ```tsx
+ * // Avec données pré-chargées (rapide)
+ * const { creature, refresh } = useCreatureData('monster-123', initialData)
+ *
+ * // Sans données (chargement côté client)
  * const { creature, isLoading, error, refresh } = useCreatureData('monster-123')
- *
- * if (isLoading) return <LoadingState />
- * if (error) return <ErrorState message={error} />
- * if (!creature) return <NotFoundState />
- *
- * return <CreatureDetail creature={creature} onUpdate={refresh} />
  * ```
  */
-export function useCreatureData (creatureId: string) {
+export function useCreatureData (creatureId: string, initialCreature?: DBMonster): {
+  creature: DBMonster | null
+  isLoading: boolean
+  error: string | null
+  refresh: () => void
+} {
   const [state, setState] = useState<CreatureDataState>({
-    creature: null,
-    isLoading: true,
+    creature: initialCreature ?? null,
+    isLoading: initialCreature == null, // Pas de chargement si données initiales
     error: null
   })
 
@@ -88,10 +96,12 @@ export function useCreatureData (creatureId: string) {
     void loadCreature()
   }, [loadCreature])
 
-  // Chargement initial au montage et quand creatureId change
+  // Chargement initial uniquement si pas de données initiales
   useEffect(() => {
-    void loadCreature()
-  }, [loadCreature])
+    if (initialCreature == null) {
+      void loadCreature()
+    }
+  }, [loadCreature, initialCreature])
 
   return {
     creature: state.creature,

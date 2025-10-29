@@ -1,12 +1,14 @@
 import { getMonsterById } from '@/actions/monsters/monsters.actions'
 import { CreatureContent } from '@/components/creature'
+import { redirect } from 'next/navigation'
 
 /**
  * Page serveur pour afficher les détails d'une créature
  *
  * Cette page est un Server Component qui :
  * - Valide et extrait l'ID depuis les paramètres dynamiques
- * - Passe l'ID au composant client qui gère le chargement des données
+ * - Charge les données côté serveur pour un affichage instantané
+ * - Passe les données au composant client pour les interactions
  *
  * @param params - Paramètres de route dynamique contenant l'ID de la créature
  * @returns Composant React rendant la page de détail de créature
@@ -42,8 +44,16 @@ async function CreaturePage ({
   // Extraction de l'ID (premier élément du tableau)
   const creatureId = resolvedParams.id[0]
 
-  // Le composant client gère le chargement et l'affichage
-  return <CreatureContent creatureId={creatureId} />
+  // Chargement des données côté serveur pour affichage instantané
+  const creature = await getMonsterById(creatureId)
+
+  // Redirection vers dashboard si la créature n'existe pas
+  if (creature === null) {
+    redirect('/dashboard')
+  }
+
+  // Le composant client gère l'affichage avec les données pré-chargées
+  return <CreatureContent creatureId={creatureId} initialCreature={creature} />
 }
 
 export default CreaturePage

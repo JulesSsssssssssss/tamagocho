@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react'
 import type React from 'react'
 import { pricingTable } from '@/config/pricing'
 import PixelCoin from '@/components/dashboard/pixel-coin'
-import { useCounterAnimation } from '@/hooks/use-counter-animation'
 
 interface WalletClientProps {
   initialWallet: DBWallet

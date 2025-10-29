@@ -3,6 +3,9 @@ import { Jersey_10, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ToastContainer } from 'react-toastify'
 import SwRegister from '@/components/SwRegister'
+import { MonstersAutoUpdater } from '@/components/monsters'
+import { auth } from '@/lib/auth'
+import { headers } from 'next/headers'
 
 const jersey10 = Jersey_10({
   variable: '--font-jersey10',
@@ -30,16 +33,34 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout ({
+export default async function RootLayout ({
   children
 }: Readonly<{
   children: React.ReactNode
-}>): React.ReactNode {
+}>): Promise<React.ReactNode> {
+  // Récupération de la session utilisateur pour le cron auto-updater
+  const session = await auth.api.getSession({
+    headers: await headers()
+  })
+
+  const userId = session?.user?.id ?? null
+
   return (
     <html lang='fr'>
       <body
         className={`${jersey10.variable} ${geistMono.variable} antialiased font-sans`}
       >
+        {/* Système de mise à jour automatique des monstres */}
+        {/* Se déclenche toutes les 1-3 minutes pour dégrader les stats */}
+        <MonstersAutoUpdater
+          userId={userId}
+          minInterval={60000}   // 1 minute minimum
+          maxInterval={180000}  // 3 minutes maximum
+          enabled={userId !== null} // Activé seulement si utilisateur connecté
+          verbose={true}        // Logs dans la console (mettre false en prod)
+          showIndicator={false} // Pas d'indicateur visuel (mettre true pour debug)
+        />
+        
         {children}
         <SwRegister />
         <ToastContainer />
