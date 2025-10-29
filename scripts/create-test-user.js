@@ -94,7 +94,7 @@ async function createTestUser () {
     const accountsCollection = db.collection('account')
     const account = {
       id: crypto.randomUUID(),
-      userId: userId,
+      userId,
       accountId: testEmail,
       providerId: 'credential',
       password: hashPassword(testPassword), // Note: BetterAuth utilise bcrypt, ceci est juste pour test

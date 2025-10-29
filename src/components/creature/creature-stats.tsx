@@ -60,21 +60,21 @@ const CreatureStats = memo(function CreatureStats ({
   }
 
   return (
-    <div className='bg-white rounded-3xl p-6 shadow-lg ring-1 ring-white/80 space-y-5'>
-      <h3 className='text-lg font-semibold text-slate-900 mb-4'>
-        📊 Statistiques
+    <div className='bg-slate-800/60 rounded-3xl p-6 shadow-lg ring-1 ring-yellow-500/20 space-y-5'>
+      <h3 className='text-lg font-semibold text-white mb-4 font-mono tracking-wider'>
+        📊 STATISTIQUES
       </h3>
 
       {/* Faim */}
       <div className='space-y-2'>
         <div className='flex items-center justify-between text-sm'>
-          <span className='font-medium text-slate-700 flex items-center gap-2'>
+          <span className='font-medium text-white flex items-center gap-2 font-mono'>
             <span aria-hidden='true'>{getEmoji('hunger')}</span>
             Faim
           </span>
-          <span className='text-slate-600 font-semibold'>{hunger}%</span>
+          <span className='text-yellow-400 font-semibold font-mono'>{hunger}%</span>
         </div>
-        <div className='h-3 bg-slate-100 rounded-full overflow-hidden ring-1 ring-inset ring-slate-200/50'>
+        <div className='h-3 bg-slate-950/60 rounded-full overflow-hidden ring-1 ring-inset ring-slate-700/50'>
           <div
             className={`h-full ${getColorClass(hunger)} transition-all duration-500 ease-out rounded-full`}
             style={{ width: `${hunger}%` }}
@@ -90,13 +90,13 @@ const CreatureStats = memo(function CreatureStats ({
       {/* Énergie */}
       <div className='space-y-2'>
         <div className='flex items-center justify-between text-sm'>
-          <span className='font-medium text-slate-700 flex items-center gap-2'>
+          <span className='font-medium text-white flex items-center gap-2 font-mono'>
             <span aria-hidden='true'>{getEmoji('energy')}</span>
             Énergie
           </span>
-          <span className='text-slate-600 font-semibold'>{energy}%</span>
+          <span className='text-yellow-400 font-semibold font-mono'>{energy}%</span>
         </div>
-        <div className='h-3 bg-slate-100 rounded-full overflow-hidden ring-1 ring-inset ring-slate-200/50'>
+        <div className='h-3 bg-slate-950/60 rounded-full overflow-hidden ring-1 ring-inset ring-slate-700/50'>
           <div
             className={`h-full ${getColorClass(energy)} transition-all duration-500 ease-out rounded-full`}
             style={{ width: `${energy}%` }}
@@ -112,13 +112,13 @@ const CreatureStats = memo(function CreatureStats ({
       {/* Bonheur */}
       <div className='space-y-2'>
         <div className='flex items-center justify-between text-sm'>
-          <span className='font-medium text-slate-700 flex items-center gap-2'>
+          <span className='font-medium text-white flex items-center gap-2 font-mono'>
             <span aria-hidden='true'>{getEmoji('happiness')}</span>
             Bonheur
           </span>
-          <span className='text-slate-600 font-semibold'>{happiness}%</span>
+          <span className='text-yellow-400 font-semibold font-mono'>{happiness}%</span>
         </div>
-        <div className='h-3 bg-slate-100 rounded-full overflow-hidden ring-1 ring-inset ring-slate-200/50'>
+        <div className='h-3 bg-slate-950/60 rounded-full overflow-hidden ring-1 ring-inset ring-slate-700/50'>
           <div
             className={`h-full ${getColorClass(happiness)} transition-all duration-500 ease-out rounded-full`}
             style={{ width: `${happiness}%` }}

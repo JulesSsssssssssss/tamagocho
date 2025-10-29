@@ -1,0 +1,1820 @@
+[dotenv@17.2.3] injecting env (10) from ../.env.local -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.2.3] injecting env (0) from ../.env.local -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+mongodb+srv://tamagocho_db_user:MdbQPFv4tmqiApKt@tamagocho-dev.4ehirbx.mongodb.net/tamagocho?retryWrites=true&w=majority&appName=tamagocho_dev
+Server is running on port 3001
+Mongoose connected to MongoDB database
+[worker] run - 2025-10-28T14:03:45.498Z (delay 79707ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→46, energy 50→48, happiness 50→49, state: hungry
+✅ Monster jacques (1761561497605): hunger 50→48, energy 50→48, happiness 50→49, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 100→96, energy 100→99, happiness 100→97, state: happy
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→47, energy 50→45, happiness 50→49, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→46, energy 50→48, happiness 50→48, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→48, energy 50→49, happiness 50→47, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→47, energy 50→49, happiness 50→48, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→48, energy 50→46, happiness 50→48, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 100→98, energy 100→98, happiness 100→97, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→45, energy 50→49, happiness 50→48, state: hungry
+[worker] run - 2025-10-28T14:05:12.107Z (delay 86332ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 46→45, energy 48→47, happiness 49→47, state: hungry
+✅ Monster jacques (1761561497605): hunger 48→43, energy 48→46, happiness 49→47, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 96→91, energy 99→94, happiness 97→94, state: happy
+✅ Monster bob (69009cc8b82139434e867639): hunger 47→42, energy 45→40, happiness 49→47, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 46→42, energy 48→44, happiness 48→47, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 48→45, energy 49→46, happiness 47→45, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 47→43, energy 49→44, happiness 48→46, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 48→45, energy 46→44, happiness 48→45, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 98→97, energy 98→94, happiness 97→96, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 45→43, energy 49→45, happiness 48→46, state: hungry
+[worker] run - 2025-10-28T14:06:08.590Z (delay 56268ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 45→41, energy 47→43, happiness 47→46, state: hungry
+✅ Monster jacques (1761561497605): hunger 43→39, energy 46→42, happiness 47→46, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 91→90, energy 94→93, happiness 94→91, state: happy
+✅ Monster bob (69009cc8b82139434e867639): hunger 42→39, energy 40→35, happiness 47→45, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 42→37, energy 44→41, happiness 47→44, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 45→43, energy 46→41, happiness 45→44, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 43→38, energy 44→41, happiness 46→45, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 45→44, energy 44→39, happiness 45→42, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 97→92, energy 94→90, happiness 96→93, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 43→39, energy 45→43, happiness 46→43, state: hungry
+[worker] run - 2025-10-28T14:06:50.685Z (delay 41859ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 41→37, energy 43→38, happiness 46→44, state: hungry
+✅ Monster jacques (1761561497605): hunger 39→34, energy 42→39, happiness 46→43, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 90→89, energy 93→90, happiness 91→89, state: happy
+✅ Monster bob (69009cc8b82139434e867639): hunger 39→36, energy 35→32, happiness 45→42, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 37→33, energy 41→40, happiness 44→42, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 43→40, energy 41→39, happiness 44→41, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 38→33, energy 41→37, happiness 45→43, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 44→39, energy 39→36, happiness 42→39, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 92→91, energy 90→86, happiness 93→90, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 39→35, energy 43→41, happiness 43→41, state: hungry
+[worker] run - 2025-10-28T14:08:14.428Z (delay 82529ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 37→35, energy 38→33, happiness 44→43, state: sleepy
+✅ Monster jacques (1761561497605): hunger 34→29, energy 39→36, happiness 43→42, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 89→86, energy 90→85, happiness 89→88, state: happy
+✅ Monster bob (69009cc8b82139434e867639): hunger 36→34, energy 32→30, happiness 42→41, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 33→29, energy 40→37, happiness 42→41, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 40→35, energy 39→37, happiness 41→39, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 33→32, energy 37→34, happiness 43→42, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 39→35, energy 36→32, happiness 39→36, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 91→87, energy 86→81, happiness 90→89, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 35→32, energy 41→40, happiness 41→40, state: hungry
+[worker] run - 2025-10-28T14:09:27.969Z (delay 73316ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 30→25, energy 28→27, happiness 40→38, state: hungry
+✅ Monster jacques (1761561497605): hunger 28→23, energy 35→33, happiness 40→39, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 81→76, energy 83→79, happiness 85→83, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 31→27, energy 27→23, happiness 38→36, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 24→20, energy 34→30, happiness 40→38, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 30→28, energy 36→32, happiness 38→36, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 31→29, energy 33→29, happiness 39→38, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 33→30, energy 28→24, happiness 34→32, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 84→80, energy 79→77, happiness 88→87, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 27→22, energy 37→35, happiness 37→35, state: hungry
+[worker] run - 2025-10-28T14:10:56.019Z (delay 87809ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 25→20, energy 27→24, happiness 38→36, state: hungry
+✅ Monster jacques (1761561497605): hunger 23→21, energy 33→32, happiness 39→36, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 76→74, energy 79→77, happiness 83→80, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 27→26, energy 23→19, happiness 36→33, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 20→15, energy 30→27, happiness 38→35, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 28→25, energy 32→29, happiness 36→35, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 29→27, energy 29→28, happiness 38→35, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 30→29, energy 24→21, happiness 32→29, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 80→78, energy 77→72, happiness 87→84, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 22→18, energy 35→31, happiness 35→33, state: angry
+[worker] run - 2025-10-28T14:11:46.700Z (delay 50458ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 17→14, energy 21→16, happiness 35→34, state: angry
+✅ Monster jacques (1761561497605): hunger 20→15, energy 29→27, happiness 33→31, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 71→66, energy 73→68, happiness 78→76, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 22→21, energy 17→13, happiness 32→31, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 10→7, energy 22→18, happiness 33→30, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 24→21, energy 27→23, happiness 34→32, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 24→21, energy 26→23, happiness 34→31, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 28→27, energy 16→14, happiness 27→26, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 74→71, energy 67→66, happiness 81→78, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 14→12, energy 29→24, happiness 31→28, state: angry
+[worker] run - 2025-10-28T14:12:17.801Z (delay 30886ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 14→10, energy 16→14, happiness 34→33, state: angry
+✅ Monster jacques (1761561497605): hunger 15→11, energy 27→26, happiness 31→28, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 66→62, energy 68→64, happiness 76→73, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 21→18, energy 13→8, happiness 31→29, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 7→4, energy 18→17, happiness 30→27, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 21→19, energy 23→19, happiness 32→29, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 21→18, energy 23→19, happiness 31→30, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 27→26, energy 14→11, happiness 26→24, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 71→70, energy 66→62, happiness 78→77, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 12→9, energy 24→21, happiness 28→26, state: angry
+[worker] run - 2025-10-28T14:13:25.308Z (delay 67287ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 4→2, energy 8→5, happiness 31→28, state: angry
+✅ Monster jacques (1761561497605): hunger 8→6, energy 19→16, happiness 23→21, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 54→53, energy 57→53, happiness 71→70, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 13→11, energy 5→3, happiness 23→21, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→45, energy 11→10, happiness 23→21, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 14→12, energy 12→8, happiness 26→23, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 11→9, energy 13→9, happiness 25→24, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 21→20, energy 6→1, happiness 18→16, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 65→60, energy 55→50, happiness 73→72, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 6→1, energy 18→17, happiness 23→21, state: angry
+[worker] run - 2025-10-28T14:14:34.706Z (delay 69177ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→49, energy 50→45, happiness 26→24, state: sad
+✅ Monster jacques (1761561497605): hunger 4→2, energy 12→11, happiness 18→15, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 49→45, energy 52→47, happiness 69→67, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 10→8, energy 1→0, happiness 20→19, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 44→40, energy 6→3, happiness 20→17, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 7→6, energy 4→0, happiness 21→20, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 8→4, energy 8→7, happiness 21→18, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 17→12, energy 50→48, happiness 13→11, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 57→55, energy 46→44, happiness 71→69, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→48, energy 14→10, happiness 20→18, state: angry
+[worker] run - 2025-10-28T14:15:57.626Z (delay 82640ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 43→42, energy 35→32, happiness 17→15, state: angry
+✅ Monster jacques (1761561497605): hunger 42→39, energy 50→47, happiness 10→7, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 34→33, energy 41→37, happiness 61→58, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→49, energy 42→38, happiness 14→11, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 30→26, energy 47→46, happiness 12→9, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→49, energy 42→37, happiness 14→11, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 46→45, energy 1→0, happiness 15→13, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 41→37, energy 54→53, happiness 43→42, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→49, energy 36→32, happiness 60→59, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 39→37, energy 1→0, happiness 11→10, state: angry
+[worker] run - 2025-10-28T14:16:59.557Z (delay 61324ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 32→31, energy 21→17, happiness 8→7, state: angry
+✅ Monster jacques (1761561497605): hunger 34→32, energy 40→35, happiness 50→49, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 28→25, energy 25→24, happiness 49→48, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 37→34, energy 30→29, happiness 5→4, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 18→16, energy 38→35, happiness 3→2, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 41→37, energy 31→30, happiness 6→4, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 36→31, energy 40→35, happiness 5→3, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 28→26, energy 47→42, happiness 36→33, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 34→33, energy 22→20, happiness 54→53, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 30→25, energy 43→38, happiness 4→1, state: angry
+[worker] run - 2025-10-28T14:18:10.793Z (delay 70968ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 24→23, energy 10→7, happiness 2→0, state: angry
+✅ Monster jacques (1761561497605): hunger 25→21, energy 27→26, happiness 45→42, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 11→7, energy 16→15, happiness 43→41, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 30→27, energy 24→23, happiness 49→47, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 12→7, energy 27→23, happiness 46→43, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 30→28, energy 22→18, happiness 47→44, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 23→18, energy 32→31, happiness 49→48, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 15→11, energy 32→30, happiness 27→25, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 26→25, energy 12→8, happiness 48→45, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 18→13, energy 33→28, happiness 44→42, state: angry
+[worker] run - 2025-10-28T14:18:51.658Z (delay 40523ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 17→12, energy 50→47, happiness 45→44, state: angry
+✅ Monster jacques (1761561497605): hunger 17→12, energy 18→17, happiness 38→35, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 4→3, energy 8→7, happiness 38→36, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 22→21, energy 14→12, happiness 41→38, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 2→1, energy 16→15, happiness 39→38, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 23→20, energy 10→8, happiness 42→40, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 13→9, energy 25→21, happiness 43→40, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 5→1, energy 21→17, happiness 19→16, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 19→15, energy 2→1, happiness 41→40, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 6→3, energy 20→16, happiness 40→38, state: angry
+[worker] run - 2025-10-28T14:19:54.732Z (delay 62590ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 7→4, energy 37→35, happiness 41→38, state: angry
+✅ Monster jacques (1761561497605): hunger 7→4, energy 11→9, happiness 32→31, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 49→47, energy 50→45, happiness 33→30, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 13→8, energy 7→4, happiness 33→32, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 48→45, energy 8→6, happiness 34→32, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 14→11, energy 3→0, happiness 36→35, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 1→0, energy 14→11, happiness 36→35, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 45→40, energy 8→4, happiness 12→11, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 9→7, energy 46→43, happiness 36→35, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→49, energy 10→7, happiness 34→32, state: angry
+[worker] run - 2025-10-28T14:21:18.629Z (delay 83624ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→49, energy 24→20, happiness 31→30, state: sleepy
+✅ Monster jacques (1761561497605): hunger 40→37, energy 49→45, happiness 26→25, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 37→35, energy 39→34, happiness 25→22, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→46, energy 49→46, happiness 25→23, state: sad
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 36→34, energy 47→45, happiness 26→24, state: sad
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→47, energy 44→40, happiness 29→26, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 43→41, energy 1→0, happiness 32→30, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 33→30, energy 45→44, happiness 5→2, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 2→0, energy 40→35, happiness 28→25, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 34→32, energy 50→48, happiness 26→25, state: sad
+[worker] run - 2025-10-28T14:22:33.371Z (delay 74490ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 38→33, energy 12→10, happiness 22→20, state: angry
+✅ Monster jacques (1761561497605): hunger 29→24, energy 36→34, happiness 19→16, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 26→22, energy 26→25, happiness 17→16, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 35→34, energy 39→37, happiness 17→16, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 27→24, energy 36→32, happiness 19→16, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 43→39, energy 30→28, happiness 18→17, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 30→26, energy 43→40, happiness 24→23, state: sad
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 19→16, energy 37→34, happiness 46→45, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 43→40, energy 23→18, happiness 21→20, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 23→22, energy 33→29, happiness 21→19, state: angry
+[worker] run - 2025-10-28T14:23:12.074Z (delay 38487ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 33→28, energy 10→8, happiness 20→19, state: angry
+✅ Monster jacques (1761561497605): hunger 24→21, energy 34→29, happiness 16→14, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 22→21, energy 25→20, happiness 16→15, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 34→31, energy 37→32, happiness 16→14, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 24→21, energy 32→29, happiness 16→15, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 39→37, energy 28→26, happiness 17→16, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 26→25, energy 40→38, happiness 23→21, state: sad
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 16→15, energy 34→29, happiness 45→42, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 40→39, energy 18→17, happiness 20→19, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 22→17, energy 29→25, happiness 19→16, state: angry
+[worker] run - 2025-10-28T14:24:24.007Z (delay 71721ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 11→8, energy 49→48, happiness 8→6, state: angry
+✅ Monster jacques (1761561497605): hunger 11→7, energy 19→15, happiness 6→4, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 13→9, energy 14→13, happiness 4→2, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 18→15, energy 17→15, happiness 9→8, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 14→10, energy 21→18, happiness 6→4, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 23→22, energy 15→10, happiness 7→5, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→13, energy 20→15, happiness 12→11, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 4→2, energy 19→18, happiness 32→31, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 25→24, energy 50→49, happiness 11→10, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 6→5, energy 18→14, happiness 8→7, state: angry
+[worker] run - 2025-10-28T14:25:34.487Z (delay 70280ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→46, energy 44→43, happiness 1→0, state: angry
+✅ Monster jacques (1761561497605): hunger 2→0, energy 11→6, happiness 1→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 6→5, energy 4→0, happiness 47→46, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 7→3, energy 6→3, happiness 5→3, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 2→0, energy 13→12, happiness 50→49, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 16→15, energy 4→0, happiness 50→47, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 10→6, energy 8→6, happiness 9→6, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→46, energy 9→7, happiness 29→26, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 18→17, energy 41→40, happiness 7→4, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 49→48, energy 6→2, happiness 5→3, state: angry
+[worker] run - 2025-10-28T14:27:03.317Z (delay 88614ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 31→30, energy 34→30, happiness 43→40, state: hungry
+✅ Monster jacques (1761561497605): hunger 36→33, energy 49→44, happiness 44→43, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 50→45, energy 42→41, happiness 42→41, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 44→43, energy 46→42, happiness 48→47, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 40→39, energy 5→4, happiness 43→42, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 1→0, energy 42→41, happiness 40→38, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 49→45, energy 47→43, happiness 3→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 37→35, energy 50→47, happiness 21→18, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 6→3, energy 28→23, happiness 49→46, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 39→36, energy 41→37, happiness 49→47, state: hungry
+[worker] run - 2025-10-28T14:28:31.722Z (delay 88198ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 26→22, energy 20→18, happiness 36→35, state: angry
+✅ Monster jacques (1761561497605): hunger 21→19, energy 37→36, happiness 38→35, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 37→35, energy 38→34, happiness 37→36, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 39→36, energy 36→35, happiness 43→41, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 25→21, energy 45→41, happiness 34→33, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 37→32, energy 28→27, happiness 32→30, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 35→34, energy 31→29, happiness 44→43, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 27→26, energy 36→34, happiness 10→9, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 48→43, energy 11→7, happiness 41→39, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 24→23, energy 30→26, happiness 39→37, state: hungry
+[worker] run - 2025-10-28T14:29:19.259Z (delay 47240ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 17→12, energy 8→6, happiness 32→30, state: angry
+✅ Monster jacques (1761561497605): hunger 15→12, energy 27→26, happiness 29→28, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 28→27, energy 24→22, happiness 31→28, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 29→26, energy 28→25, happiness 35→32, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 13→12, energy 35→31, happiness 30→27, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 29→27, energy 21→20, happiness 25→24, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 30→25, energy 21→19, happiness 40→37, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 21→17, energy 32→27, happiness 6→5, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 34→30, energy 50→46, happiness 37→36, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 15→12, energy 21→19, happiness 32→31, state: angry
+[worker] run - 2025-10-28T14:30:18.792Z (delay 59316ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 8→5, energy 50→47, happiness 26→23, state: angry
+✅ Monster jacques (1761561497605): hunger 4→0, energy 17→13, happiness 25→23, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 22→19, energy 13→11, happiness 22→21, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 24→22, energy 18→17, happiness 29→28, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 7→5, energy 27→22, happiness 23→21, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 21→20, energy 17→16, happiness 18→15, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 23→22, energy 15→14, happiness 33→32, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 13→10, energy 18→14, happiness 2→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 21→17, energy 43→38, happiness 34→31, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 7→3, energy 15→11, happiness 29→27, state: angry
+[worker] run - 2025-10-28T14:30:59.137Z (delay 40141ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 4→2, energy 46→41, happiness 20→17, state: angry
+✅ Monster jacques (1761561497605): hunger 45→40, energy 10→7, happiness 21→18, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 18→15, energy 7→2, happiness 18→17, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 17→12, energy 13→12, happiness 26→24, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→47, energy 21→17, happiness 20→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 15→13, energy 11→9, happiness 14→13, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→13, energy 12→8, happiness 29→27, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 5→4, energy 12→11, happiness 48→47, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 12→7, energy 34→29, happiness 29→26, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 2→1, energy 8→5, happiness 25→22, state: angry
+[worker] run - 2025-10-28T14:32:00.018Z (delay 60548ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 46→41, energy 31→26, happiness 11→9, state: angry
+✅ Monster jacques (1761561497605): hunger 33→31, energy 2→0, happiness 14→13, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 10→7, energy 46→42, happiness 15→12, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 5→1, energy 2→0, happiness 21→19, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 39→35, energy 13→12, happiness 14→13, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 7→2, energy 3→0, happiness 11→8, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 7→2, energy 50→45, happiness 24→23, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 49→45, energy 6→5, happiness 44→42, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 4→3, energy 25→23, happiness 23→22, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 47→45, energy 50→49, happiness 18→15, state: angry
+[worker] run - 2025-10-28T14:33:09.354Z (delay 69127ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 35→31, energy 17→15, happiness 5→2, state: angry
+✅ Monster jacques (1761561497605): hunger 23→20, energy 45→43, happiness 9→6, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 2→0, energy 33→29, happiness 8→5, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 46→41, energy 45→43, happiness 16→14, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 29→28, energy 5→0, happiness 9→8, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→47, energy 47→46, happiness 5→2, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→48, energy 38→35, happiness 20→18, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 37→34, energy 50→49, happiness 38→37, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 45→44, energy 17→15, happiness 19→17, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 39→35, energy 43→42, happiness 13→10, state: angry
+[worker] run - 2025-10-28T14:33:56.839Z (delay 47261ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 25→20, energy 5→2, happiness 46→43, state: angry
+✅ Monster jacques (1761561497605): hunger 13→11, energy 33→31, happiness 1→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 42→39, energy 19→17, happiness 49→48, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 35→33, energy 36→32, happiness 9→7, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 20→19, energy 39→35, happiness 2→0, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 39→36, energy 34→33, happiness 47→44, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 37→34, energy 26→21, happiness 11→8, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 24→20, energy 40→37, happiness 29→27, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 34→29, energy 5→3, happiness 11→9, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 28→27, energy 29→24, happiness 1→0, state: angry
+[worker] run - 2025-10-28T14:34:43.868Z (delay 46820ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 19→18, energy 50→48, happiness 41→38, state: angry
+✅ Monster jacques (1761561497605): hunger 6→1, energy 28→25, happiness 47→45, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 37→32, energy 16→14, happiness 47→44, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 29→27, energy 29→26, happiness 5→3, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 18→16, energy 33→31, happiness 49→47, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 34→29, energy 29→26, happiness 41→40, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 33→28, energy 18→14, happiness 7→4, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 15→14, energy 35→33, happiness 25→22, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 28→24, energy 50→46, happiness 7→5, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 23→20, energy 21→20, happiness 49→47, state: hungry
+[worker] run - 2025-10-28T14:36:06.905Z (delay 82810ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 12→11, energy 40→38, happiness 32→30, state: angry
+✅ Monster jacques (1761561497605): hunger 43→38, energy 17→14, happiness 37→35, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 21→16, energy 5→1, happiness 40→39, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 18→13, energy 21→17, happiness 49→46, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 7→5, energy 27→24, happiness 42→40, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 23→21, energy 18→14, happiness 33→31, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 17→13, energy 4→0, happiness 48→47, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 3→0, energy 24→19, happiness 14→11, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 11→9, energy 36→31, happiness 50→48, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 13→9, energy 9→4, happiness 39→37, state: angry
+[worker] run - 2025-10-28T14:37:21.167Z (delay 74047ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 3→1, energy 29→28, happiness 26→25, state: angry
+✅ Monster jacques (1761561497605): hunger 33→32, energy 9→5, happiness 30→29, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 6→3, energy 49→48, happiness 35→32, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 10→9, energy 12→9, happiness 42→39, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→45, energy 18→13, happiness 36→34, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 18→14, energy 4→3, happiness 26→24, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 8→7, energy 41→40, happiness 44→41, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 47→44, energy 12→7, happiness 7→5, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 1→0, energy 23→21, happiness 45→42, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 4→0, energy 45→44, happiness 33→30, state: angry
+[worker] run - 2025-10-28T14:38:14.608Z (delay 53217ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 48→46, energy 22→21, happiness 23→22, state: sleepy
+✅ Monster jacques (1761561497605): hunger 25→22, energy 50→47, happiness 25→24, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 47→46, energy 45→44, happiness 28→26, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→45, energy 1→0, happiness 34→32, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 40→39, energy 6→3, happiness 32→30, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 9→6, energy 50→47, happiness 19→16, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 1→0, energy 34→33, happiness 36→34, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 35→33, energy 1→0, happiness 3→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 44→41, energy 18→13, happiness 37→36, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 42→38, energy 37→35, happiness 24→21, state: sad
+[worker] run - 2025-10-28T14:39:09.249Z (delay 54424ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 40→35, energy 17→13, happiness 17→16, state: angry
+✅ Monster jacques (1761561497605): hunger 17→16, energy 38→37, happiness 19→18, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 41→39, energy 39→35, happiness 23→20, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 40→39, energy 41→37, happiness 29→28, state: sad
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 34→33, energy 50→48, happiness 26→24, state: sad
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→47, energy 39→38, happiness 10→9, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 45→42, energy 25→20, happiness 30→29, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 26→21, energy 41→36, happiness 46→44, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 38→33, energy 9→6, happiness 32→31, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 33→32, energy 26→25, happiness 17→14, state: angry
+[worker] run - 2025-10-28T14:40:16.673Z (delay 67203ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 30→29, energy 8→5, happiness 12→10, state: angry
+✅ Monster jacques (1761561497605): hunger 10→7, energy 31→28, happiness 13→10, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 32→28, energy 27→22, happiness 15→14, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 32→27, energy 33→32, happiness 22→19, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 24→20, energy 44→43, happiness 21→19, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 43→38, energy 32→30, happiness 5→3, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 38→36, energy 14→11, happiness 25→23, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 12→9, energy 32→27, happiness 40→39, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 27→24, energy 50→45, happiness 28→25, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 26→21, energy 19→14, happiness 10→7, state: angry
+[worker] run - 2025-10-28T14:41:21.177Z (delay 64269ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 25→24, energy 50→47, happiness 4→3, state: angry
+✅ Monster jacques (1761561497605): hunger 50→47, energy 23→19, happiness 7→6, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 24→23, energy 16→13, happiness 8→6, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 23→20, energy 26→21, happiness 14→12, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 13→11, energy 40→35, happiness 15→14, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 31→28, energy 24→19, happiness 50→48, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 27→25, energy 7→4, happiness 17→14, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 7→5, energy 22→18, happiness 35→34, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 16→12, energy 38→36, happiness 21→20, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 18→17, energy 8→3, happiness 1→0, state: angry
+[worker] run - 2025-10-28T14:42:46.152Z (delay 84760ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 13→8, energy 36→35, happiness 44→42, state: angry
+✅ Monster jacques (1761561497605): hunger 41→38, energy 11→6, happiness 47→44, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 12→10, energy 2→0, happiness 50→47, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 8→7, energy 8→3, happiness 2→0, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→46, energy 25→21, happiness 7→4, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 16→11, energy 6→1, happiness 42→39, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→16, energy 43→42, happiness 7→5, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 45→42, energy 6→1, happiness 24→21, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→49, energy 21→20, happiness 10→8, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 2→0, energy 42→41, happiness 42→40, state: angry
+[worker] run - 2025-10-28T14:43:56.447Z (delay 70014ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 6→5, energy 29→24, happiness 39→36, state: angry
+✅ Monster jacques (1761561497605): hunger 31→27, energy 50→49, happiness 38→36, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 3→1, energy 44→40, happiness 43→42, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 2→0, energy 49→45, happiness 48→47, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 40→36, energy 15→13, happiness 50→49, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 6→5, energy 46→42, happiness 34→31, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 8→3, energy 36→33, happiness 1→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 37→34, energy 45→42, happiness 17→16, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 43→40, energy 13→10, happiness 5→3, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 47→43, energy 36→31, happiness 34→33, state: sleepy
+[worker] run - 2025-10-28T14:45:14.738Z (delay 78086ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→45, energy 17→13, happiness 33→30, state: angry
+✅ Monster jacques (1761561497605): hunger 24→23, energy 42→41, happiness 31→28, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 46→43, energy 33→30, happiness 38→37, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 45→44, energy 42→39, happiness 45→44, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 26→24, energy 7→5, happiness 44→41, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→48, energy 37→33, happiness 26→24, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 45→41, energy 27→24, happiness 48→47, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 27→22, energy 35→34, happiness 10→9, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 36→31, energy 2→0, happiness 50→49, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 37→34, energy 24→19, happiness 28→25, state: angry
+[worker] run - 2025-10-28T14:46:32.741Z (delay 77810ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 37→35, energy 10→9, happiness 24→21, state: angry
+✅ Monster jacques (1761561497605): hunger 19→16, energy 32→29, happiness 24→22, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 37→34, energy 23→22, happiness 32→30, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 39→35, energy 31→26, happiness 39→38, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 20→17, energy 1→0, happiness 37→35, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 38→36, energy 27→22, happiness 20→19, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 34→31, energy 17→16, happiness 43→41, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 14→9, energy 27→23, happiness 6→4, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 25→20, energy 42→39, happiness 46→43, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 27→22, energy 13→8, happiness 21→19, state: angry
+[worker] run - 2025-10-28T14:47:43.386Z (delay 70453ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 25→24, energy 1→0, happiness 13→12, state: angry
+✅ Monster jacques (1761561497605): hunger 8→3, energy 20→15, happiness 18→16, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 23→19, energy 11→6, happiness 24→21, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 29→24, energy 15→10, happiness 31→28, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 4→0, energy 41→36, happiness 32→31, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 25→22, energy 14→11, happiness 10→7, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 24→22, energy 8→3, happiness 35→32, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 4→3, energy 17→14, happiness 50→49, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 7→6, energy 30→26, happiness 36→33, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 16→13, energy 49→46, happiness 12→10, state: angry
+[worker] run - 2025-10-28T14:48:31.359Z (delay 47736ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 24→23, energy 50→46, happiness 12→9, state: angry
+✅ Monster jacques (1761561497605): hunger 3→0, energy 15→10, happiness 16→15, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 19→16, energy 6→3, happiness 21→18, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 24→23, energy 10→5, happiness 28→25, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→47, energy 36→35, happiness 31→28, state: sad
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 22→21, energy 11→7, happiness 7→4, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 22→19, energy 3→0, happiness 32→31, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 3→2, energy 14→13, happiness 49→48, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 6→1, energy 26→22, happiness 33→31, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 13→9, energy 46→44, happiness 10→8, state: angry
+[worker] run - 2025-10-28T14:49:51.835Z (delay 80278ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 15→10, energy 35→31, happiness 2→1, state: angry
+✅ Monster jacques (1761561497605): hunger 42→37, energy 3→0, happiness 5→3, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 7→3, energy 39→34, happiness 8→7, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 8→3, energy 39→35, happiness 18→16, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 33→28, energy 23→19, happiness 19→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 8→7, energy 44→43, happiness 48→46, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 3→0, energy 40→35, happiness 24→22, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 40→37, energy 6→3, happiness 39→38, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 38→36, energy 13→9, happiness 26→23, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 5→4, energy 36→35, happiness 1→0, state: angry
+[worker] run - 2025-10-28T14:50:53.215Z (delay 61169ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 6→4, energy 26→25, happiness 50→49, state: angry
+✅ Monster jacques (1761561497605): hunger 36→35, energy 45→41, happiness 1→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 1→0, energy 31→29, happiness 4→2, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→46, energy 33→31, happiness 13→10, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 24→23, energy 14→10, happiness 16→15, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 5→0, energy 42→37, happiness 45→44, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 45→41, energy 30→25, happiness 21→20, state: sad
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 35→32, energy 50→46, happiness 36→33, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 34→30, energy 5→1, happiness 20→18, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→46, energy 30→25, happiness 48→45, state: sleepy
+[worker] run - 2025-10-28T14:51:55.556Z (delay 62122ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 1→0, energy 20→15, happiness 46→44, state: angry
+✅ Monster jacques (1761561497605): hunger 30→28, energy 39→34, happiness 48→47, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 40→35, energy 20→16, happiness 48→47, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 41→39, energy 21→16, happiness 6→4, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 17→15, energy 4→1, happiness 11→9, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 44→43, energy 31→30, happiness 38→35, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 35→33, energy 17→12, happiness 17→15, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 27→22, energy 40→35, happiness 29→26, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 25→24, energy 47→46, happiness 16→13, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 39→34, energy 17→15, happiness 42→41, state: angry
+[worker] run - 2025-10-28T14:52:31.943Z (delay 36134ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 45→43, energy 13→8, happiness 42→41, state: angry
+✅ Monster jacques (1761561497605): hunger 27→22, energy 29→24, happiness 46→45, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 30→29, energy 15→13, happiness 45→42, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 34→31, energy 15→13, happiness 1→0, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 13→11, energy 50→45, happiness 6→5, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 41→38, energy 29→24, happiness 34→33, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 31→28, energy 8→7, happiness 13→10, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 21→18, energy 33→30, happiness 23→21, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 19→17, energy 43→42, happiness 11→10, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 29→28, energy 13→12, happiness 38→36, state: angry
+[worker] run - 2025-10-28T14:53:03.409Z (delay 31260ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 38→34, energy 3→0, happiness 38→37, state: angry
+✅ Monster jacques (1761561497605): hunger 18→13, energy 16→11, happiness 40→37, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 22→20, energy 8→7, happiness 36→33, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 26→22, energy 9→4, happiness 47→46, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 3→0, energy 43→39, happiness 3→2, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 30→28, energy 17→14, happiness 29→27, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 22→19, energy 3→0, happiness 6→5, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 11→6, energy 21→17, happiness 17→16, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 8→3, energy 33→32, happiness 6→3, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 26→23, energy 5→1, happiness 32→30, state: angry
+[worker] run - 2025-10-28T14:54:15.512Z (delay 71878ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 27→25, energy 43→38, happiness 34→33, state: hungry
+✅ Monster jacques (1761561497605): hunger 5→2, energy 4→1, happiness 33→31, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 14→10, energy 50→46, happiness 29→28, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 19→17, energy 46→45, happiness 43→41, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 42→40, energy 34→31, happiness 48→47, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 19→15, energy 6→4, happiness 22→21, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 16→15, energy 43→42, happiness 1→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→49, energy 8→4, happiness 13→10, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→45, energy 28→24, happiness 1→0, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 15→10, energy 47→42, happiness 26→24, state: angry
+[worker] run - 2025-10-28T14:54:51.821Z (delay 36090ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 21→17, energy 35→33, happiness 32→30, state: angry
+✅ Monster jacques (1761561497605): hunger 50→48, energy 50→45, happiness 29→26, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 5→1, energy 44→41, happiness 27→25, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 16→11, energy 40→38, happiness 40→37, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 36→32, energy 28→25, happiness 46→45, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 10→6, energy 50→45, happiness 20→17, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 12→8, energy 39→35, happiness 47→44, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 46→45, energy 2→1, happiness 8→5, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 40→39, energy 21→18, happiness 48→47, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 9→4, energy 38→37, happiness 22→20, state: angry
+[worker] run - 2025-10-28T14:56:17.119Z (delay 85059ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 3→2, energy 28→26, happiness 22→20, state: angry
+✅ Monster jacques (1761561497605): hunger 37→35, energy 36→31, happiness 17→14, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 40→38, energy 27→26, happiness 20→18, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 5→2, energy 27→23, happiness 31→28, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 20→18, energy 16→14, happiness 41→39, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 49→45, energy 37→32, happiness 10→8, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→49, energy 26→22, happiness 39→37, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 37→35, energy 44→39, happiness 1→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 29→26, energy 7→4, happiness 44→42, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 1→0, energy 28→26, happiness 16→14, state: angry
+[worker] run - 2025-10-28T14:57:30.103Z (delay 72749ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→49, energy 24→20, happiness 18→17, state: angry
+✅ Monster jacques (1761561497605): hunger 32→28, energy 28→25, happiness 13→11, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 33→29, energy 25→20, happiness 16→15, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→45, energy 22→17, happiness 25→22, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 14→12, energy 13→9, happiness 37→34, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 41→38, energy 31→30, happiness 7→5, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 46→41, energy 21→20, happiness 35→33, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 33→29, energy 37→36, happiness 48→45, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 22→17, energy 2→1, happiness 40→39, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 48→45, energy 21→19, happiness 11→8, state: angry
+[worker] run - 2025-10-28T14:58:15.585Z (delay 45254ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 37→35, energy 10→7, happiness 10→8, state: angry
+✅ Monster jacques (1761561497605): hunger 18→15, energy 16→14, happiness 3→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 22→18, energy 9→8, happiness 12→10, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 31→28, energy 5→2, happiness 17→14, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 4→3, energy 50→48, happiness 28→26, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 29→27, energy 23→19, happiness 50→49, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 34→31, energy 15→13, happiness 27→25, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 19→15, energy 24→19, happiness 41→40, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 7→2, energy 45→40, happiness 31→28, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 39→38, energy 11→10, happiness 2→0, state: angry
+[worker] run - 2025-10-28T14:58:51.051Z (delay 35253ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 33→31, energy 5→3, happiness 5→4, state: angry
+✅ Monster jacques (1761561497605): hunger 14→9, energy 10→7, happiness 48→46, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 13→11, energy 5→0, happiness 7→6, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 23→21, energy 50→46, happiness 13→10, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→47, energy 44→42, happiness 25→23, state: sad
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 24→19, energy 16→14, happiness 47→45, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 28→27, energy 9→8, happiness 24→21, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 11→7, energy 17→14, happiness 38→37, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→46, energy 35→34, happiness 25→24, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 35→31, energy 5→2, happiness 48→47, state: angry
+[worker] run - 2025-10-28T14:59:45.072Z (delay 53795ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 28→24, energy 45→40, happiness 2→0, state: angry
+✅ Monster jacques (1761561497605): hunger 4→2, energy 4→2, happiness 42→41, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 6→4, energy 44→41, happiness 1→0, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 16→13, energy 40→37, happiness 7→5, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 41→36, energy 35→30, happiness 18→15, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 12→8, energy 7→2, happiness 42→40, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 23→21, energy 2→0, happiness 16→14, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 2→0, energy 11→8, happiness 32→31, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 41→36, energy 29→24, happiness 20→17, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 26→23, energy 49→45, happiness 41→38, state: hungry
+[worker] run - 2025-10-28T15:00:54.443Z (delay 69162ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 18→16, energy 31→26, happiness 47→46, state: angry
+✅ Monster jacques (1761561497605): hunger 45→42, energy 50→49, happiness 36→34, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 46→45, energy 36→31, happiness 47→44, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 8→6, energy 30→29, happiness 50→49, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 26→25, energy 24→19, happiness 11→8, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 5→1, energy 47→44, happiness 37→35, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 16→13, energy 44→41, happiness 10→8, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 45→40, energy 3→0, happiness 26→25, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 28→25, energy 16→12, happiness 14→12, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 13→8, energy 39→34, happiness 34→33, state: angry
+[worker] run - 2025-10-28T15:01:25.050Z (delay 30404ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 16→14, energy 26→22, happiness 46→43, state: angry
+✅ Monster jacques (1761561497605): hunger 42→40, energy 49→45, happiness 34→31, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 45→41, energy 31→26, happiness 44→41, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 6→2, energy 29→25, happiness 49→47, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 25→24, energy 19→18, happiness 8→5, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 1→0, energy 44→43, happiness 35→33, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 13→8, energy 41→38, happiness 8→5, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 40→35, energy 50→49, happiness 25→24, state: sad
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 25→22, energy 12→10, happiness 12→9, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 8→3, energy 34→30, happiness 33→32, state: angry
+[worker] run - 2025-10-28T15:01:59.017Z (delay 33761ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 5→2, energy 17→16, happiness 39→37, state: angry
+✅ Monster jacques (1761561497605): hunger 37→33, energy 39→37, happiness 27→26, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 38→36, energy 17→16, happiness 39→36, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→46, energy 22→18, happiness 43→40, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 15→13, energy 12→8, happiness 50→49, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 45→43, energy 37→34, happiness 28→26, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 4→0, energy 32→31, happiness 2→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 26→21, energy 43→38, happiness 18→15, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 16→13, energy 5→1, happiness 6→5, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 45→41, energy 24→19, happiness 28→26, state: angry
+[worker] run - 2025-10-28T15:03:00.331Z (delay 61098ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 48→44, energy 9→8, happiness 33→32, state: angry
+✅ Monster jacques (1761561497605): hunger 30→29, energy 31→28, happiness 21→19, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 31→30, energy 8→7, happiness 34→33, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 41→39, energy 12→11, happiness 36→34, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 10→8, energy 3→2, happiness 43→40, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 37→34, energy 28→26, happiness 20→18, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 47→42, energy 24→19, happiness 47→46, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 15→11, energy 35→32, happiness 10→8, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 7→2, energy 46→45, happiness 50→47, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 35→31, energy 13→8, happiness 23→21, state: angry
+[worker] run - 2025-10-28T15:04:19.785Z (delay 79237ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 35→33, energy 47→43, happiness 26→23, state: sad
+✅ Monster jacques (1761561497605): hunger 18→15, energy 18→14, happiness 10→7, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 21→17, energy 49→48, happiness 27→25, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 28→24, energy 50→47, happiness 28→25, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→46, energy 41→37, happiness 33→32, state: sad
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 21→16, energy 22→21, happiness 11→9, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 31→27, energy 10→8, happiness 42→39, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 3→2, energy 22→21, happiness 4→1, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 43→39, energy 36→32, happiness 40→38, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 22→17, energy 2→1, happiness 13→10, state: angry
+[worker] run - 2025-10-28T15:05:39.089Z (delay 79090ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 25→22, energy 38→34, happiness 21→20, state: sad
+✅ Monster jacques (1761561497605): hunger 9→5, energy 10→5, happiness 3→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 12→8, energy 41→38, happiness 19→17, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 15→13, energy 41→39, happiness 20→19, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 43→38, energy 31→28, happiness 28→26, state: sad
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 12→11, energy 19→14, happiness 3→0, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→15, energy 4→0, happiness 33→31, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→49, energy 16→13, happiness 49→46, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 32→29, energy 23→21, happiness 34→33, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 10→9, energy 45→40, happiness 5→2, state: angry
+[worker] run - 2025-10-28T15:07:07.070Z (delay 87775ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 12→10, energy 26→24, happiness 13→11, state: angry
+✅ Monster jacques (1761561497605): hunger 48→46, energy 49→46, happiness 43→40, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 50→47, energy 30→26, happiness 11→10, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 6→5, energy 33→32, happiness 15→12, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 27→23, energy 21→18, happiness 23→21, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 5→2, energy 8→5, happiness 42→41, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 5→2, energy 42→41, happiness 25→23, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 40→36, energy 1→0, happiness 40→38, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 17→16, energy 12→8, happiness 29→26, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 1→0, energy 28→24, happiness 47→44, state: angry
+[worker] run - 2025-10-28T15:07:50.432Z (delay 43142ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 5→2, energy 21→19, happiness 9→6, state: angry
+✅ Monster jacques (1761561497605): hunger 43→41, energy 41→38, happiness 37→36, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 45→43, energy 24→21, happiness 7→5, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 2→1, energy 31→26, happiness 11→8, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 21→18, energy 14→13, happiness 19→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→48, energy 50→49, happiness 40→37, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→49, energy 36→34, happiness 22→19, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 32→30, energy 46→42, happiness 37→36, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 15→11, energy 7→4, happiness 24→22, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 46→44, energy 22→19, happiness 43→41, state: angry
+[worker] run - 2025-10-28T15:09:18.046Z (delay 87389ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 36→34, energy 5→1, happiness 48→46, state: angry
+✅ Monster jacques (1761561497605): hunger 27→24, energy 20→17, happiness 29→28, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 33→32, energy 5→3, happiness 43→42, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 36→31, energy 14→12, happiness 50→48, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 3→2, energy 50→45, happiness 7→4, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 36→32, energy 31→26, happiness 25→23, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 29→28, energy 21→18, happiness 12→10, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 15→10, energy 27→24, happiness 23→22, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 49→44, energy 43→38, happiness 12→11, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 26→21, energy 10→8, happiness 29→27, state: angry
+[worker] run - 2025-10-28T15:09:53.795Z (delay 35548ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 34→33, energy 1→0, happiness 46→44, state: angry
+✅ Monster jacques (1761561497605): hunger 24→19, energy 17→14, happiness 28→25, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 32→30, energy 3→0, happiness 42→41, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 31→30, energy 12→9, happiness 48→45, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 2→0, energy 45→43, happiness 4→2, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 32→27, energy 26→21, happiness 23→22, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 28→26, energy 18→15, happiness 10→7, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 10→7, energy 24→23, happiness 22→21, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 44→42, energy 38→33, happiness 11→10, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 21→17, energy 8→5, happiness 27→24, state: angry
+[worker] run - 2025-10-28T15:10:28.022Z (delay 34021ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 25→22, energy 48→43, happiness 40→38, state: hungry
+✅ Monster jacques (1761561497605): hunger 15→13, energy 8→3, happiness 20→17, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 23→20, energy 42→40, happiness 36→35, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 24→19, energy 2→0, happiness 41→39, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 44→41, energy 34→32, happiness 49→47, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 19→17, energy 15→12, happiness 17→15, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 23→19, energy 10→5, happiness 2→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 4→1, energy 17→15, happiness 16→15, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 33→29, energy 30→26, happiness 5→2, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 14→11, energy 3→2, happiness 20→19, state: angry
+[worker] run - 2025-10-28T15:10:59.081Z (delay 30764ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 22→18, energy 43→38, happiness 38→37, state: angry
+✅ Monster jacques (1761561497605): hunger 13→10, energy 3→2, happiness 17→16, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 20→17, energy 40→35, happiness 35→33, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 19→15, energy 50→48, happiness 39→37, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 41→38, energy 32→29, happiness 47→46, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 17→14, energy 12→8, happiness 15→14, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 19→18, energy 5→3, happiness 50→47, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 1→0, energy 15→10, happiness 15→13, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 29→26, energy 26→24, happiness 2→1, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 11→8, energy 2→0, happiness 19→18, state: angry
+[worker] run - 2025-10-28T15:11:51.668Z (delay 52199ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 10→8, energy 31→26, happiness 34→32, state: angry
+✅ Monster jacques (1761561497605): hunger 6→2, energy 45→43, happiness 12→9, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 14→12, energy 26→25, happiness 31→30, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 13→11, energy 46→45, happiness 31→28, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 31→29, energy 26→21, happiness 43→42, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 9→7, energy 6→1, happiness 12→9, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 16→14, energy 2→0, happiness 46→44, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 49→45, energy 7→3, happiness 11→9, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 22→21, energy 19→15, happiness 50→49, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 6→2, energy 49→45, happiness 16→15, state: angry
+[worker] run - 2025-10-28T15:12:57.857Z (delay 65967ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 3→1, energy 19→17, happiness 28→26, state: angry
+✅ Monster jacques (1761561497605): hunger 49→47, energy 34→31, happiness 3→1, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 7→4, energy 22→19, happiness 27→26, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 5→3, energy 40→39, happiness 23→20, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 25→23, energy 14→11, happiness 39→36, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 1→0, energy 49→48, happiness 5→3, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 7→6, energy 44→43, happiness 41→38, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 38→35, energy 50→48, happiness 5→4, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 12→10, energy 9→8, happiness 45→44, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→47, energy 38→35, happiness 12→10, state: angry
+[worker] run - 2025-10-28T15:14:03.634Z (delay 65572ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 44→41, energy 4→0, happiness 22→19, state: angry
+✅ Monster jacques (1761561497605): hunger 37→36, energy 22→17, happiness 45→44, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 47→46, energy 6→5, happiness 19→18, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 43→41, energy 30→29, happiness 16→14, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 13→10, energy 5→2, happiness 29→26, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 40→39, energy 44→40, happiness 46→44, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 48→45, energy 34→32, happiness 33→32, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 28→27, energy 37→33, happiness 49→48, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 3→0, energy 47→44, happiness 38→35, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 37→33, energy 24→21, happiness 5→4, state: angry
+[worker] run - 2025-10-28T15:15:14.527Z (delay 70697ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 35→33, energy 48→46, happiness 15→12, state: angry
+✅ Monster jacques (1761561497605): hunger 30→26, energy 12→10, happiness 40→37, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 42→41, energy 50→47, happiness 13→11, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 35→34, energy 22→20, happiness 8→6, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 5→4, energy 48→44, happiness 21→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 36→33, energy 34→33, happiness 41→40, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 41→40, energy 29→26, happiness 29→28, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 19→16, energy 29→27, happiness 44→42, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 42→41, energy 38→36, happiness 30→29, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 26→25, energy 16→15, happiness 1→0, state: angry
+[worker] run - 2025-10-28T15:15:52.673Z (delay 37922ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 31→27, energy 44→43, happiness 10→8, state: angry
+✅ Monster jacques (1761561497605): hunger 21→18, energy 8→5, happiness 34→33, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 39→37, energy 43→39, happiness 8→7, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 31→26, energy 18→16, happiness 3→1, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 3→0, energy 41→39, happiness 15→13, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 30→29, energy 31→26, happiness 37→35, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 39→36, energy 23→20, happiness 27→25, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 13→11, energy 26→22, happiness 41→38, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 39→38, energy 35→33, happiness 27→26, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 22→21, energy 14→12, happiness 49→48, state: angry
+[worker] run - 2025-10-28T15:16:26.562Z (delay 33701ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 24→20, energy 40→37, happiness 7→4, state: angry
+✅ Monster jacques (1761561497605): hunger 16→12, energy 50→48, happiness 31→28, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 35→34, energy 36→32, happiness 5→3, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 22→17, energy 12→8, happiness 50→49, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 47→44, energy 36→33, happiness 11→9, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 25→24, energy 21→20, happiness 34→31, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 33→28, energy 15→14, happiness 22→20, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 10→9, energy 17→13, happiness 35→32, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 33→30, energy 29→25, happiness 23→21, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 20→17, energy 11→6, happiness 46→45, state: angry
+[worker] run - 2025-10-28T15:17:14.452Z (delay 47689ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 16→11, energy 31→30, happiness 50→48, state: angry
+✅ Monster jacques (1761561497605): hunger 8→4, energy 44→43, happiness 24→22, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 27→25, energy 23→21, happiness 50→48, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 15→14, energy 50→46, happiness 45→42, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 39→36, energy 25→20, happiness 5→3, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 22→18, energy 17→15, happiness 27→26, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 25→20, energy 4→1, happiness 17→15, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 5→4, energy 4→0, happiness 30→28, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 22→21, energy 17→15, happiness 17→14, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 10→9, energy 50→49, happiness 42→39, state: angry
+[worker] run - 2025-10-28T15:18:18.606Z (delay 63909ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 5→3, energy 27→25, happiness 44→42, state: angry
+✅ Monster jacques (1761561497605): hunger 48→44, energy 39→35, happiness 19→16, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 22→20, energy 18→15, happiness 45→44, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 9→7, energy 39→38, happiness 39→38, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 30→25, energy 13→9, happiness 49→46, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 13→12, energy 9→8, happiness 23→20, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 15→10, energy 48→43, happiness 12→9, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 48→44, energy 47→43, happiness 24→22, state: sad
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 13→8, energy 11→7, happiness 11→8, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→48, energy 46→44, happiness 33→30, state: sad
+[worker] run - 2025-10-28T15:18:53.319Z (delay 34516ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 49→48, energy 18→13, happiness 36→34, state: angry
+✅ Monster jacques (1761561497605): hunger 40→37, energy 27→26, happiness 11→10, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 14→10, energy 12→9, happiness 40→38, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→48, energy 32→31, happiness 35→34, state: sleepy
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 21→19, energy 4→3, happiness 41→39, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 5→4, energy 2→0, happiness 14→11, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 7→4, energy 40→35, happiness 7→4, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 39→38, energy 34→30, happiness 17→15, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→45, energy 1→0, happiness 3→0, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 40→38, energy 39→35, happiness 25→23, state: sad
+[worker] run - 2025-10-28T15:20:19.335Z (delay 85799ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 39→38, energy 6→5, happiness 27→24, state: angry
+✅ Monster jacques (1761561497605): hunger 26→24, energy 19→16, happiness 5→4, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 1→0, energy 3→2, happiness 33→32, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 42→38, energy 20→15, happiness 27→25, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 8→6, energy 42→39, happiness 35→34, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 49→45, energy 43→39, happiness 5→3, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 45→43, energy 26→24, happiness 48→45, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 31→29, energy 24→19, happiness 11→10, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 54→53, energy 43→38, happiness 45→42, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 32→29, energy 31→27, happiness 17→16, state: angry
+[worker] run - 2025-10-28T15:21:14.950Z (delay 55425ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 30→28, energy 2→0, happiness 20→19, state: angry
+✅ Monster jacques (1761561497605): hunger 17→14, energy 11→7, happiness 2→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 45→42, energy 47→46, happiness 27→26, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 36→34, energy 6→5, happiness 22→20, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 4→0, energy 32→27, happiness 30→27, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 42→38, energy 33→30, happiness 1→0, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 37→35, energy 16→11, happiness 40→38, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 22→18, energy 12→10, happiness 5→4, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 97→94, energy 97→95, happiness 97→94, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 25→23, energy 19→14, happiness 13→12, state: angry
+[worker] run - 2025-10-28T15:22:23.413Z (delay 68193ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 21→19, energy 42→40, happiness 17→15, state: angry
+✅ Monster jacques (1761561497605): hunger 9→8, energy 5→1, happiness 45→43, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 34→29, energy 40→36, happiness 24→21, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 27→23, energy 49→44, happiness 17→16, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 44→39, energy 20→18, happiness 21→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 33→31, energy 24→23, happiness 44→43, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 29→24, energy 5→3, happiness 34→32, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 14→11, energy 3→0, happiness 1→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 89→87, energy 91→89, happiness 89→86, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 14→10, energy 9→4, happiness 8→6, state: angry
+[worker] run - 2025-10-28T15:23:42.976Z (delay 79335ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 13→9, energy 34→31, happiness 11→9, state: angry
+✅ Monster jacques (1761561497605): hunger 50→46, energy 47→43, happiness 39→38, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 20→18, energy 27→26, happiness 16→14, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 19→16, energy 41→40, happiness 12→10, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 36→31, energy 13→10, happiness 12→11, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 22→18, energy 20→15, happiness 40→39, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→15, energy 50→45, happiness 28→25, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 5→4, energy 43→39, happiness 46→43, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 85→83, energy 84→81, happiness 83→80, state: happy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 5→2, energy 1→0, happiness 2→0, state: angry
+[worker] run - 2025-10-28T15:24:24.377Z (delay 41194ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 2→0, energy 22→17, happiness 5→2, state: angry
+✅ Monster jacques (1761561497605): hunger 40→37, energy 38→34, happiness 34→33, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 13→9, energy 24→22, happiness 9→8, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 10→8, energy 34→31, happiness 7→6, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 22→17, energy 4→1, happiness 6→5, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 16→12, energy 11→7, happiness 35→34, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 12→7, energy 40→38, happiness 22→21, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→48, energy 32→28, happiness 39→37, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 74→70, energy 73→72, happiness 77→76, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 45→44, energy 42→39, happiness 46→43, state: sleepy
+[worker] run - 2025-10-28T15:25:07.480Z (delay 42899ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→48, energy 17→12, happiness 2→0, state: angry
+✅ Monster jacques (1761561497605): hunger 37→32, energy 34→31, happiness 33→32, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 9→8, energy 22→21, happiness 8→6, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 8→3, energy 31→26, happiness 6→5, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 17→13, energy 1→0, happiness 5→2, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 12→9, energy 7→2, happiness 34→32, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 7→6, energy 38→35, happiness 21→20, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 48→46, energy 28→26, happiness 37→35, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 70→69, energy 72→71, happiness 76→75, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 44→39, energy 39→38, happiness 43→42, state: sleepy
+[worker] run - 2025-10-28T15:26:16.471Z (delay 68705ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 35→33, energy 49→44, happiness 43→40, state: hungry
+✅ Monster jacques (1761561497605): hunger 24→22, energy 23→20, happiness 23→20, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 49→44, energy 8→5, happiness 1→0, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 46→41, energy 15→14, happiness 48→45, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 2→1, energy 39→37, happiness 43→41, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 46→43, energy 38→37, happiness 23→22, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 47→43, energy 20→16, happiness 9→6, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 32→31, energy 12→10, happiness 28→25, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 55→53, energy 59→55, happiness 69→67, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 21→18, energy 24→22, happiness 35→33, state: angry
+[worker] run - 2025-10-28T15:27:04.058Z (delay 47307ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 23→21, energy 36→31, happiness 36→33, state: hungry
+✅ Monster jacques (1761561497605): hunger 14→10, energy 13→11, happiness 16→13, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 36→34, energy 45→41, happiness 48→45, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 34→30, energy 7→4, happiness 40→38, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 48→47, energy 33→29, happiness 36→34, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 38→37, energy 33→28, happiness 17→16, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 34→31, energy 9→4, happiness 2→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 23→21, energy 5→4, happiness 22→20, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 49→46, energy 46→43, happiness 64→62, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 14→11, energy 14→9, happiness 29→27, state: angry
+[worker] run - 2025-10-28T15:28:33.739Z (delay 89475ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 13→9, energy 25→21, happiness 29→26, state: angry
+✅ Monster jacques (1761561497605): hunger 3→2, energy 5→4, happiness 9→6, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 31→28, energy 34→32, happiness 39→38, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 25→21, energy 49→44, happiness 35→32, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 37→32, energy 25→21, happiness 30→28, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 32→29, energy 21→20, happiness 12→10, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 27→26, energy 2→0, happiness 45→42, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 18→13, energy 50→45, happiness 15→14, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 37→34, energy 37→34, happiness 58→57, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 8→4, energy 1→0, happiness 23→21, state: angry
+[worker] run - 2025-10-28T15:29:48.979Z (delay 75033ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→46, energy 10→9, happiness 19→16, state: angry
+✅ Monster jacques (1761561497605): hunger 46→44, energy 45→43, happiness 1→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 19→17, energy 25→22, happiness 31→29, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 14→10, energy 32→28, happiness 25→23, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 23→18, energy 13→9, happiness 20→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 18→14, energy 9→7, happiness 3→2, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 16→13, energy 43→38, happiness 35→33, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 3→0, energy 36→31, happiness 8→5, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 27→25, energy 25→22, happiness 51→49, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 49→47, energy 40→35, happiness 16→14, state: angry
+[worker] run - 2025-10-28T15:30:49.877Z (delay 60693ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 39→34, energy 2→0, happiness 13→12, state: angry
+✅ Monster jacques (1761561497605): hunger 35→32, energy 36→31, happiness 48→45, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 7→4, energy 13→10, happiness 26→25, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 4→0, energy 21→20, happiness 19→17, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 14→10, energy 3→0, happiness 14→11, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 9→7, energy 1→0, happiness 47→45, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 11→10, energy 33→29, happiness 30→28, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 44→40, energy 27→22, happiness 50→47, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 19→16, energy 16→12, happiness 47→45, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 44→41, energy 28→25, happiness 9→8, state: angry
+[worker] run - 2025-10-28T15:32:07.569Z (delay 77486ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 28→25, energy 46→45, happiness 8→6, state: angry
+✅ Monster jacques (1761561497605): hunger 27→24, energy 22→20, happiness 40→37, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 47→46, energy 4→1, happiness 21→20, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 47→43, energy 18→17, happiness 14→13, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 6→1, energy 45→42, happiness 9→8, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 3→0, energy 43→39, happiness 43→42, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 3→0, energy 21→19, happiness 24→21, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 34→33, energy 14→13, happiness 44→41, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 14→9, energy 4→3, happiness 41→39, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 34→30, energy 21→16, happiness 4→2, state: angry
+[worker] run - 2025-10-28T15:32:58.666Z (delay 50885ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 19→18, energy 38→34, happiness 3→2, state: angry
+✅ Monster jacques (1761561497605): hunger 18→16, energy 14→11, happiness 31→30, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 36→32, energy 46→43, happiness 16→13, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 35→32, energy 9→7, happiness 7→6, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 49→47, energy 35→34, happiness 4→2, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 41→36, energy 34→29, happiness 40→37, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 46→43, energy 15→11, happiness 17→15, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 24→23, energy 8→3, happiness 37→35, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 4→3, energy 49→47, happiness 36→35, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 25→20, energy 8→5, happiness 48→47, state: angry
+[worker] run - 2025-10-28T15:49:31.662Z (delay 81707ms)
+Error updating monsters states: MongoServerSelectionError: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+    at Topology.selectServer (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/sdam/topology.js:327:38)
+    at async tryOperation (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/operations/execute_operation.js:196:22)
+    at async executeOperation (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/operations/execute_operation.js:78:16)
+    at async FindCursor._initialize (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/find_cursor.js:62:26)
+    at async FindCursor.cursorInit (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:632:27)
+    at async FindCursor.fetchBatch (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:666:13)
+    at async FindCursor.next (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:342:17)
+    at async [Symbol.asyncIterator] (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:250:34)
+    at async FindCursor.toArray (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:422:26)
+    at async updateMonstersStates (file:///Users/julesruberti/Documents/M1/Cours%20front/tamagocho/cron/db.js:52:22) {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net:27017' => [ServerDescription],
+      'ac-ho9oyjh-shard-00-01.4ehirbx.mongodb.net:27017' => [ServerDescription],
+      'ac-ho9oyjh-shard-00-02.4ehirbx.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-dj7hrc-shard-0',
+    maxElectionId: new ObjectId('7fffffff0000000000000170'),
+    maxSetVersion: 369,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [cause]: MongoNetworkError: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+      at TLSSocket.<anonymous> (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cmap/connect.js:286:44)
+      at Object.onceWrapper (node:events:634:26)
+      at TLSSocket.emit (node:events:519:28)
+      at emitErrorNT (node:internal/streams/destroy:170:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errorLabelSet: Set(1) { 'ResetPool' },
+    beforeHandshake: false,
+    [cause]: Error: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+        at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+      errno: -3008,
+      code: 'ENOTFOUND',
+      syscall: 'getaddrinfo',
+      hostname: 'ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net'
+    }
+  }
+}
+[worker] run - 2025-10-28T16:49:09.481Z (delay 39569ms)
+Error updating monsters states: MongoServerSelectionError: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+    at Topology.selectServer (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/sdam/topology.js:327:38)
+    at async tryOperation (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/operations/execute_operation.js:148:18)
+    at async executeOperation (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/operations/execute_operation.js:78:16)
+    at async FindCursor._initialize (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/find_cursor.js:62:26)
+    at async FindCursor.cursorInit (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:632:27)
+    at async FindCursor.fetchBatch (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:666:13)
+    at async FindCursor.next (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:342:17)
+    at async [Symbol.asyncIterator] (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:250:34)
+    at async FindCursor.toArray (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:422:26)
+    at async updateMonstersStates (file:///Users/julesruberti/Documents/M1/Cours%20front/tamagocho/cron/db.js:52:22) {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net:27017' => [ServerDescription],
+      'ac-ho9oyjh-shard-00-01.4ehirbx.mongodb.net:27017' => [ServerDescription],
+      'ac-ho9oyjh-shard-00-02.4ehirbx.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-dj7hrc-shard-0',
+    maxElectionId: new ObjectId('7fffffff0000000000000170'),
+    maxSetVersion: 369,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [cause]: MongoNetworkError: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+      at TLSSocket.<anonymous> (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cmap/connect.js:286:44)
+      at Object.onceWrapper (node:events:634:26)
+      at TLSSocket.emit (node:events:519:28)
+      at emitErrorNT (node:internal/streams/destroy:170:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errorLabelSet: Set(1) { 'ResetPool' },
+    beforeHandshake: false,
+    [cause]: Error: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+        at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+      errno: -3008,
+      code: 'ENOTFOUND',
+      syscall: 'getaddrinfo',
+      hostname: 'ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net'
+    }
+  }
+}
+[worker] run - 2025-10-28T17:34:23.409Z (delay 89670ms)
+Error updating monsters states: MongoServerSelectionError: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+    at Topology.selectServer (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/sdam/topology.js:327:38)
+    at async tryOperation (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/operations/execute_operation.js:148:18)
+    at async executeOperation (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/operations/execute_operation.js:78:16)
+    at async FindCursor._initialize (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/find_cursor.js:62:26)
+    at async FindCursor.cursorInit (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:632:27)
+    at async FindCursor.fetchBatch (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:666:13)
+    at async FindCursor.next (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:342:17)
+    at async [Symbol.asyncIterator] (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:250:34)
+    at async FindCursor.toArray (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cursor/abstract_cursor.js:422:26)
+    at async updateMonstersStates (file:///Users/julesruberti/Documents/M1/Cours%20front/tamagocho/cron/db.js:52:22) {
+  errorLabelSet: Set(0) {},
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net:27017' => [ServerDescription],
+      'ac-ho9oyjh-shard-00-01.4ehirbx.mongodb.net:27017' => [ServerDescription],
+      'ac-ho9oyjh-shard-00-02.4ehirbx.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-dj7hrc-shard-0',
+    maxElectionId: new ObjectId('7fffffff0000000000000170'),
+    maxSetVersion: 369,
+    commonWireVersion: 0,
+    logicalSessionTimeoutMinutes: null
+  },
+  code: undefined,
+  [cause]: MongoNetworkError: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+      at TLSSocket.<anonymous> (/Users/julesruberti/Documents/M1/Cours front/tamagocho/cron/node_modules/mongodb/lib/cmap/connect.js:286:44)
+      at Object.onceWrapper (node:events:634:26)
+      at TLSSocket.emit (node:events:519:28)
+      at emitErrorNT (node:internal/streams/destroy:170:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+      at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+    errorLabelSet: Set(1) { 'ResetPool' },
+    beforeHandshake: false,
+    [cause]: Error: getaddrinfo ENOTFOUND ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net
+        at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26) {
+      errno: -3008,
+      code: 'ENOTFOUND',
+      syscall: 'getaddrinfo',
+      hostname: 'ac-ho9oyjh-shard-00-00.4ehirbx.mongodb.net'
+    }
+  }
+}
+[worker] run - 2025-10-28T18:12:11.933Z (delay 69579ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 10→6, energy 23→22, happiness 49→47, state: angry
+✅ Monster jacques (1761561497605): hunger 7→3, energy 1→0, happiness 25→23, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 26→25, energy 32→29, happiness 8→6, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 22→21, energy 46→43, happiness 48→45, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 40→37, energy 24→21, happiness 46→43, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 23→22, energy 21→17, happiness 32→29, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 32→30, energy 3→0, happiness 11→9, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 13→8, energy 49→46, happiness 30→28, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→48, energy 42→39, happiness 31→29, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 16→13, energy 50→47, happiness 42→41, state: angry
+[worker] run - 2025-10-28T18:13:24.182Z (delay 69212ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→46, energy 14→10, happiness 44→42, state: angry
+✅ Monster jacques (1761561497605): hunger 49→44, energy 43→40, happiness 19→18, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 17→12, energy 21→18, happiness 3→0, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 15→14, energy 34→33, happiness 42→40, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 28→26, energy 17→13, happiness 39→38, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 14→12, energy 11→7, happiness 25→24, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 26→21, energy 46→41, happiness 5→3, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 3→1, energy 40→37, happiness 26→25, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 39→37, energy 35→33, happiness 25→22, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 4→2, energy 40→37, happiness 36→34, state: angry
+[worker] run - 2025-10-28T18:14:23.354Z (delay 58949ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 39→38, energy 6→4, happiness 39→36, state: angry
+✅ Monster jacques (1761561497605): hunger 41→38, energy 33→30, happiness 14→11, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 3→1, energy 12→7, happiness 44→43, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 10→5, energy 30→26, happiness 35→32, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 17→14, energy 6→3, happiness 35→34, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 9→8, energy 50→46, happiness 18→16, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→16, energy 35→33, happiness 49→46, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 48→44, energy 28→23, happiness 22→19, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 29→26, energy 27→25, happiness 19→17, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→46, energy 32→28, happiness 29→27, state: sad
+[worker] run - 2025-10-28T18:15:20.705Z (delay 57114ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 30→25, energy 1→0, happiness 31→30, state: angry
+✅ Monster jacques (1761561497605): hunger 29→25, energy 22→18, happiness 8→6, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 49→48, energy 1→0, happiness 40→39, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→46, energy 18→16, happiness 28→25, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 10→8, energy 50→49, happiness 28→27, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→48, energy 40→35, happiness 11→10, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 9→7, energy 30→27, happiness 43→42, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 38→35, energy 17→14, happiness 15→12, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 17→15, energy 22→19, happiness 15→13, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 37→36, energy 22→20, happiness 24→21, state: sleepy
+[worker] run - 2025-10-28T18:16:36.497Z (delay 75575ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 16→11, energy 38→34, happiness 25→24, state: angry
+✅ Monster jacques (1761561497605): hunger 13→10, energy 6→4, happiness 1→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 37→32, energy 47→43, happiness 36→34, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 37→36, energy 5→1, happiness 20→18, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 1→0, energy 44→41, happiness 22→21, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 39→38, energy 24→20, happiness 1→0, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→46, energy 20→16, happiness 36→35, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 25→20, energy 8→3, happiness 8→6, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 8→3, energy 11→9, happiness 10→7, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 30→25, energy 10→6, happiness 14→11, state: angry
+[worker] run - 2025-10-28T18:17:19.553Z (delay 42835ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 7→6, energy 30→25, happiness 21→20, state: angry
+✅ Monster jacques (1761561497605): hunger 6→5, energy 50→46, happiness 49→47, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 27→22, energy 39→36, happiness 33→32, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 34→30, energy 50→47, happiness 17→16, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 46→42, energy 38→33, happiness 20→19, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 33→31, energy 17→14, happiness 47→46, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 42→40, energy 14→10, happiness 33→31, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 17→14, energy 50→47, happiness 5→2, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→49, energy 7→6, happiness 4→2, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 21→17, energy 5→1, happiness 8→7, state: angry
+[worker] run - 2025-10-28T18:18:18.246Z (delay 58483ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 1→0, energy 18→14, happiness 17→14, state: angry
+✅ Monster jacques (1761561497605): hunger 50→49, energy 39→37, happiness 42→41, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 13→9, energy 31→28, happiness 30→28, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 26→22, energy 41→37, happiness 12→10, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 34→33, energy 24→20, happiness 14→11, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 26→23, energy 9→8, happiness 44→42, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 33→31, energy 5→2, happiness 29→26, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 7→3, energy 37→32, happiness 50→49, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 40→37, energy 50→46, happiness 48→46, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 7→2, energy 49→45, happiness 3→2, state: angry
+[worker] run - 2025-10-28T18:19:02.452Z (delay 43997ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 48→45, energy 10→6, happiness 12→11, state: angry
+✅ Monster jacques (1761561497605): hunger 46→45, energy 34→32, happiness 38→35, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 6→4, energy 25→21, happiness 26→23, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 17→13, energy 36→33, happiness 9→6, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 30→27, energy 17→16, happiness 9→7, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 19→16, energy 3→0, happiness 41→40, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 27→24, energy 50→45, happiness 25→23, state: sad
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→47, energy 28→23, happiness 46→45, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 34→31, energy 45→40, happiness 45→44, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→47, energy 44→43, happiness 50→47, state: sleepy
+[worker] run - 2025-10-28T18:20:20.048Z (delay 77378ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 37→34, energy 1→0, happiness 7→4, state: angry
+✅ Monster jacques (1761561497605): hunger 36→32, energy 25→22, happiness 31→30, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 50→48, energy 15→10, happiness 17→16, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 10→5, energy 26→23, happiness 2→0, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 20→16, energy 9→5, happiness 3→0, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 8→3, energy 43→41, happiness 36→33, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→14, energy 40→38, happiness 20→19, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 45→42, energy 14→10, happiness 39→36, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 22→21, energy 30→29, happiness 40→39, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 44→39, energy 41→40, happiness 42→40, state: hungry
+[worker] run - 2025-10-28T18:21:12.251Z (delay 51992ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 29→26, energy 40→38, happiness 50→49, state: hungry
+✅ Monster jacques (1761561497605): hunger 24→19, energy 20→16, happiness 26→24, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 42→40, energy 2→0, happiness 12→10, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→46, energy 14→12, happiness 45→42, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 7→5, energy 50→45, happiness 45→43, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 46→41, energy 36→35, happiness 30→28, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 7→6, energy 32→30, happiness 16→13, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 36→34, energy 8→4, happiness 32→29, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 13→12, energy 21→18, happiness 34→31, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 30→28, energy 33→29, happiness 37→36, state: hungry
+[worker] run - 2025-10-28T18:22:00.392Z (delay 47915ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 22→20, energy 35→34, happiness 46→44, state: hungry
+✅ Monster jacques (1761561497605): hunger 18→16, energy 11→8, happiness 21→19, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 39→38, energy 46→44, happiness 8→5, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 43→39, energy 7→5, happiness 39→36, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 1→0, energy 44→42, happiness 40→39, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 39→34, energy 32→31, happiness 26→23, state: sad
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 4→0, energy 26→24, happiness 10→7, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 32→27, energy 2→0, happiness 26→24, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 10→8, energy 14→9, happiness 30→28, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 24→20, energy 28→26, happiness 33→32, state: hungry
+[worker] run - 2025-10-28T18:23:03.393Z (delay 62795ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 10→6, energy 32→27, happiness 41→40, state: angry
+✅ Monster jacques (1761561497605): hunger 10→8, energy 50→48, happiness 17→14, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 32→29, energy 40→38, happiness 3→1, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 33→32, energy 3→1, happiness 30→27, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 43→42, energy 33→29, happiness 33→31, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 25→21, energy 23→21, happiness 17→16, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 45→44, energy 17→16, happiness 4→2, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 22→17, energy 48→45, happiness 20→18, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→45, energy 3→2, happiness 25→24, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 12→10, energy 23→20, happiness 28→26, state: angry
+[worker] run - 2025-10-28T18:23:47.378Z (delay 43770ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 2→0, energy 22→17, happiness 37→34, state: angry
+✅ Monster jacques (1761561497605): hunger 3→2, energy 46→41, happiness 10→8, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 23→20, energy 28→23, happiness 47→45, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 26→25, energy 47→42, happiness 25→24, state: sad
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 33→30, energy 26→24, happiness 28→26, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 12→9, energy 15→12, happiness 12→10, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 40→35, energy 8→5, happiness 50→47, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 13→11, energy 36→31, happiness 15→14, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 38→35, energy 49→46, happiness 21→19, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 6→5, energy 14→10, happiness 21→20, state: angry
+[worker] run - 2025-10-28T18:25:08.819Z (delay 81241ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 38→36, energy 10→8, happiness 26→24, state: angry
+✅ Monster jacques (1761561497605): hunger 45→41, energy 26→21, happiness 2→1, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 8→4, energy 10→5, happiness 38→36, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 15→10, energy 32→27, happiness 16→13, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 17→12, energy 13→11, happiness 17→16, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 48→45, energy 50→45, happiness 2→0, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 25→21, energy 43→40, happiness 38→37, state: hungry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→45, energy 12→7, happiness 4→3, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 19→18, energy 31→30, happiness 11→8, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 36→33, energy 45→42, happiness 13→11, state: angry
+[worker] run - 2025-10-28T18:26:04.491Z (delay 55458ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 33→31, energy 5→2, happiness 23→22, state: angry
+✅ Monster jacques (1761561497605): hunger 36→34, energy 16→12, happiness 50→49, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 2→0, energy 50→48, happiness 34→33, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 7→3, energy 24→19, happiness 12→9, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 10→5, energy 10→6, happiness 15→14, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 43→38, energy 44→42, happiness 47→45, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 20→17, energy 37→32, happiness 36→35, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 42→41, energy 2→0, happiness 50→49, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 14→10, energy 28→26, happiness 7→5, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 29→24, energy 38→33, happiness 9→8, state: angry
+[worker] run - 2025-10-28T18:27:12.371Z (delay 67660ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 26→24, energy 45→44, happiness 18→17, state: angry
+✅ Monster jacques (1761561497605): hunger 25→22, energy 4→1, happiness 47→45, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 41→37, energy 46→44, happiness 29→27, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 48→44, energy 13→9, happiness 4→3, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→48, energy 50→45, happiness 8→5, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 33→32, energy 36→32, happiness 40→37, state: hungry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 10→7, energy 25→22, happiness 31→30, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 36→35, energy 42→38, happiness 44→41, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 4→3, energy 18→16, happiness 50→47, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 19→16, energy 27→25, happiness 4→2, state: angry
+[worker] run - 2025-10-28T18:27:59.498Z (delay 46923ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 17→13, energy 37→33, happiness 12→11, state: angry
+✅ Monster jacques (1761561497605): hunger 18→14, energy 49→45, happiness 40→38, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 31→27, energy 38→37, happiness 23→21, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 37→33, energy 1→0, happiness 50→48, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 39→37, energy 40→38, happiness 1→0, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 29→27, energy 26→21, happiness 34→33, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→48, energy 15→12, happiness 25→22, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 28→26, energy 31→28, happiness 38→37, state: hungry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 1→0, energy 9→5, happiness 43→42, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 8→3, energy 20→19, happiness 49→47, state: angry
+[worker] run - 2025-10-28T18:29:16.110Z (delay 76406ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 4→1, energy 22→21, happiness 7→6, state: angry
+✅ Monster jacques (1761561497605): hunger 4→1, energy 36→33, happiness 34→32, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 22→20, energy 24→23, happiness 14→12, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 24→22, energy 39→37, happiness 41→38, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 29→25, energy 24→20, happiness 45→44, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 17→15, energy 12→10, happiness 29→28, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 38→33, energy 6→4, happiness 14→12, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 22→17, energy 18→14, happiness 31→28, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 40→35, energy 50→47, happiness 38→36, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 48→45, energy 9→8, happiness 40→37, state: angry
+[worker] run - 2025-10-28T18:30:25.656Z (delay 69335ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 49→48, energy 15→13, happiness 1→0, state: angry
+✅ Monster jacques (1761561497605): hunger 48→43, energy 27→26, happiness 30→27, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 15→11, energy 18→17, happiness 7→6, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 17→15, energy 29→25, happiness 34→31, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 20→19, energy 15→13, happiness 38→36, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 12→11, energy 50→47, happiness 24→22, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 30→29, energy 50→46, happiness 8→6, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 12→8, energy 8→3, happiness 25→24, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 30→25, energy 39→36, happiness 34→32, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 37→36, energy 4→0, happiness 35→33, state: angry
+[worker] run - 2025-10-28T18:31:12.053Z (delay 46171ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 44→42, energy 11→10, happiness 47→46, state: angry
+✅ Monster jacques (1761561497605): hunger 42→40, energy 23→18, happiness 26→24, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 8→4, energy 15→14, happiness 5→3, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 10→6, energy 22→20, happiness 28→27, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 17→14, energy 11→7, happiness 35→34, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 7→3, energy 42→41, happiness 20→18, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 25→24, energy 43→39, happiness 4→2, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 6→5, energy 1→0, happiness 23→21, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 22→21, energy 33→32, happiness 30→28, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 34→32, energy 45→41, happiness 30→29, state: sad
+[worker] run - 2025-10-28T18:31:54.457Z (delay 42181ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 33→32, energy 3→0, happiness 40→38, state: angry
+✅ Monster jacques (1761561497605): hunger 33→28, energy 8→5, happiness 19→16, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 43→38, energy 8→6, happiness 45→42, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 46→44, energy 10→7, happiness 23→20, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 4→3, energy 50→46, happiness 28→25, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 46→44, energy 31→30, happiness 10→8, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→13, energy 30→29, happiness 46→43, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 43→42, energy 42→40, happiness 16→13, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 12→9, energy 25→20, happiness 21→20, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 25→23, energy 32→29, happiness 24→23, state: hungry
+[worker] run - 2025-10-28T18:33:00.963Z (delay 66299ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 30→25, energy 47→42, happiness 36→34, state: hungry
+✅ Monster jacques (1761561497605): hunger 26→23, energy 4→1, happiness 13→12, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 36→35, energy 1→0, happiness 40→38, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 40→35, energy 2→0, happiness 18→16, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→48, energy 44→39, happiness 24→21, state: sad
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 41→39, energy 25→23, happiness 7→6, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 11→9, energy 27→23, happiness 40→39, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 41→39, energy 38→37, happiness 12→10, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 4→3, energy 18→15, happiness 17→15, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 20→15, energy 25→21, happiness 22→19, state: angry
+[worker] run - 2025-10-28T18:34:30.259Z (delay 89091ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 17→15, energy 35→33, happiness 31→30, state: angry
+✅ Monster jacques (1761561497605): hunger 19→16, energy 47→42, happiness 8→7, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 30→25, energy 44→41, happiness 32→29, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 26→21, energy 44→42, happiness 13→10, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 39→34, energy 35→33, happiness 17→15, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 35→34, energy 19→14, happiness 1→0, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→46, energy 17→13, happiness 33→30, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 30→29, energy 27→25, happiness 8→6, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 50→46, energy 10→9, happiness 10→7, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 8→7, energy 18→16, happiness 16→13, state: angry
+[worker] run - 2025-10-28T18:35:54.720Z (delay 84220ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 8→6, energy 22→18, happiness 24→21, state: angry
+✅ Monster jacques (1761561497605): hunger 6→2, energy 36→34, happiness 1→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 12→7, energy 32→29, happiness 23→22, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 17→16, energy 34→33, happiness 4→3, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 25→24, energy 22→19, happiness 11→10, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 27→23, energy 9→6, happiness 43→42, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 36→35, energy 2→0, happiness 26→23, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 16→14, energy 17→16, happiness 2→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 40→37, energy 1→0, happiness 1→0, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 2→0, energy 5→0, happiness 7→4, state: angry
+[worker] run - 2025-10-28T18:36:48.776Z (delay 53838ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 2→1, energy 12→9, happiness 16→15, state: angry
+✅ Monster jacques (1761561497605): hunger 50→49, energy 29→27, happiness 45→44, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 50→48, energy 23→21, happiness 20→19, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 11→9, energy 28→25, happiness 48→46, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 18→16, energy 12→10, happiness 7→4, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 21→16, energy 3→1, happiness 39→38, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 32→30, energy 45→43, happiness 17→15, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 8→5, energy 9→6, happiness 45→42, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 29→26, energy 44→39, happiness 48→47, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 47→44, energy 45→41, happiness 50→49, state: sleepy
+[worker] run - 2025-10-28T18:37:28.204Z (delay 39209ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 49→46, energy 3→2, happiness 10→8, state: angry
+✅ Monster jacques (1761561497605): hunger 41→36, energy 21→16, happiness 40→39, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 42→38, energy 19→15, happiness 14→12, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 7→2, energy 20→15, happiness 43→42, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 10→6, energy 1→0, happiness 50→49, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 11→7, energy 47→43, happiness 33→31, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 22→19, energy 36→33, happiness 10→7, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→47, energy 50→47, happiness 39→38, state: sad
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 22→20, energy 34→30, happiness 44→43, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 39→38, energy 35→30, happiness 45→44, state: sleepy
+[worker] run - 2025-10-28T18:38:38.060Z (delay 69645ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 45→40, energy 50→48, happiness 6→3, state: angry
+✅ Monster jacques (1761561497605): hunger 34→32, energy 13→10, happiness 37→36, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 34→33, energy 14→13, happiness 9→8, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→49, energy 14→9, happiness 40→38, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 1→0, energy 49→46, happiness 48→47, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 6→5, energy 38→35, happiness 29→27, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 14→13, energy 31→27, happiness 6→5, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 46→45, energy 46→44, happiness 35→32, state: sad
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 18→17, energy 26→23, happiness 42→41, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 35→30, energy 26→23, happiness 41→39, state: sleepy
+[worker] run - 2025-10-28T18:39:41.439Z (delay 63144ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 32→31, energy 42→41, happiness 49→47, state: hungry
+✅ Monster jacques (1761561497605): hunger 30→26, energy 4→0, happiness 32→31, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 27→26, energy 9→8, happiness 6→5, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 41→40, energy 3→1, happiness 33→30, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 44→41, energy 42→38, happiness 43→42, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 1→0, energy 31→27, happiness 23→22, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 4→3, energy 24→22, happiness 1→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 38→37, energy 38→36, happiness 29→28, state: sad
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 8→4, energy 17→14, happiness 38→35, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 22→21, energy 16→11, happiness 34→31, state: angry
+[worker] run - 2025-10-28T18:40:17.823Z (delay 36159ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 30→26, energy 36→35, happiness 46→43, state: hungry
+✅ Monster jacques (1761561497605): hunger 23→21, energy 46→45, happiness 28→26, state: hungry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 21→16, energy 6→2, happiness 2→0, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 38→34, energy 50→47, happiness 29→28, state: sad
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 38→35, energy 37→34, happiness 40→39, state: sleepy
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 45→44, energy 25→20, happiness 20→17, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→47, energy 19→15, happiness 49→46, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 35→33, energy 34→31, happiness 27→26, state: sad
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 2→1, energy 12→7, happiness 34→32, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 16→11, energy 6→4, happiness 28→26, state: angry
+[worker] run - 2025-10-28T18:41:29.812Z (delay 71759ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 14→9, energy 25→23, happiness 36→33, state: angry
+✅ Monster jacques (1761561497605): hunger 12→7, energy 39→35, happiness 19→18, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 9→7, energy 41→40, happiness 42→41, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 23→20, energy 36→34, happiness 22→21, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 21→19, energy 24→23, happiness 34→32, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 36→32, energy 9→8, happiness 14→11, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 34→29, energy 7→6, happiness 37→36, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 22→21, energy 18→14, happiness 17→16, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 47→42, energy 50→49, happiness 26→23, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 4→1, energy 44→40, happiness 20→19, state: angry
+[worker] run - 2025-10-28T18:42:14.299Z (delay 44257ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 9→8, energy 23→22, happiness 33→31, state: angry
+✅ Monster jacques (1761561497605): hunger 7→5, energy 35→30, happiness 18→17, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 7→6, energy 40→36, happiness 41→39, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 20→17, energy 34→32, happiness 21→20, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 19→17, energy 23→20, happiness 32→31, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 32→31, energy 8→3, happiness 11→10, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 29→25, energy 6→3, happiness 36→33, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 21→18, energy 14→12, happiness 16→14, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 42→37, energy 49→46, happiness 23→21, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 1→0, energy 40→37, happiness 19→17, state: angry
+[worker] run - 2025-10-28T18:42:52.723Z (delay 38199ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→47, energy 12→10, happiness 27→24, state: angry
+✅ Monster jacques (1761561497605): hunger 50→46, energy 27→26, happiness 13→11, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 50→47, energy 32→27, happiness 33→32, state: sleepy
+✅ Monster bob (69009cc8b82139434e867639): hunger 12→10, energy 25→20, happiness 18→16, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 13→8, energy 13→12, happiness 28→25, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 24→19, energy 47→45, happiness 6→4, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 16→15, energy 47→42, happiness 28→27, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 12→7, energy 4→0, happiness 10→9, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 32→30, energy 44→39, happiness 17→16, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 44→41, energy 33→31, happiness 11→9, state: angry
+[worker] run - 2025-10-28T18:43:55.703Z (delay 62674ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 41→40, energy 6→2, happiness 20→17, state: angry
+✅ Monster jacques (1761561497605): hunger 43→41, energy 22→17, happiness 6→4, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 41→38, energy 19→14, happiness 28→25, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 6→1, energy 12→8, happiness 13→12, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 2→0, energy 7→3, happiness 20→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 12→7, energy 43→42, happiness 1→0, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 7→5, energy 34→29, happiness 22→20, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→49, energy 43→39, happiness 6→5, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 21→20, energy 34→30, happiness 13→12, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 36→32, energy 26→22, happiness 5→3, state: angry
+[worker] run - 2025-10-28T18:44:56.240Z (delay 60322ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 38→34, energy 1→0, happiness 14→13, state: angry
+✅ Monster jacques (1761561497605): hunger 38→34, energy 15→12, happiness 2→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 35→34, energy 11→10, happiness 22→21, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→45, energy 3→0, happiness 10→7, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 45→40, energy 50→49, happiness 16→15, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 3→0, energy 37→34, happiness 49→46, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 3→2, energy 25→24, happiness 18→17, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 48→47, energy 34→30, happiness 2→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 16→11, energy 25→24, happiness 11→8, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 30→28, energy 18→13, happiness 1→0, state: angry
+[worker] run - 2025-10-28T18:45:38.757Z (delay 42307ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 29→26, energy 47→42, happiness 11→10, state: angry
+✅ Monster jacques (1761561497605): hunger 33→29, energy 8→3, happiness 48→46, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 32→28, energy 8→4, happiness 20→18, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 43→41, energy 48→45, happiness 5→2, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 35→34, energy 44→39, happiness 13→10, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 49→45, energy 32→27, happiness 45→44, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 50→45, energy 21→20, happiness 14→13, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 44→43, energy 28→24, happiness 47→44, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 10→9, energy 22→18, happiness 6→5, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 25→20, energy 9→4, happiness 49→46, state: angry
+[worker] run - 2025-10-28T18:46:48.293Z (delay 69314ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 16→14, energy 28→23, happiness 2→0, state: angry
+✅ Monster jacques (1761561497605): hunger 21→17, energy 46→45, happiness 42→39, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 19→15, energy 43→38, happiness 15→14, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 31→29, energy 38→34, happiness 48→46, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 25→22, energy 32→31, happiness 3→0, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 36→33, energy 19→18, happiness 36→33, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 36→31, energy 13→10, happiness 6→3, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 39→38, energy 15→10, happiness 39→37, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 49→46, energy 8→7, happiness 47→46, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 14→12, energy 47→45, happiness 43→40, state: angry
+[worker] run - 2025-10-28T18:47:38.631Z (delay 50118ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 4→0, energy 17→15, happiness 47→45, state: angry
+✅ Monster jacques (1761561497605): hunger 7→5, energy 40→35, happiness 35→33, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 7→6, energy 32→27, happiness 8→5, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 22→21, energy 26→24, happiness 41→38, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 18→16, energy 28→24, happiness 46→45, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 28→27, energy 12→9, happiness 27→26, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 24→19, energy 8→7, happiness 50→49, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 30→26, energy 5→2, happiness 34→31, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 40→38, energy 50→46, happiness 41→38, state: hungry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 10→6, energy 37→36, happiness 36→35, state: angry
+[worker] run - 2025-10-28T18:48:11.437Z (delay 32597ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 45→42, energy 11→6, happiness 43→41, state: angry
+✅ Monster jacques (1761561497605): hunger 50→46, energy 31→28, happiness 30→27, state: sad
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 4→0, energy 26→23, happiness 4→2, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 18→14, energy 22→20, happiness 36→33, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 13→9, energy 23→22, happiness 44→41, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 23→22, energy 7→4, happiness 24→21, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 17→13, energy 2→0, happiness 47→45, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 24→19, energy 50→47, happiness 30→29, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 37→34, energy 42→38, happiness 35→33, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 3→0, energy 31→28, happiness 34→32, state: angry
+[worker] run - 2025-10-28T18:49:16.640Z (delay 64986ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 35→34, energy 50→48, happiness 37→35, state: hungry
+✅ Monster jacques (1761561497605): hunger 41→38, energy 20→16, happiness 24→23, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 47→43, energy 16→13, happiness 49→48, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 8→5, energy 14→12, happiness 30→27, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 3→0, energy 16→14, happiness 39→36, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 17→15, energy 50→48, happiness 16→13, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 6→4, energy 45→43, happiness 41→40, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 16→11, energy 45→43, happiness 26→23, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 31→29, energy 33→31, happiness 29→26, state: sad
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 47→46, energy 19→17, happiness 30→28, state: angry
+[worker] run - 2025-10-28T18:50:41.253Z (delay 84389ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 27→23, energy 42→39, happiness 32→30, state: hungry
+✅ Monster jacques (1761561497605): hunger 31→26, energy 11→6, happiness 18→17, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 38→35, energy 5→2, happiness 45→44, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 3→2, energy 4→2, happiness 25→24, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 43→41, energy 7→6, happiness 31→29, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 10→5, energy 43→40, happiness 9→6, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 49→47, energy 39→37, happiness 36→35, state: sad
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 1→0, energy 36→34, happiness 19→16, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 26→22, energy 26→23, happiness 21→18, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 36→35, energy 11→6, happiness 24→22, state: angry
+[worker] run - 2025-10-28T18:51:53.493Z (delay 72016ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 19→16, energy 37→32, happiness 27→26, state: angry
+✅ Monster jacques (1761561497605): hunger 20→18, energy 1→0, happiness 13→10, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 27→24, energy 46→45, happiness 40→38, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 48→44, energy 50→48, happiness 19→17, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 35→30, energy 2→0, happiness 27→25, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 7→5, energy 39→34, happiness 4→1, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 43→38, energy 32→27, happiness 30→28, state: sleepy
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 48→43, energy 26→23, happiness 15→12, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 24→22, energy 22→19, happiness 18→17, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 28→24, energy 2→0, happiness 22→19, state: angry
+[worker] run - 2025-10-28T18:52:43.256Z (delay 49525ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 13→12, energy 26→21, happiness 22→19, state: angry
+✅ Monster jacques (1761561497605): hunger 8→6, energy 42→39, happiness 7→5, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 19→16, energy 41→36, happiness 36→34, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 40→36, energy 41→36, happiness 14→11, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 24→19, energy 42→38, happiness 19→17, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 50→48, energy 29→25, happiness 49→48, state: sleepy
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 30→25, energy 23→19, happiness 23→22, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 34→32, energy 21→16, happiness 9→7, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 18→15, energy 10→8, happiness 13→10, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 19→15, energy 43→41, happiness 14→11, state: angry
+[worker] run - 2025-10-28T18:53:20.720Z (delay 37247ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 10→6, energy 19→17, happiness 18→16, state: angry
+✅ Monster jacques (1761561497605): hunger 3→0, energy 36→35, happiness 2→0, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 13→10, energy 33→28, happiness 31→28, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 35→31, energy 34→30, happiness 10→7, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 17→15, energy 34→30, happiness 16→15, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 45→41, energy 23→18, happiness 47→44, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 22→18, energy 14→11, happiness 21→19, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 27→22, energy 12→8, happiness 6→3, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 13→11, energy 5→2, happiness 7→6, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 12→8, energy 36→33, happiness 9→7, state: angry
+[worker] run - 2025-10-28T18:54:44.101Z (delay 83164ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 50→48, energy 12→7, happiness 12→10, state: angry
+✅ Monster jacques (1761561497605): hunger 42→38, energy 32→31, happiness 46→44, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 6→4, energy 20→16, happiness 26→25, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 26→21, energy 24→20, happiness 3→1, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 9→7, energy 27→26, happiness 11→9, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 34→29, energy 13→9, happiness 40→38, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 14→11, energy 7→4, happiness 14→12, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 13→8, energy 3→2, happiness 1→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 3→1, energy 46→44, happiness 2→0, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 3→1, energy 27→22, happiness 3→1, state: angry
+[worker] run - 2025-10-28T18:55:36.008Z (delay 51682ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 39→34, energy 2→0, happiness 6→3, state: angry
+✅ Monster jacques (1761561497605): hunger 34→29, energy 25→20, happiness 39→38, state: sleepy
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 50→46, energy 10→7, happiness 19→17, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 15→10, energy 12→11, happiness 49→47, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 50→48, energy 21→16, happiness 4→2, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 24→23, energy 3→1, happiness 35→33, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 4→0, energy 48→43, happiness 10→9, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→47, energy 45→41, happiness 47→44, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 47→43, energy 38→33, happiness 46→43, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 45→40, energy 19→17, happiness 47→45, state: angry
+[worker] run - 2025-10-28T18:57:02.035Z (delay 85801ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 21→18, energy 41→38, happiness 48→47, state: angry
+✅ Monster jacques (1761561497605): hunger 20→18, energy 11→8, happiness 31→30, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 40→36, energy 45→43, happiness 13→12, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→45, energy 50→45, happiness 41→40, state: sad
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 36→31, energy 6→1, happiness 44→43, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 17→13, energy 45→40, happiness 28→27, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 39→36, energy 33→31, happiness 6→5, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 41→38, energy 31→28, happiness 38→35, state: sleepy
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 37→35, energy 25→20, happiness 38→37, state: sleepy
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 33→29, energy 11→8, happiness 36→33, state: angry
+[worker] run - 2025-10-28T18:58:26.600Z (delay 84337ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 10→9, energy 30→28, happiness 42→41, state: angry
+✅ Monster jacques (1761561497605): hunger 10→6, energy 3→0, happiness 25→24, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 33→29, energy 37→34, happiness 7→4, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 37→33, energy 41→40, happiness 37→34, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 27→22, energy 47→46, happiness 39→37, state: hungry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 5→2, energy 31→26, happiness 23→21, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 30→27, energy 24→20, happiness 2→0, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 34→33, energy 18→17, happiness 29→26, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 27→24, energy 12→8, happiness 32→31, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 23→21, energy 50→46, happiness 29→27, state: hungry
+[worker] run - 2025-10-28T18:59:39.860Z (delay 73021ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 4→0, energy 19→14, happiness 37→35, state: angry
+✅ Monster jacques (1761561497605): hunger 50→47, energy 43→40, happiness 20→17, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 26→22, energy 26→23, happiness 50→47, state: hungry
+✅ Monster bob (69009cc8b82139434e867639): hunger 26→23, energy 32→30, happiness 32→31, state: hungry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 15→12, energy 43→39, happiness 33→30, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 46→43, energy 19→17, happiness 17→15, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 23→22, energy 15→13, happiness 47→44, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 28→25, energy 12→8, happiness 22→21, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 18→15, energy 4→3, happiness 27→24, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 15→10, energy 41→36, happiness 23→20, state: angry
+[worker] run - 2025-10-28T19:00:11.371Z (delay 31277ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 42→40, energy 9→5, happiness 32→29, state: angry
+✅ Monster jacques (1761561497605): hunger 43→38, energy 32→28, happiness 14→11, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 15→14, energy 18→15, happiness 43→41, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 17→13, energy 25→23, happiness 27→24, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 7→3, energy 34→30, happiness 26→24, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 37→32, energy 13→10, happiness 13→11, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 18→16, energy 4→3, happiness 41→40, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 18→14, energy 3→1, happiness 17→14, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 11→8, energy 50→46, happiness 18→17, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 7→6, energy 28→23, happiness 17→15, state: angry
+[worker] run - 2025-10-28T19:01:22.354Z (delay 70756ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 36→31, energy 50→48, happiness 24→22, state: sad
+✅ Monster jacques (1761561497605): hunger 31→30, energy 21→17, happiness 7→6, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 8→6, energy 6→2, happiness 37→36, state: angry
+✅ Monster bob (69009cc8b82139434e867639): hunger 11→8, energy 15→11, happiness 21→19, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 49→47, energy 22→20, happiness 21→18, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 26→21, energy 4→1, happiness 7→6, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 8→3, energy 46→42, happiness 38→37, state: angry
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 8→7, energy 47→45, happiness 10→7, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 2→0, energy 37→33, happiness 11→10, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 50→45, energy 14→11, happiness 10→9, state: angry
+[worker] run - 2025-10-28T19:02:51.631Z (delay 89046ms)
+🔄 Updating 10 monsters...
+✅ Monster rvrbb (1761561422811): hunger 20→18, energy 37→35, happiness 15→14, state: angry
+✅ Monster jacques (1761561497605): hunger 18→16, energy 9→7, happiness 50→49, state: angry
+✅ Monster dsvsd (68ff545934eddfa4cc8aa933): hunger 49→47, energy 42→37, happiness 29→27, state: sad
+✅ Monster bob (69009cc8b82139434e867639): hunger 50→46, energy 3→0, happiness 11→10, state: angry
+✅ Monster jacques (6900a2ff8f85686dde67e60c): hunger 42→37, energy 9→6, happiness 10→8, state: angry
+✅ Monster zizi (6900a3088f85686dde67e623): hunger 8→7, energy 41→36, happiness 50→49, state: angry
+✅ Monster Jules Ruberti (6900a3178f85686dde67e649): hunger 48→44, energy 33→32, happiness 33→30, state: sad
+✅ Monster joel (6900bec94ca91a5c6faaeeb7): hunger 50→48, energy 35→30, happiness 1→0, state: angry
+✅ Monster noel (6900bed24ca91a5c6faaeece): hunger 40→35, energy 25→20, happiness 4→2, state: angry
+✅ Monster sexe (6900c172c71954ac1228e576): hunger 33→30, energy 3→1, happiness 1→0, state: angry

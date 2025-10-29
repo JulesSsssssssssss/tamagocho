@@ -126,6 +126,7 @@ export async function getMonsterById (id: string): Promise<DBMonster | null> {
  */
 export async function feedMonster (monsterId: string): Promise<void> {
   try {
+    console.log('🍽️ feedMonster called with ID:', monsterId)
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
@@ -135,17 +136,31 @@ export async function feedMonster (monsterId: string): Promise<void> {
     }).exec()
 
     if (monster === null) {
+      console.error('❌ Monster not found:', monsterId)
       throw new Error('Monster not found')
     }
 
+    console.log('📊 Before feeding - hunger:', monster.hunger, 'state:', monster.state)
+
     // Augmenter hunger (max 100)
-    monster.hunger = Math.min(100, monster.hunger + 20)
+    const currentHunger = Number(monster.hunger)
+    monster.hunger = Math.min(100, isNaN(currentHunger) ? 0 : currentHunger + 20)
     monster.lastFed = new Date()
 
     // Recalculer l'état émotionnel en fonction des stats
-    monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
+    const hunger = Number(monster.hunger)
+    const energy = Number(monster.energy)
+    const happiness = Number(monster.happiness)
+    monster.state = calculateMonsterState(
+      isNaN(hunger) ? 0 : hunger,
+      isNaN(energy) ? 0 : energy,
+      isNaN(happiness) ? 0 : happiness
+    )
+
+    console.log('📊 After feeding - hunger:', monster.hunger, 'state:', monster.state)
 
     await monster.save()
+    console.log('✅ Monster saved successfully')
     revalidatePath('/creature/[...id]', 'page')
   } catch (error) {
     console.error('Error feeding monster:', error)
@@ -159,6 +174,7 @@ export async function feedMonster (monsterId: string): Promise<void> {
  */
 export async function playWithMonster (monsterId: string): Promise<void> {
   try {
+    console.log('🎮 playWithMonster called with ID:', monsterId)
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
@@ -168,19 +184,33 @@ export async function playWithMonster (monsterId: string): Promise<void> {
     }).exec()
 
     if (monster === null) {
+      console.error('❌ Monster not found:', monsterId)
       throw new Error('Monster not found')
     }
 
+    console.log('📊 Before playing - happiness:', monster.happiness, 'energy:', monster.energy, 'state:', monster.state)
+
     // Augmenter happiness, diminuer energy
-    monster.happiness = Math.min(100, monster.happiness + 20)
-    monster.energy = Math.max(0, monster.energy - 10)
+    const currentHappiness = Number(monster.happiness)
+    const currentEnergy = Number(monster.energy)
+    monster.happiness = Math.min(100, isNaN(currentHappiness) ? 0 : currentHappiness + 20)
+    monster.energy = Math.max(0, isNaN(currentEnergy) ? 0 : currentEnergy - 10)
     monster.lastPlayed = new Date()
 
     // Recalculer l'état émotionnel en fonction des stats
-    // Recalculer l'état émotionnel en fonction des stats
-    monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
+    const hunger = Number(monster.hunger)
+    const energy = Number(monster.energy)
+    const happiness = Number(monster.happiness)
+    monster.state = calculateMonsterState(
+      isNaN(hunger) ? 0 : hunger,
+      isNaN(energy) ? 0 : energy,
+      isNaN(happiness) ? 0 : happiness
+    )
+
+    console.log('📊 After playing - happiness:', monster.happiness, 'energy:', monster.energy, 'state:', monster.state)
 
     await monster.save()
+    console.log('✅ Monster saved successfully')
     revalidatePath('/creature/[...id]', 'page')
   } catch (error) {
     console.error('Error playing with monster:', error)
@@ -194,6 +224,7 @@ export async function playWithMonster (monsterId: string): Promise<void> {
  */
 export async function sleepMonster (monsterId: string): Promise<void> {
   try {
+    console.log('😴 sleepMonster called with ID:', monsterId)
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
@@ -203,17 +234,31 @@ export async function sleepMonster (monsterId: string): Promise<void> {
     }).exec()
 
     if (monster === null) {
+      console.error('❌ Monster not found:', monsterId)
       throw new Error('Monster not found')
     }
 
+    console.log('📊 Before sleeping - energy:', monster.energy, 'state:', monster.state)
+
     // Augmenter energy
-    monster.energy = Math.min(100, monster.energy + 30)
+    const currentEnergy = Number(monster.energy)
+    monster.energy = Math.min(100, isNaN(currentEnergy) ? 0 : currentEnergy + 30)
     monster.lastSlept = new Date()
 
     // Recalculer l'état émotionnel en fonction des stats
-    monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
+    const hunger = Number(monster.hunger)
+    const energy = Number(monster.energy)
+    const happiness = Number(monster.happiness)
+    monster.state = calculateMonsterState(
+      isNaN(hunger) ? 0 : hunger,
+      isNaN(energy) ? 0 : energy,
+      isNaN(happiness) ? 0 : happiness
+    )
+
+    console.log('📊 After sleeping - energy:', monster.energy, 'state:', monster.state)
 
     await monster.save()
+    console.log('✅ Monster saved successfully')
     revalidatePath('/creature/[...id]', 'page')
   } catch (error) {
     console.error('Error making monster sleep:', error)
@@ -227,6 +272,7 @@ export async function sleepMonster (monsterId: string): Promise<void> {
  */
 export async function cleanMonster (monsterId: string): Promise<void> {
   try {
+    console.log('🧼 cleanMonster called with ID:', monsterId)
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
@@ -236,17 +282,31 @@ export async function cleanMonster (monsterId: string): Promise<void> {
     }).exec()
 
     if (monster === null) {
+      console.error('❌ Monster not found:', monsterId)
       throw new Error('Monster not found')
     }
 
+    console.log('📊 Before cleaning - happiness:', monster.happiness, 'state:', monster.state)
+
     // Augmenter happiness
-    monster.happiness = Math.min(100, monster.happiness + 15)
+    const currentHappiness = Number(monster.happiness)
+    monster.happiness = Math.min(100, isNaN(currentHappiness) ? 0 : currentHappiness + 15)
     monster.lastCleaned = new Date()
 
     // Recalculer l'état émotionnel en fonction des stats
-    monster.state = calculateMonsterState(monster.hunger, monster.energy, monster.happiness)
+    const hunger = Number(monster.hunger)
+    const energy = Number(monster.energy)
+    const happiness = Number(monster.happiness)
+    monster.state = calculateMonsterState(
+      isNaN(hunger) ? 0 : hunger,
+      isNaN(energy) ? 0 : energy,
+      isNaN(happiness) ? 0 : happiness
+    )
+
+    console.log('📊 After cleaning - happiness:', monster.happiness, 'state:', monster.state)
 
     await monster.save()
+    console.log('✅ Monster saved successfully')
     revalidatePath('/creature/[...id]', 'page')
   } catch (error) {
     console.error('Error cleaning monster:', error)

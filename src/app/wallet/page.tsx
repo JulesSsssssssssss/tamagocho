@@ -1,24 +1,31 @@
 import { auth } from '@/lib/auth'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
-import WalletPageContent from '@/components/wallet/wallet-page-content'
+import WalletClient from '@/components/wallet/wallet-client'
+import { getWallet } from '@/actions/wallet.actions'
 
 /**
- * Page Wallet - Affichage du portefeuille utilisateur
+ * Page Wallet - Boutique de Koins avec Stripe
  *
  * Responsabilités (SRP):
  * - Protection de la route (authentification)
- * - Récupération de la session
- * - Rendu du composant client WalletPageContent
+ * - Récupération du wallet utilisateur
+ * - Rendu du composant client WalletClient avec Stripe
  *
  * Architecture Next.js 15:
  * - Server Component (async)
  * - Utilise auth.api.getSession pour la session
+ * - Appelle getWallet() pour récupérer le solde
  *
  * Sécurité:
  * - Redirection vers /sign-in si non connecté
  *
- * @returns {Promise<React.ReactNode>} Interface du wallet
+ * Features:
+ * - Affichage du solde de Koins
+ * - Packages d'achat via Stripe Checkout
+ * - Design system: moccaccino, lochinvar, fuchsia-blue
+ *
+ * @returns {Promise<React.ReactNode>} Interface du wallet avec boutique
  *
  * @example
  * Route: /wallet
@@ -35,7 +42,26 @@ async function WalletPage (): Promise<React.ReactNode> {
     redirect('/sign-in')
   }
 
-  return <WalletPageContent session={session} />
+  // Récupération du wallet
+  const walletResponse = await getWallet()
+
+  if (!walletResponse.success || walletResponse.wallet === undefined) {
+    return (
+      <div className='min-h-screen flex items-center justify-center bg-gradient-to-br from-moccaccino-50 via-lochinvar-50 to-fuchsia-blue-50'>
+        <div className='bg-white rounded-3xl shadow-2xl p-8 max-w-md text-center'>
+          <div className='text-6xl mb-4'>😢</div>
+          <h1 className='text-2xl font-bold text-gray-800 mb-2'>
+            Erreur de chargement
+          </h1>
+          <p className='text-gray-600'>
+            {walletResponse.error ?? 'Impossible de charger votre wallet.'}
+          </p>
+        </div>
+      </div>
+    )
+  }
+
+  return <WalletClient initialWallet={walletResponse.wallet} />
 }
 
 export default WalletPage

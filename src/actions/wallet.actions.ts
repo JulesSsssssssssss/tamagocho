@@ -17,6 +17,20 @@ import { INITIAL_COINS } from '@/shared/types/coins'
  * + Table Transactions pour l'historique
  */
 
+/**
+ * Type pour les données du Wallet
+ */
+export interface DBWallet {
+  id: string
+  ownerId: string
+  balance: number
+  currency: 'TC'
+  totalEarned: number
+  totalSpent: number
+  createdAt: Date
+  updatedAt: Date
+}
+
 const transactionRepository = new MongoTransactionRepository()
 
 /**
@@ -28,16 +42,7 @@ const transactionRepository = new MongoTransactionRepository()
  */
 export async function getWallet (): Promise<{
   success: boolean
-  wallet?: {
-    id: string
-    ownerId: string
-    balance: number
-    currency: 'TC'
-    totalEarned: number
-    totalSpent: number
-    createdAt: Date
-    updatedAt: Date
-  }
+  wallet?: DBWallet
   error?: string
 }> {
   try {
@@ -71,11 +76,11 @@ export async function getWallet (): Promise<{
 
     // Pour totalEarned et totalSpent, on calcule depuis les transactions
     const transactions = await transactionRepository.findByWalletId(player._id.toString(), { limit: 1000 })
-    
+
     const totalEarned = transactions
       .filter(t => t.type === 'EARN')
       .reduce((sum, t) => sum + t.amount, 0)
-    
+
     const totalSpent = transactions
       .filter(t => t.type === 'SPEND')
       .reduce((sum, t) => sum + t.amount, 0)

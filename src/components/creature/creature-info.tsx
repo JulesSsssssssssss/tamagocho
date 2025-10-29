@@ -54,9 +54,9 @@ const CreatureInfo = memo(function CreatureInfo ({
   const updateDate = updatedAt instanceof Date ? updatedAt : new Date(updatedAt)
 
   return (
-    <div className='bg-white rounded-3xl p-6 shadow-lg ring-1 ring-white/80'>
-      <h3 className='text-lg font-semibold text-slate-900 mb-4'>
-        📋 Informations
+    <div className='bg-slate-800/60 rounded-3xl p-6 shadow-lg ring-1 ring-yellow-500/20'>
+      <h3 className='text-lg font-semibold text-white mb-4 font-mono tracking-wider'>
+        📋 INFORMATIONS
       </h3>
 
       <div className='space-y-3'>
@@ -64,11 +64,11 @@ const CreatureInfo = memo(function CreatureInfo ({
         <div className='flex items-start justify-between gap-4'>
           <div className='flex items-center gap-2'>
             <span className='text-2xl' aria-hidden='true'>🎂</span>
-            <span className='text-sm font-medium text-slate-700'>
+            <span className='text-sm font-medium text-white font-mono'>
               Né le
             </span>
           </div>
-          <span className='text-sm text-slate-600'>
+          <span className='text-sm text-yellow-400 font-mono'>
             {formatDate(creationDate, 'long')}
           </span>
         </div>
@@ -77,11 +77,11 @@ const CreatureInfo = memo(function CreatureInfo ({
         <div className='flex items-start justify-between gap-4'>
           <div className='flex items-center gap-2'>
             <span className='text-2xl' aria-hidden='true'>⏰</span>
-            <span className='text-sm font-medium text-slate-700'>
+            <span className='text-sm font-medium text-white font-mono'>
               Heure
             </span>
           </div>
-          <span className='text-sm text-slate-600'>
+          <span className='text-sm text-yellow-400 font-mono'>
             {formatDate(creationDate, 'time')}
           </span>
         </div>
@@ -90,11 +90,11 @@ const CreatureInfo = memo(function CreatureInfo ({
         <div className='flex items-start justify-between gap-4'>
           <div className='flex items-center gap-2'>
             <span className='text-2xl' aria-hidden='true'>🔄</span>
-            <span className='text-sm font-medium text-slate-700'>
+            <span className='text-sm font-medium text-white font-mono'>
               Dernière activité
             </span>
           </div>
-          <span className='text-sm text-slate-600'>
+          <span className='text-sm text-yellow-400 font-mono'>
             {formatDate(updateDate, 'short')}
           </span>
         </div>

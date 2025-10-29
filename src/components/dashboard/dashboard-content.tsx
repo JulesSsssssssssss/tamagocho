@@ -154,9 +154,17 @@ function DashboardContent ({ session, monsters }: DashboardContentProps): React.
   }
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100'>
-      {/* Effet de grille en arrière-plan */}
-      <div className='fixed inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none' />
+    <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
+      {/* Effet de grille rétro en arrière-plan */}
+      <div className='fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none' />
+
+      {/* Particules pixel-art */}
+      <div className='fixed inset-0 overflow-hidden pointer-events-none'>
+        <div className='absolute top-10 left-10 w-3 h-3 bg-yellow-400/30 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute top-20 right-20 w-4 h-4 bg-yellow-400/20 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
+        <div className='absolute bottom-16 left-1/4 w-2 h-2 bg-yellow-400/25 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1s' }} />
+        <div className='absolute top-1/3 right-1/3 w-3 h-3 bg-yellow-400/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1.5s' }} />
+      </div>
 
       <div className='relative z-10 w-full min-h-screen p-4 md:p-6 lg:p-8'>
         <div className='max-w-7xl mx-auto space-y-6'>
@@ -165,7 +173,8 @@ function DashboardContent ({ session, monsters }: DashboardContentProps): React.
 
           {/* Affichage des erreurs */}
           {error !== null && (
-            <div className='mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg'>
+            <div className='mb-4 p-4 bg-red-900/90 border-4 border-red-500 text-white rounded-xl shadow-xl text-center font-bold' style={{ fontFamily: 'monospace' }}>
+              <span className='text-3xl mr-3'>⚠️</span>
               {error}
             </div>
           )}

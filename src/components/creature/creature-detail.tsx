@@ -93,23 +93,28 @@ const CreatureDetail = memo(function CreatureDetail ({
   }
 
   return (
-    <div className='min-h-screen w-full bg-gradient-to-br from-slate-50 via-white to-slate-100'>
-      {/* Effet de grille en arrière-plan */}
-      <div className='fixed inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30 pointer-events-none' />
+    <div className='min-h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
+      {/* Effet de grille rétro en arrière-plan */}
+      <div className='fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none' />
 
-      {/* Particules flottantes */}
+      {/* Particules pixel-art - jaunes comme le wallet */}
       <div className='fixed inset-0 overflow-hidden pointer-events-none'>
-        <div className='absolute top-20 left-10 w-2 h-2 bg-fuchsia-blue-400 rounded-full animate-pulse opacity-40' />
-        <div className='absolute top-40 right-20 w-3 h-3 bg-lochinvar-400 rounded-full animate-pulse opacity-30' />
-        <div className='absolute bottom-32 left-1/4 w-2 h-2 bg-moccaccino-400 rounded-full animate-pulse opacity-35' />
-        <div className='absolute top-1/3 right-1/3 w-2 h-2 bg-fuchsia-blue-300 rounded-full animate-pulse opacity-25' />
+        <div className='absolute top-10 left-10 w-3 h-3 bg-yellow-400/30 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute top-20 right-20 w-4 h-4 bg-yellow-400/20 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
+        <div className='absolute bottom-16 left-1/4 w-2 h-2 bg-yellow-400/25 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1s' }} />
+        <div className='absolute top-1/3 right-1/3 w-3 h-3 bg-yellow-400/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1.5s' }} />
       </div>
 
       <div className='relative z-10 w-full min-h-screen p-4 md:p-6 lg:p-8'>
         {/* Container principal avec max-width */}
         <div className='max-w-7xl mx-auto space-y-4 md:space-y-6'>
           {/* En-tête avec nom et niveau */}
-          <div className='bg-white/90 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-slate-200 shadow-lg'>
+          <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+            {/* Pixels dans les coins */}
+            <div className='absolute top-2 left-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute top-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-2 left-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
             <CreatureHeader
               name={currentMonster.name}
               level={currentMonster.level}
@@ -121,9 +126,11 @@ const CreatureDetail = memo(function CreatureDetail ({
             {/* Colonne gauche - Avatar et XP */}
             <div className='lg:col-span-1 space-y-4 md:space-y-6'>
               {/* Avatar animé */}
-              <div className='bg-white/90 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-slate-200 shadow-lg relative overflow-hidden aspect-square'>
+              <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6 md:p-8 border-4 border-slate-700/50 shadow-xl relative overflow-hidden aspect-square'>
+                {/* Grille pixel art en arrière-plan */}
+                <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-40 pointer-events-none' />
                 {/* Effet de lueur derrière l'avatar */}
-                <div className='absolute inset-0 bg-gradient-to-t from-fuchsia-blue-500/5 via-transparent to-transparent' />
+                <div className='absolute inset-0 bg-gradient-to-t from-yellow-500/10 via-transparent to-transparent' />
                 <div className='relative z-10 w-full h-full flex items-center justify-center'>
                   <CreatureAvatar
                     traitsJson={currentMonster.traits}
@@ -133,7 +140,7 @@ const CreatureDetail = memo(function CreatureDetail ({
               </div>
 
               {/* Barre XP */}
-              <div className='bg-white/90 backdrop-blur-xl rounded-2xl border border-slate-200 shadow-lg overflow-hidden'>
+              <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl border-4 border-slate-700/50 shadow-xl overflow-hidden'>
                 <CreatureXpBar
                   level={currentMonster.level}
                   xp={currentMonster.xp}
@@ -147,10 +154,16 @@ const CreatureDetail = memo(function CreatureDetail ({
               {/* Stats et Actions */}
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6'>
                 {/* Statistiques */}
-                <div className='bg-white/90 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-slate-200 shadow-lg'>
-                  <h3 className='text-base md:text-lg font-bold text-slate-900 mb-4 flex items-center gap-2'>
+                <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+                  {/* Coins pixel jaunes */}
+                  <div className='absolute top-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute top-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+
+                  <h3 className='text-base md:text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono tracking-wider'>
                     <span className='text-xl md:text-2xl'>📊</span>
-                    Statistiques
+                    STATISTIQUES
                   </h3>
                   <CreatureStats
                     hunger={currentMonster.hunger}
@@ -160,7 +173,13 @@ const CreatureDetail = memo(function CreatureDetail ({
                 </div>
 
                 {/* Actions */}
-                <div className='bg-white/90 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-slate-200 shadow-lg'>
+                <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+                  {/* Coins pixel jaunes */}
+                  <div className='absolute top-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute top-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+
                   <CreatureActions
                     creatureId={currentMonster._id}
                     onActionComplete={handleActionComplete}
@@ -171,16 +190,28 @@ const CreatureDetail = memo(function CreatureDetail ({
               {/* Traits et Informations */}
               <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6'>
                 {/* Traits caractéristiques */}
-                <div className='bg-white/90 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-slate-200 shadow-lg'>
-                  <h3 className='text-base md:text-lg font-bold text-slate-900 mb-4 flex items-center gap-2'>
+                <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+                  {/* Coins pixel jaunes */}
+                  <div className='absolute top-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute top-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+
+                  <h3 className='text-base md:text-lg font-bold text-white mb-4 flex items-center gap-2 font-mono tracking-wider'>
                     <span className='text-xl md:text-2xl'>✨</span>
-                    Caractéristiques
+                    CARACTÉRISTIQUES
                   </h3>
                   <MonsterTraitsDisplay traits={traits} />
                 </div>
 
                 {/* Informations temporelles */}
-                <div className='bg-white/90 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-slate-200 shadow-lg'>
+                <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+                  {/* Coins pixel jaunes */}
+                  <div className='absolute top-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute top-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                  <div className='absolute bottom-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+
                   <CreatureInfo
                     createdAt={currentMonster.createdAt}
                     updatedAt={currentMonster.updatedAt}
@@ -189,11 +220,17 @@ const CreatureDetail = memo(function CreatureDetail ({
               </div>
 
               {/* Message gaming */}
-              <div className='bg-gradient-to-r from-moccaccino-100/80 via-fuchsia-blue-100/80 to-lochinvar-100/80 backdrop-blur-xl rounded-2xl p-4 md:p-6 border border-moccaccino-200 shadow-lg'>
+              <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+                {/* Coins pixel jaunes */}
+                <div className='absolute top-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                <div className='absolute top-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                <div className='absolute bottom-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+                <div className='absolute bottom-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+
                 <div className='flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-center'>
                   <span className='text-2xl md:text-3xl'>🎮</span>
-                  <p className='text-xs md:text-sm text-slate-800 font-medium'>
-                    <strong className='text-moccaccino-700'>Prends soin de ton monstre !</strong> Utilise les bonnes actions pour gagner de l'XP et monter de niveau.
+                  <p className='text-xs md:text-sm text-white font-medium font-mono'>
+                    <strong className='text-yellow-400'>PRENDS SOIN DE TON MONSTRE !</strong> Utilise les bonnes actions pour gagner de l'XP et monter de niveau.
                   </p>
                   <span className='text-2xl md:text-3xl'>⭐</span>
                 </div>
