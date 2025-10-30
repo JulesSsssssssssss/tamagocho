@@ -35,11 +35,10 @@ if (
  * @remarks
  * - Utilise la clé secrète depuis les variables d'environnement
  * - TypeScript est activé pour une meilleure sécurité de type
- * - Version API : 2025-09-30.clover
+ * - Version API : 2025-09-30.clover (version par défaut du package)
  */
 export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-  typescript: true,
-  apiVersion: '2025-09-30.clover'
+  typescript: true
 })
 
 // Re-export de la table de prix pour simplifier les imports
