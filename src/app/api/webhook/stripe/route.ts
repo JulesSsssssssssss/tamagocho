@@ -79,37 +79,48 @@ export async function POST (req: Request): Promise<Response> {
       // Connexion à la base de données
       await connectMongooseToDatabase()
 
-      // Récupération du joueur via userId dans les metadata
-      const player = await Player.findOne({
-        userId: event?.data?.object?.metadata?.userId
-      })
+      // Récupération ou création du joueur via userId dans les metadata
+      const userId = event?.data?.object?.metadata?.userId
 
-      if (player !== null && player !== undefined) {
-        // Calcul du montant payé (Stripe renvoie en centimes)
-        const amountPaid = (event?.data?.object?.amount_total ?? 0) / 100
+      if (!userId) {
+        console.error('⚠️ No userId found in metadata')
+        break
+      }
 
-        // Recherche du package correspondant au prix payé
-        const entry = Object.entries(pricingTable).find(
-          ([_, pkg]) => pkg.price === amountPaid
-        )
+      let player = await Player.findOne({ userId })
 
-        if (entry !== undefined) {
-          const koinsToAdd = Number(entry[0])
+      // Si le joueur n'existe pas, le créer
+      if (!player) {
+        console.log(`🆕 Creating new player for user ${userId}`)
+        player = await Player.create({
+          userId,
+          coins: 0,
+          totalMonstersCreated: 0
+        })
+      }
 
-          console.log(`💰 Adding ${koinsToAdd} Koins to user ${String(player.userId)}`)
+      // Calcul du montant payé (Stripe renvoie en centimes)
+      const amountPaid = (event?.data?.object?.amount_total ?? 0) / 100
 
-          // Mise à jour du solde (Player.coins)
-          const currentCoins = Number(player.coins ?? 0)
-          player.coins = currentCoins + koinsToAdd
-          player.markModified('coins')
-          await player.save()
+      // Recherche du package correspondant au prix payé
+      const entry = Object.entries(pricingTable).find(
+        ([_, pkg]) => pkg.price === amountPaid
+      )
 
-          console.log(`✅ Wallet updated. New balance: ${String(player.coins)}`)
-        } else {
-          console.error('⚠️ No matching package found for amount:', amountPaid)
-        }
+      if (entry !== undefined) {
+        const koinsToAdd = Number(entry[0])
+
+        console.log(`💰 Adding ${koinsToAdd} Koins to user ${String(player.userId)}`)
+
+        // Mise à jour du solde (Player.coins)
+        const currentCoins = Number(player.coins ?? 0)
+        player.coins = currentCoins + koinsToAdd
+        player.markModified('coins')
+        await player.save()
+
+        console.log(`✅ Wallet updated. New balance: ${String(player.coins)}`)
       } else {
-        console.error('⚠️ Player not found for user:', event?.data?.object?.metadata?.userId)
+        console.error('⚠️ No matching package found for amount:', amountPaid)
       }
       break
     }
