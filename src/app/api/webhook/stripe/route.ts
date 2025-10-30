@@ -73,8 +73,13 @@ export async function POST (req: Request): Promise<Response> {
   // Traitement selon le type d'événement
   switch (event.type) {
     case 'checkout.session.completed': {
+      console.log('========================================')
       console.log('✅ Checkout session completed')
-      console.log('Event data:', event.data.object)
+      console.log('Event ID:', event.id)
+      console.log('Full event data:', JSON.stringify(event.data.object, null, 2))
+      console.log('Metadata:', event?.data?.object?.metadata)
+      console.log('Amount total:', event?.data?.object?.amount_total)
+      console.log('========================================')
 
       // Connexion à la base de données
       await connectMongooseToDatabase()
@@ -82,12 +87,16 @@ export async function POST (req: Request): Promise<Response> {
       // Récupération ou création du joueur via userId dans les metadata
       const userId = event?.data?.object?.metadata?.userId
 
+      console.log('🔍 Looking for userId:', userId)
+
       if (!userId) {
         console.error('⚠️ No userId found in metadata')
+        console.error('Available metadata:', event?.data?.object?.metadata)
         break
       }
 
       let player = await Player.findOne({ userId })
+      console.log('🔍 Player found:', player ? `Yes (coins: ${player.coins})` : 'No')
 
       // Si le joueur n'existe pas, le créer
       if (!player) {
@@ -97,15 +106,20 @@ export async function POST (req: Request): Promise<Response> {
           coins: 0,
           totalMonstersCreated: 0
         })
+        console.log('✅ Player created successfully')
       }
 
       // Calcul du montant payé (Stripe renvoie en centimes)
       const amountPaid = (event?.data?.object?.amount_total ?? 0) / 100
+      console.log('💵 Amount paid:', amountPaid, 'EUR')
 
       // Recherche du package correspondant au prix payé
       const entry = Object.entries(pricingTable).find(
         ([_, pkg]) => pkg.price === amountPaid
       )
+
+      console.log('📦 Pricing table:', pricingTable)
+      console.log('🔍 Found package:', entry)
 
       if (entry !== undefined) {
         const koinsToAdd = Number(entry[0])
@@ -114,14 +128,18 @@ export async function POST (req: Request): Promise<Response> {
 
         // Mise à jour du solde (Player.coins)
         const currentCoins = Number(player.coins ?? 0)
+        console.log('💰 Current coins:', currentCoins)
         player.coins = currentCoins + koinsToAdd
+        console.log('💰 New coins after addition:', player.coins)
         player.markModified('coins')
         await player.save()
 
-        console.log(`✅ Wallet updated. New balance: ${String(player.coins)}`)
+        console.log(`✅ Wallet updated successfully. New balance: ${String(player.coins)}`)
       } else {
         console.error('⚠️ No matching package found for amount:', amountPaid)
+        console.error('Available packages:', Object.entries(pricingTable).map(([k, v]) => ({ koins: k, price: v.price })))
       }
+      console.log('========================================')
       break
     }
 
