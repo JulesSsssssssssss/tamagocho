@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import type React from 'react'
 import { pricingTable } from '@/config/pricing'
 import PixelCoin from '@/components/dashboard/pixel-coin'
+import { useRouter } from 'next/navigation'
 
 interface WalletClientProps {
   initialWallet: DBWallet
@@ -36,6 +37,7 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
   const [wallet] = useState<DBWallet>(initialWallet)
   const [isPurchasing, setIsPurchasing] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const router = useRouter()
 
   /**
    * Gère l'achat de Tamacoins via Stripe
@@ -68,6 +70,13 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
       setError(err instanceof Error ? err.message : 'Erreur lors de l\'achat de Tamacoins')
       setIsPurchasing(false)
     }
+  }
+
+  /**
+   * Retour au Dashboard
+   */
+  const handleGoBack = (): void => {
+    router.push('/dashboard')
   }
 
   // Packages d'achat avec le style pixel-art
@@ -161,6 +170,21 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
             <div className='absolute bottom-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
 
             <div className='text-center'>
+              {/* Bouton retour - même style que shop */}
+              <div className='flex justify-start mb-6'>
+                <button
+                  onClick={handleGoBack}
+                  className='bg-slate-950/90 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-yellow-500/50 text-yellow-400 font-bold hover:border-yellow-300 hover:text-yellow-200 transition-all transform hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)]'
+                  style={{
+                    fontFamily: 'monospace',
+                    imageRendering: 'pixelated',
+                    textShadow: '2px 2px 0px rgba(0,0,0,0.5)'
+                  }}
+                >
+                  ← Retour au Dashboard
+                </button>
+              </div>
+
               <p className='text-sm sm:text-base font-bold text-yellow-400 uppercase tracking-widest mb-4' style={{ fontFamily: 'monospace' }}>
                 💎 Ton Trésor Actuel 💎
               </p>

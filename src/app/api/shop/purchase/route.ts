@@ -16,9 +16,9 @@ import { NextResponse } from 'next/server'
 import { auth } from '@/lib/auth'
 import { connectToDatabase } from '@/db'
 import Monster from '@/db/models/monster.model'
+import Player from '@/db/models/player.model'
 import { MongoShopRepository, MongoInventoryRepository } from '@/infrastructure/repositories/MongoShopRepository'
-import { MongoWalletRepository } from '@/infrastructure/repositories/MongoWalletRepository'
-import { PurchaseItemUseCase } from '@/application/use-cases/shop'
+import { InventoryItem } from '@/domain/entities/InventoryItem'
 import type { ItemCategory, ItemRarity } from '@/shared/types/shop'
 
 export async function POST (request: Request): Promise<NextResponse> {
@@ -37,7 +37,7 @@ export async function POST (request: Request): Promise<NextResponse> {
 
     // Parser le body
     const body = await request.json()
-    const { monsterId, itemId } = body
+    const { monsterId, itemId, price: clientPrice } = body
 
     if (typeof monsterId !== 'string' || monsterId === '') {
       return NextResponse.json(
@@ -61,45 +61,58 @@ export async function POST (request: Request): Promise<NextResponse> {
       try {
         await connectToDatabase()
 
-        // Extraire la catégorie et la rareté de l'ID de test
+        // Extraire la catégorie de l'ID de test
         const parts = itemId.split('_')
         const category = parts[1] as ItemCategory
-        const rarity = parts[2] as ItemRarity
 
-        // Calculer le prix selon la rareté
-        const basePrices: Record<ItemCategory, number> = {
-          hat: 50,
-          glasses: 75,
-          shoes: 100
+        // Utiliser le prix envoyé par le client (provenant de TEST_SHOP_ITEMS)
+        // pour éviter les incohérences de calcul
+        let price: number
+
+        if (typeof clientPrice === 'number' && clientPrice > 0) {
+          price = clientPrice
+        } else {
+          // Fallback : recalculer le prix si non fourni
+          const rarity = parts[2] as ItemRarity
+          const basePrices: Record<ItemCategory, number> = {
+            hat: 50,
+            glasses: 75,
+            shoes: 100
+          }
+          const rarityMultipliers: Record<ItemRarity, number> = {
+            common: 1,
+            rare: 2.5,
+            epic: 5,
+            legendary: 10
+          }
+          price = Math.round(basePrices[category] * rarityMultipliers[rarity])
         }
-        const rarityMultipliers: Record<ItemRarity, number> = {
-          common: 1,
-          rare: 2.5,
-          epic: 5,
-          legendary: 10
-        }
-        const price = basePrices[category] * rarityMultipliers[rarity]
 
-        // Débiter le wallet
-        const walletRepository = new MongoWalletRepository()
-        let wallet = await walletRepository.findByOwnerId(session.user.id)
+        // Récupérer le Player (source de vérité pour les coins)
+        await connectToDatabase()
+        let player = await Player.findOne({ userId: session.user.id }).exec()
 
-        if (wallet === null) {
-          // Créer le wallet s'il n'existe pas
-          wallet = await walletRepository.create(session.user.id)
+        if (player === null) {
+          // Créer le player s'il n'existe pas
+          player = new Player({
+            userId: session.user.id,
+            coins: 100, // Bonus initial
+            totalMonstersCreated: 0
+          })
+          await player.save()
         }
 
         // Vérifier le solde
-        if (wallet.balance < price) {
+        if (player.coins < price) {
           return NextResponse.json(
-            { success: false, error: `Solde insuffisant. Prix: ${price} TC, Solde: ${wallet.balance} TC` },
+            { success: false, error: `Solde insuffisant. Prix: ${price} TC, Solde: ${player.coins} TC` },
             { status: 400 }
           )
         }
 
-        // Débiter
-        wallet.spendCoins(price)
-        await walletRepository.update(wallet)
+        // Débiter les coins
+        player.coins -= price
+        await player.save()
 
         // Équiper directement l'item au monstre
         const updateField = `equippedItems.${category}`
@@ -117,7 +130,7 @@ export async function POST (request: Request): Promise<NextResponse> {
           success: true,
           data: {
             inventoryItemId: `test_inv_${Date.now()}`,
-            remainingBalance: wallet.balance
+            remainingBalance: player.coins
           },
           message: 'Item purchased and equipped successfully (test mode)'
         })
@@ -130,69 +143,113 @@ export async function POST (request: Request): Promise<NextResponse> {
       }
     }
 
-    // Mode production : utiliser le use case normal
-
-    // Mode production : utiliser le use case normal
-    // Initialiser les repositories et le use case
-    const shopRepository = new MongoShopRepository()
-    const inventoryRepository = new MongoInventoryRepository()
-    const walletRepository = new MongoWalletRepository()
-
-    const purchaseItemUseCase = new PurchaseItemUseCase(
-      shopRepository,
-      inventoryRepository,
-      walletRepository
-    )
-
-    // Exécuter l'achat
-    const result = await purchaseItemUseCase.execute({
-      userId: session.user.id,
-      monsterId,
-      itemId
-    })
-
-    if (!result.success) {
-      return NextResponse.json(
-        { success: false, error: result.error },
-        { status: 400 }
-      )
-    }
-
-    // Équiper l'item automatiquement au monstre
+    // Mode production : gérer l'achat avec Player.coins
     try {
       await connectToDatabase()
 
-      // Récupérer l'item depuis la DB pour connaître sa catégorie
+      // Récupérer l'item pour connaître son prix
+      const shopRepository = new MongoShopRepository()
       const item = await shopRepository.findItemById(itemId)
-      if (item !== null) {
-        const category: ItemCategory = item.category
-        const updateField = `equippedItems.${category}`
 
-        await Monster.findByIdAndUpdate(
-          monsterId,
-          {
-            [updateField]: itemId
-          }
+      if (item === null) {
+        return NextResponse.json(
+          { success: false, error: 'Item not found' },
+          { status: 404 }
         )
-
-        console.log(`✅ Item ${itemId} (${category}) équipé au monstre ${monsterId}`)
       }
-    } catch (error) {
-      console.error('Error equipping item to monster:', error)
-      // On ne fait pas échouer la requête, l'item a été acheté
-    }
 
-    // Succès
-    return NextResponse.json({
-      success: true,
-      data: {
-        inventoryItemId: result.inventoryItemId,
-        remainingBalance: result.remainingBalance
-      },
-      message: 'Item purchased and equipped successfully'
-    })
+      if (!item.isAvailable) {
+        return NextResponse.json(
+          { success: false, error: 'Item not available' },
+          { status: 400 }
+        )
+      }
+
+      const price = typeof clientPrice === 'number' && clientPrice > 0 ? clientPrice : item.price
+
+      // Vérifier que la créature appartient à l'utilisateur
+      const monster = await Monster.findById(monsterId).exec()
+      if (monster === null || monster.userId !== session.user.id) {
+        return NextResponse.json(
+          { success: false, error: 'Monster not found or unauthorized' },
+          { status: 403 }
+        )
+      }
+
+      // Vérifier si la créature possède déjà cet item
+      const inventoryRepository = new MongoInventoryRepository()
+      const hasItem = await inventoryRepository.hasItem(monsterId, itemId)
+      if (hasItem) {
+        return NextResponse.json(
+          { success: false, error: 'Monster already owns this item' },
+          { status: 400 }
+        )
+      }
+
+      // Récupérer le Player (source de vérité pour les coins)
+      let player = await Player.findOne({ userId: session.user.id }).exec()
+
+      if (player === null) {
+        // Créer le player s'il n'existe pas
+        player = new Player({
+          userId: session.user.id,
+          coins: 100, // Bonus initial
+          totalMonstersCreated: 0
+        })
+        await player.save()
+      }
+
+      // Vérifier le solde
+      if (player.coins < price) {
+        return NextResponse.json(
+          { success: false, error: `Solde insuffisant. Prix: ${price} TC, Solde: ${player.coins} TC` },
+          { status: 400 }
+        )
+      }
+
+      // Débiter les coins
+      player.coins -= price
+      await player.save()
+
+      // Ajouter l'item à l'inventaire
+      const inventoryItem = InventoryItem.create(
+        `inv_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        itemId,
+        monsterId,
+        session.user.id
+      )
+      await inventoryRepository.addItem(inventoryItem)
+
+      // Équiper l'item au monstre
+      const category: ItemCategory = item.category
+      const updateField = `equippedItems.${category}`
+
+      await Monster.findByIdAndUpdate(
+        monsterId,
+        {
+          [updateField]: itemId
+        }
+      )
+
+      console.log(`✅ [PRODUCTION] Item ${itemId} (${category}) acheté pour ${price} TC et équipé au monstre ${monsterId}`)
+
+      return NextResponse.json({
+        success: true,
+        data: {
+          inventoryItemId: inventoryItem.id,
+          remainingBalance: player.coins
+        },
+        message: 'Item purchased and equipped successfully'
+      })
+    } catch (error) {
+      console.error('Error in production mode purchase:', error)
+      return NextResponse.json(
+        { success: false, error: 'Failed to purchase item' },
+        { status: 500 }
+      )
+    }
   } catch (error) {
-    console.error('Error purchasing item:', error)
+    console.error('Error purchasing item (outer):', error)
 
     return NextResponse.json(
       {

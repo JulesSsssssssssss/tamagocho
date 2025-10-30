@@ -56,7 +56,8 @@ export default function ShopPage (): React.ReactNode {
         },
         body: JSON.stringify({
           itemId: selectedItem.id,
-          monsterId
+          monsterId,
+          price: selectedItem.price // Envoyer le prix pour éviter les incohérences
         })
       })
 
@@ -178,6 +179,20 @@ export default function ShopPage (): React.ReactNode {
   useEffect(() => {
     void loadData()
   }, [selectedCategory, selectedRarity])
+
+  // Rafraîchir le wallet quand l'utilisateur revient sur la page
+  useEffect(() => {
+    const handleVisibilityChange = (): void => {
+      if (!document.hidden) {
+        void loadWallet()
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [])
 
   const categories: Array<{ value: ItemCategory, label: string, icon: string }> = [
     { value: 'hat', label: 'Chapeaux', icon: '🎩' },

@@ -175,6 +175,21 @@ function WalletPageContent ({ session }: WalletPageContentProps): React.ReactNod
                   TamaCoins
                 </p>
               </div>
+
+              {/* Bouton retour au Dashboard - Style pixel art */}
+              <div className='flex justify-center pt-2'>
+                <button
+                  onClick={handleGoBack}
+                  className='group flex items-center gap-3 bg-slate-900/80 backdrop-blur-sm hover:bg-slate-800 px-8 py-4 rounded-2xl border-4 border-slate-700 hover:border-yellow-400/50 text-white transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg hover:shadow-yellow-400/20'
+                  style={{ fontFamily: 'monospace', imageRendering: 'pixelated' }}
+                >
+                  <span className='text-3xl group-hover:scale-110 transition-transform duration-300'>🏠</span>
+                  <span className='font-black uppercase tracking-wider text-lg group-hover:text-yellow-400 transition-colors duration-300'>
+                    Retour au Dashboard
+                  </span>
+                  <span className='text-2xl group-hover:translate-x-1 transition-transform duration-300'>→</span>
+                </button>
+              </div>
             </div>
           </div>
 
