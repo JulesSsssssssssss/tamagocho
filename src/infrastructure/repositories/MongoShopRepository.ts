@@ -124,8 +124,8 @@ export class MongoShopRepository implements IShopRepository {
 
   async createItem (item: ShopItem): Promise<void> {
     await connectMongooseToDatabase()
+    // Ne pas passer _id, laisser MongoDB le générer automatiquement
     await ShopItemModel.create({
-      _id: item.id,
       name: item.name,
       description: item.description,
       category: item.category,
@@ -188,8 +188,8 @@ export class MongoInventoryRepository implements IInventoryRepository {
 
   async addItem (item: InventoryItem): Promise<void> {
     await connectMongooseToDatabase()
+    // Ne pas passer _id, laisser MongoDB le générer automatiquement
     await InventoryItemModel.create({
-      _id: item.id,
       itemId: item.itemId,
       monsterId: item.monsterId,
       ownerId: item.ownerId,
