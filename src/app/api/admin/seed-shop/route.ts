@@ -105,6 +105,38 @@ const INITIAL_SHOP_ITEMS = [
   }
 ]
 
+// GET pour afficher les instructions et l'état
+export async function GET (): Promise<NextResponse> {
+  try {
+    const shopRepository = new MongoShopRepository()
+    const existingItems = await shopRepository.findAllAvailableItems()
+
+    return NextResponse.json({
+      message: 'Shop Seed API',
+      instructions: 'Send a POST request to this endpoint to seed the shop with initial items',
+      currentItemCount: existingItems.length,
+      status: existingItems.length > 0 ? 'already_seeded' : 'ready_to_seed',
+      items: existingItems.map(item => ({
+        id: item.id,
+        name: item.name,
+        category: item.category,
+        rarity: item.rarity,
+        price: item.price
+      }))
+    })
+  } catch (error) {
+    console.error('Error checking shop status:', error)
+    return NextResponse.json(
+      {
+        success: false,
+        error: 'Failed to check shop status',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
+      { status: 500 }
+    )
+  }
+}
+
 export async function POST (): Promise<NextResponse> {
   try {
     const shopRepository = new MongoShopRepository()
