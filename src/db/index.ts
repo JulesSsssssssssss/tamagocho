@@ -23,13 +23,25 @@ const client = new MongoClient(uri, {
 
 // Variable pour tracker la connexion
 let isConnected = false
+let isMongooseConnected = false
 
 async function connectMongooseToDatabase (): Promise<void> {
+  if (isMongooseConnected) {
+    console.log('✅ Mongoose already connected')
+    return
+  }
+
   try {
-    await mongoose.connect(uri)
+    await mongoose.connect(uri, {
+      serverSelectionTimeoutMS: 30000,
+      socketTimeoutMS: 30000,
+      connectTimeoutMS: 30000
+    })
+    isMongooseConnected = true
     console.log('✅ Mongoose connected to MongoDB database')
   } catch (error) {
     console.error('❌ Error connecting Mongoose to the database:', error)
+    throw error
   }
 }
 

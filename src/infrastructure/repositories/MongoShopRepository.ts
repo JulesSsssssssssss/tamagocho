@@ -13,7 +13,7 @@ import type { IShopRepository, IInventoryRepository } from '@/domain/repositorie
 import type { ItemCategory, ItemRarity } from '@/shared/types/shop'
 import { ShopItem } from '@/domain/entities/ShopItem'
 import { InventoryItem } from '@/domain/entities/InventoryItem'
-import { connectToDatabase } from '@/db'
+import { connectMongooseToDatabase } from '@/db'
 import mongoose, { type Document } from 'mongoose'
 
 /**
@@ -99,31 +99,31 @@ export class MongoShopRepository implements IShopRepository {
   }
 
   async findAllAvailableItems (): Promise<ShopItem[]> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const docs = await ShopItemModel.find({ isAvailable: true }).sort({ createdAt: -1 })
     return docs.map(doc => this.mapToDomain(doc))
   }
 
   async findItemById (itemId: string): Promise<ShopItem | null> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const doc = await ShopItemModel.findById(itemId)
     return doc !== null ? this.mapToDomain(doc) : null
   }
 
   async findItemsByCategory (category: ItemCategory): Promise<ShopItem[]> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const docs = await ShopItemModel.find({ category, isAvailable: true })
     return docs.map(doc => this.mapToDomain(doc))
   }
 
   async findItemsByRarity (rarity: ItemRarity): Promise<ShopItem[]> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const docs = await ShopItemModel.find({ rarity, isAvailable: true })
     return docs.map(doc => this.mapToDomain(doc))
   }
 
   async createItem (item: ShopItem): Promise<void> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     await ShopItemModel.create({
       _id: item.id,
       name: item.name,
@@ -138,7 +138,7 @@ export class MongoShopRepository implements IShopRepository {
   }
 
   async updateItem (item: ShopItem): Promise<void> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     await ShopItemModel.findByIdAndUpdate(item.id, {
       name: item.name,
       description: item.description,
@@ -151,7 +151,7 @@ export class MongoShopRepository implements IShopRepository {
   }
 
   async deleteItem (itemId: string): Promise<void> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     await ShopItemModel.findByIdAndDelete(itemId)
   }
 }
@@ -175,19 +175,19 @@ export class MongoInventoryRepository implements IInventoryRepository {
   }
 
   async findByMonsterId (monsterId: string): Promise<InventoryItem[]> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const docs = await InventoryItemModel.find({ monsterId }).sort({ purchasedAt: -1 })
     return docs.map(doc => this.mapToDomain(doc))
   }
 
   async findByOwnerId (ownerId: string): Promise<InventoryItem[]> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const docs = await InventoryItemModel.find({ ownerId }).sort({ purchasedAt: -1 })
     return docs.map(doc => this.mapToDomain(doc))
   }
 
   async addItem (item: InventoryItem): Promise<void> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     await InventoryItemModel.create({
       _id: item.id,
       itemId: item.itemId,
@@ -199,19 +199,19 @@ export class MongoInventoryRepository implements IInventoryRepository {
   }
 
   async removeItem (itemId: string): Promise<void> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     await InventoryItemModel.findByIdAndDelete(itemId)
   }
 
   async updateItem (item: InventoryItem): Promise<void> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     await InventoryItemModel.findByIdAndUpdate(item.id, {
       isEquipped: item.isEquipped
     })
   }
 
   async hasItem (monsterId: string, shopItemId: string): Promise<boolean> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const count = await InventoryItemModel.countDocuments({
       monsterId,
       itemId: shopItemId
@@ -220,7 +220,7 @@ export class MongoInventoryRepository implements IInventoryRepository {
   }
 
   async findEquippedItems (monsterId: string): Promise<InventoryItem[]> {
-    await connectToDatabase()
+    await connectMongooseToDatabase()
     const docs = await InventoryItemModel.find({ monsterId, isEquipped: true })
     return docs.map(doc => this.mapToDomain(doc))
   }
