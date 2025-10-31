@@ -34,51 +34,74 @@ async function SignInPage ({
   const errorMessage = errorType !== undefined ? errorMessages[errorType] : undefined
   return (
     <div className='min-h-screen bg-gradient-to-br from-moccaccino-50 via-fuchsia-blue-50 to-lochinvar-50 flex items-center justify-center p-4 relative overflow-hidden'>
-      {/* Animated floating monsters */}
+      {/* Pixel grid background effect */}
+      <div className='absolute inset-0 opacity-5' style={{
+        backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 19px, currentColor 19px, currentColor 20px), repeating-linear-gradient(90deg, transparent, transparent 19px, currentColor 19px, currentColor 20px)',
+        backgroundSize: '20px 20px'
+      }} />
+
+      {/* Animated floating monsters - Style pixel art */}
       <div className='absolute inset-0 pointer-events-none overflow-hidden'>
-        <div className='absolute top-20 left-10 text-6xl animate-bounce'>🥺</div>
-        <div className='absolute top-32 right-20 text-5xl animate-pulse'>👾</div>
-        <div className='absolute bottom-40 left-20 text-4xl animate-bounce' style={{ animationDelay: '1s' }}>🧸</div>
-        <div className='absolute bottom-20 right-10 text-5xl animate-pulse' style={{ animationDelay: '2s' }}>🦄</div>
-        <div className='absolute top-1/2 left-5 text-3xl animate-bounce' style={{ animationDelay: '0.5s' }}>🎀</div>
-        <div className='absolute top-1/3 right-5 text-4xl animate-pulse' style={{ animationDelay: '1.5s' }}>🌟</div>
+        <div className='absolute top-20 left-10 text-6xl animate-bounce filter drop-shadow-lg'>🥺</div>
+        <div className='absolute top-32 right-20 text-5xl animate-pulse filter drop-shadow-lg'>👾</div>
+        <div className='absolute bottom-40 left-20 text-4xl animate-bounce filter drop-shadow-lg' style={{ animationDelay: '1s' }}>🧸</div>
+        <div className='absolute bottom-20 right-10 text-5xl animate-pulse filter drop-shadow-lg' style={{ animationDelay: '2s' }}>🦄</div>
+        <div className='absolute top-1/2 left-5 text-3xl animate-bounce filter drop-shadow-lg' style={{ animationDelay: '0.5s' }}>🎀</div>
+        <div className='absolute top-1/3 right-5 text-4xl animate-pulse filter drop-shadow-lg' style={{ animationDelay: '1.5s' }}>🌟</div>
       </div>
 
-      {/* Main card container */}
+      {/* Main card container - Style pixel-art gaming */}
       <div className='w-full max-w-md relative z-10'>
-        {/* Error message banner */}
+        {/* Error message banner - Style pixel-art */}
         {errorMessage !== undefined && (
-          <div className='mb-4 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-xl shadow-lg animate-in slide-in-from-top duration-300'>
-            <p className='text-red-700 text-sm font-medium'>{errorMessage}</p>
-            {callbackUrl !== undefined && (
-              <p className='text-red-600 text-xs mt-1'>
-                Vous serez redirigé vers : {callbackUrl}
-              </p>
-            )}
+          <div className='mb-6 bg-red-100 border-4 border-red-500 rounded-xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-200'>
+            <div className='flex items-start gap-3'>
+              <span className='text-3xl'>⚠️</span>
+              <div>
+                <p className='text-red-700 font-bold text-sm mb-1'>❌ {errorMessage}</p>
+                {callbackUrl !== undefined && (
+                  <p className='text-red-600 text-xs font-mono bg-red-50 px-2 py-1 rounded border border-red-300 mt-2'>
+                    → Redirection : {callbackUrl}
+                  </p>
+                )}
+              </div>
+            </div>
           </div>
         )}
 
-        <div className='bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/30 p-8 relative overflow-hidden'>
-          {/* Decorative gradient overlay */}
-          <div className='absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-moccaccino-400 via-fuchsia-blue-400 to-lochinvar-400' />
+        {/* Main card - Style pixel-art gaming avec bordures épaisses */}
+        <div className='bg-white border-4 border-moccaccino-300 rounded-2xl shadow-2xl p-8 relative overflow-hidden transform hover:scale-[1.02] transition-all duration-300'>
+          {/* Decorative top bar - Style gaming */}
+          <div className='absolute top-0 left-0 right-0 h-3 bg-gradient-to-r from-moccaccino-500 via-fuchsia-blue-500 to-lochinvar-500' />
+          
+          {/* Corner decorations - Style pixel */}
+          <div className='absolute top-2 left-2 w-4 h-4 border-t-4 border-l-4 border-moccaccino-500 rounded-tl' />
+          <div className='absolute top-2 right-2 w-4 h-4 border-t-4 border-r-4 border-lochinvar-500 rounded-tr' />
+          <div className='absolute bottom-2 left-2 w-4 h-4 border-b-4 border-l-4 border-fuchsia-blue-500 rounded-bl' />
+          <div className='absolute bottom-2 right-2 w-4 h-4 border-b-4 border-r-4 border-moccaccino-500 rounded-br' />
 
-          {/* Welcome message */}
-          <div className='text-center mb-8'>
-            <div className='text-5xl mb-4'>🎮</div>
-            <h1 className='text-3xl font-bold bg-gradient-to-r from-moccaccino-600 to-fuchsia-blue-600 bg-clip-text text-transparent'>
+          {/* Welcome message - Style gaming */}
+          <div className='text-center mb-8 mt-2'>
+            <div className='text-6xl mb-4 animate-bounce'>🎮</div>
+            <h1 className='text-3xl font-black bg-gradient-to-r from-moccaccino-600 via-fuchsia-blue-600 to-lochinvar-600 bg-clip-text text-transparent mb-2 drop-shadow-sm'>
               Bienvenue chez Tamagotcho !
             </h1>
-            <p className='text-gray-600 mt-2 text-sm'>
-              Vos petits monstres vous attendent 👹✨
+            <p className='text-gray-700 font-semibold text-sm flex items-center justify-center gap-2'>
+              <span>Vos petits monstres vous attendent</span>
+              <span className='text-xl'>👹✨</span>
             </p>
           </div>
 
           <AuthFormContent />
         </div>
 
-        {/* Fun quote below the card */}
-        <div className='text-center mt-6 text-gray-600 text-sm'>
-          <span className='italic'>"Un monstre par jour éloigne l'ennui pour toujours !"</span> 🎭
+        {/* Fun quote below the card - Style pixel-art */}
+        <div className='text-center mt-6 bg-white/50 backdrop-blur-sm border-2 border-moccaccino-200 rounded-xl px-4 py-3 shadow-lg'>
+          <p className='text-gray-700 font-medium text-sm flex items-center justify-center gap-2'>
+            <span className='text-xl'>💬</span>
+            <span className='italic'>"Un monstre par jour éloigne l'ennui pour toujours !"</span>
+            <span className='text-xl'>🎭</span>
+          </p>
         </div>
       </div>
     </div>

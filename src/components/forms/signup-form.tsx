@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import InputField from '../input'
-import Button from '../button'
+import PixelInput from '../ui/pixel-input'
+import PixelButton from '../ui/pixel-button'
 import { authClient } from '@/lib/auth-client'
 
 interface Credentials {
@@ -100,57 +100,74 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
 
   return (
     <div className='space-y-6'>
-      <div className='text-center'>
-        <h2 className='text-2xl font-bold text-gray-800 mb-2'>
-          🆕 Créer un compte
-        </h2>
-        <p className='text-gray-600 text-sm'>
-          Rejoignez l'aventure Tamagotcho ! 🎆
+      {/* Header - Style pixel-art gaming */}
+      <div className='text-center bg-gradient-to-br from-lochinvar-50 to-fuchsia-blue-50 border-3 border-lochinvar-200 rounded-xl p-4'>
+        <div className='flex items-center justify-center gap-2 mb-2'>
+          <span className='text-3xl'>🆕</span>
+          <h2 className='text-2xl font-black text-gray-800'>
+            Créer un compte
+          </h2>
+        </div>
+        <p className='text-gray-700 font-medium text-sm flex items-center justify-center gap-2'>
+          <span>Rejoignez l'aventure Tamagotcho</span>
+          <span className='text-lg'>🎆</span>
         </p>
       </div>
 
       <form className='flex flex-col justify-center space-y-4' onSubmit={handleSubmit}>
-        <InputField
+        <PixelInput
           label="Nom d'utilisateur"
           type='text'
           name='name'
           value={credentials.name}
           error={validationErrors.name}
+          icon='👤'
+          placeholder='Votre pseudo'
+          autoComplete='name'
           onChangeText={(text: string) => {
             setCredentials({ ...credentials, name: text })
             setValidationErrors({ ...validationErrors, name: undefined })
           }}
         />
-        <InputField
+        <PixelInput
           label='Email'
           type='email'
           name='email'
           value={credentials.email}
           error={validationErrors.email}
+          icon='📧'
+          placeholder='votre@email.com'
+          autoComplete='email'
           onChangeText={(text: string) => {
             setCredentials({ ...credentials, email: text })
             setValidationErrors({ ...validationErrors, email: undefined })
           }}
         />
-        <InputField
+        <PixelInput
           label='Mot de passe'
           type='password'
           name='password'
           value={credentials.password}
           error={validationErrors.password}
+          icon='🔒'
+          placeholder='Min. 6 caractères'
+          autoComplete='new-password'
           onChangeText={(text: string) => {
             setCredentials({ ...credentials, password: text })
             setValidationErrors({ ...validationErrors, password: undefined })
           }}
         />
-        <Button
+        <PixelButton
           type='submit'
           size='lg'
           disabled={isLoading}
-          variant='default'
+          loading={isLoading}
+          variant='secondary'
+          icon='🎆'
+          fullWidth
         >
-          {isLoading ? '🔄 Création...' : '🎆 Créer mon compte'}
-        </Button>
+          Créer mon compte
+        </PixelButton>
       </form>
     </div>
   )
