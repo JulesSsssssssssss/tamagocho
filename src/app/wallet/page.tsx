@@ -1,4 +1,4 @@
-import { auth } from '@/lib/auth'
+import { getServerSessionSafely } from '@/lib/auth'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import WalletClient from '@/components/wallet/wallet-client'
@@ -33,9 +33,7 @@ import { getWallet } from '@/actions/wallet.actions'
  */
 async function WalletPage (): Promise<React.ReactNode> {
   // Récupération de la session utilisateur (BetterAuth)
-  const session = await auth.api.getSession({
-    headers: await headers()
-  })
+  const session = await getServerSessionSafely(async () => new Headers(await headers()))
 
   // Protection : redirection si non authentifié
   if (session === null || session === undefined) {

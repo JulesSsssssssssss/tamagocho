@@ -43,7 +43,14 @@
 - Ressources et liens
 - Erreurs communes
 
-### � Je veux l'état du projet
+### 🔀 Je veux comprendre les redirections
+→ **[REDIRECTIONS_SUMMARY.md](./REDIRECTIONS_SUMMARY.md)**
+- Feature 2.1 implémentée
+- Toutes les redirections intelligentes
+- Tests et validation
+- Guide complet
+
+### 📊 Je veux l'état du projet
 → **[STATUS.md](./STATUS.md)**
 - Statut complet ✅
 - Métriques du code
@@ -126,8 +133,9 @@ tamagocho/
 ### Niveau 2: Comprendre
 1. Lire **ARCHITECTURE_VISUAL.md** (diagrammes)
 2. Lire **IMPLEMENTATION.md** (détails)
-3. Explorer `src/domain/entities/Tamagotchi.ts`
-4. Voir les Use Cases dans `src/application/`
+3. Lire **REDIRECTIONS_SUMMARY.md** (navigations)
+4. Explorer `src/domain/entities/Tamagotchi.ts`
+5. Voir les Use Cases dans `src/application/`
 
 ### Niveau 3: Développer
 1. Lire **IMPORTS_GUIDE.md**
@@ -231,6 +239,9 @@ tamagocho/
 
 ### Q: Par où je commence?
 **A**: QUICKSTART.md, puis ARCHITECTURE_VISUAL.md
+
+### Q: Comment fonctionnent les redirections?
+**A**: REDIRECTIONS_SUMMARY.md (Feature 2.1 complète)
 
 ### Q: Comment ajouter une feature?
 **A**: IMPORTS_GUIDE.md → "Ajouter une nouvelle feature"

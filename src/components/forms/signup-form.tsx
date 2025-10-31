@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import InputField from '../input'
 import Button from '../button'
 import { authClient } from '@/lib/auth-client'
@@ -10,6 +11,8 @@ interface Credentials {
 }
 
 function SignUpForm ({ onError }: { onError: (error: string) => void }): React.ReactNode {
+  const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get('callbackUrl') ?? '/app'
   const [credentials, setCredentials] = useState<Credentials>({
     email: '',
     password: '',
@@ -56,7 +59,7 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
       email: credentials.email,
       password: credentials.password,
       name: credentials.name,
-      callbackURL: '/dashboard'
+      callbackURL: callbackUrl
     }, {
       onRequest: (ctx) => {
         console.log('🔄 Tentative d\'inscription...', ctx)

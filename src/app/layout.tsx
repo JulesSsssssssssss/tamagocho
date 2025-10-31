@@ -4,7 +4,7 @@ import './globals.css'
 import { ToastContainer } from 'react-toastify'
 import SwRegister from '@/components/SwRegister'
 import { MonstersAutoUpdater } from '@/components/monsters'
-import { auth } from '@/lib/auth'
+import { getServerSessionSafely } from '@/lib/auth'
 import { headers } from 'next/headers'
 
 const jersey10 = Jersey_10({
@@ -39,9 +39,7 @@ export default async function RootLayout ({
   children: React.ReactNode
 }>): Promise<React.ReactNode> {
   // Récupération de la session utilisateur pour le cron auto-updater
-  const session = await auth.api.getSession({
-    headers: await headers()
-  })
+  const session = await getServerSessionSafely(async () => new Headers(await headers()))
 
   const userId = session?.user?.id ?? null
 

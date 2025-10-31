@@ -1,6 +1,6 @@
 import { getMonsters } from '@/actions/monsters/monsters.actions'
 import DashboardContent from '@/components/dashboard/dashboard-content'
-import { auth } from '@/lib/auth'
+import { getServerSessionSafely } from '@/lib/auth'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
@@ -33,9 +33,7 @@ import { redirect } from 'next/navigation'
  */
 async function DashboardPage (): Promise<React.ReactNode> {
   // Récupération de la session utilisateur (BetterAuth)
-  const session = await auth.api.getSession({
-    headers: await headers()
-  })
+  const session = await getServerSessionSafely(async () => new Headers(await headers()))
 
   // Protection : redirection si non authentifié
   if (session === null || session === undefined) {
