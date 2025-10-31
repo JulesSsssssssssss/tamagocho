@@ -75,7 +75,7 @@ export default function PixelInput ({
       {/* Label avec emoji */}
       <label
         htmlFor={name}
-        className='block text-sm font-bold text-gray-700 mb-2 flex items-center gap-2'
+        className='flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300 mb-2'
       >
         {icon !== undefined && <span className='text-lg'>{icon}</span>}
         <span>{label}</span>

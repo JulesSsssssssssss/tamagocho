@@ -2,9 +2,9 @@ import type { ActionCardProps } from '@/shared/types/components'
 
 function getActionColorClasses (colorTheme: ActionCardProps['colorTheme']): string {
   const colorMaps: Record<ActionCardProps['colorTheme'], string> = {
-    moccaccino: 'bg-moccaccino-100 text-moccaccino-700',
-    lochinvar: 'bg-lochinvar-100 text-lochinvar-700',
-    'fuchsia-blue': 'bg-fuchsia-blue-100 text-fuchsia-blue-700'
+    moccaccino: 'bg-yellow-500/10 dark:bg-yellow-500/10 text-yellow-400 dark:text-yellow-300 border-yellow-500 dark:border-yellow-600',
+    lochinvar: 'bg-blue-500/10 dark:bg-blue-500/10 text-blue-400 dark:text-blue-300 border-blue-500 dark:border-blue-600',
+    'fuchsia-blue': 'bg-purple-500/10 dark:bg-purple-500/10 text-purple-400 dark:text-purple-300 border-purple-500 dark:border-purple-600'
   }
 
   return colorMaps[colorTheme]
@@ -14,12 +14,12 @@ export function ActionCard ({ icon, title, description, colorTheme }: ActionCard
   const colorClass = getActionColorClasses(colorTheme)
 
   return (
-    <article className='flex flex-col items-center gap-4 text-center rounded-3xl border border-gray-100 bg-white p-8 shadow-sm transition-transform duration-300 hover:-translate-y-1 hover:shadow-md'>
-      <div className={`flex size-20 items-center justify-center rounded-full text-3xl ${colorClass}`}>
+    <article className={`flex flex-col items-center gap-4 text-center rounded-xl border-4 bg-slate-800/50 dark:bg-slate-900/50 backdrop-blur-sm p-8 shadow-[0_0_20px_rgba(234,179,8,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] ${colorClass}`}>
+      <div className={`flex size-20 items-center justify-center rounded-xl border-3 text-3xl ${colorClass}`}>
         {icon}
       </div>
-      <h3 className='text-lg font-semibold text-gray-900'>{title}</h3>
-      <p className='text-gray-600'>{description}</p>
+      <h3 className='text-lg font-semibold text-white'>{title}</h3>
+      <p className='text-gray-300'>{description}</p>
     </article>
   )
 }
@@ -53,11 +53,15 @@ export default function ActionsSection (): React.ReactNode {
   ]
 
   return (
-    <section id='actions' className='bg-white py-20'>
+    <section id='actions' className='bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 dark:from-slate-950 dark:via-blue-950 dark:to-slate-950 py-20 transition-colors duration-300'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center max-w-3xl mx-auto mb-16 space-y-4'>
-          <h2 className='text-3xl md:text-4xl font-bold text-gray-900'>Que pouvez-vous faire ?</h2>
-          <p className='text-lg text-gray-600'>Interagissez avec votre créature de multiples façons pour créer un lien unique.</p>
+          <h2 className='text-3xl md:text-4xl font-bold text-white'>
+            Que pouvez-vous faire ? 🎮
+          </h2>
+          <p className='text-lg text-gray-300'>
+            Interagissez avec votre créature de multiples façons pour créer un lien unique.
+          </p>
         </div>
 
         <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-4'>

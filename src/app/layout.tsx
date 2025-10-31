@@ -6,6 +6,7 @@ import SwRegister from '@/components/SwRegister'
 import { MonstersAutoUpdater } from '@/components/monsters'
 import { getServerSessionSafely } from '@/lib/auth'
 import { headers } from 'next/headers'
+import { ThemeProvider } from '@/components/theme'
 
 const jersey10 = Jersey_10({
   variable: '--font-jersey10',
@@ -44,24 +45,42 @@ export default async function RootLayout ({
   const userId = session?.user?.id ?? null
 
   return (
-    <html lang='fr'>
+    <html lang='fr' suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const theme = localStorage.getItem('tamagotcho-theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (theme === 'dark' || (!theme && prefersDark)) {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (e) {}
+            `
+          }}
+        />
+      </head>
       <body
         className={`${jersey10.variable} ${geistMono.variable} antialiased font-sans`}
+        suppressHydrationWarning
       >
-        {/* Système de mise à jour automatique des monstres */}
-        {/* Se déclenche toutes les 1-3 minutes pour dégrader les stats */}
-        <MonstersAutoUpdater
-          userId={userId}
-          minInterval={60000}   // 1 minute minimum
-          maxInterval={180000}  // 3 minutes maximum
-          enabled={userId !== null} // Activé seulement si utilisateur connecté
-          verbose={true}        // Logs dans la console (mettre false en prod)
-          showIndicator={false} // Pas d'indicateur visuel (mettre true pour debug)
-        />
-        
-        {children}
-        <SwRegister />
-        <ToastContainer />
+        <ThemeProvider>
+          {/* Système de mise à jour automatique des monstres */}
+          {/* Se déclenche toutes les 1-3 minutes pour dégrader les stats */}
+          <MonstersAutoUpdater
+            userId={userId}
+            minInterval={60000}   // 1 minute minimum
+            maxInterval={180000}  // 3 minutes maximum
+            enabled={userId !== null} // Activé seulement si utilisateur connecté
+            verbose={true}        // Logs dans la console (mettre false en prod)
+            showIndicator={false} // Pas d'indicateur visuel (mettre true pour debug)
+          />
+          
+          {children}
+          <SwRegister />
+          <ToastContainer />
+        </ThemeProvider>
       </body>
     </html>
   )
