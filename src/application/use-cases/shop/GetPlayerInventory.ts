@@ -10,7 +10,7 @@
  */
 
 import type { IInventoryRepository, IShopRepository } from '@/domain/repositories/IShopRepository'
-import type { ItemCategory } from '@/shared/types/shop'
+import type { ItemCategory, BackgroundType } from '@/shared/types/shop'
 
 /**
  * DTO pour un item d'inventaire enrichi
@@ -24,6 +24,7 @@ export interface InventoryItemDTO {
   category: ItemCategory
   rarity: string
   imageUrl?: string
+  backgroundType?: BackgroundType // Pour les fonds d'écran
   isEquipped: boolean
   purchasedAt: Date
 }
@@ -62,6 +63,7 @@ export class GetPlayerInventoryUseCase {
           category: shopItem.category,
           rarity: shopItem.rarity,
           imageUrl: shopItem.imageUrl,
+          backgroundType: shopItem.backgroundType, // Inclure le type de fond
           isEquipped: invItem.isEquipped,
           purchasedAt: invItem.purchasedAt
         }
@@ -112,6 +114,7 @@ export class GetPlayerInventoryUseCase {
           category: shopItem.category,
           rarity: shopItem.rarity,
           imageUrl: shopItem.imageUrl,
+          backgroundType: shopItem.backgroundType, // Inclure le type de fond
           isEquipped: invItem.isEquipped,
           purchasedAt: invItem.purchasedAt
         }

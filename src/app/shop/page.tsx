@@ -6,12 +6,21 @@ import type { ShopItemDTO } from '@/application/use-cases/shop'
 import type { ItemCategory, ItemRarity } from '@/shared/types/shop'
 import type { DBMonster } from '@/shared/types/monster'
 import { RARITY_COLORS } from '@/shared/types/shop'
-import { ItemCard, MonsterSelectionModal } from '@/components/shop'
+import { ItemCard, MonsterSelectionModal, BackgroundCard, PurchaseNotification, type NotificationType } from '@/components/shop'
 import { TEST_SHOP_ITEMS } from '@/shared/data/test-shop-items'
 import PixelCoin from '@/components/dashboard/pixel-coin'
 
 // Mode de développement : utiliser les données de test
 const USE_TEST_DATA = process.env.NODE_ENV === 'development'
+
+/**
+ * Interface pour les notifications
+ */
+interface Notification {
+  type: NotificationType
+  title: string
+  message: string
+}
 
 /**
  * Page de la boutique - Style pixel art gaming
@@ -31,11 +40,33 @@ export default function ShopPage (): React.ReactNode {
   const [monsters, setMonsters] = useState<DBMonster[]>([])
   const [isPurchasing, setIsPurchasing] = useState(false)
 
+  // Système de notifications
+  const [notification, setNotification] = useState<Notification | null>(null)
+  const [showNotification, setShowNotification] = useState(false)
+
+  // Fonction pour afficher une notification
+  const showNotif = (type: NotificationType, title: string, message: string): void => {
+    setNotification({ type, title, message })
+    setShowNotification(true)
+  }
+
+  // Fonction pour fermer la notification
+  const closeNotification = (): void => {
+    setShowNotification(false)
+    setTimeout(() => {
+      setNotification(null)
+    }, 300) // Attendre la fin de l'animation
+  }
+
   // Fonction pour ouvrir le modal de sélection de monstre
   const handleOpenPurchaseModal = (item: ShopItemDTO): void => {
     // Vérifier si l'utilisateur a assez de monnaie
     if (userBalance < item.price) {
-      alert(`❌ Solde insuffisant !\n\nPrix de l'item : ${item.price} TC\nVotre solde : ${userBalance} TC\n\nIl vous manque ${item.price - userBalance} TC.`)
+      showNotif(
+        'error',
+        'Solde insuffisant',
+        `Prix de l'item : ${item.price} TC\nVotre solde : ${userBalance} TC\n\nIl vous manque ${item.price - userBalance} TC.`
+      )
       return
     }
 
@@ -76,15 +107,48 @@ export default function ShopPage (): React.ReactNode {
         setIsModalOpen(false)
         setSelectedItem(null)
 
-        // Afficher le message de succès
-        setPurchaseSuccess(true)
-        setTimeout(() => { setPurchaseSuccess(false) }, 3000)
+        // Afficher le message de succès avec notification stylisée
+        const itemType = selectedItem.category === 'background' ? 'Fond d\'écran' : 'Accessoire'
+        showNotif(
+          'success',
+          'Achat réussi !',
+          `${itemType} "${selectedItem.name}" acheté et équipé avec succès !`
+        )
       } else {
-        alert(data.error ?? 'Erreur lors de l\'achat')
+        // Distinguer les différents types d'erreurs
+        const errorMessage = data.error ?? 'Erreur lors de l\'achat'
+        const itemType = selectedItem.category === 'background' ? 'fond d\'écran' : 'accessoire'
+        
+        if (errorMessage.toLowerCase().includes('already owns') || errorMessage.toLowerCase().includes('possède déjà')) {
+          // Item déjà possédé
+          showNotif(
+            'warning',
+            `${selectedItem.name} déjà possédé`,
+            `Ce monstre possède déjà cet ${itemType}. Rendez-vous dans l'inventaire pour l'équiper.`
+          )
+        } else if (errorMessage.toLowerCase().includes('insufficient') || errorMessage.toLowerCase().includes('insuffisant')) {
+          // Solde insuffisant
+          showNotif(
+            'error',
+            'Solde insuffisant',
+            errorMessage
+          )
+        } else {
+          // Autre erreur
+          showNotif(
+            'error',
+            'Erreur',
+            errorMessage
+          )
+        }
       }
     } catch (error) {
       console.error('Error purchasing item:', error)
-      alert('Erreur lors de l\'achat')
+      showNotif(
+        'error',
+        'Erreur technique',
+        'Une erreur s\'est produite lors de l\'achat. Veuillez réessayer.'
+      )
     } finally {
       setIsPurchasing(false)
     }
@@ -197,7 +261,8 @@ export default function ShopPage (): React.ReactNode {
   const categories: Array<{ value: ItemCategory, label: string, icon: string }> = [
     { value: 'hat', label: 'Chapeaux', icon: '🎩' },
     { value: 'glasses', label: 'Lunettes', icon: '👓' },
-    { value: 'shoes', label: 'Chaussures', icon: '👟' }
+    { value: 'shoes', label: 'Chaussures', icon: '👟' },
+    { value: 'background', label: 'Fonds', icon: '🖼️' }
   ]
 
   const rarities: Array<{ value: ItemRarity, label: string, color: string }> = [
@@ -297,7 +362,7 @@ export default function ShopPage (): React.ReactNode {
                   🎨 Équipe tes monstres avec style !
                 </p>
                 <p className='text-white/80 text-sm md:text-base font-bold' style={{ fontFamily: 'monospace' }}>
-                  Achète des chapeaux, lunettes et chaussures pour personnaliser tes créatures ! 🎩👓👟
+                  Achète des chapeaux, lunettes, chaussures et fonds d'écran pour personnaliser tes créatures ! 🎩👓👟🖼️
                 </p>
               </div>
             </div>
@@ -429,12 +494,23 @@ export default function ShopPage (): React.ReactNode {
                   : (
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
                       {items.map((item) => (
-                        <ItemCard
-                          key={item.id}
-                          item={item}
-                          userBalance={userBalance}
-                          onPurchase={handlePurchase}
-                        />
+                        item.category === 'background'
+                          ? (
+                              <BackgroundCard
+                                key={item.id}
+                                item={item}
+                                userBalance={userBalance}
+                                onPurchase={handlePurchase}
+                              />
+                            )
+                          : (
+                              <ItemCard
+                                key={item.id}
+                                item={item}
+                                userBalance={userBalance}
+                                onPurchase={handlePurchase}
+                              />
+                            )
                       ))}
                     </div>
                     )
@@ -451,6 +527,17 @@ export default function ShopPage (): React.ReactNode {
           itemName={selectedItem?.name ?? ''}
           isLoading={isPurchasing}
         />
+
+        {/* Notification de succès/erreur */}
+        {notification !== null && (
+          <PurchaseNotification
+            type={notification.type}
+            title={notification.title}
+            message={notification.message}
+            isVisible={showNotification}
+            onClose={closeNotification}
+          />
+        )}
       </div>
     </div>
   )

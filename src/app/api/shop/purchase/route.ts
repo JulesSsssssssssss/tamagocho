@@ -77,7 +77,8 @@ export async function POST (request: Request): Promise<NextResponse> {
           const basePrices: Record<ItemCategory, number> = {
             hat: 50,
             glasses: 75,
-            shoes: 100
+            shoes: 100,
+            background: 150
           }
           const rarityMultipliers: Record<ItemRarity, number> = {
             common: 1,
@@ -102,6 +103,23 @@ export async function POST (request: Request): Promise<NextResponse> {
           await player.save()
         }
 
+        // IMPORTANT: Vérifier si l'item existe déjà AVANT de débiter
+        const inventoryRepository = new MongoInventoryRepository()
+        const hasItem = await inventoryRepository.hasItem(monsterId, itemId)
+        
+        if (hasItem) {
+          // L'item existe déjà, retourner une erreur SANS débiter
+          const itemName = parts.slice(3).join(' ') || 'cet item'
+          return NextResponse.json(
+            { 
+              success: false, 
+              error: `Ce monstre possède déjà ${itemName}. Allez dans votre inventaire pour l'équiper.`,
+              code: 'ALREADY_OWNED'
+            },
+            { status: 400 }
+          )
+        }
+
         // Vérifier le solde
         if (player.coins < price) {
           return NextResponse.json(
@@ -110,11 +128,23 @@ export async function POST (request: Request): Promise<NextResponse> {
           )
         }
 
-        // Débiter les coins
+        // Débiter les coins UNIQUEMENT si l'item n'existe pas déjà
         player.coins -= price
         await player.save()
 
-        // Équiper directement l'item au monstre
+        // Créer l'item dans l'inventaire
+        const newItem = new InventoryItem({
+          id: '', // Sera généré par MongoDB
+          itemId,
+          monsterId,
+          ownerId: session.user.id,
+          purchasedAt: new Date(),
+          isEquipped: true // Équipé directement à l'achat
+        })
+        await inventoryRepository.addItem(newItem)
+        console.log(`✅ Item ajouté à l'inventaire: ${itemId} pour monster ${monsterId}`)
+
+        // Équiper l'item au monstre
         const updateField = `equippedItems.${category}`
 
         await Monster.findByIdAndUpdate(
@@ -181,7 +211,11 @@ export async function POST (request: Request): Promise<NextResponse> {
       const hasItem = await inventoryRepository.hasItem(monsterId, itemId)
       if (hasItem) {
         return NextResponse.json(
-          { success: false, error: 'Monster already owns this item' },
+          { 
+            success: false, 
+            error: `Ce monstre possède déjà ${item.name}. Allez dans votre inventaire pour l'équiper.`,
+            code: 'ALREADY_OWNED'
+          },
           { status: 400 }
         )
       }

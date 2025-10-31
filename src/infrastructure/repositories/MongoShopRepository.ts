@@ -10,10 +10,11 @@
  */
 
 import type { IShopRepository, IInventoryRepository } from '@/domain/repositories/IShopRepository'
-import type { ItemCategory, ItemRarity } from '@/shared/types/shop'
+import type { ItemCategory, ItemRarity, BackgroundType } from '@/shared/types/shop'
 import { ShopItem } from '@/domain/entities/ShopItem'
 import { InventoryItem } from '@/domain/entities/InventoryItem'
 import { connectMongooseToDatabase } from '@/db'
+import { TEST_SHOP_ITEMS } from '@/shared/data/test-shop-items'
 import mongoose, { type Document } from 'mongoose'
 
 /**
@@ -27,6 +28,7 @@ interface IShopItemDocument extends Document {
   rarity: ItemRarity
   price: number
   imageUrl?: string
+  backgroundType?: BackgroundType // Pour les fonds d'écran
   isAvailable: boolean
   createdAt: Date
 }
@@ -49,10 +51,11 @@ interface IInventoryItemDocument extends Document {
 const shopItemSchema = new mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
-  category: { type: String, required: true, enum: ['hat', 'glasses', 'shoes'] },
+  category: { type: String, required: true, enum: ['hat', 'glasses', 'shoes', 'background'] },
   rarity: { type: String, required: true, enum: ['common', 'rare', 'epic', 'legendary'] },
   price: { type: Number, required: true },
   imageUrl: { type: String },
+  backgroundType: { type: String, enum: ['day', 'garden', 'night'] }, // Pour les fonds d'écran
   isAvailable: { type: Boolean, default: true },
   createdAt: { type: Date, default: Date.now }
 })
@@ -93,6 +96,7 @@ export class MongoShopRepository implements IShopRepository {
       rarity: doc.rarity,
       price: doc.price,
       imageUrl: doc.imageUrl,
+      backgroundType: doc.backgroundType, // Inclure le backgroundType
       isAvailable: doc.isAvailable,
       createdAt: doc.createdAt
     })
@@ -105,6 +109,27 @@ export class MongoShopRepository implements IShopRepository {
   }
 
   async findItemById (itemId: string): Promise<ShopItem | null> {
+    // Si c'est un item de test, le récupérer depuis les données de test
+    if (itemId.startsWith('test_')) {
+      const testItem = TEST_SHOP_ITEMS.find(item => item.id === itemId)
+      if (testItem !== undefined) {
+        return new ShopItem({
+          id: testItem.id,
+          name: testItem.name,
+          description: testItem.description,
+          category: testItem.category,
+          rarity: testItem.rarity,
+          price: testItem.price,
+          imageUrl: testItem.imageUrl,
+          backgroundType: testItem.backgroundType, // Inclure le backgroundType
+          isAvailable: testItem.isAvailable,
+          createdAt: new Date()
+        })
+      }
+      return null
+    }
+
+    // Sinon, chercher dans MongoDB
     await connectMongooseToDatabase()
     const doc = await ShopItemModel.findById(itemId)
     return doc !== null ? this.mapToDomain(doc) : null

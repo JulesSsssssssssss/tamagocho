@@ -7,7 +7,12 @@
 /**
  * Catégories d'items disponibles dans la boutique
  */
-export type ItemCategory = 'hat' | 'glasses' | 'shoes'
+export type ItemCategory = 'hat' | 'glasses' | 'shoes' | 'background'
+
+/**
+ * Types de fonds d'écran disponibles
+ */
+export type BackgroundType = 'day' | 'garden' | 'night'
 
 /**
  * Niveaux de rareté des items
@@ -27,6 +32,7 @@ export interface IShopItemProps {
   imageUrl?: string
   isAvailable: boolean
   createdAt: Date
+  backgroundType?: BackgroundType // Optionnel : type de fond pour les items de catégorie 'background'
 }
 
 /**
@@ -58,7 +64,8 @@ export const RARITY_PRICE_MULTIPLIER: Record<ItemRarity, number> = {
 export const BASE_PRICES: Record<ItemCategory, number> = {
   hat: 50,
   glasses: 75,
-  shoes: 100
+  shoes: 100,
+  background: 150
 }
 
 /**
@@ -67,7 +74,26 @@ export const BASE_PRICES: Record<ItemCategory, number> = {
 export const CATEGORY_LABELS: Record<ItemCategory, string> = {
   hat: 'Chapeau',
   glasses: 'Lunettes',
-  shoes: 'Chaussures'
+  shoes: 'Chaussures',
+  background: 'Fond d\'écran'
+}
+
+/**
+ * Labels français pour les types de fonds
+ */
+export const BACKGROUND_TYPE_LABELS: Record<BackgroundType, string> = {
+  day: 'Chambre - Jour',
+  garden: 'Jardin - Jour',
+  night: 'Toit - Nuit'
+}
+
+/**
+ * Descriptions pour les types de fonds
+ */
+export const BACKGROUND_TYPE_DESCRIPTIONS: Record<BackgroundType, string> = {
+  day: 'Une chambre confortable avec une belle fenêtre ensoleillée',
+  garden: 'Un jardin verdoyant avec des arbres et des fleurs',
+  night: 'Un toit urbain sous un ciel étoilé'
 }
 
 /**

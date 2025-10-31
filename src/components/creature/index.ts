@@ -29,3 +29,5 @@ export { default as CreatureLoadingState } from './creature-loading-state'
 export { default as CreatureErrorState } from './creature-error-state'
 export { default as CreatureNotFoundState } from './creature-not-found-state'
 export { default as CreatureEquippedItems } from './creature-equipped-items'
+export { default as CreatureInventoryManager } from './creature-inventory-manager'
+

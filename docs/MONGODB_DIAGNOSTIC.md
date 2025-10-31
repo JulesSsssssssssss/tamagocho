@@ -64,7 +64,7 @@ connectToDatabase().catch(console.error)
 
 Ouvrez http://localhost:3000/sign-in et créez un compte test:
 - Email: `test@example.com`
-- Password: `TestPassword123!`
+- Password: `VotreMotDePasseSecurisé123!` (exemple)
 - Name: `Test User`
 
 ### 2. Vérifier les logs dans la console

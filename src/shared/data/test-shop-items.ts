@@ -118,5 +118,37 @@ export const TEST_SHOP_ITEMS: ShopItemDTO[] = [
     rarity: 'legendary',
     price: 1000,
     isAvailable: true
+  },
+
+  // Fonds d'écran
+  {
+    id: 'test_background_rare_day',
+    name: 'Chambre - Jour',
+    description: 'Une chambre confortable avec une belle fenêtre ensoleillée',
+    category: 'background',
+    backgroundType: 'day',
+    rarity: 'rare',
+    price: 375,
+    isAvailable: true
+  },
+  {
+    id: 'test_background_epic_garden',
+    name: 'Jardin - Jour',
+    description: 'Un jardin verdoyant avec des arbres et des fleurs',
+    category: 'background',
+    backgroundType: 'garden',
+    rarity: 'epic',
+    price: 750,
+    isAvailable: true
+  },
+  {
+    id: 'test_background_legendary_night',
+    name: 'Toit - Nuit',
+    description: 'Un toit urbain sous un ciel étoilé',
+    category: 'background',
+    backgroundType: 'night',
+    rarity: 'legendary',
+    price: 1500,
+    isAvailable: true
   }
 ]

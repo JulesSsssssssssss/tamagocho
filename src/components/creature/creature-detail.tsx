@@ -1,6 +1,6 @@
 'use client'
 
-import { memo, useEffect, useState } from 'react'
+import { memo, useEffect, useState, useCallback } from 'react'
 import type { DBMonster } from '@/shared/types/monster'
 import CreatureHeader from './creature-header'
 import CreatureAvatar from './creature-avatar'
@@ -9,6 +9,7 @@ import CreatureStats from './creature-stats'
 import CreatureXpBar from './creature-xp-bar'
 import CreatureActions from './creature-actions'
 import CreatureEquippedItemsList from './creature-equipped-items-list'
+import CreatureBackgroundManager from './creature-background-manager'
 import MonsterTraitsDisplay from '../monsters/monster-traits-display'
 
 /**
@@ -58,32 +59,50 @@ const CreatureDetail = memo(function CreatureDetail ({
 }: CreatureDetailProps): React.ReactNode {
   // State local pour les données du monstre (mis à jour par polling)
   const [currentMonster, setCurrentMonster] = useState<DBMonster>(creature)
+  // Clé de rafraîchissement pour forcer le rechargement du fond d'écran
+  const [backgroundRefreshKey, setBackgroundRefreshKey] = useState<number>(0)
 
   // Parse des traits pour MonsterTraitsDisplay
   const traits = JSON.parse(currentMonster.traits)
 
+  // Fonction pour rafraîchir les données du monstre
+  const refreshMonster = useCallback(async (): Promise<void> => {
+    try {
+      const response = await fetch(`/api/monster?id=${currentMonster._id}`)
+      if (response.ok) {
+        const updatedMonster: DBMonster = await response.json()
+        // Vérifier que le monstre existe avant de mettre à jour
+        if (updatedMonster !== null && updatedMonster !== undefined) {
+          setCurrentMonster(updatedMonster)
+        }
+      } else {
+        // Ne pas logger les erreurs 401 (non authentifié) pour éviter le spam
+        if (response.status !== 401) {
+          console.error('Erreur lors de la récupération du monstre :', response.status)
+        }
+      }
+    } catch (error) {
+      // Erreur réseau silencieuse (le polling continue)
+      // Ne pas logger pour éviter le spam de la console
+    }
+  }, [currentMonster._id])
+
+  // Fonction pour rafraîchir le monstre ET le fond d'écran
+  const refreshMonsterAndBackground = useCallback(async (): Promise<void> => {
+    await refreshMonster()
+    setBackgroundRefreshKey(prev => prev + 1)
+  }, [refreshMonster])
+
   // Polling pour synchroniser les données avec le serveur
   // Met à jour le state React sans refresh visible de page
   useEffect(() => {
-    const fetchMonster = async (): Promise<void> => {
-      try {
-        const response = await fetch(`/api/monster?id=${currentMonster._id}`)
-        if (response.ok) {
-          const updatedMonster: DBMonster = await response.json()
-          setCurrentMonster(updatedMonster)
-        }
-      } catch (error) {
-        console.error('Erreur lors de la récupération du monstre :', error)
-      }
-    }
-
     // Polling toutes les secondes pour mise à jour fluide
     const interval = setInterval(() => {
-      void fetchMonster()
+      void refreshMonster()
     }, 1000)
 
     return () => { clearInterval(interval) }
-  }, [creature._id])
+  }, [refreshMonster])
 
   return (
     <div className='min-h-screen w-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900'>
@@ -138,12 +157,24 @@ const CreatureDetail = memo(function CreatureDetail ({
                     traitsJson={currentMonster.traits}
                     state={currentMonster.state}
                     equippedItems={currentMonster.equippedItems}
+                    creatureId={currentMonster._id}
+                    refreshKey={backgroundRefreshKey}
                   />
                 </div>
               </div>
 
               {/* Liste des accessoires équipés */}
-              <CreatureEquippedItemsList equippedItems={currentMonster.equippedItems} />
+              <CreatureEquippedItemsList
+                equippedItems={currentMonster.equippedItems}
+                creatureId={currentMonster._id}
+                onItemChange={refreshMonster}
+              />
+
+              {/* Gestionnaire de fonds d'écran */}
+              <CreatureBackgroundManager
+                creatureId={currentMonster._id}
+                onBackgroundChange={refreshMonsterAndBackground}
+              />
             </div>
 
             {/* Colonne droite - Stats, Actions, Infos */}
@@ -214,23 +245,23 @@ const CreatureDetail = memo(function CreatureDetail ({
                   />
                 </div>
               </div>
+            </div>
+          </div>
 
-              {/* Message gaming */}
-              <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
-                {/* Coins pixel jaunes */}
-                <div className='absolute top-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
-                <div className='absolute top-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
-                <div className='absolute bottom-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
-                <div className='absolute bottom-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+          {/* Message gaming - PLEINE LARGEUR */}
+          <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+            {/* Coins pixel jaunes */}
+            <div className='absolute top-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute top-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-0 left-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-0 right-0 w-4 h-4 bg-yellow-400' style={{ imageRendering: 'pixelated' }} />
 
-                <div className='flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-center'>
-                  <span className='text-2xl md:text-3xl'>🎮</span>
-                  <p className='text-xs md:text-sm text-white font-medium font-mono'>
-                    <strong className='text-yellow-400'>PRENDS SOIN DE TON MONSTRE !</strong> Utilise les bonnes actions pour gagner de l'XP et monter de niveau.
-                  </p>
-                  <span className='text-2xl md:text-3xl'>⭐</span>
-                </div>
-              </div>
+            <div className='flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-center'>
+              <span className='text-2xl md:text-3xl'>🎮</span>
+              <p className='text-xs md:text-sm text-white font-medium font-mono'>
+                <strong className='text-yellow-400'>PRENDS SOIN DE TON MONSTRE !</strong> Utilise les bonnes actions pour gagner de l'XP et monter de niveau.
+              </p>
+              <span className='text-2xl md:text-3xl'>⭐</span>
             </div>
           </div>
         </div>

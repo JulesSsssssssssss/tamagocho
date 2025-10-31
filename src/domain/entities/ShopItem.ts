@@ -12,7 +12,7 @@
  * - L'infrastructure
  */
 
-import type { ItemCategory, ItemRarity, IShopItemProps } from '@/shared/types/shop'
+import type { ItemCategory, ItemRarity, IShopItemProps, BackgroundType } from '@/shared/types/shop'
 import { BASE_PRICES, RARITY_PRICE_MULTIPLIER } from '@/shared/types/shop'
 
 /**
@@ -28,6 +28,7 @@ export class ShopItem {
   private readonly _imageUrl?: string
   private _isAvailable: boolean
   private readonly _createdAt: Date
+  private readonly _backgroundType?: BackgroundType
 
   // Constantes métier
   public static readonly MIN_PRICE = 1
@@ -45,6 +46,7 @@ export class ShopItem {
     this._imageUrl = props.imageUrl
     this._isAvailable = props.isAvailable
     this._createdAt = props.createdAt
+    this._backgroundType = props.backgroundType
 
     this.validate()
   }
@@ -59,6 +61,7 @@ export class ShopItem {
   get imageUrl (): string | undefined { return this._imageUrl }
   get isAvailable (): boolean { return this._isAvailable }
   get createdAt (): Date { return this._createdAt }
+  get backgroundType (): BackgroundType | undefined { return this._backgroundType }
 
   /**
    * Validation des règles métier
@@ -136,7 +139,8 @@ export class ShopItem {
       price: this._price,
       imageUrl: this._imageUrl,
       isAvailable: this._isAvailable,
-      createdAt: this._createdAt
+      createdAt: this._createdAt,
+      backgroundType: this._backgroundType
     }
   }
 

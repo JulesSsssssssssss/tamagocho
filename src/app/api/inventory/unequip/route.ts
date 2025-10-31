@@ -6,19 +6,19 @@
  * Body:
  * {
  *   monsterId: string
- *   inventoryItemId: string
+ *   category: string  // 'hat' | 'glasses' | 'shoes'
  * }
  */
 
 import { NextResponse } from 'next/server'
-import { MongoInventoryRepository } from '@/infrastructure/repositories/MongoShopRepository'
-import { UnequipItemUseCase } from '@/application/use-cases/shop'
+import { connectMongooseToDatabase } from '@/db'
+import MonsterModel from '@/db/models/monster.model'
 
 export async function POST (request: Request): Promise<NextResponse> {
   try {
     // Parser le body
     const body = await request.json()
-    const { monsterId, inventoryItemId } = body
+    const { monsterId, category } = body
 
     if (typeof monsterId !== 'string' || monsterId === '') {
       return NextResponse.json(
@@ -27,34 +27,40 @@ export async function POST (request: Request): Promise<NextResponse> {
       )
     }
 
-    if (typeof inventoryItemId !== 'string' || inventoryItemId === '') {
+    if (typeof category !== 'string' || !['hat', 'glasses', 'shoes'].includes(category)) {
       return NextResponse.json(
-        { success: false, error: 'Inventory Item ID is required' },
+        { success: false, error: 'Valid category is required (hat, glasses, shoes)' },
         { status: 400 }
       )
     }
 
-    // Initialiser le repository et le use case
-    const inventoryRepository = new MongoInventoryRepository()
+    // Connexion à MongoDB
+    await connectMongooseToDatabase()
 
-    const unequipItemUseCase = new UnequipItemUseCase(inventoryRepository)
-
-    // Déséquiper l'item
-    const result = await unequipItemUseCase.execute({
+    // Mettre à jour le champ equippedItems du monstre
+    const updateField = `equippedItems.${category}`
+    const monster = await MonsterModel.findByIdAndUpdate(
       monsterId,
-      inventoryItemId
-    })
+      { $set: { [updateField]: null } },
+      { new: true }
+    )
 
-    if (!result.success) {
+    if (!monster) {
       return NextResponse.json(
-        { success: false, error: result.error },
-        { status: 400 }
+        { success: false, error: 'Monster not found' },
+        { status: 404 }
       )
     }
+
+    console.log(`✅ Item déséquipé: ${category} sur monster ${monsterId}`)
 
     return NextResponse.json({
       success: true,
-      message: 'Item unequipped successfully'
+      message: `${category} unequipped successfully`,
+      monster: {
+        id: monster._id,
+        equippedItems: monster.equippedItems
+      }
     })
   } catch (error) {
     console.error('Error unequipping item:', error)

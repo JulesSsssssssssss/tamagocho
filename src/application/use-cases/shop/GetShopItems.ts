@@ -12,7 +12,7 @@
 
 import type { IShopRepository } from '@/domain/repositories/IShopRepository'
 import type { ShopItem } from '@/domain/entities/ShopItem'
-import type { ItemCategory, ItemRarity } from '@/shared/types/shop'
+import type { ItemCategory, ItemRarity, BackgroundType } from '@/shared/types/shop'
 
 /**
  * DTO pour filtrer les items
@@ -35,6 +35,7 @@ export interface ShopItemDTO {
   price: number
   imageUrl?: string
   isAvailable: boolean
+  backgroundType?: BackgroundType
 }
 
 /**
@@ -89,7 +90,8 @@ export class GetShopItemsUseCase {
       rarity: item.rarity,
       price: item.price,
       imageUrl: item.imageUrl,
-      isAvailable: item.isAvailable
+      isAvailable: item.isAvailable,
+      backgroundType: item.backgroundType
     }
   }
 }

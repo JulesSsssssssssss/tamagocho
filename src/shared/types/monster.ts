@@ -80,6 +80,7 @@ export interface DBMonster {
     glasses: string | null
     shoes: string | null
   }
+  equippedBackground?: string | null // ID du fond d'écran équipé
   ownerId: string
   createdAt: Date
   updatedAt: Date

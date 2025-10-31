@@ -1,5 +1,80 @@
 # 📝 CHANGELOG - Tamagotcho
 
+## Version 2.0.0 - 30/10/2025 🎉
+
+### ✨ Nouvelles fonctionnalités majeures
+
+#### 🛍️ Système d'Items Complet (MongoDB Full)
+- ✨ **Action 3 : Retirer un accessoire** - Nouvelle fonctionnalité
+  - Use Case `RemoveItemFromInventoryUseCase`
+  - Route API `POST /api/inventory/remove`
+  - Suppression définitive de MongoDB
+  - Validation de propriété (sécurité)
+
+- ✨ **Action 4B : Visualiser tous les items d'un joueur** - Nouvelle fonctionnalité
+  - Use Case `GetAllOwnerItemsUseCase`
+  - Route API `GET /api/inventory/owner/[ownerId]`
+  - Récupération cross-créatures
+  - Données enrichies avec détails du shop
+
+#### 📚 Documentation enrichie
+- ✅ Guide complet des 4 actions (`INVENTORY_4_ACTIONS_GUIDE.md`)
+- ✅ Résumé technique d'implémentation (`INVENTORY_SYSTEM_IMPLEMENTATION.md`)
+- ✅ Script de test automatique (`test-inventory-system.sh`)
+- ✅ README spécifique inventaire (`README_INVENTORY.md`)
+- ✅ Mise à jour de l'index documentation
+
+### 🔧 Améliorations techniques
+
+#### Architecture Clean
+- ✅ Nouveaux Use Cases respectant DIP
+- ✅ DTOs bien typés (`RemoveItemInput`, `RemoveItemOutput`)
+- ✅ Erreurs métier personnalisées
+  - `ItemNotFoundInInventoryError`
+  - `ItemBelongsToAnotherMonsterError`
+- ✅ Barrel exports mis à jour
+
+#### Infrastructure
+- ✅ Utilisation des méthodes existantes du repository
+  - `findByMonsterId()` 
+  - `findByOwnerId()`
+  - `removeItem()`
+- ✅ Aucune modification du Domain Layer (principe OCP)
+
+### 📊 État du système d'items
+
+| Action | Status | Endpoint |
+|--------|--------|----------|
+| Acheter | ✅ Existant | `POST /api/shop/purchase` |
+| Équiper | ✅ Existant | `POST /api/inventory/equip` |
+| Retirer | ✨ **NOUVEAU** | `POST /api/inventory/remove` |
+| Voir (monstre) | ✅ Existant | `GET /api/inventory/[monsterId]` |
+| Voir (joueur) | ✨ **NOUVEAU** | `GET /api/inventory/owner/[ownerId]` |
+
+### 📦 Fichiers créés (7 nouveaux)
+
+1. `src/application/use-cases/shop/RemoveItem.ts`
+2. `src/application/use-cases/shop/GetAllOwnerItems.ts`
+3. `src/app/api/inventory/remove/route.ts`
+4. `src/app/api/inventory/owner/[ownerId]/route.ts`
+5. `docs/INVENTORY_4_ACTIONS_GUIDE.md`
+6. `docs/INVENTORY_SYSTEM_IMPLEMENTATION.md`
+7. `test-inventory-system.sh`
+8. `README_INVENTORY.md`
+
+### 🔄 Fichiers modifiés (2)
+
+1. `src/application/use-cases/shop/index.ts` - Exports mis à jour
+2. `docs/DOCUMENTATION_INDEX.md` - Index enrichi
+
+### 🧪 Tests
+- ✅ Script de test automatique créé
+- ✅ Tests manuels documentés avec curl
+- ✅ Aucune erreur TypeScript
+- ✅ Validation end-to-end à effectuer
+
+---
+
 ## Version 1.0.0 - 17/10/2025 🎉
 
 ### ✨ Features

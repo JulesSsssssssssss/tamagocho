@@ -43,12 +43,26 @@
 - Ressources et liens
 - Erreurs communes
 
-### 📊 Je veux l'état du projet
+### � Je veux l'état du projet
 → **[STATUS.md](./STATUS.md)**
 - Statut complet ✅
 - Métriques du code
 - Validations passées
 - Production ready checklist
+
+### 🛍️ Je veux utiliser le système d'items (NOUVEAU)
+→ **[INVENTORY_4_ACTIONS_GUIDE.md](./INVENTORY_4_ACTIONS_GUIDE.md)**
+- Les 4 actions disponibles
+- Exemples d'utilisation des APIs
+- Tests avec curl
+- Structure MongoDB
+
+### 🔧 Je veux comprendre l'implémentation du système d'items
+→ **[INVENTORY_SYSTEM_IMPLEMENTATION.md](./INVENTORY_SYSTEM_IMPLEMENTATION.md)**
+- Architecture technique
+- Use Cases créés
+- Principes SOLID appliqués
+- Checklist de mise en production
 
 ### 📖 Je veux une overview générale
 → **[README.md](./README.md)**
