@@ -1,0 +1,5 @@
+export { TamagotchiRepository } from './TamagotchiRepository'
+export { MongoShopRepository, MongoInventoryRepository } from './MongoShopRepository'
+export { MongoQuestRepository } from './MongoQuestRepository'
+export { MongoWalletRepository } from './MongoWalletRepository'
+export { MongoTransactionRepository } from './MongoTransactionRepository'

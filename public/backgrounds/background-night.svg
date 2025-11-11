@@ -1,0 +1,40 @@
+<svg id="background-night" viewBox="0 0 480 720" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <!-- ciel nuit -->
+  <rect width="480" height="720" fill="#0b1736" />
+
+  <!-- lune pixel -->
+  <g>
+    <rect x="360" y="60" width="48" height="48" fill="#f6f7d8" />
+    <rect x="388" y="76" width="24" height="24" fill="#dfe6c0" />
+  </g>
+
+  <!-- étoiles -->
+  <g>
+    <rect x="40" y="40" width="6" height="6" fill="#ffffff" />
+    <rect x="120" y="80" width="6" height="6" fill="#ffffff" />
+    <rect x="200" y="60" width="6" height="6" fill="#ffffff" />
+    <rect x="280" y="100" width="6" height="6" fill="#ffffff" />
+  </g>
+
+  <!-- silhouette immeubles -->
+  <g fill="#071324">
+    <rect x="0" y="420" width="120" height="300" />
+    <rect x="120" y="460" width="100" height="260" />
+    <rect x="220" y="380" width="160" height="340" />
+    <rect x="380" y="440" width="100" height="280" />
+  </g>
+
+  <!-- fenêtres éclairées pixel -->
+  <g>
+    <rect x="20" y="460" width="8" height="8" fill="#ffd87a" />
+    <rect x="40" y="492" width="8" height="8" fill="#ffd87a" />
+    <rect x="140" y="500" width="8" height="8" fill="#ffd87a" />
+    <rect x="260" y="440" width="8" height="8" fill="#ffd87a" />
+    <rect x="300" y="476" width="8" height="8" fill="#ffd87a" />
+    <rect x="360" y="512" width="8" height="8" fill="#ffd87a" />
+  </g>
+
+  <!-- petit rebord toît (premier plan) -->
+  <rect x="0" y="640" width="480" height="80" fill="#172036" />
+  <rect x="40" y="620" width="400" height="24" fill="#243353" />
+</svg>

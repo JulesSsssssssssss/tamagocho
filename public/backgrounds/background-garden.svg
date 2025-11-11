@@ -1,0 +1,47 @@
+<svg id="background-garden" viewBox="0 0 480 720" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" preserveAspectRatio="xMidYMid slice">
+  <!-- ciel -->
+  <rect width="480" height="360" fill="#9be7ff" />
+
+  <!-- soleil pixel -->
+  <g>
+    <rect x="36" y="24" width="40" height="40" fill="#fff175"/>
+    <rect x="20" y="44" width="16" height="16" fill="#ffd54a"/>
+    <rect x="84" y="44" width="16" height="16" fill="#ffd54a"/>
+  </g>
+
+  <!-- nuages pixel -->
+  <g>
+    <rect x="200" y="40" width="48" height="16" fill="#ffffff" />
+    <rect x="248" y="40" width="40" height="16" fill="#ebf6ff" />
+    <rect x="240" y="56" width="48" height="16" fill="#ffffff" />
+  </g>
+
+  <!-- herbe -->
+  <rect x="0" y="360" width="480" height="360" fill="#88d46f" />
+  <!-- buisson simple -->
+  <g>
+    <rect x="80" y="380" width="56" height="56" fill="#3fa34b" />
+    <rect x="110" y="352" width="48" height="32" fill="#61c96a" />
+  </g>
+
+  <!-- arbre pixel -->
+  <g>
+    <rect x="320" y="320" width="24" height="120" fill="#8b5a2b" />
+    <rect x="296" y="260" width="96" height="72" fill="#2f8f3d" />
+    <rect x="312" y="240" width="48" height="24" fill="#69b86a" />
+  </g>
+
+  <!-- fleur pixel -->
+  <g>
+    <rect x="160" y="440" width="8" height="24" fill="#2f8f3d" />
+    <rect x="152" y="432" width="24" height="8" fill="#ff6b6b" />
+    <rect x="168" y="432" width="8" height="8" fill="#fff7b0" />
+  </g>
+
+  <!-- chemin en pierres -->
+  <g>
+    <rect x="220" y="480" width="40" height="20" fill="#cfcfcf" />
+    <rect x="260" y="500" width="36" height="16" fill="#bfbfbf" />
+    <rect x="200" y="520" width="48" height="16" fill="#d9d9d9" />
+  </g>
+</svg>

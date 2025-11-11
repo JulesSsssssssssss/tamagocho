@@ -1,0 +1,8 @@
+export { Tamagotchi } from './Tamagotchi'
+export type { ITamagotchiStats } from './Tamagotchi'
+export { Wallet } from './Wallet'
+export { Transaction } from './Transaction'
+export { ShopItem } from './ShopItem'
+export { InventoryItem, Inventory } from './InventoryItem'
+export { Quest } from './Quest'
+export type { QuestProps, QuestType, QuestStatus, QuestTypeConfig } from './Quest'
