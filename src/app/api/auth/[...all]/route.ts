@@ -1,4 +1,9 @@
-import { auth } from '@/lib/auth' // path to your auth file
+import { auth } from '@/lib/auth'
 import { toNextJsHandler } from 'better-auth/next-js'
 
-export const { POST, GET } = toNextJsHandler(auth)
+// Export toutes les méthodes HTTP que BetterAuth peut utiliser
+export const { GET, POST } = toNextJsHandler(auth)
+
+// Note: BetterAuth utilise principalement GET et POST
+// Les autres méthodes (PUT, PATCH, DELETE) ne sont généralement pas nécessaires
+// mais si vous obtenez des erreurs 405, vous pouvez les ajouter ici
