@@ -21,8 +21,8 @@ export * from './accessories.config'
 // Arrière-plans (Backgrounds)
 export * from './backgrounds.config'
 
-// Quêtes journalières
-export * from './quests.config'
+// Quêtes journalières (fichier corrompu, temporairement désactivé)
+// export * from './quests.config'
 
 // Configuration des monstres
 export * from './monsters.config'

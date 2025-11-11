@@ -2,7 +2,7 @@
 
 import { connectMongooseToDatabase } from '@/db'
 import Monster from '@/db/models/monster.model'
-import { auth } from '@/lib/auth'
+import { auth, type AuthSession } from '@/lib/auth'
 import type { CreateMonsterFormValues } from '@/shared/types/forms/create-monster-form'
 import type { DBMonster, MonsterState } from '@/shared/types/monster'
 import { XP_GAIN_PER_ACTION, XP_PER_LEVEL } from '@/shared/types/monster'
@@ -10,6 +10,7 @@ import { COINS_PER_ACTION } from '@/shared/types/coins'
 import { addCoins } from '@/actions/wallet.actions'
 import { revalidatePath } from 'next/cache'
 import { headers } from 'next/headers'
+import { logger } from '@/lib/logger'
 
 /**
  * Type de retour pour les actions de monstre
@@ -88,7 +89,7 @@ function calculateLevelFromXp (xp: number): { level: number, xpToNextLevel: numb
   return { level, xpToNextLevel }
 }
 
-async function getCurrentSession (): Promise<any> {
+async function getCurrentSession (): Promise<AuthSession> {
   const session = await auth.api.getSession({
     headers: await headers()
   })
@@ -130,7 +131,9 @@ export async function getMonsters (): Promise<DBMonster[]> {
     const monsters = await Monster.find({ ownerId: user.id }).exec()
     return JSON.parse(JSON.stringify(monsters))
   } catch (error) {
-    console.error('Error fetching monsters:', error)
+    logger.error('Failed to fetch monsters', {
+      error: error instanceof Error ? error.message : 'Unknown error'
+    })
     return []
   }
 }
@@ -145,7 +148,10 @@ export async function getMonsterById (id: string): Promise<DBMonster | null> {
     const monster = await Monster.findOne({ ownerId: user.id, _id: id }).exec()
     return JSON.parse(JSON.stringify(monster))
   } catch (error) {
-    console.error('Error fetching monster by ID:', error)
+    logger.error('Failed to fetch monster by ID', {
+      monsterId: id,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    })
     return null
   }
 }
@@ -156,7 +162,7 @@ export async function getMonsterById (id: string): Promise<DBMonster | null> {
  */
 export async function feedMonster (monsterId: string): Promise<MonsterActionResult> {
   try {
-    console.log('🍽️ feedMonster called with ID:', monsterId)
+    logger.debug('feedMonster called', { monsterId })
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
@@ -166,14 +172,18 @@ export async function feedMonster (monsterId: string): Promise<MonsterActionResu
     }).exec()
 
     if (monster === null) {
-      console.error('❌ Monster not found:', monsterId)
+      logger.warn('Monster not found for feeding', { monsterId, userId: session.user.id })
       return {
         success: false,
         error: 'Monster not found'
       }
     }
 
-    console.log('📊 Before feeding - hunger:', monster.hunger, 'state:', monster.state)
+    logger.debug('Before feeding', {
+      monsterId,
+      hunger: monster.hunger,
+      state: monster.state
+    })
 
     // Augmenter hunger (max 100)
     const currentHunger = Number(monster.hunger)
@@ -200,7 +210,7 @@ export async function feedMonster (monsterId: string): Promise<MonsterActionResu
           const { UpdateQuestProgressUseCase } = await import('@/application/use-cases/UpdateQuestProgressUseCase')
           const questRepository = new MongoQuestRepository()
           const updateQuestUseCase = new UpdateQuestProgressUseCase(questRepository)
-          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', undefined, 1)
+          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', 1)
         } catch (questError) {
           console.error('Erreur lors du tracking de la quête LEVEL_UP_MONSTER:', questError)
         }
@@ -217,15 +227,25 @@ export async function feedMonster (monsterId: string): Promise<MonsterActionResu
       isNaN(happiness) ? 0 : happiness
     )
 
-    console.log('📊 After feeding - hunger:', monster.hunger, 'state:', monster.state, 'xp:', monster.xp, 'level:', monster.level, 'gainedXP:', statIncreased)
+    logger.debug('After feeding', {
+      monsterId,
+      hunger: monster.hunger,
+      state: monster.state,
+      xp: monster.xp,
+      level: monster.level,
+      gainedXP: statIncreased
+    })
 
     await monster.save()
-    console.log('✅ Monster saved successfully')
+    logger.debug('Monster saved successfully', { monsterId })
 
     // 🪙 Récompenser le joueur avec des coins (TOUJOURS, même si stat à 100%)
-    console.log('🎁 Giving coins reward - Always rewarding player for action')
-    const coinsResult = await addCoins(COINS_PER_ACTION, 'REWARD', 'Récompense pour avoir nourri le monstre')
-    console.log('💰 Coins result:', coinsResult)
+    logger.debug('Giving coins reward for feeding', { monsterId, coins: COINS_PER_ACTION })
+    const coinsResult = await addCoins(COINS_PER_ACTION, 'FEED_MONSTER', 'Récompense pour avoir nourri le monstre')
+    logger.debug('Coins rewarded', {
+      success: coinsResult.success,
+      newBalance: coinsResult.newBalance
+    })
 
     revalidatePath('/creature/[...id]', 'page')
 
@@ -235,7 +255,10 @@ export async function feedMonster (monsterId: string): Promise<MonsterActionResu
       newBalance: coinsResult.success ? coinsResult.newBalance : undefined
     }
   } catch (error) {
-    console.error('Error feeding monster:', error)
+    logger.error('Failed to feed monster', {
+      monsterId,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    })
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error'
@@ -249,7 +272,7 @@ export async function feedMonster (monsterId: string): Promise<MonsterActionResu
  */
 export async function playWithMonster (monsterId: string): Promise<MonsterActionResult> {
   try {
-    console.log('🎮 playWithMonster called with ID:', monsterId)
+    logger.debug('playWithMonster called', { monsterId })
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
@@ -259,14 +282,19 @@ export async function playWithMonster (monsterId: string): Promise<MonsterAction
     }).exec()
 
     if (monster === null) {
-      console.error('❌ Monster not found:', monsterId)
+      logger.warn('Monster not found for playing', { monsterId, userId: session.user.id })
       return {
         success: false,
         error: 'Monster not found'
       }
     }
 
-    console.log('📊 Before playing - happiness:', monster.happiness, 'energy:', monster.energy, 'state:', monster.state)
+    logger.debug('Before playing', {
+      monsterId,
+      happiness: monster.happiness,
+      energy: monster.energy,
+      state: monster.state
+    })
 
     // Augmenter happiness, diminuer energy
     const currentHappiness = Number(monster.happiness)
@@ -295,9 +323,14 @@ export async function playWithMonster (monsterId: string): Promise<MonsterAction
           const { UpdateQuestProgressUseCase } = await import('@/application/use-cases/UpdateQuestProgressUseCase')
           const questRepository = new MongoQuestRepository()
           const updateQuestUseCase = new UpdateQuestProgressUseCase(questRepository)
-          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', undefined, 1)
+          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', 1)
         } catch (questError) {
-          console.error('Erreur lors du tracking de la quête LEVEL_UP_MONSTER:', questError)
+          logger.error('Failed to track LEVEL_UP_MONSTER quest', {
+            questError: questError instanceof Error ? questError.message : 'Unknown error',
+            userId: session.user.id,
+            monsterId,
+            newLevel
+          })
         }
       }
     }
@@ -312,15 +345,26 @@ export async function playWithMonster (monsterId: string): Promise<MonsterAction
       isNaN(happiness) ? 0 : happiness
     )
 
-    console.log('📊 After playing - happiness:', monster.happiness, 'energy:', monster.energy, 'state:', monster.state, 'xp:', monster.xp, 'level:', monster.level, 'gainedXP:', statIncreased)
+    logger.debug('After playing', {
+      monsterId,
+      happiness: monster.happiness,
+      energy: monster.energy,
+      state: monster.state,
+      xp: monster.xp,
+      level: monster.level,
+      gainedXP: statIncreased
+    })
 
     await monster.save()
-    console.log('✅ Monster saved successfully')
+    logger.debug('Monster saved successfully', { monsterId })
 
     // 🪙 Récompenser le joueur avec des coins (TOUJOURS, même si stat à 100%)
-    console.log('🎁 Giving coins reward - Always rewarding player for action')
-    const coinsResult = await addCoins(COINS_PER_ACTION, 'REWARD', 'Récompense pour avoir joué avec le monstre')
-    console.log('💰 Coins result:', coinsResult)
+    logger.debug('Giving coins reward for playing', { monsterId, coins: COINS_PER_ACTION })
+    const coinsResult = await addCoins(COINS_PER_ACTION, 'PLAY_WITH_MONSTER', 'Récompense pour avoir joué avec le monstre')
+    logger.debug('Coins rewarded', {
+      success: coinsResult.success,
+      newBalance: coinsResult.newBalance
+    })
 
     revalidatePath('/creature/[...id]', 'page')
 
@@ -330,7 +374,10 @@ export async function playWithMonster (monsterId: string): Promise<MonsterAction
       newBalance: coinsResult.success ? coinsResult.newBalance : undefined
     }
   } catch (error) {
-    console.error('Error playing with monster:', error)
+    logger.error('Failed to play with monster', {
+      monsterId,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    })
     return {
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error'
@@ -344,7 +391,7 @@ export async function playWithMonster (monsterId: string): Promise<MonsterAction
  */
 export async function sleepMonster (monsterId: string): Promise<MonsterActionResult> {
   try {
-    console.log('😴 sleepMonster called with ID:', monsterId)
+    logger.debug('sleepMonster called', { monsterId })
     await connectMongooseToDatabase()
     const session = await getCurrentSession()
 
@@ -388,7 +435,7 @@ export async function sleepMonster (monsterId: string): Promise<MonsterActionRes
           const { UpdateQuestProgressUseCase } = await import('@/application/use-cases/UpdateQuestProgressUseCase')
           const questRepository = new MongoQuestRepository()
           const updateQuestUseCase = new UpdateQuestProgressUseCase(questRepository)
-          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', undefined, 1)
+          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', 1)
         } catch (questError) {
           console.error('Erreur lors du tracking de la quête LEVEL_UP_MONSTER:', questError)
         }
@@ -412,7 +459,7 @@ export async function sleepMonster (monsterId: string): Promise<MonsterActionRes
 
     // 🪙 Récompenser le joueur avec des coins (TOUJOURS, même si stat à 100%)
     console.log('🎁 Giving coins reward - Always rewarding player for action')
-    const coinsResult = await addCoins(COINS_PER_ACTION, 'REWARD', 'Récompense pour avoir endormi le monstre')
+    const coinsResult = await addCoins(COINS_PER_ACTION, 'REST_MONSTER', 'Récompense pour avoir endormi le monstre')
     console.log('💰 Coins result:', coinsResult)
 
     revalidatePath('/creature/[...id]', 'page')
@@ -481,7 +528,7 @@ export async function cleanMonster (monsterId: string): Promise<MonsterActionRes
           const { UpdateQuestProgressUseCase } = await import('@/application/use-cases/UpdateQuestProgressUseCase')
           const questRepository = new MongoQuestRepository()
           const updateQuestUseCase = new UpdateQuestProgressUseCase(questRepository)
-          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', undefined, 1)
+          await updateQuestUseCase.execute(session.user.id, 'LEVEL_UP_MONSTER', 1)
         } catch (questError) {
           console.error('Erreur lors du tracking de la quête LEVEL_UP_MONSTER:', questError)
         }
@@ -505,7 +552,7 @@ export async function cleanMonster (monsterId: string): Promise<MonsterActionRes
 
     // 🪙 Récompenser le joueur avec des coins (TOUJOURS, même si stat à 100%)
     console.log('🎁 Giving coins reward - Always rewarding player for action')
-    const coinsResult = await addCoins(COINS_PER_ACTION, 'REWARD', 'Récompense pour avoir nettoyé le monstre')
+    const coinsResult = await addCoins(COINS_PER_ACTION, 'HEAL_MONSTER', 'Récompense pour avoir nettoyé le monstre')
     console.log('💰 Coins result:', coinsResult)
 
     revalidatePath('/creature/[...id]', 'page')

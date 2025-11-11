@@ -14,7 +14,7 @@ export function TamagotchiActions ({ monsterId, onActionComplete, isAlive }: Tam
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const handleAction = async (action: () => Promise<void>, actionName: string) => {
+  const handleAction = async (action: () => Promise<unknown>, actionName: string): Promise<void> => {
     try {
       setIsLoading(true)
       setError(null)

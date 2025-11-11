@@ -95,7 +95,7 @@ const DashboardActions = memo(function DashboardActions ({
       </div>
       <Button
         onClick={handleLogout}
-        variant='outline'
+        variant='ghost'
         size='lg'
       >
         Se déconnecter

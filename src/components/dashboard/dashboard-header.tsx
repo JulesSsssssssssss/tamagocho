@@ -44,7 +44,7 @@ const DashboardHeader = memo(function DashboardHeader ({
       <div className='absolute top-0 left-0'>
         <PixelButton
           size='md'
-          variant='outline'
+          variant='ghost'
           onClick={() => { router.push('/gallery') }}
           icon='🌍'
         >

@@ -1,21 +1,21 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { getMonsterById } from '@/actions/monsters/monsters.actions'
-import { TamagotchiStats, TamagotchiInfo, TamagotchiActions } from '@/components/tamagotchi'
+import { TamagotchiInfo, TamagotchiActions } from '@/components/tamagotchi'
 import { PixelMonster } from '@/components/monsters'
-import { DEFAULT_MONSTER_STATE, DEFAULT_MONSTER_TRAITS, type MonsterState, type MonsterTraits } from '@/shared/types/monster'
+import { DEFAULT_MONSTER_STATE, DEFAULT_MONSTER_TRAITS, type MonsterState, type MonsterTraits, type DBMonster } from '@/shared/types/monster'
 
 interface TamagotchiDetailProps {
   monsterId: string
 }
 
 export function TamagotchiDetail ({ monsterId }: TamagotchiDetailProps): React.ReactNode {
-  const [monster, setMonster] = useState<any>(null)
+  const [monster, setMonster] = useState<DBMonster | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const loadMonster = async () => {
+  const loadMonster = async (): Promise<void> => {
     try {
       setLoading(true)
       setError(null)
@@ -29,7 +29,7 @@ export function TamagotchiDetail ({ monsterId }: TamagotchiDetailProps): React.R
   }
 
   useEffect(() => {
-    loadMonster()
+    void loadMonster()
   }, [monsterId])
 
   if (loading) {
@@ -40,35 +40,42 @@ export function TamagotchiDetail ({ monsterId }: TamagotchiDetailProps): React.R
     )
   }
 
-  if (error || !monster) {
+  if (error !== null || monster === null) {
     return (
       <div className='bg-red-50 border border-red-200 rounded-lg p-4'>
-        <p className='text-red-700'>{error || 'Monstre introuvable'}</p>
+        <p className='text-red-700'>{error ?? 'Monstre introuvable'}</p>
       </div>
     )
   }
+
+  // Parser les traits JSON
+  const parsedTraits = useMemo<MonsterTraits>(() => {
+    try {
+      return JSON.parse(monster.traits) as MonsterTraits
+    } catch {
+      return DEFAULT_MONSTER_TRAITS
+    }
+  }, [monster.traits])
 
   return (
     <div className='space-y-4'>
       <TamagotchiInfo
         name={monster.name}
         level={monster.level}
-        experience={monster.experience}
+        experience={0}
       />
 
       <div className='flex justify-center rounded-3xl border border-moccaccino-100 bg-white/80 p-6 shadow-inner'>
         <PixelMonster
-          traits={(monster.traits as MonsterTraits | undefined) ?? DEFAULT_MONSTER_TRAITS}
+          traits={parsedTraits}
           state={(monster.state as MonsterState | undefined) ?? DEFAULT_MONSTER_STATE}
         />
       </div>
 
-      <TamagotchiStats stats={monster.stats} />
-
       <TamagotchiActions
         monsterId={monsterId}
-        onActionComplete={loadMonster}
-        isAlive={!monster.isDead}
+        onActionComplete={() => { void loadMonster() }}
+        isAlive
       />
     </div>
   )

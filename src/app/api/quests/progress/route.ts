@@ -49,7 +49,7 @@ export async function POST (request: Request): Promise<NextResponse> {
     const userId = session.user.id
     const body: UpdateProgressRequest = await request.json()
 
-    if (body.questType === undefined || body.questType === null || body.questType === '') {
+    if (body.questType === undefined || body.questType === null) {
       return NextResponse.json(
         { success: false, error: 'Quest type is required' },
         { status: 400 }

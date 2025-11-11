@@ -71,7 +71,7 @@ const CreatureErrorState = memo(function CreatureErrorState ({
             )}
             <Button
               onClick={() => { router.push('/dashboard') }}
-              variant='outline'
+              variant='ghost'
               size='lg'
             >
               ← Retour au dashboard

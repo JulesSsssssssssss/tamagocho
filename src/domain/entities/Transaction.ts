@@ -135,6 +135,7 @@ export class Transaction {
       STREAK_BONUS: 'Bonus de série',
       MONSTER_SURVIVAL: 'Survie de monstre',
       INITIAL_BONUS: 'Bonus de bienvenue',
+      QUEST_REWARD: 'Récompense de quête',
       // Dépenses
       CREATE_MONSTER: 'Créer un monstre',
       PREMIUM_FOOD: 'Nourriture premium',

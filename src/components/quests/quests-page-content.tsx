@@ -140,10 +140,6 @@ export default function QuestsPageContent (): React.ReactElement {
               width: '100%',
               maxWidth: '480px',
               top: '20px'
-            },
-            bodyStyle: {
-              padding: 0,
-              margin: 0
             }
           }
         )

@@ -98,7 +98,7 @@ function CreateMonsterForm ({ onSubmit, onCancel }: CreateMonsterFormProps): Rea
       <section className='space-y-4 rounded-3xl border border-moccaccino-100 bg-white/60 p-4 shadow-inner'>
         <div className='flex items-center justify-between gap-3'>
           <h3 className='text-lg font-semibold text-gray-800'>Votre créature</h3>
-          <Button onClick={handleGenerateMonster} type='button' variant='outline'>
+          <Button onClick={handleGenerateMonster} type='button' variant='ghost'>
             Générer mon monstre
           </Button>
         </div>

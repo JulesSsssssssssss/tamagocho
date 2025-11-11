@@ -13,11 +13,14 @@
  */
 
 import { useState, useEffect, useCallback } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import type { GalleryFilters as GalleryFiltersType, PublicMonster, GalleryResponse } from '@/shared/types/gallery'
 import { GalleryFilters, GalleryGrid } from '@/components/gallery'
 import PixelButton from '@/components/ui/pixel-button'
 import { useQuestProgress } from '@/hooks/use-quest-progress'
+
+// Force dynamic rendering pour useSearchParams
+export const dynamic = 'force-dynamic'
 
 /**
  * Composant de pagination
@@ -38,7 +41,7 @@ function Pagination ({
       {/* Bouton Précédent */}
       <PixelButton
         size='md'
-        variant='outline'
+        variant='ghost'
         onClick={() => { onPageChange(currentPage - 1) }}
         disabled={currentPage <= 1}
         icon='◀️'
@@ -62,7 +65,7 @@ function Pagination ({
       {/* Bouton Suivant */}
       <PixelButton
         size='md'
-        variant='outline'
+        variant='ghost'
         onClick={() => { onPageChange(currentPage + 1) }}
         disabled={!hasMore}
         icon='▶️'
@@ -78,7 +81,6 @@ function Pagination ({
  */
 export default function GalleryPage (): React.ReactNode {
   const router = useRouter()
-  const searchParams = useSearchParams()
   const { trackVisitGallery } = useQuestProgress()
 
   // Track visit à la gallery (une seule fois au montage)
@@ -95,19 +97,12 @@ export default function GalleryPage (): React.ReactNode {
   const [hasMore, setHasMore] = useState(false)
   const [total, setTotal] = useState(0)
 
-  // Filtres initiaux depuis les query params
-  const [filters, setFilters] = useState<GalleryFiltersType>(() => {
-    const minLevel = searchParams.get('minLevel')
-    const maxLevel = searchParams.get('maxLevel')
-    const state = searchParams.get('state')
-    const sortBy = searchParams.get('sortBy')
-
-    return {
-      minLevel: minLevel !== null ? parseInt(minLevel, 10) : undefined,
-      maxLevel: maxLevel !== null ? parseInt(maxLevel, 10) : undefined,
-      state: state !== null ? state as any : undefined,
-      sortBy: sortBy !== null ? sortBy as any : 'newest'
-    }
+  // Filtres par défaut (ne pas utiliser searchParams pour éviter l'erreur de build)
+  const [filters, setFilters] = useState<GalleryFiltersType>({
+    minLevel: undefined,
+    maxLevel: undefined,
+    state: undefined,
+    sortBy: 'newest'
   })
 
   // Fonction pour construire l'URL avec les query params
@@ -228,7 +223,7 @@ export default function GalleryPage (): React.ReactNode {
               <div className='mb-4'>
                 <PixelButton
                   size='md'
-                  variant='outline'
+                  variant='ghost'
                   onClick={() => { router.push('/dashboard') }}
                   icon='←'
                 >

@@ -66,7 +66,7 @@ export function CreatureInventoryManager ({
       const response = await fetch(`/api/inventory/${creatureId}`)
       const data = await response.json()
 
-      if (data.success) {
+      if (data.success === true) {
         setItems(data.data)
       } else {
         setError(data.error ?? 'Erreur lors du chargement de l\'inventaire')
@@ -101,7 +101,7 @@ export function CreatureInventoryManager ({
 
       const data = await response.json()
 
-      if (data.success) {
+      if (data.success === true) {
         // Recharger l'inventaire
         await fetchInventory()
         // Notifier le parent
@@ -120,27 +120,27 @@ export function CreatureInventoryManager ({
   // Grouper les items par catégorie
   const itemsByCategory = items.reduce<Record<ItemCategory, InventoryItemDTO[]>>(
     (acc, item) => {
-      if (!acc[item.category]) {
-        acc[item.category] = []
-      }
+      // L'initialisation garantit que toutes les catégories existent
       acc[item.category].push(item)
       return acc
     },
-    { hat: [], glasses: [], shoes: [] }
+    { hat: [], glasses: [], shoes: [], background: [] }
   )
 
   // Labels des catégories
   const categoryLabels: Record<ItemCategory, string> = {
     hat: 'CHAPEAUX',
     glasses: 'LUNETTES',
-    shoes: 'CHAUSSURES'
+    shoes: 'CHAUSSURES',
+    background: 'ARRIÈRE-PLANS'
   }
 
   // Icônes des catégories
   const categoryIcons: Record<ItemCategory, string> = {
     hat: '🎩',
     glasses: '👓',
-    shoes: '👟'
+    shoes: '👟',
+    background: '🖼️'
   }
 
   if (isLoading) {
@@ -159,7 +159,7 @@ export function CreatureInventoryManager ({
       <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-6 border-4 border-red-500/50 shadow-xl'>
         <p className='text-red-400 font-mono text-sm text-center'>{error}</p>
         <button
-          onClick={() => void fetchInventory()}
+          onClick={() => { void fetchInventory() }}
           className='mt-4 w-full px-4 py-2 bg-red-500 text-white font-mono rounded-lg hover:bg-red-600 transition-colors'
         >
           Réessayer
@@ -213,7 +213,7 @@ export function CreatureInventoryManager ({
                   return (
                     <button
                       key={item.id}
-                      onClick={() => void handleToggleEquip(item)}
+                      onClick={() => { void handleToggleEquip(item) }}
                       disabled={isProcessing}
                       className={`
                         relative group

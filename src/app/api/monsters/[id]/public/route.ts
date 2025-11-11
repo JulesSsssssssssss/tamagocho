@@ -65,9 +65,9 @@ export async function PUT (
     return NextResponse.json({
       success: true,
       monster: {
-        id: updatedMonster._id,
-        name: updatedMonster.name,
-        isPublic: updatedMonster.isPublic
+        id: updatedMonster.getId(),
+        name: updatedMonster.getName(),
+        isPublic: updatedMonster.getIsPublic()
       }
     })
   } catch (error) {

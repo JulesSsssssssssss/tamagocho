@@ -41,7 +41,8 @@ export function useMonsterTransform (monsters: DBMonster[]): MonsterListItem[] {
         energy: m.energy,
         happiness: m.happiness,
         xp: m.xp,
-        xpToNextLevel: m.xpToNextLevel
+        xpToNextLevel: m.xpToNextLevel,
+        isPublic: false // DBMonster ne contient pas isPublic, par défaut false
       }
     })
   }, [monsters])

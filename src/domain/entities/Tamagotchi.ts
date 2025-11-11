@@ -69,6 +69,11 @@ export class Tamagotchi {
   getOwnerId (): string { return this.ownerId }
   getIsPublic (): boolean { return this.isPublic }
 
+  // Setters
+  togglePublicStatus (isPublic: boolean): void {
+    this.isPublic = isPublic
+  }
+
   // Business Logic Methods
   feed (): void {
     if (this.isDead) throw new Error('Cannot feed a dead tamagotchi')

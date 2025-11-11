@@ -1,6 +1,36 @@
-import mongoose from 'mongoose'
+import mongoose, { type Document } from 'mongoose'
 
 const { Schema } = mongoose
+
+/**
+ * Interface TypeScript pour le document Monster MongoDB
+ */
+export interface IMonsterDocument extends Document {
+  _id: mongoose.Types.ObjectId
+  name: string
+  level: number
+  xp: number
+  xpToNextLevel: number
+  traits: string
+  state: 'happy' | 'sad' | 'angry' | 'hungry' | 'sleepy'
+  hunger: number
+  energy: number
+  happiness: number
+  lastFed: Date | null
+  lastPlayed: Date | null
+  lastSlept: Date | null
+  lastCleaned: Date | null
+  equippedItems: {
+    hat: string | null
+    glasses: string | null
+    shoes: string | null
+  }
+  equippedBackground?: string | null
+  isPublic: boolean
+  ownerId: mongoose.Types.ObjectId
+  createdAt: Date
+  updatedAt: Date
+}
 
 const monsterSchema = new Schema({
   name: {
@@ -86,6 +116,12 @@ const monsterSchema = new Schema({
     required: false,
     default: { hat: null, glasses: null, shoes: null }
   },
+  // Background équipé (Feature 3.2)
+  equippedBackground: {
+    type: String,
+    required: false,
+    default: null
+  },
   // Mode public pour galerie communautaire (Feature 3.1)
   isPublic: {
     type: Boolean,
@@ -101,4 +137,17 @@ const monsterSchema = new Schema({
   timestamps: true
 })
 
-export default mongoose.models.Monster ?? mongoose.model('Monster', monsterSchema)
+/**
+ * Index MongoDB pour optimiser les requêtes fréquentes
+ */
+// Index pour findByOwner (Dashboard)
+monsterSchema.index({ ownerId: 1, createdAt: -1 })
+
+// Index pour la galerie publique avec filtres
+monsterSchema.index({ isPublic: 1, level: -1 })
+monsterSchema.index({ isPublic: 1, createdAt: -1 })
+
+// Index pour filtre par état
+monsterSchema.index({ state: 1 })
+
+export default mongoose.models.Monster ?? mongoose.model<IMonsterDocument>('Monster', monsterSchema)

@@ -38,12 +38,12 @@ export class ToggleMonsterPublicStatusUseCase {
     }
 
     // Validation: L'utilisateur est propriétaire (Sécurité)
-    if (tamagotchi.ownerId !== userId) {
+    if (tamagotchi.getOwnerId() !== userId) {
       throw new Error('Unauthorized: You are not the owner of this monster')
     }
 
     // Mise à jour du statut public
-    tamagotchi.isPublic = isPublic
+    tamagotchi.togglePublicStatus(isPublic)
 
     // Persistence
     return await this.repository.update(tamagotchi)

@@ -93,12 +93,7 @@ const CreatureActions = memo(function CreatureActions ({
               borderRadius: '12px',
               boxShadow: '0 8px 32px rgba(250, 204, 21, 0.4), inset 0 0 20px rgba(250, 204, 21, 0.1)',
               fontFamily: 'monospace',
-              imageRendering: 'pixelated' as any
-            },
-            progressStyle: {
-              background: 'linear-gradient(to right, #fbbf24, #facc15, #fde047)',
-              height: '6px',
-              imageRendering: 'pixelated' as any
+              imageRendering: 'pixelated' as React.CSSProperties['imageRendering']
             }
           }
         )

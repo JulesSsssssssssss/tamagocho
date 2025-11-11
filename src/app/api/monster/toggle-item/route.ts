@@ -52,7 +52,7 @@ export async function POST (request: Request): Promise<NextResponse> {
 
     // Récupérer le monstre pour avoir l'ownerId
     const monster = await MonsterModel.findById(monsterId)
-    if (!monster) {
+    if (monster === null) {
       return NextResponse.json(
         { success: false, error: 'Monster not found' },
         { status: 404 }
@@ -121,14 +121,14 @@ export async function POST (request: Request): Promise<NextResponse> {
     )
 
     const action = itemId === null ? 'déséquipé' : 'équipé'
-    console.log(`✅ Item ${action}: ${category} = ${itemId ?? 'null'} sur monster ${monsterId}`)
+    console.log(`✅ Item ${action}: ${category} = ${String(itemId ?? 'null')} sur monster ${monsterId}`)
 
     // Tracker la quête EQUIP_ITEM si on vient d'équiper (pas de déséquipement)
     if (itemId !== null) {
       try {
         const questRepository = new MongoQuestRepository()
         const updateQuestUseCase = new UpdateQuestProgressUseCase(questRepository)
-        await updateQuestUseCase.execute(monster.ownerId.toString(), 'EQUIP_ITEM', itemId, 1)
+        await updateQuestUseCase.execute(monster.ownerId.toString(), 'EQUIP_ITEM', 1)
       } catch (questError) {
         // Ne pas bloquer la réponse si le tracking échoue
         console.error('Erreur lors du tracking de la quête EQUIP_ITEM:', questError)

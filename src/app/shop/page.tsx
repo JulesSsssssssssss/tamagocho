@@ -10,6 +10,7 @@ import { RARITY_COLORS } from '@/shared/types/shop'
 import { ItemCard, BackgroundCard, type NotificationType } from '@/components/shop'
 import { TEST_SHOP_ITEMS } from '@/shared/data/test-shop-items'
 import PixelCoin from '@/components/dashboard/pixel-coin'
+import { logger } from '@/lib/logger'
 
 /**
  * Optimisation : Lazy loading des composants modaux
@@ -49,7 +50,6 @@ export default function ShopPage (): React.ReactNode {
   const [userBalance, setUserBalance] = useState(0)
   const [selectedCategory, setSelectedCategory] = useState<ItemCategory | undefined>()
   const [selectedRarity, setSelectedRarity] = useState<ItemRarity | undefined>()
-  const [purchaseSuccess, setPurchaseSuccess] = useState(false)
 
   // Modal de sélection de monstre
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -139,15 +139,16 @@ export default function ShopPage (): React.ReactNode {
         // Distinguer les différents types d'erreurs
         const errorMessage = data.error ?? 'Erreur lors de l\'achat'
         const itemType = selectedItem.category === 'background' ? 'fond d\'écran' : 'accessoire'
+        const errorLower = errorMessage.toLowerCase()
 
-        if (errorMessage.toLowerCase().includes('already owns') || errorMessage.toLowerCase().includes('possède déjà')) {
+        if (errorLower.includes('already owns') === true || errorLower.includes('possède déjà') === true) {
           // Item déjà possédé
           showNotif(
             'warning',
             `${selectedItem.name} déjà possédé`,
             `Ce monstre possède déjà cet ${itemType}. Rendez-vous dans l'inventaire pour l'équiper.`
           )
-        } else if (errorMessage.toLowerCase().includes('insufficient') || errorMessage.toLowerCase().includes('insuffisant')) {
+        } else if (errorLower.includes('insufficient') === true || errorLower.includes('insuffisant') === true) {
           // Solde insuffisant
           showNotif(
             'error',
@@ -164,7 +165,10 @@ export default function ShopPage (): React.ReactNode {
         }
       }
     } catch (error) {
-      console.error('Error purchasing item:', error)
+      logger.error('Error purchasing item', {
+        error: error instanceof Error ? error.message : 'Unknown error',
+        itemId: selectedItem?.id
+      })
       showNotif(
         'error',
         'Erreur technique',
@@ -204,7 +208,9 @@ export default function ShopPage (): React.ReactNode {
         }
       }
     } catch (error) {
-      console.error('Error loading wallet:', error)
+      logger.error('Failed to load wallet', {
+        error: error instanceof Error ? error.message : 'Unknown error'
+      })
     }
   }, [])
 
@@ -263,7 +269,9 @@ export default function ShopPage (): React.ReactNode {
         setMonsters(monstersData)
       }
     } catch (error) {
-      console.error('Error loading shop data:', error)
+      logger.error('Failed to load shop data', {
+        error: error instanceof Error ? error.message : 'Unknown error'
+      })
     } finally {
       setLoading(false)
     }
@@ -492,15 +500,6 @@ export default function ShopPage (): React.ReactNode {
             </div>
           </div>
 
-          {/* Message de succès */}
-          {purchaseSuccess && (
-            <div className='bg-green-500/20 backdrop-blur-sm rounded-2xl p-4 border-4 border-green-500/50 text-center'>
-              <p className='text-green-400 text-xl font-bold' style={{ fontFamily: 'monospace' }}>
-                ✅ Achat réussi ! L'item a été ajouté à votre inventaire.
-              </p>
-            </div>
-          )}
-
           {/* Grille d'items */}
           <div>
             {
@@ -552,7 +551,7 @@ export default function ShopPage (): React.ReactNode {
         <MonsterSelectionModal
           isOpen={isModalOpen}
           onClose={handleCloseModal}
-          onSelectMonster={handlePurchaseWithMonster}
+          onSelectMonster={(id) => { void handlePurchaseWithMonster(id) }}
           monsters={monsters}
           itemName={selectedItem?.name ?? ''}
           isLoading={isPurchasing}

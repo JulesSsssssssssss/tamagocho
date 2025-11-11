@@ -9,7 +9,8 @@
  * @module config/shop
  */
 
-import type { ItemCategory, ItemRarity, BackgroundType } from '@/shared/types/shop'
+import type { ItemCategory, ItemRarity } from '@/shared/types/shop'
+import { BACKGROUND_TYPE_LABELS, BACKGROUND_TYPE_DESCRIPTIONS } from './backgrounds.config'
 
 /**
  * Multiplicateurs de prix selon la rareté
@@ -87,23 +88,8 @@ export const RARITY_BG_COLORS: Record<ItemRarity, string> = {
   legendary: 'bg-yellow-900/40'
 } as const
 
-/**
- * Labels français pour les types de backgrounds
- */
-export const BACKGROUND_TYPE_LABELS: Record<BackgroundType, string> = {
-  day: 'Chambre - Jour',
-  garden: 'Jardin - Jour',
-  night: 'Toit - Nuit'
-} as const
-
-/**
- * Descriptions pour les types de backgrounds
- */
-export const BACKGROUND_TYPE_DESCRIPTIONS: Record<BackgroundType, string> = {
-  day: 'Une chambre confortable avec une belle fenêtre ensoleillée',
-  garden: 'Un jardin verdoyant avec des arbres et des fleurs',
-  night: 'Un toit urbain sous un ciel étoilé'
-} as const
+// BACKGROUND_TYPE_LABELS et BACKGROUND_TYPE_DESCRIPTIONS sont définis dans backgrounds.config.ts
+// pour éviter les conflits d'export lors de la ré-exportation dans config/index.ts
 
 /**
  * Configuration des limites de l'inventaire

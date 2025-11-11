@@ -201,13 +201,13 @@ const CreatureDetail = memo(function CreatureDetail ({
               <CreatureEquippedItemsList
                 equippedItems={currentMonster.equippedItems}
                 creatureId={currentMonster._id}
-                onItemChange={refreshMonster}
+                onItemChange={() => { void refreshMonster() }}
               />
 
               {/* Gestionnaire de fonds d'écran */}
               <CreatureBackgroundManager
                 creatureId={currentMonster._id}
-                onBackgroundChange={refreshMonsterAndBackground}
+                onBackgroundChange={() => { void refreshMonsterAndBackground() }}
               />
 
               {/* Statut Public/Privé */}

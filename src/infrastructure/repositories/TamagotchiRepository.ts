@@ -1,8 +1,10 @@
 import { connectMongooseToDatabase } from '@/db'
-import Monster from '@/db/models/monster.model'
+import Monster, { type IMonsterDocument } from '@/db/models/monster.model'
 import { Tamagotchi, type ITamagotchiRepository } from '@/domain'
 import { DEFAULT_MONSTER_TRAITS, type MonsterTraits } from '@/shared/types/monster'
 import type { GalleryFilters, PaginationParams, EnrichedMonster } from '@/shared/types/gallery'
+import type { FilterQuery, SortOrder } from 'mongoose'
+import { logger } from '@/lib/logger'
 
 export class TamagotchiRepository implements ITamagotchiRepository {
   async findById (id: string): Promise<Tamagotchi | null> {
@@ -116,7 +118,7 @@ export class TamagotchiRepository implements ITamagotchiRepository {
     await connectMongooseToDatabase()
 
     // Construction de la query MongoDB
-    const query: any = { isPublic: true }
+    const query: FilterQuery<IMonsterDocument> = { isPublic: true }
 
     // Filtre par niveau
     if (filters.minLevel !== undefined || filters.maxLevel !== undefined) {
@@ -138,7 +140,7 @@ export class TamagotchiRepository implements ITamagotchiRepository {
     const skip = (pagination.page - 1) * pagination.limit
 
     // Détermination du tri
-    let sort: any = { createdAt: -1 } // Par défaut: plus récents en premier
+    let sort: Record<string, SortOrder> = { createdAt: -1 } // Par défaut: plus récents en premier
     if (filters.sortBy === 'oldest') {
       sort = { createdAt: 1 }
     } else if (filters.sortBy === 'level') {
@@ -161,7 +163,7 @@ export class TamagotchiRepository implements ITamagotchiRepository {
     }
   }
 
-  private mapToEnrichedMonster (doc: any): EnrichedMonster {
+  private mapToEnrichedMonster (doc: IMonsterDocument): EnrichedMonster {
     return {
       tamagotchi: this.mapToEntity(doc),
       equippedItems: {
@@ -173,18 +175,26 @@ export class TamagotchiRepository implements ITamagotchiRepository {
     }
   }
 
-  private mapToEntity (doc: any): Tamagotchi {
+  private mapToEntity (doc: IMonsterDocument): Tamagotchi {
     const traits = parseTraits(doc.traits)
+
+    // Créer les stats à partir des données du document
+    const stats = {
+      health: 100, // Valeur par défaut, non stockée en DB
+      hunger: doc.hunger,
+      happiness: doc.happiness,
+      energy: doc.energy
+    }
 
     return new Tamagotchi(
       doc._id.toString(),
       doc.name,
       traits,
       doc.state,
-      doc.stats,
+      stats,
       doc.level,
-      doc.experience,
-      doc.lastActionAt,
+      doc.xp, // Utiliser xp au lieu de experience
+      doc.lastFed ?? new Date(), // lastActionAt n'existe pas dans IMonsterDocument
       doc.createdAt,
       doc.ownerId.toString(),
       doc.isPublic ?? false
@@ -203,7 +213,9 @@ function parseTraits (rawTraits: unknown): MonsterTraits {
         }
       }
     } catch (error) {
-      console.warn('Unable to parse monster traits, using defaults.', error)
+      logger.warn('Unable to parse monster traits, using defaults', {
+        error: error instanceof Error ? error.message : 'Unknown error'
+      })
     }
   }
 
