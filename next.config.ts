@@ -2,7 +2,7 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   /* config options here */
-  serverExternalPackages: ['mongodb', 'better-auth'],
+  serverExternalPackages: ['mongodb', 'better-auth', '@noble/hashes'],
 
   // Configuration pour servir Docusaurus depuis /documentation
   async rewrites () {
