@@ -4,6 +4,9 @@ import { getServerSessionSafely } from '@/lib/auth'
 import { headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 
+// Force dynamic rendering (authenticated route)
+export const dynamic = 'force-dynamic'
+
 /**
  * Page Dashboard - Point d'entrée principal de l'espace utilisateur
  *

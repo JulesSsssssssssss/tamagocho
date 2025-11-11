@@ -16,6 +16,9 @@ import { auth } from '@/lib/auth'
 import { headers } from 'next/headers'
 import QuestsPageContent from '@/components/quests/quests-page-content'
 
+// Force dynamic rendering (authenticated route)
+export const dynamic = 'force-dynamic'
+
 /**
  * Page des quêtes quotidiennes (Server Component)
  */

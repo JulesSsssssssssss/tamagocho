@@ -11,6 +11,10 @@ import NewsletterSection from '@/components/newsletter-section'
  */
 const Footer = dynamic(async () => await import('@/components/footer'))
 
+// Force dynamic rendering (checks auth session in Header)
+export const dynamicParams = true
+export const revalidate = 0
+
 /**
  * Home - Page d'accueil avec thème pixel art gaming
  *

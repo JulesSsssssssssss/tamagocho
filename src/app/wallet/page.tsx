@@ -4,6 +4,9 @@ import { redirect } from 'next/navigation'
 import WalletClient from '@/components/wallet/wallet-client'
 import { getWallet } from '@/actions/wallet.actions'
 
+// Force dynamic rendering (authenticated route)
+export const dynamic = 'force-dynamic'
+
 /**
  * Page Wallet - Boutique de Koins avec Stripe
  *

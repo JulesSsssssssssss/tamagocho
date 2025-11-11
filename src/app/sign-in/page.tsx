@@ -1,6 +1,9 @@
 import AuthFormContent from '@/components/forms/auth-form-content'
 import { connectToDatabase } from '@/db'
 
+// Force dynamic rendering (authentication page)
+export const dynamic = 'force-dynamic'
+
 /**
  * Page de connexion/inscription
  *
