@@ -35,6 +35,7 @@ void ensureDatabaseConnection()
 
 export const auth = betterAuth({
   database: mongodbAdapter(client.db(dbName)),
+  baseURL: process.env.BETTER_AUTH_URL ?? process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000',
   trustedOrigins: [
     'http://localhost:3000',
     'http://localhost:3001',
