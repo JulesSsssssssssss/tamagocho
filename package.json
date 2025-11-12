@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "dev:docs": "cd documentation && npm start",
-    "build": "next build --turbopack",
-    "build:with-docs": "npm run build:docs && npm run copy:docs && next build --turbopack",
+    "build": "next build",
+    "build:turbo": "next build --turbopack",
+    "build:with-docs": "npm run build:docs && npm run copy:docs && next build",
     "build:docs": "cd documentation && npm run build",
     "copy:docs": "rm -rf public/documentation && cp -r documentation/build public/documentation",
     "start": "next start",
