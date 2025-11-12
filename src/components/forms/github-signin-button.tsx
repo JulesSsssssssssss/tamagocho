@@ -23,16 +23,26 @@ export default function GitHubSignInButton (): React.ReactNode {
       setIsLoading(true)
       setError('')
 
+      console.log('🚀 Démarrage de l\'authentification GitHub...')
+
       // Authentification GitHub selon la doc Better Auth
       // https://www.better-auth.com/docs/authentication/github
-      await authClient.signIn.social({
+      const result = await authClient.signIn.social({
         provider: 'github',
         callbackURL: '/dashboard' // Redirection après authentification
       })
+
+      console.log('✅ Résultat de l\'authentification:', result)
+
+      // Si la redirection ne se fait pas automatiquement, forcer
+      if (result?.url) {
+        console.log('🔄 Redirection manuelle vers:', result.url)
+        window.location.href = result.url
+      }
     } catch (err) {
       setIsLoading(false)
       setError('Échec de la connexion avec GitHub. Veuillez réessayer.')
-      console.error('GitHub sign-in error:', err)
+      console.error('❌ Erreur GitHub sign-in:', err)
     }
   }
 
