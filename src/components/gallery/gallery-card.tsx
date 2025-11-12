@@ -78,7 +78,10 @@ const StateBadge = memo(function StateBadge ({ state }: { state: string }): Reac
  * Composant GalleryCard - Optimisé avec React.memo
  */
 export const GalleryCard = memo(function GalleryCard ({ monster }: GalleryCardProps): React.ReactNode {
-  const relativeDate = formatRelativeDate(monster.createdAt.toISOString())
+  const createdAtDate = typeof monster.createdAt === 'string'
+    ? new Date(monster.createdAt)
+    : monster.createdAt
+  const relativeDate = formatRelativeDate(createdAtDate.toISOString())
 
   /**
    * Parse les traits depuis JSON string avec fallback
