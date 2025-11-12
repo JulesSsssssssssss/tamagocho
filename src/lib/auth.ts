@@ -57,9 +57,19 @@ export const auth = betterAuth({
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string
     }
   },
+  session: {
+    cookieCache: {
+      enabled: true,
+      maxAge: 5 * 60 // 5 minutes
+    }
+  },
   advanced: {
     // Augmenter le timeout pour les opérations MongoDB
-    generateId: () => crypto.randomUUID()
+    generateId: () => crypto.randomUUID(),
+    useSecureCookies: process.env.NODE_ENV === 'production',
+    crossSubDomainCookies: {
+      enabled: false
+    }
   }
 })
 
