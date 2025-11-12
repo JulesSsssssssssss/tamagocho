@@ -157,6 +157,7 @@ export class MongoShopRepository implements IShopRepository {
       rarity: item.rarity,
       price: item.price,
       imageUrl: item.imageUrl,
+      backgroundType: item.backgroundType,
       isAvailable: item.isAvailable,
       createdAt: item.createdAt
     })
