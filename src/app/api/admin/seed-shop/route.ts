@@ -102,6 +102,29 @@ const INITIAL_SHOP_ITEMS = [
     category: 'shoes' as ItemCategory,
     rarity: 'legendary' as ItemRarity,
     imageUrl: '/items/shoes/divine-boots.png'
+  },
+
+  // Fonds d'écran (Backgrounds)
+  {
+    name: 'Jardin Enchanteur',
+    description: 'Un magnifique jardin avec des fleurs colorées',
+    category: 'background' as ItemCategory,
+    rarity: 'common' as ItemRarity,
+    imageUrl: '/backgrounds/background-garden.svg'
+  },
+  {
+    name: 'Ciel de Jour',
+    description: 'Un ciel bleu ensoleillé apaisant',
+    category: 'background' as ItemCategory,
+    rarity: 'rare' as ItemRarity,
+    imageUrl: '/backgrounds/background-day.svg'
+  },
+  {
+    name: 'Nuit Étoilée',
+    description: 'Un ciel nocturne mystérieux rempli d\'étoiles',
+    category: 'background' as ItemCategory,
+    rarity: 'epic' as ItemRarity,
+    imageUrl: '/backgrounds/background-night.svg'
   }
 ]
 
