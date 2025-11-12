@@ -43,6 +43,8 @@ export const auth = betterAuth({
     'http://localhost:3003',
     'http://localhost:3004',
     'http://localhost:3005',
+    'https://tamagocho-2.vercel.app',
+    process.env.BETTER_AUTH_URL ?? '',
     process.env.NEXT_PUBLIC_APP_URL ?? ''
   ].filter(Boolean),
   emailAndPassword: {
