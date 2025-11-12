@@ -3,6 +3,7 @@
 import { useState, memo, useCallback } from 'react'
 import SignUpForm from './signup-form'
 import SignInForm from './signin-form'
+import GitHubSignInButton from './github-signin-button'
 import Button from '../button'
 
 /**
@@ -37,6 +38,23 @@ const AuthFormContent = memo(function AuthFormContent (): React.ReactNode {
         </div>
       )}
 
+      {/* GitHub Sign-In Button - Style pixel-art gaming */}
+      <div className='space-y-4'>
+        <GitHubSignInButton />
+
+        {/* Separator - Style pixel-art */}
+        <div className='relative flex items-center justify-center py-4'>
+          <div className='absolute inset-0 flex items-center'>
+            <div className='w-full border-t-2 border-dashed border-gray-600' />
+          </div>
+          <div className='relative bg-slate-900 px-4'>
+            <span className='text-gray-400 text-sm font-bold uppercase tracking-wider'>
+              OU
+            </span>
+          </div>
+        </div>
+      </div>
+
       {/* Form container with smooth transition */}
       <div className='transition-all duration-300 ease-in-out'>
         {isSignIn
@@ -53,7 +71,7 @@ const AuthFormContent = memo(function AuthFormContent (): React.ReactNode {
       </div>
 
       {/* Toggle button */}
-      <div className='text-center pt-4 border-t border-gray-200'>
+      <div className='text-center pt-4 border-t-2 border-dashed border-gray-600'>
         <Button
           type='button'
           variant='ghost'
