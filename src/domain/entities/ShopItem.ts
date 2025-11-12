@@ -153,7 +153,8 @@ export class ShopItem {
     description: string,
     category: ItemCategory,
     rarity: ItemRarity,
-    imageUrl?: string
+    imageUrl?: string,
+    backgroundType?: BackgroundType
   ): ShopItem {
     const price = ShopItem.calculatePrice(category, rarity)
 
@@ -165,6 +166,7 @@ export class ShopItem {
       rarity,
       price,
       imageUrl,
+      backgroundType,
       isAvailable: true,
       createdAt: new Date()
     })

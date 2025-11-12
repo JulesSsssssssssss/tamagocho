@@ -110,21 +110,24 @@ const INITIAL_SHOP_ITEMS = [
     description: 'Un magnifique jardin avec des fleurs colorées',
     category: 'background' as ItemCategory,
     rarity: 'common' as ItemRarity,
-    imageUrl: '/backgrounds/background-garden.svg'
+    imageUrl: '/backgrounds/background-garden.svg',
+    backgroundType: 'garden' as const
   },
   {
     name: 'Ciel de Jour',
     description: 'Un ciel bleu ensoleillé apaisant',
     category: 'background' as ItemCategory,
     rarity: 'rare' as ItemRarity,
-    imageUrl: '/backgrounds/background-day.svg'
+    imageUrl: '/backgrounds/background-day.svg',
+    backgroundType: 'day' as const
   },
   {
     name: 'Nuit Étoilée',
     description: 'Un ciel nocturne mystérieux rempli d\'étoiles',
     category: 'background' as ItemCategory,
     rarity: 'epic' as ItemRarity,
-    imageUrl: '/backgrounds/background-night.svg'
+    imageUrl: '/backgrounds/background-night.svg',
+    backgroundType: 'night' as const
   }
 ]
 
@@ -184,7 +187,8 @@ export async function POST (): Promise<NextResponse> {
         itemData.description,
         itemData.category,
         itemData.rarity,
-        itemData.imageUrl
+        itemData.imageUrl,
+        (itemData as any).backgroundType
       )
 
       await shopRepository.createItem(item)
