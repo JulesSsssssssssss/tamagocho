@@ -199,7 +199,7 @@ export async function POST (request: Request): Promise<NextResponse> {
 
       // Vérifier que la créature appartient à l'utilisateur
       const monster = await Monster.findById(monsterId).exec()
-      if (monster === null || monster.userId !== session.user.id) {
+      if (monster === null || monster.ownerId.toString() !== session.user.id) {
         return NextResponse.json(
           { success: false, error: 'Monster not found or unauthorized' },
           { status: 403 }
