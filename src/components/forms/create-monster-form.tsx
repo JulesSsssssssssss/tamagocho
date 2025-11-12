@@ -1,14 +1,11 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import Button from '../button'
 import InputField from '../input'
 import { PixelMonster } from '../monsters'
 import { generateRandomTraits } from '@/services/monsters/monster-generator'
 import {
   DEFAULT_MONSTER_STATE,
-  MONSTER_STATES,
-  type MonsterState,
   type MonsterTraits
 } from '@/shared/types/monster'
 import {
@@ -21,19 +18,10 @@ import {
   validateCreateMonsterForm
 } from '@/shared/validation/create-monster-form-validation'
 
-const MONSTER_STATE_LABELS: Record<MonsterState, string> = {
-  happy: 'Heureux 😊',
-  sad: 'Triste 😢',
-  angry: 'Fâché 😡',
-  hungry: 'Affamé 😋',
-  sleepy: 'Somnolent 😴'
-}
-
 function CreateMonsterForm ({ onSubmit, onCancel }: CreateMonsterFormProps): React.ReactNode {
   const [draft, setDraft] = useState<CreateMonsterFormDraft>(() => createInitialFormDraft())
   const [errors, setErrors] = useState<CreateMonsterFormErrors>({})
   const [traits, setTraits] = useState<MonsterTraits | null>(null)
-  const [previewState, setPreviewState] = useState<MonsterState>(DEFAULT_MONSTER_STATE)
 
   useEffect(() => {
     if (traits === null) {
@@ -48,7 +36,6 @@ function CreateMonsterForm ({ onSubmit, onCancel }: CreateMonsterFormProps): Rea
   const handleGenerateMonster = (): void => {
     const nextTraits = generateRandomTraits()
     setTraits(nextTraits)
-    setPreviewState(DEFAULT_MONSTER_STATE)
     setErrors((previous) => ({ ...previous, design: undefined }))
   }
 
@@ -64,79 +51,111 @@ function CreateMonsterForm ({ onSubmit, onCancel }: CreateMonsterFormProps): Rea
 
     onSubmit({
       ...values,
-      state: previewState
+      state: DEFAULT_MONSTER_STATE
     })
     setDraft(createInitialFormDraft())
     setTraits(null)
-    setPreviewState(DEFAULT_MONSTER_STATE)
     setErrors({})
   }
 
   const handleCancel = (): void => {
     setDraft(createInitialFormDraft())
     setTraits(null)
-    setPreviewState(DEFAULT_MONSTER_STATE)
     setErrors({})
     onCancel()
   }
 
   return (
     <form className='space-y-6' onSubmit={handleSubmit}>
-      <InputField
-        label='Nom'
-        name='name'
-        value={draft.name}
-        onChangeText={(value: string) => {
-          setDraft((previous) => ({ ...previous, name: value }))
-          if (errors.name !== undefined) {
-            setErrors((previous) => ({ ...previous, name: undefined }))
-          }
-        }}
-        error={errors.name}
-      />
+      {/* Champ nom avec style pixel art */}
+      <div className='space-y-2'>
+        <label htmlFor='name' className='block text-sm font-bold text-yellow-400 uppercase tracking-wide'>
+          Nom de votre créature
+        </label>
+        <InputField
+          name='name'
+          value={draft.name}
+          onChangeText={(value: string) => {
+            setDraft((previous) => ({ ...previous, name: value }))
+            if (errors.name !== undefined) {
+              setErrors((previous) => ({ ...previous, name: undefined }))
+            }
+          }}
+          error={errors.name}
+        />
+      </div>
 
-      <section className='space-y-4 rounded-3xl border border-moccaccino-100 bg-white/60 p-4 shadow-inner'>
+      {/* Prévisualisation du monstre - Style pixel art gaming */}
+      <div className='bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border-4 border-slate-700/50 shadow-xl space-y-4'>
         <div className='flex items-center justify-between gap-3'>
-          <h3 className='text-lg font-semibold text-gray-800'>Votre créature</h3>
-          <Button onClick={handleGenerateMonster} type='button' variant='ghost'>
-            Générer mon monstre
-          </Button>
+          <div className='flex items-center gap-2'>
+            <div className='w-3 h-3 bg-yellow-500 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated' }} />
+            <h3 className='text-lg font-bold text-yellow-400 uppercase tracking-wide'>🎨 Apparence du monstre</h3>
+          </div>
+          <button
+            onClick={handleGenerateMonster}
+            type='button'
+            className='px-4 py-2 bg-slate-700 hover:bg-yellow-500 text-white hover:text-slate-900 rounded-lg border-2 border-slate-600 hover:border-yellow-400 transition-all duration-200 font-bold text-sm uppercase tracking-wide shadow-lg'
+          >
+            🎲 Régénérer
+          </button>
         </div>
 
-        <div className='flex items-center justify-center rounded-3xl bg-slate-50/70 p-4'>
-          {traits !== null && (
-            <PixelMonster traits={traits} state={previewState} />
-          )}
-        </div>
+        <div className='relative group'>
+          {/* Container du monstre avec grille pixel */}
+          <div className='relative flex items-center justify-center rounded-2xl bg-slate-950/50 p-8 border-2 border-slate-700 min-h-[240px] overflow-hidden'>
+            {/* Grille pixel-art en fond */}
+            <div
+              className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-30 pointer-events-none'
+              style={{ imageRendering: 'pixelated' }}
+            />
 
-        <div className='flex flex-wrap items-center justify-center gap-2'>
-          {MONSTER_STATES.map((state) => (
-            <Button
-              key={state}
-              type='button'
-              size='sm'
-              variant={state === previewState ? 'default' : 'ghost'}
-              onClick={() => setPreviewState(state)}
-            >
-              {MONSTER_STATE_LABELS[state]}
-            </Button>
-          ))}
+            {traits !== null
+              ? (
+                <div className='relative z-10 transform transition-transform duration-300 group-hover:scale-110'>
+                  <PixelMonster traits={traits} state={DEFAULT_MONSTER_STATE} />
+                </div>
+                )
+              : (
+                <div className='relative z-10 flex flex-col items-center gap-3 text-gray-400'>
+                  <div className='w-16 h-16 border-4 border-slate-700 border-t-yellow-500 rounded-lg animate-spin' />
+                  <span className='text-sm font-bold uppercase tracking-wide'>Génération...</span>
+                </div>
+                )}
+          </div>
+
+          {/* Badge informatif avec style pixel */}
+          <div className='absolute -bottom-3 left-1/2 -translate-x-1/2 px-4 py-2 bg-yellow-500 rounded-lg shadow-lg border-2 border-yellow-400'>
+            <span className='text-xs font-bold text-slate-900 uppercase tracking-wider'>😊 Votre monstre sera heureux !</span>
+          </div>
         </div>
 
         {errors.design !== undefined && (
-          <span className='text-sm text-red-500'>
-            {errors.design}
-          </span>
+          <div className='flex items-center gap-2 p-4 bg-red-500/20 border-2 border-red-500 rounded-xl'>
+            <span className='text-red-400 text-lg'>⚠️</span>
+            <span className='text-sm text-red-400 font-bold'>
+              {errors.design}
+            </span>
+          </div>
         )}
-      </section>
+      </div>
 
-      <div className='flex justify-end gap-3'>
-        <Button onClick={handleCancel} type='button' variant='ghost'>
+      {/* Boutons d'action avec style pixel art gaming */}
+      <div className='flex justify-end gap-3 pt-4'>
+        <button
+          onClick={handleCancel}
+          type='button'
+          className='px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white rounded-lg border-2 border-slate-700 hover:border-slate-600 transition-all duration-200 font-bold uppercase tracking-wide'
+        >
           Annuler
-        </Button>
-        <Button disabled={hasActiveErrors} type='submit'>
-          Créer
-        </Button>
+        </button>
+        <button
+          disabled={hasActiveErrors}
+          type='submit'
+          className='px-6 py-3 bg-yellow-500 hover:bg-yellow-400 text-slate-900 rounded-lg border-2 border-yellow-400 hover:border-yellow-300 transition-all duration-200 font-bold uppercase tracking-wide shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-yellow-500'
+        >
+          🎉 Créer ma créature
+        </button>
       </div>
     </form>
   )

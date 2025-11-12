@@ -1,7 +1,6 @@
 'use client'
 
 import { memo, useCallback } from 'react'
-import Button from '../button'
 import CreateMonsterForm from '@/components/forms/create-monster-form'
 import { type CreateMonsterFormValues } from '@/shared/types/forms/create-monster-form'
 
@@ -76,30 +75,49 @@ const CreateMonsterModal = memo(function CreateMonsterModal ({
 
   return (
     <div
-      className='fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4'
+      className='fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-md px-4'
       onClick={handleOverlayClick}
       role='dialog'
       aria-modal='true'
       aria-labelledby='create-monster-title'
     >
-      <div className='w-full max-w-lg rounded-3xl bg-white p-6 shadow-2xl ring-1 ring-moccaccino-100 animate-in fade-in zoom-in-95 duration-300'>
-        {/* Header du modal */}
-        <div className='mb-6 flex items-center justify-between gap-4'>
-          <h2
-            className='text-2xl font-bold text-gray-900'
-            id='create-monster-title'
-          >
-            Créer une nouvelle créature
-          </h2>
-          <Button
-            onClick={onClose}
-            size='sm'
-            type='button'
-            variant='ghost'
-            aria-label='Fermer le modal'
-          >
-            ✕
-          </Button>
+      {/* Grille pixel-art en overlay */}
+      <div
+        className='fixed inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-20 pointer-events-none'
+        style={{ imageRendering: 'pixelated' }}
+      />
+
+      <div className='relative w-full max-w-2xl rounded-2xl bg-slate-900/95 backdrop-blur-sm p-8 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] animate-in fade-in zoom-in-95 duration-300'>
+        {/* Pixel corners décoratifs */}
+        <div className='absolute -top-2 -left-2 w-4 h-4 bg-yellow-500' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute -top-2 -right-2 w-4 h-4 bg-yellow-500' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute -bottom-2 -left-2 w-4 h-4 bg-yellow-500' style={{ imageRendering: 'pixelated' }} />
+        <div className='absolute -bottom-2 -right-2 w-4 h-4 bg-yellow-500' style={{ imageRendering: 'pixelated' }} />
+
+        {/* Header du modal - Style pixel art gaming */}
+        <div className='mb-8 relative'>
+          <div className='flex items-center justify-between gap-4'>
+            <div className='flex-1'>
+              <div className='inline-flex items-center gap-2 px-4 py-2 bg-yellow-500 rounded-lg shadow-lg mb-3'>
+                <span className='text-lg'>✨</span>
+                <span className='text-sm font-bold text-slate-900 uppercase tracking-wider'>Nouvelle créature</span>
+              </div>
+              <h2
+                className='text-3xl font-bold text-yellow-400 pixel-text'
+                id='create-monster-title'
+              >
+                Donnez vie à votre monstre !
+              </h2>
+            </div>
+            <button
+              onClick={onClose}
+              type='button'
+              aria-label='Fermer le modal'
+              className='w-10 h-10 flex items-center justify-center bg-slate-800 hover:bg-red-500 text-white rounded-lg border-2 border-slate-700 hover:border-red-400 transition-all duration-200 text-xl font-bold'
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         {/* Formulaire de création */}
