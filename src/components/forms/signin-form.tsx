@@ -3,6 +3,8 @@ import { useSearchParams } from 'next/navigation'
 import PixelInput from '../ui/pixel-input'
 import PixelButton from '../ui/pixel-button'
 import { authClient } from '@/lib/auth-client'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 interface Credentials {
   email: string
@@ -60,6 +62,16 @@ function SignInForm ({ onError }: { onError: (error: string) => void }): React.R
       onSuccess: (ctx) => {
         console.log('✅ Connexion réussie:', ctx)
         setIsLoading(false)
+        
+        // Toast de succès
+        toast.success('🎮 Connexion réussie ! Bon retour parmi vos créatures !', {
+          position: 'top-center',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true
+        })
       },
       onError: (ctx) => {
         console.error('❌ Erreur de connexion:', {
@@ -84,6 +96,16 @@ function SignInForm ({ onError }: { onError: (error: string) => void }): React.R
 
         console.error('📝 Message d\'erreur affiché:', errorMessage)
         onError(errorMessage)
+        
+        // Toast d'erreur
+        toast.error(`❌ ${errorMessage}`, {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true
+        })
       }
     })
   }

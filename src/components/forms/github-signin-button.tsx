@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { authClient } from '@/lib/auth-client'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 /**
  * Bouton d'authentification GitHub
@@ -25,6 +27,16 @@ export default function GitHubSignInButton (): React.ReactNode {
 
       console.log('🚀 Démarrage de l\'authentification GitHub...')
 
+      // Toast d'information
+      toast.info('🚀 Redirection vers GitHub...', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      })
+
       // Authentification GitHub selon la doc Better Auth
       // https://www.better-auth.com/docs/authentication/github
       // La redirection vers GitHub se fait automatiquement
@@ -36,8 +48,19 @@ export default function GitHubSignInButton (): React.ReactNode {
       console.log('✅ Redirection vers GitHub initiée')
     } catch (err) {
       setIsLoading(false)
-      setError('Échec de la connexion avec GitHub. Veuillez réessayer.')
+      const errorMsg = 'Échec de la connexion avec GitHub. Veuillez réessayer.'
+      setError(errorMsg)
       console.error('❌ Erreur GitHub sign-in:', err)
+      
+      // Toast d'erreur
+      toast.error(`❌ ${errorMsg}`, {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      })
     }
   }
 
