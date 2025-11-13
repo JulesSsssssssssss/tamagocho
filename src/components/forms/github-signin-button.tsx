@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { authClient } from '@/lib/auth-client'
 import { toast } from 'react-toastify'
+import { AuthInfoToast, AuthErrorToast } from '@/components/auth-toast'
 import 'react-toastify/dist/ReactToastify.css'
 
 /**
@@ -27,15 +28,28 @@ export default function GitHubSignInButton (): React.ReactNode {
 
       console.log('🚀 Démarrage de l\'authentification GitHub...')
 
-      // Toast d'information
-      toast.info('🚀 Redirection vers GitHub...', {
-        position: 'top-center',
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true
-      })
+      // Toast d'information avec style pixel art
+      toast.info(
+        <AuthInfoToast message='Redirection vers GitHub...' />,
+        {
+          position: 'top-center',
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'dark',
+          style: {
+            background: 'transparent',
+            padding: 0,
+            border: '4px solid #3b82f6',
+            borderRadius: '12px',
+            boxShadow: '0 8px 32px rgba(59, 130, 246, 0.4), inset 0 0 20px rgba(59, 130, 246, 0.1)',
+            fontFamily: 'monospace',
+            imageRendering: 'pixelated' as React.CSSProperties['imageRendering']
+          }
+        }
+      )
 
       // Authentification GitHub selon la doc Better Auth
       // https://www.better-auth.com/docs/authentication/github
@@ -52,15 +66,28 @@ export default function GitHubSignInButton (): React.ReactNode {
       setError(errorMsg)
       console.error('❌ Erreur GitHub sign-in:', err)
       
-      // Toast d'erreur
-      toast.error(`❌ ${errorMsg}`, {
-        position: 'top-center',
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true
-      })
+      // Toast d'erreur avec style pixel art
+      toast.error(
+        <AuthErrorToast message={errorMsg} />,
+        {
+          position: 'top-center',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          theme: 'dark',
+          style: {
+            background: 'transparent',
+            padding: 0,
+            border: '4px solid #ef4444',
+            borderRadius: '12px',
+            boxShadow: '0 8px 32px rgba(239, 68, 68, 0.4), inset 0 0 20px rgba(239, 68, 68, 0.1)',
+            fontFamily: 'monospace',
+            imageRendering: 'pixelated' as React.CSSProperties['imageRendering']
+          }
+        }
+      )
     }
   }
 

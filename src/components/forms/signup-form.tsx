@@ -4,6 +4,7 @@ import PixelInput from '../ui/pixel-input'
 import PixelButton from '../ui/pixel-button'
 import { authClient } from '@/lib/auth-client'
 import { toast } from 'react-toastify'
+import { AuthSuccessToast, AuthErrorToast } from '@/components/auth-toast'
 import 'react-toastify/dist/ReactToastify.css'
 
 interface Credentials {
@@ -71,15 +72,31 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
         setIsLoading(false)
         onError('') // Clear error on success
         
-        // Toast de succès
-        toast.success('🎉 Compte créé avec succès ! Bienvenue chez Tamagotcho !', {
-          position: 'top-center',
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true
-        })
+        // Toast de succès avec style pixel art
+        toast.success(
+          <AuthSuccessToast
+            message='Compte créé avec succès ! Bienvenue chez Tamagotcho !'
+            emoji='🎉'
+          />,
+          {
+            position: 'top-center',
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: 'dark',
+            style: {
+              background: 'transparent',
+              padding: 0,
+              border: '4px solid #34d399',
+              borderRadius: '12px',
+              boxShadow: '0 8px 32px rgba(52, 211, 153, 0.4), inset 0 0 20px rgba(52, 211, 153, 0.1)',
+              fontFamily: 'monospace',
+              imageRendering: 'pixelated' as React.CSSProperties['imageRendering']
+            }
+          }
+        )
       },
       onError: (ctx) => {
         console.error('❌ Erreur d\'inscription:', {
@@ -107,15 +124,28 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
         console.error('📝 Message d\'erreur affiché:', errorMessage)
         onError(errorMessage)
         
-        // Toast d'erreur
-        toast.error(`❌ ${errorMessage}`, {
-          position: 'top-center',
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true
-        })
+        // Toast d'erreur avec style pixel art
+        toast.error(
+          <AuthErrorToast message={errorMessage} />,
+          {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: 'dark',
+            style: {
+              background: 'transparent',
+              padding: 0,
+              border: '4px solid #ef4444',
+              borderRadius: '12px',
+              boxShadow: '0 8px 32px rgba(239, 68, 68, 0.4), inset 0 0 20px rgba(239, 68, 68, 0.1)',
+              fontFamily: 'monospace',
+              imageRendering: 'pixelated' as React.CSSProperties['imageRendering']
+            }
+          }
+        )
       }
     })
   }
