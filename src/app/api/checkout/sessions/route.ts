@@ -91,6 +91,13 @@ export async function POST (request: Request): Promise<Response> {
     }
   })
 
+  console.log('✅ Checkout session created successfully')
+  console.log('  - Session ID:', checkoutSession.id)
+  console.log('  - Checkout URL:', checkoutSession.url)
+  console.log('  - Success URL:', checkoutSession.success_url)
+  console.log('  - Cancel URL:', checkoutSession.cancel_url)
+  console.log('  - Metadata:', checkoutSession.metadata)
+
   // Retour de l'URL de redirection
   return new Response(
     JSON.stringify({ url: checkoutSession.url }),
