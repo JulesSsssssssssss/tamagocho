@@ -48,14 +48,22 @@ export async function POST (request: Request): Promise<Response> {
   }
 
   // Extraction du montant de Koins demandé
-  const { amount } = await request.json()
+  const { amount } = await request.json() as { amount: number }
+
+  console.log('🛒 Checkout session requested')
+  console.log('  - User ID:', session.user.id)
+  console.log('  - Amount:', amount, 'coins')
 
   // Validation: le montant doit exister dans la table de prix
   const product = pricingTable[amount]
 
   if (product === undefined || product === null) {
+    console.error('❌ Product not found for amount:', amount)
     return new Response('Product not found', { status: 404 })
   }
+
+  console.log('  - Price:', product.price, 'EUR')
+  console.log('  - Product ID:', product.productId)
 
   // Création de la session Stripe Checkout
   const checkoutSession = await stripe.checkout.sessions.create({
@@ -64,15 +72,19 @@ export async function POST (request: Request): Promise<Response> {
       {
         price_data: {
           currency: 'eur',
-          product: product.productId,
-          unit_amount: product.price * 100 // Stripe utilise les centimes
+          product_data: {
+            name: `${amount} Tamagocho Coins`,
+            description: `Pack de ${amount} pièces pour votre Tamagotchi`,
+            images: ['https://tamagocho-2.vercel.app/coin-icon.png'] // Optionnel
+          },
+          unit_amount: Math.round(product.price * 100) // Stripe utilise les centimes
         },
         quantity: 1
       }
     ],
     mode: 'payment',
-    success_url: `${process.env.NEXT_PUBLIC_APP_URL as string}/wallet`,
-    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL as string}/wallet`,
+    success_url: `${process.env.NEXT_PUBLIC_APP_URL as string}/wallet?success=true`,
+    cancel_url: `${process.env.NEXT_PUBLIC_APP_URL as string}/wallet?canceled=true`,
     metadata: {
       userId: session.user.id,
       koinsAmount: amount.toString()
