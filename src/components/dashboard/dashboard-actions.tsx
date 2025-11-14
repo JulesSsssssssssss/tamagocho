@@ -81,16 +81,16 @@ const DashboardActions = memo(function DashboardActions ({
             : (
               <span className='inline-flex items-center gap-1 text-xs sm:text-sm'>
                 (<span>{nextMonsterPrice}</span>
-                <PixelCoin size={16} className='sm:hidden' />
-                <PixelCoin size={20} className='hidden sm:block' />)
+                <span className='sm:hidden'><PixelCoin size={16} /></span>
+                <span className='hidden sm:block'><PixelCoin size={20} /></span>)
               </span>
               )}
         </Button>
         {!canAfford && !isFree && (
           <p className='text-xs sm:text-sm text-red-500 flex items-center gap-1 text-center'>
             Vous avez besoin de {nextMonsterPrice - playerCoins}
-            <PixelCoin size={14} className='sm:hidden' />
-            <PixelCoin size={16} className='hidden sm:block' />
+            <span className='sm:hidden'><PixelCoin size={14} /></span>
+            <span className='hidden sm:block'><PixelCoin size={16} /></span>
             supplémentaires
           </p>
         )}
