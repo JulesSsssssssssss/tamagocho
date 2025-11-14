@@ -64,31 +64,33 @@ const DashboardActions = memo(function DashboardActions ({
   }
 
   return (
-    <div className='flex flex-col sm:flex-row gap-4 items-center justify-center mb-8'>
-      <div className='flex flex-col items-center gap-2'>
+    <div className='flex flex-col gap-3 sm:gap-4 items-stretch sm:items-center justify-center mb-6 sm:mb-8 px-2'>
+      <div className='flex flex-col items-center gap-2 w-full'>
         <Button
           disabled={isDisabled || !canAfford}
           onClick={onCreateMonster}
           variant='default'
           size='lg'
-          className='flex items-center gap-2'
+          className='flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4'
         >
-          <span>✨ Créer une créature</span>
+          <span className='whitespace-nowrap'>✨ Créer une créature</span>
           {isFree
             ? (
-              <span className='text-green-600 font-bold'>(Gratuit)</span>
+              <span className='text-green-600 font-bold text-xs sm:text-sm'>(Gratuit)</span>
               )
             : (
-              <span className='inline-flex items-center gap-1'>
+              <span className='inline-flex items-center gap-1 text-xs sm:text-sm'>
                 (<span>{nextMonsterPrice}</span>
-                <PixelCoin size={20} />)
+                <PixelCoin size={16} className='sm:hidden' />
+                <PixelCoin size={20} className='hidden sm:block' />)
               </span>
               )}
         </Button>
         {!canAfford && !isFree && (
-          <p className='text-sm text-red-500 flex items-center gap-1'>
+          <p className='text-xs sm:text-sm text-red-500 flex items-center gap-1 text-center'>
             Vous avez besoin de {nextMonsterPrice - playerCoins}
-            <PixelCoin size={16} />
+            <PixelCoin size={14} className='sm:hidden' />
+            <PixelCoin size={16} className='hidden sm:block' />
             supplémentaires
           </p>
         )}
@@ -97,6 +99,7 @@ const DashboardActions = memo(function DashboardActions ({
         onClick={handleLogout}
         variant='ghost'
         size='lg'
+        className='w-full sm:w-auto text-sm sm:text-base px-4 sm:px-6 py-3 sm:py-4'
       >
         Se déconnecter
       </Button>

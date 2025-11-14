@@ -207,20 +207,20 @@ export default function GalleryPage (): React.ReactNode {
       </div>
 
       {/* Contenu */}
-      <div className='relative z-10 w-full min-h-screen p-4 md:p-6 lg:p-8'>
-        <div className='max-w-7xl mx-auto space-y-4 md:space-y-6'>
+      <div className='relative z-10 w-full min-h-screen p-3 sm:p-4 md:p-6 lg:p-8'>
+        <div className='max-w-7xl mx-auto space-y-3 sm:space-y-4 md:space-y-6'>
           {/* Header avec nom - Style creature */}
-          <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
+          <div className='bg-slate-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border-3 sm:border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] relative'>
             {/* Pixels dans les coins */}
-            <div className='absolute top-2 left-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-            <div className='absolute top-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-            <div className='absolute bottom-2 left-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-            <div className='absolute bottom-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute top-2 left-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-2 left-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
 
             {/* Contenu header */}
             <div className='relative z-10'>
               {/* Bouton retour */}
-              <div className='mb-4'>
+              <div className='mb-3 sm:mb-4'>
                 <PixelButton
                   size='md'
                   variant='ghost'
@@ -233,11 +233,11 @@ export default function GalleryPage (): React.ReactNode {
 
               {/* Titre */}
               <div className='text-center'>
-                <h1 className='text-3xl md:text-5xl font-bold text-yellow-400 mb-2 flex items-center justify-center gap-3 font-mono tracking-wider' style={{ textShadow: '0 0 20px rgba(234, 179, 8, 0.8)' }}>
-                  <span className='text-4xl md:text-6xl'>🌍</span>
-                  <span>GALERIE COMMUNAUTAIRE</span>
+                <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-yellow-400 mb-2 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 font-mono tracking-wider' style={{ textShadow: '0 0 20px rgba(234, 179, 8, 0.8)' }}>
+                  <span className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl'>🌍</span>
+                  <span className='text-center break-words'>GALERIE COMMUNAUTAIRE</span>
                 </h1>
-                <p className='text-gray-300 text-sm md:text-base font-mono'>
+                <p className='text-gray-300 text-xs sm:text-sm md:text-base font-mono'>
                   {total > 0 ? `${total} MONSTRES PUBLICS` : 'AUCUN MONSTRE PUBLIC'}
                 </p>
               </div>
@@ -245,7 +245,7 @@ export default function GalleryPage (): React.ReactNode {
           </div>
 
           {/* Filtres - Style creature */}
-          <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl border-4 border-slate-700/50 shadow-xl overflow-hidden relative'>
+          <div className='bg-slate-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl border-3 sm:border-4 border-slate-700/50 shadow-xl overflow-hidden relative'>
             {/* Grille pixel art en arrière-plan */}
             <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-40 pointer-events-none' />
             <div className='relative z-10'>
@@ -258,7 +258,7 @@ export default function GalleryPage (): React.ReactNode {
           </div>
 
           {/* Grille des monstres - Container avec bordure */}
-          <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 border-4 border-slate-700/50 shadow-xl relative'>
+          <div className='bg-slate-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border-3 sm:border-4 border-slate-700/50 shadow-xl relative'>
             {/* Grille pixel art en arrière-plan */}
             <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-40 pointer-events-none' />
             {/* Effet de lueur */}
@@ -275,7 +275,7 @@ export default function GalleryPage (): React.ReactNode {
 
           {/* Pagination - Style creature */}
           {!loading && (error === undefined || error === '') && monsters.length > 0 && (
-            <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl p-4 border-4 border-slate-700/50 shadow-xl relative'>
+            <div className='bg-slate-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl p-3 sm:p-4 border-3 sm:border-4 border-slate-700/50 shadow-xl relative'>
               {/* Grille pixel art */}
               <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-40 pointer-events-none' />
               <div className='relative z-10'>

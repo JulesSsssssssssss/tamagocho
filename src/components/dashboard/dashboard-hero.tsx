@@ -41,7 +41,7 @@ const DashboardHero = memo(function DashboardHero ({
   }
 
   return (
-    <div className='relative w-full overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 backdrop-blur-sm p-8 md:p-12 mb-8 border-4 border-moccaccino-500 shadow-[0_0_30px_rgba(247,83,60,0.3)]'>
+    <div className='relative w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-12 mb-6 sm:mb-8 border-3 sm:border-4 border-moccaccino-500 shadow-[0_0_30px_rgba(247,83,60,0.3)]'>
       {/* Effet de grille rétro */}
       <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-40' />
 
@@ -54,96 +54,94 @@ const DashboardHero = memo(function DashboardHero ({
       </div>
 
       {/* Effet de pixels dans les coins - dégradé thème */}
-      <div className='absolute top-2 left-2 w-4 h-4 bg-moccaccino-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-      <div className='absolute top-2 right-2 w-4 h-4 bg-lochinvar-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-      <div className='absolute bottom-2 left-2 w-4 h-4 bg-fuchsia-blue-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-      <div className='absolute bottom-2 right-2 w-4 h-4 bg-moccaccino-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+      <div className='absolute top-2 left-2 w-3 h-3 sm:w-4 sm:h-4 bg-moccaccino-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+      <div className='absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-lochinvar-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+      <div className='absolute bottom-2 left-2 w-3 h-3 sm:w-4 sm:h-4 bg-fuchsia-blue-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+      <div className='absolute bottom-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-moccaccino-500 rounded-sm' style={{ imageRendering: 'pixelated' }} />
 
-      {/* Affichage des pièces et boutique en haut à droite (pixel art) */}
-      <div className='absolute top-6 right-6 z-10 flex flex-col gap-3'>
-        {/* Bouton Wallet - CLIQUABLE */}
-        <button
-          onClick={handleWalletClick}
-          className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-moccaccino-500/50 shadow-[0_0_20px_rgba(247,83,60,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-moccaccino-400 hover:shadow-[0_0_30px_rgba(247,83,60,0.4)] group'
-          aria-label='Ouvrir mon portefeuille'
-        >
-          <PixelCoin size={40} />
-          <div className='flex flex-col'>
-            <span className='text-xs text-moccaccino-400/70 font-bold uppercase tracking-wider group-hover:text-moccaccino-300 transition-colors' style={{ fontFamily: 'monospace' }}>
-              Coins
-            </span>
-            <span className='text-2xl font-bold text-moccaccino-400 group-hover:text-moccaccino-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
-              {coins.toLocaleString()}
-            </span>
-          </div>
-          {/* Indicateur visuel de clic */}
-          <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>👉</span>
-        </button>
+      {/* Boutons de navigation - Position absolue DESKTOP uniquement, flow sur mobile */}
+      <div className='hidden md:block absolute top-6 right-6 z-10'>
+        <div className='flex flex-col gap-3'>
+          {/* Bouton Wallet */}
+          <button
+            onClick={handleWalletClick}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-moccaccino-500/50 shadow-[0_0_20px_rgba(247,83,60,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-moccaccino-400 hover:shadow-[0_0_30px_rgba(247,83,60,0.4)] group'
+            aria-label='Ouvrir mon portefeuille'
+          >
+            <PixelCoin size={40} />
+            <div className='flex flex-col'>
+              <span className='text-xs text-moccaccino-400/70 font-bold uppercase tracking-wider group-hover:text-moccaccino-300 transition-colors' style={{ fontFamily: 'monospace' }}>
+                Coins
+              </span>
+              <span className='text-2xl font-bold text-moccaccino-400 group-hover:text-moccaccino-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                {coins.toLocaleString()}
+              </span>
+            </div>
+            <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>👉</span>
+          </button>
 
-        {/* Bouton Boutique - NOUVEAU */}
-        <button
-          onClick={() => { router.push('/shop') }}
-          className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-purple-400 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] group'
-          aria-label='Ouvrir la boutique'
-        >
-          <span className='text-4xl' style={{ imageRendering: 'pixelated' }}>🛍️</span>
-          <div className='flex flex-col'>
-            <span className='text-xs text-purple-400/70 font-bold uppercase tracking-wider group-hover:text-purple-300 transition-colors' style={{ fontFamily: 'monospace' }}>
-              Shop
-            </span>
-            <span className='text-xl font-bold text-purple-400 group-hover:text-purple-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
-              Boutique
-            </span>
-          </div>
-          {/* Indicateur visuel de clic */}
-          <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>🛒</span>
-        </button>
+          {/* Bouton Boutique */}
+          <button
+            onClick={() => { router.push('/shop') }}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-purple-400 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] group'
+            aria-label='Ouvrir la boutique'
+          >
+            <span className='text-4xl' style={{ imageRendering: 'pixelated' }}>🛍️</span>
+            <div className='flex flex-col'>
+              <span className='text-xs text-purple-400/70 font-bold uppercase tracking-wider group-hover:text-purple-300 transition-colors' style={{ fontFamily: 'monospace' }}>
+                Shop
+              </span>
+              <span className='text-xl font-bold text-purple-400 group-hover:text-purple-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                Boutique
+              </span>
+            </div>
+            <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>🛒</span>
+          </button>
 
-        {/* Bouton Galerie */}
-        <button
-          onClick={() => { router.push('/gallery') }}
-          className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] group'
-          aria-label='Ouvrir la galerie communautaire'
-        >
-          <span className='text-4xl' style={{ imageRendering: 'pixelated' }}>🌍</span>
-          <div className='flex flex-col'>
-            <span className='text-xs text-yellow-400/70 font-bold uppercase tracking-wider group-hover:text-yellow-300 transition-colors' style={{ fontFamily: 'monospace' }}>
-              Gallery
-            </span>
-            <span className='text-xl font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
-              Galerie
-            </span>
-          </div>
-          {/* Indicateur visuel de clic */}
-          <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>👁️</span>
-        </button>
+          {/* Bouton Galerie */}
+          <button
+            onClick={() => { router.push('/gallery') }}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] group'
+            aria-label='Ouvrir la galerie communautaire'
+          >
+            <span className='text-4xl' style={{ imageRendering: 'pixelated' }}>🌍</span>
+            <div className='flex flex-col'>
+              <span className='text-xs text-yellow-400/70 font-bold uppercase tracking-wider group-hover:text-yellow-300 transition-colors' style={{ fontFamily: 'monospace' }}>
+                Gallery
+              </span>
+              <span className='text-xl font-bold text-yellow-400 group-hover:text-yellow-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                Galerie
+              </span>
+            </div>
+            <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>👁️</span>
+          </button>
 
-        {/* Bouton Quêtes - NOUVEAU */}
-        <button
-          onClick={() => { router.push('/quests') }}
-          className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-green-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] group'
-          aria-label='Ouvrir les quêtes quotidiennes'
-        >
-          <span className='text-4xl' style={{ imageRendering: 'pixelated' }}>🎯</span>
-          <div className='flex flex-col'>
-            <span className='text-xs text-green-400/70 font-bold uppercase tracking-wider group-hover:text-green-300 transition-colors' style={{ fontFamily: 'monospace' }}>
-              Daily
-            </span>
-            <span className='text-xl font-bold text-green-400 group-hover:text-green-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
-              Quêtes
-            </span>
-          </div>
-          {/* Indicateur visuel de clic */}
-          <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>✨</span>
-        </button>
+          {/* Bouton Quêtes */}
+          <button
+            onClick={() => { router.push('/quests') }}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-green-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.4)] group'
+            aria-label='Ouvrir les quêtes quotidiennes'
+          >
+            <span className='text-4xl' style={{ imageRendering: 'pixelated' }}>🎯</span>
+            <div className='flex flex-col'>
+              <span className='text-xs text-green-400/70 font-bold uppercase tracking-wider group-hover:text-green-300 transition-colors' style={{ fontFamily: 'monospace' }}>
+                Daily
+              </span>
+              <span className='text-xl font-bold text-green-400 group-hover:text-green-300 transition-colors' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                Quêtes
+              </span>
+            </div>
+            <span className='text-sm opacity-0 group-hover:opacity-100 transition-opacity'>✨</span>
+          </button>
+        </div>
       </div>
 
       {/* Contenu principal */}
       <div className='relative z-10 max-w-4xl'>
         {/* Titre principal */}
-        <div className='mb-4'>
+        <div className='mb-3 sm:mb-4 text-center sm:text-left'>
           <h1
-            className='text-5xl md:text-6xl font-black text-white mb-2 tracking-tight'
+            className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 tracking-tight'
             style={{
               textShadow: '4px 4px 0px rgba(0,0,0,0.5)',
               fontFamily: 'monospace',
@@ -152,38 +150,109 @@ const DashboardHero = memo(function DashboardHero ({
           >
             🎮 TAMAGOTCHO 🎮
           </h1>
-          <div className='h-2 w-48 bg-yellow-400/60 rounded-sm mx-auto' style={{ imageRendering: 'pixelated' }} />
+          <div className='h-1.5 sm:h-2 w-32 sm:w-48 bg-yellow-400/60 rounded-sm mx-auto sm:mx-0' style={{ imageRendering: 'pixelated' }} />
         </div>
 
         {/* Message de bienvenue */}
-        <div className='bg-slate-950/60 backdrop-blur-sm rounded-2xl p-6 border-4 border-slate-700/50 max-w-2xl'>
-          <p className='text-white text-lg md:text-xl font-bold mb-2' style={{ fontFamily: 'monospace' }}>
-            👋 Bienvenue, <span className='font-black text-yellow-400'>{userEmail}</span>
+        <div className='bg-slate-950/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-3 sm:border-4 border-slate-700/50 max-w-2xl mb-4'>
+          <p className='text-white text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 sm:mb-2' style={{ fontFamily: 'monospace' }}>
+            👋 Bienvenue, <span className='font-black text-yellow-400 break-all'>{userEmail}</span>
           </p>
-          <p className='text-white/80 text-sm md:text-base font-bold' style={{ fontFamily: 'monospace' }}>
+          <p className='text-white/80 text-xs sm:text-sm md:text-base font-bold' style={{ fontFamily: 'monospace' }}>
             Prends soin de tes créatures, gagne des pièces et deviens le meilleur dresseur ! 🎮
           </p>
         </div>
 
+        {/* Boutons de navigation - Mobile uniquement (flow) */}
+        <div className='md:hidden grid grid-cols-2 gap-2 mb-4'>
+          {/* Bouton Wallet */}
+          <button
+            onClick={handleWalletClick}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-lg px-3 py-2 border-3 border-moccaccino-500/50 shadow-[0_0_20px_rgba(247,83,60,0.2)] flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer'
+            aria-label='Ouvrir mon portefeuille'
+          >
+            <PixelCoin size={24} />
+            <div className='flex flex-col items-start'>
+              <span className='text-[10px] text-moccaccino-400/70 font-bold uppercase tracking-wider leading-tight' style={{ fontFamily: 'monospace' }}>
+                Coins
+              </span>
+              <span className='text-base font-bold text-moccaccino-400 leading-tight' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                {coins.toLocaleString()}
+              </span>
+            </div>
+          </button>
+
+          {/* Bouton Boutique */}
+          <button
+            onClick={() => { router.push('/shop') }}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-lg px-3 py-2 border-3 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.2)] flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer'
+            aria-label='Ouvrir la boutique'
+          >
+            <span className='text-2xl' style={{ imageRendering: 'pixelated' }}>🛍️</span>
+            <div className='flex flex-col items-start'>
+              <span className='text-[10px] text-purple-400/70 font-bold uppercase tracking-wider leading-tight' style={{ fontFamily: 'monospace' }}>
+                Shop
+              </span>
+              <span className='text-xs font-bold text-purple-400 leading-tight' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                Boutique
+              </span>
+            </div>
+          </button>
+
+          {/* Bouton Galerie */}
+          <button
+            onClick={() => { router.push('/gallery') }}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-lg px-3 py-2 border-3 border-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.2)] flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer'
+            aria-label='Ouvrir la galerie communautaire'
+          >
+            <span className='text-2xl' style={{ imageRendering: 'pixelated' }}>🌍</span>
+            <div className='flex flex-col items-start'>
+              <span className='text-[10px] text-yellow-400/70 font-bold uppercase tracking-wider leading-tight' style={{ fontFamily: 'monospace' }}>
+                Gallery
+              </span>
+              <span className='text-xs font-bold text-yellow-400 leading-tight' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                Galerie
+              </span>
+            </div>
+          </button>
+
+          {/* Bouton Quêtes */}
+          <button
+            onClick={() => { router.push('/quests') }}
+            className='bg-slate-950/80 backdrop-blur-sm rounded-lg px-3 py-2 border-3 border-green-500/50 shadow-[0_0_20px_rgba(34,197,94,0.2)] flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer'
+            aria-label='Ouvrir les quêtes quotidiennes'
+          >
+            <span className='text-2xl' style={{ imageRendering: 'pixelated' }}>🎯</span>
+            <div className='flex flex-col items-start'>
+              <span className='text-[10px] text-green-400/70 font-bold uppercase tracking-wider leading-tight' style={{ fontFamily: 'monospace' }}>
+                Daily
+              </span>
+              <span className='text-xs font-bold text-green-400 leading-tight' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                Quêtes
+              </span>
+            </div>
+          </button>
+        </div>
+
         {/* Stats visuelles (optionnel) */}
-        <div className='mt-6 flex flex-wrap gap-4'>
-          <div className='bg-slate-950/60 backdrop-blur-sm rounded-xl px-4 py-2 border-2 border-yellow-500/30 flex items-center gap-2'>
-            <span className='text-2xl'>🎯</span>
+        <div className='flex flex-wrap gap-2 sm:gap-4'>
+          <div className='bg-slate-950/60 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 border-2 border-yellow-500/30 flex items-center gap-2'>
+            <span className='text-xl sm:text-2xl'>🎯</span>
             <div>
-              <p className='text-xs text-yellow-400 uppercase font-bold' style={{ fontFamily: 'monospace' }}>
+              <p className='text-[10px] sm:text-xs text-yellow-400 uppercase font-bold leading-tight' style={{ fontFamily: 'monospace' }}>
                 Mission
               </p>
-              <p className='text-sm text-white font-bold'>Élève tes créatures</p>
+              <p className='text-xs sm:text-sm text-white font-bold leading-tight'>Élève tes créatures</p>
             </div>
           </div>
 
-          <div className='bg-slate-950/60 backdrop-blur-sm rounded-xl px-4 py-2 border-2 border-yellow-500/30 flex items-center gap-2'>
-            <span className='text-2xl'>⭐</span>
+          <div className='bg-slate-950/60 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 border-2 border-yellow-500/30 flex items-center gap-2'>
+            <span className='text-xl sm:text-2xl'>⭐</span>
             <div>
-              <p className='text-xs text-yellow-400 uppercase font-bold' style={{ fontFamily: 'monospace' }}>
+              <p className='text-[10px] sm:text-xs text-yellow-400 uppercase font-bold leading-tight' style={{ fontFamily: 'monospace' }}>
                 Objectif
               </p>
-              <p className='text-sm text-white font-bold'>Monter de niveau</p>
+              <p className='text-xs sm:text-sm text-white font-bold leading-tight'>Monter de niveau</p>
             </div>
           </div>
         </div>

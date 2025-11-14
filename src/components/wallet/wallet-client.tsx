@@ -129,7 +129,7 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
   ]
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-4 sm:p-8'>
+    <div className='min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 p-3 sm:p-4 md:p-8'>
       {/* Effet de grille rétro en arrière-plan */}
       <div className='fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] pointer-events-none' />
 
@@ -143,9 +143,9 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
 
       <div className='relative max-w-6xl mx-auto'>
         {/* En-tête pixel-art */}
-        <div className='text-center mb-8 sm:mb-12'>
+        <div className='text-center mb-6 sm:mb-8 md:mb-12'>
           <h1
-            className='text-4xl sm:text-6xl font-black text-white mb-4 tracking-tight'
+            className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 sm:mb-4 tracking-tight px-2'
             style={{
               fontFamily: 'monospace',
               textShadow: '4px 4px 0px rgba(0,0,0,0.5)',
@@ -154,27 +154,27 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
           >
             💰 BOUTIQUE TAMACOINS 💰
           </h1>
-          <div className='h-2 w-48 bg-yellow-400/60 rounded-sm mx-auto mb-4' style={{ imageRendering: 'pixelated' }} />
-          <p className='text-lg sm:text-xl text-white/80 font-bold' style={{ fontFamily: 'monospace' }}>
+          <div className='h-1.5 sm:h-2 w-32 sm:w-48 bg-yellow-400/60 rounded-sm mx-auto mb-3 sm:mb-4' style={{ imageRendering: 'pixelated' }} />
+          <p className='text-sm sm:text-base md:text-lg lg:text-xl text-white/80 font-bold px-4' style={{ fontFamily: 'monospace' }}>
             🎮 Achète des Tamacoins pour ton aventure ! 🎮
           </p>
         </div>
 
         {/* Carte du solde actuel - Style pixel-art */}
-        <div className='relative mb-8 sm:mb-12'>
-          <div className='bg-slate-900/90 backdrop-blur-sm rounded-2xl border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] p-6 sm:p-10'>
+        <div className='relative mb-6 sm:mb-8 md:mb-12'>
+          <div className='bg-slate-900/90 backdrop-blur-sm rounded-xl sm:rounded-2xl border-3 sm:border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] p-4 sm:p-6 md:p-8 lg:p-10'>
             {/* Effet de pixels dans les coins */}
-            <div className='absolute top-2 left-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-            <div className='absolute top-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-            <div className='absolute bottom-2 left-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
-            <div className='absolute bottom-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute top-2 left-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute top-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-2 left-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+            <div className='absolute bottom-2 right-2 w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
 
             <div className='text-center'>
               {/* Bouton retour - même style que shop */}
-              <div className='flex justify-start mb-6'>
+              <div className='flex justify-start mb-4 sm:mb-6'>
                 <button
                   onClick={handleGoBack}
-                  className='bg-slate-950/90 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-yellow-500/50 text-yellow-400 font-bold hover:border-yellow-300 hover:text-yellow-200 transition-all transform hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)]'
+                  className='bg-slate-950/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-2 sm:px-5 sm:py-3 border-3 sm:border-4 border-yellow-500/50 text-yellow-400 font-bold hover:border-yellow-300 hover:text-yellow-200 transition-all transform hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)] text-xs sm:text-sm md:text-base w-full sm:w-auto'
                   style={{
                     fontFamily: 'monospace',
                     imageRendering: 'pixelated',
@@ -185,13 +185,15 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
                 </button>
               </div>
 
-              <p className='text-sm sm:text-base font-bold text-yellow-400 uppercase tracking-widest mb-4' style={{ fontFamily: 'monospace' }}>
+              <p className='text-xs sm:text-sm md:text-base font-bold text-yellow-400 uppercase tracking-widest mb-3 sm:mb-4' style={{ fontFamily: 'monospace' }}>
                 💎 Ton Trésor Actuel 💎
               </p>
-              <div className='flex items-center justify-center gap-4 sm:gap-6 mb-4'>
-                <PixelCoin size={64} />
+              <div className='flex items-center justify-center gap-2 sm:gap-4 md:gap-6 mb-3 sm:mb-4'>
+                <PixelCoin size={32} className='sm:hidden' />
+                <PixelCoin size={48} className='hidden sm:block md:hidden' />
+                <PixelCoin size={64} className='hidden md:block' />
                 <h2
-                  className='text-5xl sm:text-8xl font-black text-yellow-400'
+                  className='text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-yellow-400'
                   style={{
                     fontFamily: 'monospace',
                     textShadow: '4px 4px 0px rgba(0,0,0,0.5)'
@@ -199,9 +201,11 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
                 >
                   {wallet.balance.toLocaleString('fr-FR')}
                 </h2>
-                <PixelCoin size={64} />
+                <PixelCoin size={32} className='sm:hidden' />
+                <PixelCoin size={48} className='hidden sm:block md:hidden' />
+                <PixelCoin size={64} className='hidden md:block' />
               </div>
-              <p className='text-xl sm:text-3xl font-black text-white' style={{ fontFamily: 'monospace' }}>
+              <p className='text-base sm:text-xl md:text-2xl lg:text-3xl font-black text-white' style={{ fontFamily: 'monospace' }}>
                 TAMACOINS
               </p>
             </div>
@@ -210,16 +214,16 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
 
         {/* Message d'erreur pixel-art */}
         {error !== null && (
-          <div className='bg-red-900/90 border-4 border-red-500 text-white px-6 sm:px-8 py-4 sm:py-5 rounded-2xl mb-6 sm:mb-8 text-center text-base sm:text-lg font-bold shadow-xl' style={{ fontFamily: 'monospace' }}>
-            <span className='text-3xl sm:text-4xl mr-3'>⚠️</span>
+          <div className='bg-red-900/90 border-3 sm:border-4 border-red-500 text-white px-4 sm:px-6 md:px-8 py-3 sm:py-4 md:py-5 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 md:mb-8 text-center text-sm sm:text-base md:text-lg font-bold shadow-xl' style={{ fontFamily: 'monospace' }}>
+            <span className='text-2xl sm:text-3xl md:text-4xl mr-2 sm:mr-3'>⚠️</span>
             {error}
           </div>
         )}
 
         {/* Titre de la boutique */}
-        <div className='text-center mb-6 sm:mb-8'>
+        <div className='text-center mb-4 sm:mb-6 md:mb-8'>
           <h2
-            className='text-3xl sm:text-5xl font-black text-yellow-400 mb-3 sm:mb-4'
+            className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-yellow-400 mb-2 sm:mb-3 md:mb-4 px-2'
             style={{
               fontFamily: 'monospace',
               textShadow: '3px 3px 0px rgba(0,0,0,0.5)'
@@ -227,13 +231,13 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
           >
             🎁 CHOISIS TON PACK ! 🎁
           </h2>
-          <p className='text-base sm:text-xl text-white/90 font-bold' style={{ fontFamily: 'monospace' }}>
+          <p className='text-xs sm:text-sm md:text-base lg:text-xl text-white/90 font-bold px-4' style={{ fontFamily: 'monospace' }}>
             🔒 Paiement sécurisé par Stripe 🔒
           </p>
         </div>
 
         {/* Grille des packages - Style pixel-art */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 md:mb-12'>
           {packages.map((pkg) => (
             <div
               key={pkg.amount}

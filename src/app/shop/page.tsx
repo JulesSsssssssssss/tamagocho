@@ -323,10 +323,10 @@ export default function ShopPage (): React.ReactNode {
         <div className='absolute top-1/3 right-1/3 w-3 h-3 bg-yellow-400/15 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '1.5s' }} />
       </div>
 
-      <div className='relative z-10 w-full min-h-screen p-4 md:p-6 lg:p-8'>
-        <div className='max-w-7xl mx-auto space-y-6'>
+      <div className='relative z-10 w-full min-h-screen p-3 sm:p-4 md:p-6 lg:p-8'>
+        <div className='max-w-7xl mx-auto space-y-4 sm:space-y-6'>
           {/* Hero section - Style dashboard */}
-          <div className='relative w-full overflow-hidden rounded-3xl bg-slate-900/90 backdrop-blur-sm p-8 md:p-12 border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)]'>
+          <div className='relative w-full overflow-hidden rounded-2xl sm:rounded-3xl bg-slate-900/90 backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-12 border-3 sm:border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)]'>
             {/* Effet de grille rétro */}
             <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-40' />
 
@@ -344,8 +344,8 @@ export default function ShopPage (): React.ReactNode {
             <div className='absolute bottom-2 left-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
             <div className='absolute bottom-2 right-2 w-4 h-4 bg-yellow-400 rounded-sm' style={{ imageRendering: 'pixelated' }} />
 
-            {/* Affichage du solde en haut à droite - Style dashboard */}
-            <div className='absolute top-6 right-6 z-10'>
+            {/* Affichage du solde - Desktop uniquement en absolute, mobile en flow */}
+            <div className='hidden sm:block absolute top-6 right-6 z-10'>
               <button
                 onClick={() => { router.push('/wallet') }}
                 className='bg-slate-950/80 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.2)] flex items-center gap-3 transform hover:scale-110 transition-all duration-200 active:scale-95 cursor-pointer hover:border-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.4)] group'
@@ -369,7 +369,7 @@ export default function ShopPage (): React.ReactNode {
               {/* Bouton retour */}
               <button
                 onClick={() => { router.push('/dashboard') }}
-                className='mb-6 bg-slate-950/90 backdrop-blur-sm rounded-xl px-5 py-3 border-4 border-yellow-500/50 text-yellow-400 font-bold hover:border-yellow-300 hover:text-yellow-200 transition-all transform hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)]'
+                className='mb-3 sm:mb-6 bg-slate-950/90 backdrop-blur-sm rounded-lg sm:rounded-xl px-3 py-2 sm:px-5 sm:py-3 border-3 sm:border-4 border-yellow-500/50 text-yellow-400 font-bold hover:border-yellow-300 hover:text-yellow-200 transition-all transform hover:scale-105 sm:hover:scale-110 active:scale-95 shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)] text-sm sm:text-base w-full sm:w-auto'
                 style={{
                   fontFamily: 'monospace',
                   imageRendering: 'pixelated',
@@ -380,9 +380,9 @@ export default function ShopPage (): React.ReactNode {
               </button>
 
               {/* Titre principal */}
-              <div className='mb-4'>
+              <div className='mb-3 sm:mb-4'>
                 <h1
-                  className='text-5xl md:text-6xl font-black text-white mb-2 tracking-tight'
+                  className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 tracking-tight text-center sm:text-left'
                   style={{
                     textShadow: '4px 4px 0px rgba(0,0,0,0.5)',
                     fontFamily: 'monospace',
@@ -391,15 +391,34 @@ export default function ShopPage (): React.ReactNode {
                 >
                   🛍️ BOUTIQUE 🛍️
                 </h1>
-                <div className='h-2 w-48 bg-yellow-400/60 rounded-sm' style={{ imageRendering: 'pixelated' }} />
+                <div className='h-1.5 sm:h-2 w-32 sm:w-48 bg-yellow-400/60 rounded-sm mx-auto sm:mx-0' style={{ imageRendering: 'pixelated' }} />
+              </div>
+
+              {/* Bouton Coins - Mobile uniquement */}
+              <div className='sm:hidden mb-3'>
+                <button
+                  onClick={() => { router.push('/wallet') }}
+                  className='w-full bg-slate-950/80 backdrop-blur-sm rounded-lg px-3 py-2 border-3 border-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.2)] flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer'
+                  aria-label='Voir mon portefeuille'
+                >
+                  <PixelCoin size={32} />
+                  <div className='flex flex-col items-start'>
+                    <span className='text-xs text-yellow-400/70 font-bold uppercase tracking-wider' style={{ fontFamily: 'monospace' }}>
+                      Coins
+                    </span>
+                    <span className='text-xl font-bold text-yellow-400' style={{ fontFamily: 'monospace', textShadow: '2px 2px 0px rgba(0,0,0,0.5)' }}>
+                      {userBalance.toLocaleString()}
+                    </span>
+                  </div>
+                </button>
               </div>
 
               {/* Message d'introduction */}
-              <div className='bg-slate-950/60 backdrop-blur-sm rounded-2xl p-6 border-4 border-slate-700/50 max-w-2xl'>
-                <p className='text-white text-lg md:text-xl font-bold mb-2' style={{ fontFamily: 'monospace' }}>
+              <div className='bg-slate-950/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-3 sm:border-4 border-slate-700/50 max-w-2xl'>
+                <p className='text-white text-base sm:text-lg md:text-xl font-bold mb-1 sm:mb-2' style={{ fontFamily: 'monospace' }}>
                   🎨 Équipe tes monstres avec style !
                 </p>
-                <p className='text-white/80 text-sm md:text-base font-bold' style={{ fontFamily: 'monospace' }}>
+                <p className='text-white/80 text-xs sm:text-sm md:text-base font-bold' style={{ fontFamily: 'monospace' }}>
                   Achète des chapeaux, lunettes, chaussures et fonds d'écran pour personnaliser tes créatures ! 🎩👓👟🖼️
                 </p>
               </div>
@@ -407,16 +426,16 @@ export default function ShopPage (): React.ReactNode {
           </div>
 
           {/* Filtres */}
-          <div className='bg-slate-950/60 backdrop-blur-sm rounded-2xl p-6 border-4 border-slate-700/50'>
+          <div className='bg-slate-950/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 border-3 sm:border-4 border-slate-700/50'>
             {/* Filtres par catégorie */}
-            <div className='mb-4'>
-              <p className='text-white font-bold mb-3 text-sm uppercase tracking-wider' style={{ fontFamily: 'monospace' }}>
+            <div className='mb-3 sm:mb-4'>
+              <p className='text-white font-bold mb-2 sm:mb-3 text-xs sm:text-sm uppercase tracking-wider' style={{ fontFamily: 'monospace' }}>
                 🎨 Catégories
               </p>
-              <div className='flex flex-wrap gap-3'>
+              <div className='flex flex-wrap gap-2 sm:gap-3'>
                 <button
                   onClick={() => { setSelectedCategory(undefined) }}
-                  className={`px-4 py-2 rounded-xl font-bold transition-all transform hover:scale-110 active:scale-95 border-4 backdrop-blur-sm ${
+                  className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl font-bold transition-all transform hover:scale-110 active:scale-95 border-3 sm:border-4 backdrop-blur-sm text-xs sm:text-sm ${
                     selectedCategory === undefined
                       ? 'bg-yellow-500/90 border-yellow-400 text-slate-900 shadow-[0_0_20px_rgba(234,179,8,0.5)]'
                       : 'bg-slate-800/70 border-slate-600 text-slate-300 hover:border-slate-500 hover:bg-slate-800/90'
@@ -433,7 +452,7 @@ export default function ShopPage (): React.ReactNode {
                   <button
                     key={cat.value}
                     onClick={() => { setSelectedCategory(cat.value) }}
-                    className={`px-4 py-2 rounded-xl font-bold transition-all transform hover:scale-110 active:scale-95 border-4 backdrop-blur-sm flex items-center gap-2 ${
+                    className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg sm:rounded-xl font-bold transition-all transform hover:scale-110 active:scale-95 border-3 sm:border-4 backdrop-blur-sm flex items-center gap-1 sm:gap-2 text-xs sm:text-sm ${
                       selectedCategory === cat.value
                         ? 'bg-yellow-500/90 border-yellow-400 text-slate-900 shadow-[0_0_20px_rgba(234,179,8,0.5)]'
                         : 'bg-slate-800/70 border-slate-600 text-slate-300 hover:border-slate-500 hover:bg-slate-800/90'
@@ -445,7 +464,7 @@ export default function ShopPage (): React.ReactNode {
                     }}
                   >
                     <span style={{ imageRendering: 'pixelated' }}>{cat.icon}</span>
-                    {cat.label}
+                    <span className='hidden xs:inline sm:inline'>{cat.label}</span>
                   </button>
                 ))}
               </div>

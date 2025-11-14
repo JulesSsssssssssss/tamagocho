@@ -36,17 +36,17 @@ export default async function QuestsPage (): Promise<React.ReactElement> {
     <div className='min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900'>
       {/* Header */}
       <div className='bg-slate-800/50 backdrop-blur-sm border-b border-yellow-500/20 sticky top-0 z-10'>
-        <div className='container mx-auto px-4 py-6'>
-          <div className='flex items-center justify-between'>
-            <div className='flex items-center gap-4'>
+        <div className='container mx-auto px-3 sm:px-4 py-4 sm:py-6'>
+          <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0'>
+            <div className='flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4'>
               <a
                 href='/dashboard'
-                className='text-yellow-400 hover:text-yellow-300 transition-colors font-mono text-sm'
+                className='text-yellow-400 hover:text-yellow-300 transition-colors font-mono text-xs sm:text-sm'
               >
                 ← Retour au dashboard
               </a>
-              <div className='h-6 w-px bg-yellow-500/30' />
-              <h1 className='text-3xl font-black text-white font-mono tracking-wider'>
+              <div className='hidden sm:block h-6 w-px bg-yellow-500/30' />
+              <h1 className='text-xl sm:text-2xl md:text-3xl font-black text-white font-mono tracking-wider'>
                 🎯 QUÊTES QUOTIDIENNES
               </h1>
             </div>
@@ -55,7 +55,7 @@ export default async function QuestsPage (): Promise<React.ReactElement> {
       </div>
 
       {/* Contenu principal */}
-      <div className='container mx-auto px-4 py-8'>
+      <div className='container mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8'>
         <QuestsPageContent />
       </div>
     </div>
