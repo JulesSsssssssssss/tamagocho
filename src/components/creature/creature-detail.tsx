@@ -115,10 +115,10 @@ const CreatureDetail = memo(function CreatureDetail ({
           {/* 🎮 HEADER CRT STYLE */}
           <div className='relative'>
             <div className='absolute -inset-1 bg-gradient-to-r from-yellow-500 via-orange-500 to-yellow-500 rounded-3xl blur-md opacity-75 animate-pulse' />
-            
+
             <div className='relative bg-slate-900 rounded-3xl border-4 border-yellow-500 overflow-hidden shadow-2xl'>
               <div className='absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.15)_50%)] bg-[size:100%_4px] pointer-events-none' />
-              
+
               <div className='relative p-6 space-y-4'>
                 <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4'>
                   <div className='flex items-center gap-4'>
@@ -126,7 +126,7 @@ const CreatureDetail = memo(function CreatureDetail ({
                       <div className='absolute inset-0 bg-[linear-gradient(45deg,transparent_48%,rgba(255,255,255,0.3)_49%,rgba(255,255,255,0.3)_51%,transparent_52%)] bg-[size:8px_8px]' />
                       <span className='relative z-10'>{currentMonster.level}</span>
                     </div>
-                    
+
                     <div>
                       <h1 className='text-4xl font-black text-yellow-400 tracking-tight font-mono [text-shadow:3px_3px_0px_rgba(0,0,0,0.8)]'>
                         {currentMonster.name}
@@ -178,14 +178,14 @@ const CreatureDetail = memo(function CreatureDetail ({
             <div className='lg:col-span-2'>
               <div className='sticky top-6 relative'>
                 <div className='absolute -inset-1 bg-gradient-to-br from-yellow-500 via-orange-500 to-red-500 rounded-2xl blur opacity-60 animate-pulse' />
-                
+
                 <div className='relative bg-slate-900 rounded-2xl border-4 border-yellow-500 overflow-hidden shadow-2xl'>
                   <div className='absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.15)_50%)] bg-[size:100%_4px] pointer-events-none z-20' />
-                  
+
                   <div className='aspect-square p-6 relative bg-gradient-to-b from-slate-800 to-slate-900'>
                     <div className='absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:1.5rem_1.5rem]' />
                     <div className='absolute inset-0 bg-gradient-to-t from-yellow-500/10 via-transparent to-transparent' />
-                    
+
                     <div className='relative z-10 w-full h-full flex items-center justify-center'>
                       <CreatureAvatar
                         traitsJson={currentMonster.traits}
@@ -216,7 +216,7 @@ const CreatureDetail = memo(function CreatureDetail ({
                 <div className='absolute -inset-0.5 bg-gradient-to-r from-green-500 via-emerald-500 to-green-500 rounded-xl blur opacity-50' />
                 <div className='relative bg-slate-900 rounded-xl border-4 border-green-500 p-5 shadow-2xl overflow-hidden'>
                   <div className='absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.1)_50%)] bg-[size:100%_4px] pointer-events-none' />
-                  
+
                   <div className='relative z-10'>
                     <div className='flex items-center gap-3 mb-4'>
                       <div className='w-3 h-3 bg-green-500 animate-pulse border-2 border-green-400 shadow-lg shadow-green-500/50' />
