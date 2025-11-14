@@ -189,9 +189,9 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
                 💎 Ton Trésor Actuel 💎
               </p>
               <div className='flex items-center justify-center gap-2 sm:gap-4 md:gap-6 mb-3 sm:mb-4'>
-                <PixelCoin size={32} className='sm:hidden' />
-                <PixelCoin size={48} className='hidden sm:block md:hidden' />
-                <PixelCoin size={64} className='hidden md:block' />
+                <span className='sm:hidden'><PixelCoin size={32} /></span>
+                <span className='hidden sm:block md:hidden'><PixelCoin size={48} /></span>
+                <span className='hidden md:block'><PixelCoin size={64} /></span>
                 <h2
                   className='text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-black text-yellow-400'
                   style={{
@@ -201,9 +201,9 @@ export default function WalletClient ({ initialWallet }: WalletClientProps): Rea
                 >
                   {wallet.balance.toLocaleString('fr-FR')}
                 </h2>
-                <PixelCoin size={32} className='sm:hidden' />
-                <PixelCoin size={48} className='hidden sm:block md:hidden' />
-                <PixelCoin size={64} className='hidden md:block' />
+                <span className='sm:hidden'><PixelCoin size={32} /></span>
+                <span className='hidden sm:block md:hidden'><PixelCoin size={48} /></span>
+                <span className='hidden md:block'><PixelCoin size={64} /></span>
               </div>
               <p className='text-base sm:text-xl md:text-2xl lg:text-3xl font-black text-white' style={{ fontFamily: 'monospace' }}>
                 TAMACOINS
