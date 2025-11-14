@@ -40,7 +40,7 @@ export function AuthSuccessToast ({ message, emoji = '🎉' }: AuthSuccessToastP
       {/* Particules décoratives pixel art */}
       <div className='absolute top-2 right-2 w-2 h-2 bg-emerald-400/50 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.2s' }} />
       <div className='absolute bottom-3 right-4 w-2 h-2 bg-emerald-300/40 rounded-sm animate-pulse' style={{ imageRendering: 'pixelated', animationDelay: '0.5s' }} />
-      
+
       {/* Confettis */}
       <div className='absolute top-1 left-[20%] w-2 h-2 bg-yellow-400 animate-bounce' style={{ animationDelay: '0s', animationDuration: '1s', imageRendering: 'pixelated' }} />
       <div className='absolute top-1 left-[80%] w-2 h-2 bg-pink-400 animate-bounce' style={{ animationDelay: '0.3s', animationDuration: '1.2s', imageRendering: 'pixelated' }} />

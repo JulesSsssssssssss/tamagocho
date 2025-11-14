@@ -65,7 +65,7 @@ export default function GitHubSignInButton (): React.ReactNode {
       const errorMsg = 'Échec de la connexion avec GitHub. Veuillez réessayer.'
       setError(errorMsg)
       console.error('❌ Erreur GitHub sign-in:', err)
-      
+
       // Toast d'erreur avec style pixel art
       toast.error(
         <AuthErrorToast message={errorMsg} />,

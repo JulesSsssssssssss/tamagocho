@@ -395,13 +395,6 @@
   resolved "https://registry.npmjs.org/@simplewebauthn/browser/-/browser-13.2.2.tgz"
   integrity sha512-FNW1oLQpTJyqG5kkDg5ZsotvWgmBaC6jCHR7Ej0qUNep36Wl9tj2eZu7J5rP+uhXgHaLk+QQ3lqcw2vS5MX1IA==
 
-"@simplewebauthn/browser@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.npmjs.org/@simplewebauthn/browser/-/browser-9.0.1.tgz"
-  integrity sha512-wD2WpbkaEP4170s13/HUxPcAV5y4ZXaKo1TfNklS5zDefPinIgXOpgz1kpEvobAsaLPa2KeH7AKKX/od1mrBJw==
-  dependencies:
-    "@simplewebauthn/types" "^9.0.1"
-
 "@simplewebauthn/server@^13.1.2":
   version "13.2.2"
   resolved "https://registry.npmjs.org/@simplewebauthn/server/-/server-13.2.2.tgz"
@@ -415,26 +408,6 @@
     "@peculiar/asn1-schema" "^2.3.8"
     "@peculiar/asn1-x509" "^2.3.8"
     "@peculiar/x509" "^1.13.0"
-
-"@simplewebauthn/server@^9.0.2":
-  version "9.0.3"
-  resolved "https://registry.npmjs.org/@simplewebauthn/server/-/server-9.0.3.tgz"
-  integrity sha512-FMZieoBosrVLFxCnxPFD9Enhd1U7D8nidVDT4MsHc6l4fdVcjoeHjDueeXCloO1k5O/fZg1fsSXXPKbY2XTzDA==
-  dependencies:
-    "@hexagon/base64" "^1.1.27"
-    "@levischuck/tiny-cbor" "^0.2.2"
-    "@peculiar/asn1-android" "^2.3.10"
-    "@peculiar/asn1-ecc" "^2.3.8"
-    "@peculiar/asn1-rsa" "^2.3.8"
-    "@peculiar/asn1-schema" "^2.3.8"
-    "@peculiar/asn1-x509" "^2.3.8"
-    "@simplewebauthn/types" "^9.0.1"
-    cross-fetch "^4.0.0"
-
-"@simplewebauthn/types@^9.0.1":
-  version "9.0.1"
-  resolved "https://registry.npmjs.org/@simplewebauthn/types/-/types-9.0.1.tgz"
-  integrity sha512-tGSRP1QvsAvsJmnOlRQyw/mvK9gnPtjEc5fg2+m8n+QUa+D7rvrKkOYyfpy42GTs90X3RDOnqJgfHt+qO67/+w==
 
 "@standard-schema/utils@^0.3.0":
   version "0.3.0"
@@ -943,13 +916,6 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz"
   integrity sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==
-
-cross-fetch@^4.0.0:
-  version "4.1.0"
-  resolved "https://registry.npmjs.org/cross-fetch/-/cross-fetch-4.1.0.tgz"
-  integrity sha512-uKm5PU+MHTootlWEY+mZ4vvXoCn4fLQxT9dSc1sXVMSFkINTJVN8cAQROpwcKm8bJ/c7rgZVIBWzH5T78sNZZw==
-  dependencies:
-    node-fetch "^2.7.0"
 
 cross-spawn@^7.0.2:
   version "7.0.6"

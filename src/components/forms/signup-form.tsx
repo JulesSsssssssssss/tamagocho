@@ -71,7 +71,7 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
         console.log('✅ Inscription réussie:', ctx)
         setIsLoading(false)
         onError('') // Clear error on success
-        
+
         // Toast de succès avec style pixel art
         toast.success(
           <AuthSuccessToast
@@ -123,7 +123,7 @@ function SignUpForm ({ onError }: { onError: (error: string) => void }): React.R
 
         console.error('📝 Message d\'erreur affiché:', errorMessage)
         onError(errorMessage)
-        
+
         // Toast d'erreur avec style pixel art
         toast.error(
           <AuthErrorToast message={errorMessage} />,
